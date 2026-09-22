@@ -13,3 +13,9 @@ args=(-p meta/20130606_g1k_3202_samples_ped_population.txt --hall meta/hall2021_
 [ -s "$NGSDOSE/example/1000G/ngspca/svd.pcs.txt" ] && args+=(--pcs "$NGSDOSE/example/1000G/ngspca/svd.pcs.txt")
 [ -d hprc_censat ] && args+=(--censat hprc_censat)
 ngsdose report "${args[@]}"
+# the evidence figure: eight panels from report.json and the pilot tables (needs matplotlib and the checkout)
+if [ -s "$NGSDOSE/example/1000G/evidence_figure.py" ] && python3 -c 'import matplotlib' 2>/dev/null; then
+  python3 "$NGSDOSE/example/1000G/evidence_figure.py" --report docs/report.json --pilot "$NGSDOSE/example/1000G/pilot" -o docs/evidence.png
+else
+  echo "evidence figure skipped: needs $NGSDOSE and matplotlib" >&2
+fi

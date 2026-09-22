@@ -7,11 +7,18 @@ multi-copy sequence from short-read genomes — on the expanded 1000 Genomes coh
 **The page: [jlanej.github.io/NGS-DOSE-1000G](https://jlanej.github.io/NGS-DOSE-1000G/)** —
 what is measured and why, and the evidence that it works, recomputed from the files here.
 
+![the evidence](docs/evidence.png)
+
+The eight panels are the case that the method works, each drawn from `docs/report.json` and the
+pilot's tables by `regenerate.sh`; the write-up — the number, what it rules out, and what is not
+yet shown — is [docs/EVIDENCE.md in NGS-DOSE](https://github.com/jlanej/NGS-DOSE/blob/main/docs/EVIDENCE.md).
+
 | path | what |
 | --- | --- |
 | `counts_scan/<sample>.json.gz` | whole-file scan of one CRAM: fragment-end counts per class and unit position, control-region counts, GC tables, where class reads were aligned and what else sits in those bins (~240 kB) |
 | `counts_fetch/<sample>.json.gz` | the targeted fetch of the same CRAM: what a biobank-scale run would return (~70 kB) |
 | `docs/` | the page (`index.html`), every number behind it (`report.json`) and every table (`data/*.tsv`); served by GitHub Pages |
+| `docs/evidence.png` | the evidence figure, rendered from `report.json` |
 | `meta/` | the pedigree and the published table the page compares against |
 | `regenerate.sh` | rebuilds `docs/` from the counts |
 
