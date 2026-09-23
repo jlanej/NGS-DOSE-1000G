@@ -7,6 +7,19 @@ NGSDOSE="${NGSDOSE:-../NGS-DOSE}"
 [ -s meta/20130606_g1k_3202_samples_ped_population.txt ] || curl -sSL -o meta/20130606_g1k_3202_samples_ped_population.txt \
   https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/20130606_g1k_3202_samples_ped_population.txt
 [ -s meta/hall2021_MOESM1.txt ] || cp "$NGSDOSE/example/1000G/pilot/hall2021_MOESM1.txt" meta/
+# HPRC release-2 CenSat annotations of the cohort's members (open access, HPRC S3 bucket): each fetched once, kept
+# gzipped (-n: no name or time in the header, so the bytes are the same every time); a failed fetch warns and moves on
+KEYS="$NGSDOSE/example/1000G/hprc_r2_censat.keys.txt"
+if [ -s "$KEYS" ]; then
+  mkdir -p hprc_censat
+  awk 'NR == FNR { if (FNR > 1) m[$2] = 1; next } { split($0, p, "/"); if (p[3] in m) print }' meta/20130606_g1k_3202_samples_ped_population.txt "$KEYS" |
+  while read -r key; do
+    f="hprc_censat/$(basename "$key").gz"
+    [ -s "$f" ] && continue
+    if curl -sSfL --retry 5 -o "$f.tmp" "https://s3-us-west-2.amazonaws.com/human-pangenomics/$key"; then gzip -9n < "$f.tmp" > "$f"; else echo "HPRC annotation not fetched: $key" >&2; fi
+    rm -f "$f.tmp"
+  done
+fi
 args=(-p meta/20130606_g1k_3202_samples_ped_population.txt --hall meta/hall2021_MOESM1.txt -o docs --cache cache -j "${JOBS:-4}")
 [ -n "$(ls counts_scan/*.json.gz 2>/dev/null)" ] && args+=(--scan counts_scan)
 [ -n "$(ls counts_fetch/*.json.gz 2>/dev/null)" ] && args+=(--fetch counts_fetch)
