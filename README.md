@@ -19,7 +19,7 @@ yet shown — is [docs/EVIDENCE.md in NGS-DOSE](https://github.com/jlanej/NGS-DO
 | `counts_fetch/<sample>.json.gz` | the targeted fetch of the same CRAM: what a biobank-scale run would return (~70 kB) |
 | `docs/` | the page (`index.html`), every number behind it (`report.json`) and every table (`data/*.tsv`); served by GitHub Pages |
 | `docs/evidence.png` | the evidence figure, rendered from `report.json` |
-| `meta/` | the pedigree and the published table the page compares against |
+| `meta/` | the pedigree, the published table and the NGS-PCA QC table the page compares against |
 | `regenerate.sh` | rebuilds `docs/` from the counts |
 
 The counts files are the primary data: no reads, no genotypes, nothing a 1000 Genomes
@@ -39,3 +39,6 @@ bash regenerate.sh                                     # -> docs/
 1000 Genomes data are open access (https://www.internationalgenome.org/IGSR_disclaimer).
 `meta/hall2021_MOESM1.txt`: Supplementary Data 1 of Hall, Turner & Queitsch, *Sci Rep* 11:449
 (2021), doi:10.1038/s41598-020-80049-y, CC BY 4.0, unmodified.
+`meta/ngspca_sample_qc.tsv`: per-sample QC of the same cohort from
+[NGS-PCA-Manuscript](https://github.com/jlanej/NGS-PCA-Manuscript) (`1000G/qc_output/sample_qc.tsv`;
+mosdepth coverage, mitochondrial copy number, X/Y coverage ratios, inferred sex, release batch), MIT, unmodified.
