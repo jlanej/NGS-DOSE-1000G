@@ -10,7 +10,7 @@ HG00187	chrY 0.84 (mosaic Y loss?)
 HG00189	aneuploid: chr9
 HG00244	chrY 0.81 (mosaic Y loss?)
 HG00246	chrY 0.31 (mosaic Y loss?)
-HG00331	DJ +1.30 copies
+HG00331	DJ +1.29 copies
 HG00361	chrX 1.14 (mosaic X loss?)
 HG00376	chrX 1.84 (mosaic X loss?)
 HG00383	DJ +0.96 copies
@@ -26,3 +26,6 @@ HG00651	DJ -1.88 copies
 HG00652	DJ -1.94 copies
 HG00656	DJ -0.99 copies
 HG00658	DJ -0.93 copies
+HG00732	chrX 1.61 (mosaic X loss?)
+HG00740	DJ -1.01 copies
+HG00864	chrX 1.74 (mosaic X loss?)

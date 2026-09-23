@@ -11,6 +11,7 @@ args=(-p meta/20130606_g1k_3202_samples_ped_population.txt --hall meta/hall2021_
 [ -n "$(ls counts_scan/*.json.gz 2>/dev/null)" ] && args+=(--scan counts_scan)
 [ -n "$(ls counts_fetch/*.json.gz 2>/dev/null)" ] && args+=(--fetch counts_fetch)
 [ -s "$NGSDOSE/example/1000G/ngspca/svd.pcs.txt" ] && args+=(--pcs "$NGSDOSE/example/1000G/ngspca/svd.pcs.txt")
+[ -s "$NGSDOSE/example/1000G/pilot/pilot_heldout.tsv" ] && args+=(--pilot "$NGSDOSE/example/1000G/pilot")
 [ -d hprc_censat ] && args+=(--censat hprc_censat)
 ngsdose report "${args[@]}"
 # the evidence figure: eight panels from report.json and the pilot tables (needs matplotlib and the checkout)
