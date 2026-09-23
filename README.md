@@ -9,6 +9,8 @@ what is measured and why, and the evidence that it works, recomputed from the fi
 
 ![the evidence](docs/evidence.png)
 
+**[docs/trio_report.pdf](docs/trio_report.pdf)** is the same case as a document, focused on the trios.
+
 The eight panels are the case that the method works, each drawn from `docs/report.json` and the
 pilot's tables by `regenerate.sh`; the write-up — the number, what it rules out, and what is not
 yet shown — is [docs/EVIDENCE.md in NGS-DOSE](https://github.com/jlanej/NGS-DOSE/blob/main/docs/EVIDENCE.md).
@@ -19,6 +21,7 @@ yet shown — is [docs/EVIDENCE.md in NGS-DOSE](https://github.com/jlanej/NGS-DO
 | `counts_fetch/<sample>.json.gz` | the targeted fetch of the same CRAM: what a biobank-scale run would return (~70 kB) |
 | `docs/` | the page (`index.html`), every number behind it (`report.json`) and every table (`data/*.tsv`); served by GitHub Pages |
 | `docs/evidence.png` | the evidence figure, rendered from `report.json` |
+| `docs/trio_report.pdf` | a printable, trio-focused assessment written for a sceptic: methods in brief, transmission of every metric as a heatmap and as scatters, the same test on the fetch counts alone, the satellite arrays against assemblies, the known copy numbers; rendered from `report.json` and `data/` |
 | `meta/` | the pedigree, the published table and the NGS-PCA QC table the page compares against |
 | `regenerate.sh` | rebuilds `docs/` from the counts |
 

@@ -18,6 +18,7 @@ ngsdose report "${args[@]}"
 # the evidence figure: eight panels from report.json and the pilot tables (needs matplotlib and the checkout)
 if [ -s "$NGSDOSE/example/1000G/evidence_figure.py" ] && python3 -c 'import matplotlib' 2>/dev/null; then
   python3 "$NGSDOSE/example/1000G/evidence_figure.py" --report docs/report.json --pilot "$NGSDOSE/example/1000G/pilot" -o docs/evidence.png
+  python3 "$NGSDOSE/example/1000G/trio_report.py" --report docs/report.json --data docs/data -o docs/trio_report.pdf
 else
   echo "evidence figure skipped: needs $NGSDOSE and matplotlib" >&2
 fi
