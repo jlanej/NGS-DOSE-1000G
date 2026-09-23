@@ -1,0 +1,11 @@
+quantity	n	batch_effect_pct	batch_se_pct	batch_p	generation_effect_pct	generation_se_pct	generation_p
+28S / 18S (GC model)	735	2.03	0.9044	0.02662	-0.7326	0.9158	0.4223
+28S / 18S (no GC model)	735	5.395	1.456	0.0003304	-1.594	1.475	0.2763
+5'ETS / IGS (GC model)	735	3.307	0.994	0.001113	-0.02156	1.007	0.9829
+18S depth ratio / calibrated 45S	735	2.454	1.01	0.01659	-1.38	1.022	0.1745
+calibrated 45S copy number	735	2.992	6.728	0.6614	1.654	6.813	0.8098
+18S depth ratio (published)	735	5.52	6.835	0.4321	0.2508	6.921	0.9711
+insert-size median	735	2.524	0.6262	7.565e-05	0.1082	0.6341	0.8646
+library rate at 65% GC	735	1.882	1.19	0.1176	-1.414	1.205	0.2377
+held-out autosomal (truth 2)	735	0.2455	0.1305	0.06061	-0.2803	0.1321	0.03394
+distal junction (truth 10)	735	0.4046	1.081	0.7087	-0.3629	1.094	0.7398

@@ -1,0 +1,14 @@
+metric	n_trios	R	R_lo	R_hi	R_rescaled	R_rescaled_lo	R_rescaled_hi	spousal_r	sd_child_over_parent	label
+rDNA45S.cn	149	1.057	0.9078	1.214	1.033	0.9334	1.126	0.1687	1.02	45S, calibrated
+rDNA45S.cn_single	149	1.037	0.8818	1.199	1.026	0.9286	1.122	0.1686	1.009	45S, single-sample anchor
+rDNA45S.18S.flat	149	1.028	0.8836	1.175	1.004	0.9	1.106	0.1859	1.02	45S, 18S depth ratio (published)
+rDNA5S.cn	149	0.7781	0.4297	1.097	0.7978	0.471	1.039	0.03222	0.9763	5S, calibrated
+DJ.cn	149	0.6911	0.2973	1.032	0.7497	0.4288	0.9736	-0.05935	0.9151	distal junction
+HSat2.mass_Mb	149	1.229	1.058	1.399	1.067	0.9584	1.163	-0.02034	1.154	HSat2 mass
+ACRO.mass_Mb	149	0.8556	0.7233	0.9867	0.9852	0.8655	1.095	-0.05094	0.8614	ACRO mass
+HSat3.mass_Mb	149	0.9527	0.6705	1.233	0.9752	0.7212	1.213	-0.1122	0.9738	HSat3 mass
+aSatHOR.mass_Mb	149	0.4281	0.2116	0.6367	0.4726	0.2534	0.6808	0.01222	0.9082	alpha-satellite HOR mass
+TEL.mass_Mb	149	0.3329	0.1139	0.5868	0.3475	0.1327	0.5713	0.07749	0.9656	telomeric repeat
+truth.auto	149	-0.07026	-0.319	0.1919	-0.07223	-0.3284	0.1947	-0.01242	0.9768	held-out autosomal (no true variance)
+chrM.copies	149	0.05568	-0.1939	0.2897	0.06588	-0.2098	0.3355	-0.002592	0.8389	mtDNA per cell (culture)
+chrEBV.copies	149	0.006185	-0.3708	0.3522	0.005769	-0.3506	0.3758	0.1347	1.003	EBV per cell (culture)
