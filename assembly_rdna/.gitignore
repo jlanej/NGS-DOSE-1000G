@@ -22,3 +22,11 @@ potapova/counts/*.log
 potapova/fetch.log
 potapova/manifest_all.tsv
 potapova/*.crai
+
+# second pipeline: htslib index downloads, in-progress scans, run logs
+novaseq/*.bai
+novaseq/*.crai
+novaseq/scan/*.tmp.json.gz
+novaseq/fetch.log
+novaseq/scan.log
+novaseq/est/estimate.err

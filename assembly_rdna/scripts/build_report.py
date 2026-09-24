@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """Builds assembly_rdna/HPRC_r2_rDNA_report.pdf from tables/tests.json, the tables and figures/."""
 import json, os
+import numpy as np
 import pandas as pd
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import inch
@@ -58,11 +59,17 @@ inh = {(r["cls"], r["parents"]): r for r in M["inheritance"]}
 i45, i45h, i5 = inh[("45S", "NGS-DOSE")], inh[("45S", "Hall 2021")], inh[("5S", "NGS-DOSE")]
 DJ, DD, AR = M["distal_junction"], M["ddpcr"], M["arrays"]
 dn, dc, dfl = DD["ngsdose"], DD["conkord_same9"], DD["ratio18S_flat"]
+dg, da, dc12 = DD["ngsdose_google"], DD["ngsdose_any"], DD["conkord_same12"]
+RC = DD["r_ci"]
+PCMP = pd.read_csv(f"{TAB}/potapova_comparison.tsv", sep="\t").set_index("sample")
+NV = M["novaseq"]
+SC = json.load(open(f"{BASE}/novaseq/scan_check.json")) if os.path.exists(f"{BASE}/novaseq/scan_check.json") else None
 S += [P("HPRC release-2 assemblies, the rDNA, and how NGS-DOSE compares", title),
       P(f"Direct sequence tests on all {T['n_haplotypes']} HPRC/HPP release-2 haplotype assemblies (CHM13, T2T-HG002 v1.1, HG06807 and "
         f"GRCh38 as references), set against NGS-DOSE short-read copy numbers of the same people and their parents, the independent "
         f"Hall et al. 2021 pipeline, and the ddPCR and FISH measurements of Potapova et al. 2025. NGS-DOSE counts as of {asof} "
-        f"({n_cohort:,} genomes; {T['n_people_counted']} assembled people and {T['n_trios']} trios), plus 7 genomes counted for this report.", small),
+        f"({n_cohort:,} genomes; {T['n_people_counted']} assembled people and {T['n_trios']} trios), plus 16 genomes counted for this report: 7 NYGC 1000 Genomes CRAMs of ddPCR-measured people, and 6 genomes from a second NovaSeq "
+        f"pipeline (Google Health's GIAB set) with the NYGC CRAMs of the 3 people sequenced by both.", small),
       Spacer(1, 6)]
 S += [P("Summary", h1)]
 S += [bullets([
@@ -76,7 +83,12 @@ S += [bullets([
     f"imitate, the child's NGS-DOSE value tracks inheritance at r = {i45['r_ngsdose']:.2f} and the assembly's at {i45['r_assembly']:.2f} "
     f"(paired difference +{i45['diff']:.2f}, 95% CI {i45['diff_lo']:.2f} to {i45['diff_hi']:.2f}; {i45['n']} trios). The result is the same "
     f"with the parents measured by Hall et al. (+{i45h['diff']:.2f}). Against ddPCR, an orthogonal assay, NGS-DOSE correlates at "
-    f"r = {dn['r']:.2f} (n = {dn['n']}), ahead of the published 18S depth ratio ({dfl['r']:.2f}) and the CONKORD k-mer pipeline ({dc['r']:.2f}).",
+    f"r = {dn['r']:.2f} (n = {dn['n']}), ahead of the published 18S depth ratio ({dfl['r']:.2f}) and the CONKORD k-mer pipeline ({dc['r']:.2f}). "
+    f"Adding HG002, HG003 and HG004 from a second NovaSeq pipeline gives r = {da['r']:.2f} over all {da['n']} ddPCR-measured people "
+    f"(CONKORD {dc12['r']:.2f}).",
+    f"<b>The estimate transfers between sequencing pipelines; the 18S depth ratio does not.</b> Three people sequenced by both NYGC and "
+    f"Google Health on NovaSeq 6000, with different inserts and GC bias, get 45S values that differ by {NV['rDNA45S.cn']['mean_abs_pct']:.1f}% "
+    f"on average with NGS-DOSE and by {NV['rDNA45S.18S.flat']['mean_abs_pct']:.0f}% with the 18S depth ratio computed from the same reads.",
     f"<b>For 5S the two methods agree, so both are validated.</b> The assembled 5S unit count equals NGS-DOSE's estimate (ratio "
     f"{q5['50%']:.2f} ± {q5['std']:.3f}, r = {r5['r']:.3f}), and the inheritance test finds no difference between them "
     f"({i5['diff']:+.2f}, {i5['diff_lo']:.2f} to {i5['diff_hi']:.2f}). This also shows the inheritance test does not favour short reads "
@@ -86,18 +98,25 @@ S += [bullets([
     f"({DJ['ngsdose_mean']:.2f}). Both shortfalls point the same way, which suggests one shared cause. For the distal junction the "
     "assemblies count whole copies exactly where their short arms are complete; NGS-DOSE detects single-copy steps, and all "
     f"{DJ['ngs_steps']} of its steps recur in the assemblies in the same direction ({DJ['ngs_steps_confirmed']} of the same size)."])]
-S += [P("NGS-DOSE against the alternatives", h2)]
-S += [table([["Test", "NGS-DOSE", "Alternative", "Verdict"],
-             ["Inheritance, 45S (child vs parents' mean, r)", f"{i45['r_ngsdose']:.2f}", f"assembly {i45['r_assembly']:.2f}", f"NGS-DOSE (+{i45['diff']:.2f}, CI excludes 0)"],
-             ["Inheritance, 5S", f"{i5['r_ngsdose']:.2f}", f"assembly {i5['r_assembly']:.2f}", "tie; both measure 5S"],
-             ["ddPCR, 45S: correlation (n = 9)", f"{dn['r']:.2f}", f"CONKORD {dc['r']:.2f}; 18S ratio {dfl['r']:.2f}", "NGS-DOSE ranks people best"],
-             ["ddPCR, 45S: level", f"{dn['median_ratio']:.2f}×", f"CONKORD {dc['median_ratio']:.2f}×; 18S ratio {dfl['median_ratio']:.2f}×; assembly {DD['assembly_18S']['median_ratio']:.2f}×",
-              "CONKORD closest in level"],
-             ["Distal junction, truth 10", f"{DJ['ngsdose_mean']:.2f} ± {DJ['ngsdose_sd']:.2f}", f"assembly {DJ['assembly_mean']:.2f}; exactly 10 in {100*DJ['assembly_exact10']:.0f}%",
-              "assembly for level; NGS-DOSE for steps"],
-             ["5S against assembled 5S arrays", f"ratio {q5['50%']:.2f}, r {r5['r']:.3f}", "—", "NGS-DOSE 5S validated"],
-             ["Cross-technology replicate (pilot, n = 12)", "ICC 0.98", "18S ratio 0.19 (0.87 offset-removed)", "NGS-DOSE"]],
-            [2.05, 1.05, 2.25, 1.65])]
+S += [PageBreak(), P("The comparison at a glance", h2)]
+S += [fig("fig7_at_a_glance.png", 6.1, 6.1 * 10.6 / 7.4),
+      P("<b>Overview figure.</b> Every comparison in this report on one page, with the measures defined underneath. (a) Each method's "
+        "45S estimate against ddPCR for the 12 ddPCR-measured lines: NGS-DOSE on the NYGC 1000 Genomes reads (filled squares) and on Google's "
+        "GIAB NovaSeq reads (open), CONKORD, the 18S depth ratio, and the HPRC assembly (5 people). (b) The same as estimate ÷ ddPCR, one point "
+        "per person. (c) Child's 45S against its parents' mean in 36 trios, the child measured by NGS-DOSE (squares) and by its assembly "
+        "(circles), both as deviations from the superpopulation mean; lines are least-squares fits. (d) The inheritance correlations with "
+        "bootstrap 95% CIs, for 45S and 5S. (e) Pearson r with ddPCR and 95% CI (Fisher z), over all 12 lines and over the 5 with an "
+        "assembly. (f) Assembled copies against NGS-DOSE in the same 57 people, for 45S (filled) and 5S (open). (g) Distal-junction copies, "
+        "known to be 10 per diploid genome. (h) The same three people counted from two sequencing pipelines. Figures 2 and 4–6 show each "
+        "test in full.", cap)]
+SCT = M["scorecard"]
+S += [table([["Test", "n", "NGS-DOSE", "CONKORD", "18S ratio", "Assembly", "Best"]] +
+            [[r['test'], r["n"], r["ngsdose"], r["conkord"], r["ratio18S"], r["assembly"], r["best"]] for r in SCT],
+            [2.05, 0.7, 0.82, 0.82, 0.7, 0.75, 1.2]),
+      P("<b>Overview table.</b> The numbers behind the overview figure (tables/scorecard.tsv). Level is the median of estimate ÷ ddPCR; "
+        "1 is agreement. CONKORD exists only for Potapova et al.'s 12 lines. The 18S depth ratio ranks people as well as NGS-DOSE within one "
+        "pipeline (inheritance), but it reads 9% high and moves by 4–25% when the same person is sequenced again elsewhere. The assembly's "
+        "r with ddPCR rests on 5 people, one of them the curated T2T HG002, and its interval spans almost the whole range.", cap)]
 
 # ---------------- background ----------------
 S += [PageBreak(), P("1  Background: assembly methods and the rDNA", h1)]
@@ -291,10 +310,12 @@ S += [P("5.2  A known truth: the distal junction", h2)]
 S += [fig("fig5_truths_and_assays.png", 7.0, 7.0 * 5.4 / 7.4),
       P(f"<b>Figure 5.</b> (a) Distal-junction copies (truth 10 per diploid genome) by NGS-DOSE and by assembly in the same {DJ['n']} people; "
         "assembly values jittered vertically; purple marks people NGS-DOSE places a whole copy from the cohort level. (b) Short-read "
-        f"45S estimates against ddPCR (Potapova et al. 2025, Table S1; bars ±1 SD) for all {dn['n']} ddPCR-measured lines in the 1000 Genomes "
-        f"30× set. (c) Assembled 18S genes against ddPCR for all {DD['assembly_18S']['n']} people with both, with NGS-DOSE for the "
-        f"{DD['assembly_18S']['n']-1} of them in 1000 Genomes (HG002 has no 1000 Genomes short reads); grey lines join each person's two values. "
-        "(d) Totals summed over the ten FISH-measured arrays (Table S2) against NGS-DOSE and the assemblies; Potapova et al. scaled FISH "
+        f"45S estimates against ddPCR (Potapova et al. 2025, Table S1; bars ±1 SD) for all {da['n']} ddPCR-measured lines. Filled: the "
+        f"{dn['n']} in the NYGC 1000 Genomes 30× set; open: HG002, HG003 and HG004 on Google Health's GIAB NovaSeq pipeline (section 5.5). "
+        "CONKORD values are Potapova et al.'s, from their own reads. (c) Assembled 18S genes against ddPCR for all "
+        f"{DD['assembly_18S']['n']} people with both, with NGS-DOSE for each (HG002 from the Google pipeline, open); grey lines join each "
+        "person's two values. (d) Totals summed over the ten FISH-measured arrays (Table S2) against NGS-DOSE (filled NYGC, open Google) and "
+        "the assemblies; Potapova et al. scaled FISH "
         "to CONKORD totals, so these totals are CONKORD's. (e) FISH units per chromosome (both homologues) against assembled units placed "
         "on that chromosome. (f) The same as shares of each person's total.", cap)]
 S += [P(
@@ -313,24 +334,34 @@ S += [P(
     "short-read k-mer estimate (CONKORD), which they used to scale their FISH measurements. Nine of the lines are in the 1000 Genomes 30× "
     "set. Two were already in the cohort run, and the other seven were counted here in fetch mode with the same engine and bundle, "
     "then calibrated with the cohort's saved window efficiencies. This procedure reproduces the cohort's values for the two already "
-    "counted to within 0.3%.")]
+    "counted to within 0.3%. HG002, HG003 and HG004 are not in 1000 Genomes; their values here come from a second NovaSeq pipeline and "
+    "are reported separately in Table 3 and section 5.5.")]
 S += [table([["Method (n = 9 unless noted)", "r with ddPCR", "Level (median ratio)", "Mean |error|", "SD of log ratio"],
              ["NGS-DOSE, calibrated", f"{dn['r']:.2f}", f"{dn['median_ratio']:.2f}", f"{dn['mean_abs_pct']:.1f}%", f"{DD['residual_sd_log']['ngsdose']:.3f}"],
              ["CONKORD (Potapova et al.)", f"{dc['r']:.2f}", f"{dc['median_ratio']:.2f}", f"{dc['mean_abs_pct']:.1f}%", f"{DD['residual_sd_log']['conkord']:.3f}"],
              ["18S depth ratio (published estimator, from NGS-DOSE counts)", f"{dfl['r']:.2f}", f"{dfl['median_ratio']:.2f}", f"{dfl['mean_abs_pct']:.1f}%", f"{DD['residual_sd_log']['ratio18S_flat']:.3f}"],
-             [f"HPRC assembly, 18S genes (n = {DD['assembly_18S']['n']}, incl. HG002 v1.1)", "—", f"{DD['assembly_18S']['median_ratio']:.2f}",
+             [f"NGS-DOSE, Google GIAB NovaSeq (n = {dg['n']}: HG002–HG004)", f"{dg['r']:.2f}", f"{dg['median_ratio']:.2f}", f"{dg['mean_abs_pct']:.1f}%", f"{dg['sd_log']:.3f}"],
+             [f"NGS-DOSE, both pipelines (n = {da['n']})", f"{da['r']:.2f}", f"{da['median_ratio']:.2f}", f"{da['mean_abs_pct']:.1f}%", f"{da['sd_log']:.3f}"],
+             [f"CONKORD, all {dc12['n']}", f"{dc12['r']:.2f}", f"{DD['conkord']['median_ratio']:.2f}", f"{DD['conkord']['mean_abs_pct']:.1f}%", f"{DD['conkord']['sd_log']:.3f}"],
+             [f"HPRC assembly, 18S genes (n = {DD['assembly_18S']['n']}, incl. HG002 v1.1)", f"{RC['assembly_5']['r']:.2f} ({RC['assembly_5']['lo']:.2f} to {RC['assembly_5']['hi']:.2f})", f"{DD['assembly_18S']['median_ratio']:.2f}",
               f"{DD['assembly_18S']['mean_abs_pct']:.0f}%", "—"],
              [f"ddPCR replicate CV (Potapova et al.)", "", "", f"median {100*DD['ddpcr_cv_median']:.0f}%", ""]],
             [2.6, 0.95, 1.25, 1.05, 1.15]),
       P("<b>Table 3.</b> Short-read and assembly estimates against ddPCR. Without HG02053, where ddPCR (713) exceeds both k-mer "
         f"pipelines (about 615), r is {DD['without_HG02053']['ngsdose']['r']:.2f} (NGS-DOSE), {DD['without_HG02053']['conkord']['r']:.2f} "
-        f"(CONKORD) and {DD['without_HG02053']['ratio18S_flat']['r']:.2f} (18S ratio).", cap)]
+        f"(CONKORD) and {DD['without_HG02053']['ratio18S_flat']['r']:.2f} (18S ratio). Assembly r with 95% CI (Fisher z).", cap)]
 S += [P(
     f"NGS-DOSE ranks these people most like ddPCR does (r = {dn['r']:.2f}), and its scatter around its own offset "
     f"({100*DD['residual_sd_log']['ngsdose']:.0f}%) is about the size of ddPCR's replicate variation. Its level is "
     f"{abs(100*(dn['median_ratio']-1)):.0f}% low (mean of log ratios {DD['bias_pct']['ngsdose']:+.1f}%), the same direction and size as its "
     f"distal-junction shortfall. CONKORD sits closest in level ({dc['median_ratio']:.2f}) but correlates less well, and the 18S depth ratio "
     f"is {100*(dfl['median_ratio']-1):.0f}% high. The assemblies hold about {100*DD['assembly_18S']['median_ratio']:.0f}% of the ddPCR copies. "
+    f"Only 5 people have both ddPCR and an assembly, so the assembly's correlation with ddPCR is weakly determined: r = "
+    f"{RC['assembly_5']['r']:.2f} (95% CI {RC['assembly_5']['lo']:.2f} to {RC['assembly_5']['hi']:.2f}). Most of the negative sign comes from HG002, "
+    f"whose curated T2T v1.1 assembly holds only {PCMP.loc['HG002','assembly_18S']:.0f} 18S genes while ddPCR gives it the highest total of the five ({PCMP.loc['HG002','ddpcr']:.0f}); "
+    f"without it r = {RC['assembly_4_noHG002']['r']:.2f} (n = 4, {RC['assembly_4_noHG002']['lo']:.2f} to {RC['assembly_4_noHG002']['hi']:.2f}). "
+    f"NGS-DOSE on the same 5 people gives r = {RC['ngsdose_same5']['r']:.2f} ({RC['ngsdose_same5']['lo']:.2f} to {RC['ngsdose_same5']['hi']:.2f}) "
+    f"and on the same 4, {RC['ngsdose_same4']['r']:.2f}. The inheritance test (section 5.1) is the better-powered comparison of the two. "
     "Nine samples over a narrow range (476–713 copies) give wide intervals on each r, and the DNA for ddPCR came from different cultures "
     "than the NYGC sequencing, which adds scatter that neither method can remove.")]
 S += [P("5.4  Per array: FISH", h2)]
@@ -351,19 +382,57 @@ S += [P(
     "assemblies do not say how an individual's rDNA is divided among the five chromosomes. NGS-DOSE cannot say either, because it "
     "measures the total only.")]
 
+S += [P("5.5  A second sequencing pipeline", h2)]
+_scan = ""
+if SC:
+    _scan = (f" A whole-file scan of the HG002 Google BAM checks the fetch: the NYGC-learned sinks capture "
+             f"{100*SC['frac_45S']:.2f}% of 45S, {100*SC['frac_5S']:.2f}% of 5S and {100*SC['frac_DJ']:.2f}% of distal-junction reads that the scan finds.")
+else:
+    _scan = " A whole-file scan to confirm that the NYGC-learned sinks capture this pipeline's reads was still running when this report was built."
+gi = NV["google_insert"]
+S += [P(
+    "The NYGC 1000 Genomes CRAMs are one pipeline: one sequencing centre, one library protocol, one aligner build. Google Health's "
+    "GIAB set (Baid et al. 2020) is a second: NovaSeq 6000 PCR-free 2×151 libraries made separately from the same cell lines, aligned "
+    "with bwa-mem 0.7.17 to the same hs38DH reference. It covers HG002, HG003 and HG004, which have ddPCR but no 1000 Genomes reads, and "
+    "the CEPH trio NA12878, NA12891 and NA12892, which NYGC also sequenced. All six were counted in fetch mode with the cohort engine, "
+    "bundle and sinks, and calibrated with the NYGC cohort's window efficiencies, unchanged." + _scan)]
+S += [fig("fig6_second_pipeline.png", 7.0, 7.0 * 2.9 / 7.4),
+      P("<b>Figure 6.</b> (a) The CEPH trio on the two pipelines: percentage change, Google minus NYGC, for each estimate and for two library "
+        "properties. Blue: NGS-DOSE classes; grey: the 18S depth ratio and the known-copy controls; orange: library properties. (b) NGS-DOSE "
+        f"against ddPCR by pipeline (filled: NYGC, {dn['n']}; open: Google, {dg['n']}). (c) Median insert size and relative coverage of 65%-GC "
+        f"sequence for the {len(json.load(open(f'{TAB}/method_accuracy.json'))['novaseq']['google_DJ'])} Google genomes against the NYGC cohort.", cap)]
+p45, p18, p5 = NV["rDNA45S.cn"]["pct"], NV["rDNA45S.18S.flat"]["pct"], NV["rDNA5S.cn"]["pct"]
+S += [P(
+    f"<b>Same person, two pipelines.</b> The Google libraries have shorter inserts ({min(gi.values()):.0f}–{max(gi.values()):.0f} bp against "
+    f"a cohort median of {NV['cohort_insert_median']:.0f}), and two of them, NA12891 and NA12892, have more GC bias than any NYGC genome "
+    f"(coverage at 65% GC {NV['google_gc65']['NA12891']:.2f} and {NV['google_gc65']['NA12892']:.2f}; cohort maximum {NV['cohort_gc65_max']:.2f}). "
+    f"NGS-DOSE's 45S values for the CEPH trio change by {p45[0]:+.1f}%, {p45[1]:+.1f}% and {p45[2]:+.1f}%. The 18S depth ratio from the same "
+    f"reads changes by {p18[0]:+.0f}%, {p18[1]:+.0f}% and {p18[2]:+.0f}%, most in the two GC-biased libraries. The autosomal control and the "
+    f"distal junction change by 1.5% or less. 5S reads {abs(np.mean(p5)):.0f}% lower on the Google pipeline in all three "
+    f"({p5[0]:+.1f}%, {p5[1]:+.1f}%, {p5[2]:+.1f}%), so the 5S scale is not fully pipeline-independent.")]
+S += [P(
+    f"<b>Against ddPCR.</b> HG002, HG003 and HG004 read {dg['median_ratio']:.2f}× ddPCR (NYGC: {dn['median_ratio']:.2f}×), and the three "
+    f"fall on the same line as the nine NYGC genomes. Across all {da['n']}, r = {da['r']:.2f}, against {dc12['r']:.2f} for CONKORD. The "
+    "Google offset is within the spread of the NYGC one; three samples cannot show whether it is a real pipeline difference. "
+    f"The distal junction reads {min(NV['google_DJ']):.2f}–{max(NV['google_DJ']):.2f} on the Google pipeline, the same range as in the NYGC cohort.")]
+
 S += [P("6  NGS-DOSE: advantages and disadvantages, on this evidence", h1)]
 S += [table([["", "Evidence"],
              ["<b>Advantages</b>", ""],
              ["Tracks true between-person variation in 45S better than any alternative tested",
               f"Inheritance r {i45['r_ngsdose']:.2f} vs assembly {i45['r_assembly']:.2f}; ddPCR r {dn['r']:.2f} vs CONKORD {dc['r']:.2f} and 18S ratio "
               f"{dfl['r']:.2f}; cross-technology ICC 0.98 vs 0.19 (pilot)"],
+             ["Transfers to a second sequencing pipeline without re-learning",
+              f"CEPH trio, NYGC vs Google NovaSeq: 45S changes {NV['rDNA45S.cn']['mean_abs_pct']:.1f}% on average (18S ratio {NV['rDNA45S.18S.flat']['mean_abs_pct']:.0f}%); "
+              f"ddPCR r {da['r']:.2f} over both pipelines (n = {da['n']})"],
              ["Correct 5S copy number", f"Equals whole assembled 5S arrays: ratio {q5['50%']:.2f}, SD {100*q5['std']:.1f}%, r {r5['r']:.3f} (n = {r5['n']})"],
              ["Single-copy resolution in a paralogous sequence", f"All {DJ['ngs_steps']} distal-junction steps recur in the assemblies ({DJ['ngs_steps_confirmed']} with the same size)"],
              ["Whole-genome coverage of a cohort at low cost", "Every short-read genome; about 1 minute and 0.5 GB per genome in fetch mode. The assemblies cover 232 people and hold about half the 45S"],
              ["<b>Disadvantages</b>", ""],
              ["Absolute level a few percent low", f"{100*(dn['median_ratio']-1):+.0f}% vs ddPCR; distal junction {DJ['ngsdose_mean']:.2f} for 10; if the offset is constant, a ddPCR calibration would correct both"],
              ["Totals only", "No per-chromosome or per-haplotype array sizes; FISH provides these (and assemblies, as shown here, do not reliably)"],
-             ["Scale depends on chemistry and batch", "Window efficiencies differ between the two 1000 Genomes release batches (review of 2026-09-23); new chemistries need re-learning"],
+             ["Scale depends on chemistry and batch", f"Window efficiencies differ between the two 1000 Genomes release batches (review of 2026-09-23); on the Google pipeline 5S reads "
+              f"{abs(np.mean(NV['rDNA5S.cn']['pct'])):.0f}% lower and 45S {dg['median_ratio']:.2f}× ddPCR (NYGC {dn['median_ratio']:.2f}×); non-NovaSeq chemistries untested here"],
              ["Fetch mode depends on the aligner", "Sinks are learned from NYGC bwa-mem CRAMs; DRAGEN alignments untested"],
              ["Shares the cell-line limitation", "Culture changes to arrays (and S-phase effects) are measured as if they were genotype"]],
             [2.5, 4.5])]
@@ -382,7 +451,10 @@ S += [P("8  Limits", h1)]
 S += [bullets([
     f"The short-read comparisons rest on {T['n_people_counted']} people and {T['n_trios']} trios, none of African ancestry, because only "
     f"{n_cohort:,} of 3,202 genomes have been counted so far. The scripts recompute every test from docs/data/cohort.tsv.",
-    "The ddPCR comparison has 9 samples, and 5 people with both ddPCR and an assembly. ddPCR and sequencing used DNA from different cultures.",
+    f"The ddPCR comparison has {da['n']} samples ({dn['n']} NYGC, {dg['n']} Google), and 5 people with both ddPCR and an assembly. ddPCR and "
+    "sequencing used DNA from different cultures.",
+    "The second-pipeline comparison rests on three people sequenced by both pipelines; both are NovaSeq 6000 PCR-free with bwa-mem on "
+    "hs38DH, so it does not test other instruments, PCR-amplified libraries or other aligners.",
     "No read depth or read tiling was examined, so closed arrays and extra or missing DJ copies cannot be distinguished from collapses, "
     "false duplications or failed short arms.",
     "Standalone 18S copies (5% of hifiasm units) may include dispersed 18S-bearing fragments rather than array units.",
@@ -391,13 +463,16 @@ S += [bullets([
     "within 2 copies); the seven additional NGS-DOSE counts used a sinks file that differs from the cohort's only by added telomere intervals."])]
 S += [P("9  Files and regeneration", h1)]
 S += [P("Everything lives in <font face='Courier'>assembly_rdna/</font>: background.md (the full cited background); data/ (index, regions; "
-        "see data/README.md); potapova/ (Tables S1–S2 as TSV, the fetch script, counts files and estimates for the seven added genomes); "
+        "see data/README.md); potapova/ (Tables S1–S2 as TSV, the fetch script, counts files and estimates for the seven added genomes); novaseq/ (manifest, fetch and "
+        "scan scripts, counts and estimates for the Google GIAB genomes and the NYGC CEPH trio); "
         "scripts/ (fetch_metadata.py, extract_regions.py, tile_map.py, validate_full.py, annotate_units.py, analyze.py, method_accuracy.py, "
         "build_report.py); tables/ (haplotype_rdna.tsv, arrays_all.tsv.gz, person_vs_ngsdose.tsv, trio_haplotypes.tsv, tests.json, "
-        "method_accuracy.json, potapova_comparison.tsv, potapova_arrays.tsv, validation.tsv); figures/. "
+        "method_accuracy.json, potapova_comparison.tsv, potapova_arrays.tsv, potapova_fish_totals.tsv, novaseq_bridge.tsv, novaseq_estimates.tsv, "
+        "validation.tsv); figures/. "
         "<font face='Courier'>bash assembly_rdna/regenerate.sh</font> reruns the analysis and this PDF from new counts.", body)]
 S += [P("References", h2)]
 refs = ["Antipov D et al. (2025) Verkko2. Genome Res 35:1583. doi:10.1101/gr.280383.124",
+        "Baid G et al. (2020) An extensive sequence dataset of gold-standard samples for benchmarking and development. bioRxiv. doi:10.1101/2020.12.11.422022",
         "Cechova M et al. (2025) Complete genomes of a multi-generational pedigree. bioRxiv. doi:10.64898/2025.12.14.693655",
         "Cheng H et al. (2021) hifiasm. Nat Methods 18:170; (2022) Nat Biotechnol 40:1332; (2024) Nat Methods 21:967. doi:10.1038/s41592-024-02269-8",
         "Guarracino A et al. (2023) Recombination between heterologous human acrocentric chromosomes. Nature 617:335. doi:10.1038/s41586-023-05976-y",

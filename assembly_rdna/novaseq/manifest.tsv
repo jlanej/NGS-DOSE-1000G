@@ -1,0 +1,10 @@
+run	sample	platform	url
+HG002.google	HG002	Google NovaSeq 6000 PCR-free 2x151 (bwa 0.7.17, hs38DH)	https://brain-genomics-public.storage.googleapis.com/research/sequencing/grch38/bam/novaseq/wgs_pcr_free/30x/HG002.novaseq.pcr-free.30x.dedup.grch38.bam
+HG003.google	HG003	Google NovaSeq 6000 PCR-free 2x151 (bwa 0.7.17, hs38DH)	https://brain-genomics-public.storage.googleapis.com/research/sequencing/grch38/bam/novaseq/wgs_pcr_free/30x/HG003.novaseq.pcr-free.30x.dedup.grch38.bam
+HG004.google	HG004	Google NovaSeq 6000 PCR-free 2x151 (bwa 0.7.17, hs38DH)	https://brain-genomics-public.storage.googleapis.com/research/sequencing/grch38/bam/novaseq/wgs_pcr_free/30x/HG004.novaseq.pcr-free.30x.dedup.grch38.bam
+NA12878.google	NA12878	Google NovaSeq 6000 PCR-free 2x151 (bwa 0.7.17, hs38DH)	https://brain-genomics-public.storage.googleapis.com/research/sequencing/grch38/bam/novaseq/wgs_pcr_free/30x/HG001.novaseq.pcr-free.30x.dedup.grch38.bam
+NA12891.google	NA12891	Google NovaSeq 6000 PCR-free 2x151 (bwa 0.7.17, hs38DH)	https://brain-genomics-public.storage.googleapis.com/research/sequencing/grch38/bam/novaseq/wgs_pcr_free/30x/NA12891.novaseq.pcr-free.30x.dedup.grch38.bam
+NA12892.google	NA12892	Google NovaSeq 6000 PCR-free 2x151 (bwa 0.7.17, hs38DH)	https://brain-genomics-public.storage.googleapis.com/research/sequencing/grch38/bam/novaseq/wgs_pcr_free/30x/NA12892.novaseq.pcr-free.30x.dedup.grch38.bam
+NA12878.nygc	NA12878	NYGC NovaSeq 6000 PCR-free 2x150 (1000 Genomes 30x)	https://1000genomes.s3.amazonaws.com/1000G_2504_high_coverage/data/ERR3239334/NA12878.final.cram
+NA12891.nygc	NA12891	NYGC NovaSeq 6000 PCR-free 2x150 (1000 Genomes 30x)	https://1000genomes.s3.amazonaws.com/1000G_2504_high_coverage/additional_698_related/data/ERR3989341/NA12891.final.cram
+NA12892.nygc	NA12892	NYGC NovaSeq 6000 PCR-free 2x150 (1000 Genomes 30x)	https://1000genomes.s3.amazonaws.com/1000G_2504_high_coverage/additional_698_related/data/ERR3989342/NA12892.final.cram

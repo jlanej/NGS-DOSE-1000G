@@ -1,0 +1,4 @@
+[E::bgzf_read_block] Failed to read BGZF header at offset 32741092700
+[E::bgzf_read] Read block operation failed with error 2 after 0 of 4 bytes
+[count] retry 1/5 for interval Some((14, 97724478, 97743291)): read error: truncated record in SAM/BAM/CRAM file
+[count] NA12878: 8329269 primary reads, 2372401 control 5' ends, classes: rDNA45S=2581670 rDNA5S=62317 DJ=392530; 265.2s
