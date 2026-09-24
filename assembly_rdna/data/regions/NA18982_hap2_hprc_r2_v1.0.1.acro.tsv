@@ -1,0 +1,23 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#CM101459.1	chr15	chromosome	96087167	+	79170926	21242091.0	101981188.0	723430	start	start	chain	False	True	0.0	12000000.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#CM101464.1	chr22	chromosome	48821822	+	34741254	10510000.0	50808446.0	476466	start	start	chain	False	True	0.0	12000000.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000013.1	chr13	random	103659696	+	95488996	18408131.0	114354320.0	3078	start	start	chain	False	True	0.0	12000000.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000014.1	chr14	random	96553327	+	87591390	19170578.0	106883718.0	193466	start	start	chain	False	True	0.0	12000000.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000021.1	chr21	random	39549932	+	34226506	9527143.0	46699940.0	232788	start	start	chain	False	True	0.0	12000000.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000025.1	chr22	random	247227		0			191795	start	start	censat_rdna	False	True	0.0	247227.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000028.1	chr14	random	2983075		0			369270	end	end	censat_rdna	False	True	0.0	2983075.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000029.1	chr13	random	366651		0			328440	end	end	censat_rdna	False	True	0.0	366651.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000030.1	chr21	random	738457	+	50812	8203401.0	8471774.0	720657	start	start	chain	False	True	0.0	738457.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000036.1	chr21	random	223555		0			186969	start	start	censat_rdna	False	True	0.0	223555.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000037.1	chr22	random	223322		0			188449	start	start	censat_rdna	False	True	0.0	223322.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000040.1	chr14	random	257421		0			248952	start	start	censat_rdna	False	True	0.0	257421.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000041.1	chr22	random	64284	+	64222	17938595.0	18002859.0	0		start	chain	False	False		
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000044.1	chr22	random	86582		0			52263	end	end	censat_rdna	False	True	0.0	86582.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000045.1	chr13	random	109076		0			0		start	default	False	True	0.0	109076.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000048.1	chr14	random	113775		0			101705	start	start	censat_rdna	False	True	0.0	113775.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000049.1	chr21	random	83422		0			56801	end	end	censat_rdna	False	True	0.0	83422.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000050.1	chr14	random	126906	+	125737	105914278.0	106050584.0	0		start	chain	False	False		
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000052.1	chr13	random	67192		0			0		start	default	False	True	0.0	67192.0
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000058.1	chr13	random	70175	+	70097	31887788.0	31958038.0	0		start	chain	False	False		
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000065.1	chr15	random	57163	+	57130	89140619.0	89197767.0	0		start	chain	False	False		
+NA18982_hap2_hprc_r2_v1.0.1	NA18982#2#JBKABT010000066.1	chr14	random	131142		0			110275	start	start	censat_rdna	False	True	0.0	131142.0

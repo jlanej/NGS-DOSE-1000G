@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#CM091858.1	chr13	chromosome	106676831	+	95414630	18408131.0	114354320.0	143219	start	start	chain	False	True	0	12000000
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#CM091864.1	chr21	chromosome	45263984	+	34306121	8100181.0	46699974.0	511458	start	start	chain	False	True	0	12000000
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#CM091865.1	chr22	chromosome	49474093	+	34465077	10510000.0	50808468.0	143147	start	start	chain	False	True	0	12000000
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#JBIEBX010000005.1	chr14	random	97839755	+	87537751	18223523.0	106883718.0	59740	start	start	chain	False	True	0	12000000
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#JBIEBX010000012.1	chr15	random	90558869	+	79494457	19782761.0	101930299.0	309264	start	start	chain	False	True	0	12000000
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#JBIEBX010000023.1	chr21	random	360911		0			318002	start	start	censat_rdna	False	True	0	360911
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#JBIEBX010000026.1	chr22	random	162469		0			0		start	default	False	True	0	162469
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#JBIEBX010000040.1	chr14	random	4789919		0			49706	end	end	censat_rdna	False	True	0	4789919
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#JBIEBX010000052.1	chr14	random	3958187		0			96699	end	end	censat_rdna	False	True	0	3958187
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#JBIEBX010000053.1	chr22	random	674903		0			0		start	default	False	True	0	674903
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#JBIEBX010000055.1	chr22	random	273157		0			229022	start	start	censat_rdna	False	True	0	273157
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#JBIEBX010000058.1	chr14	random	348338		0			0		start	default	False	True	0	348338
+HG03139_hap1_hprc_r2_v1.0.1	HG03139#1#JBIEBX010000061.1	chr14	random	299162		0			272755	start	start	censat_rdna	False	True	0	299162

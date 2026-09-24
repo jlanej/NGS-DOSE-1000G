@@ -1,0 +1,23 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000011.1	chr14	random	97344534	+	86699938	19170578.0	106394753.0	998437	start	start	chain	False	True	0.0	12000000.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000012.1	chr22	random	44449347	+	34736414	10510000.0	50808467.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000015.1	chr21	random	40972940	+	34205236	9527143.0	46699974.0	61545	start	start	chain	False	True	0.0	12000000.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000017.1	chr13	random	99977507	+	95411779	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000021.1	chr13	random	3547511		0			35612	start	start	censat_rdna	False	True	0.0	3547511.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000026.1	chr21	random	82501		0			0		start	default	False	True	0.0	82501.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000027.1	chr14	random	498891	+	472595	106359793.0	106879756.0	0		start	chain	False	False		
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000029.1	chr14	random	369062		0			368000	end	end	censat_rdna	False	True	0.0	369062.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000032.1	chr21	random	69481		0			52452	start	start	censat_rdna	False	True	0.0	69481.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000034.1	chr14	random	54834	+	54788	71388437.0	71443229.0	0		start	chain	False	False		
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000039.1	chr21	random	97009		0			52452	end	end	censat_rdna	False	True	0.0	97009.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000047.1	chr14	random	3352823		0			97147	end	end	censat_rdna	False	True	0.0	3352823.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000050.1	chr15	random	91286015	+	79155376	22358244.0	101981183.0	11993	start	start	chain	False	True	0.0	17537251.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000053.1	chr14	random	2421143		0			97456	end	end	censat_rdna	False	True	0.0	2421143.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000054.1	chr14	random	5526167		0			7485	end	end	censat_rdna	False	True	0.0	5526167.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000057.1	chr14	random	3238510		0			173553	end	end	censat_rdna	False	True	0.0	3238510.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000058.1	chr14	random	452275		0			408225	start	start	censat_rdna	False	True	0.0	452275.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000060.1	chr15	random	106367		0			52526	end	end	censat_rdna	False	True	0.0	106367.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000064.1	chr21	random	66847		0			0		start	default	False	True	0.0	66847.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000065.1	chr21	random	51370	+	50764	41285473.0	41336255.0	0		start	chain	False	False		
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000074.1	chr22	random	183467		0			7072	start	start	censat_rdna	False	True	0.0	183467.0
+HG02080_pat_hprc_r2_v1.0.1	HG02080#1#JAHEOW020000082.1	chr14	random	85321	+	84613	105969450.0	106064640.0	0		start	chain	False	False		

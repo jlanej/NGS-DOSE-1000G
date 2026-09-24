@@ -1,0 +1,11 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19909_hap1_hprc_r2_v1.0.1	NA19909#1#JBIRDH010000002.1	chr13	random	105252825	+	95460211	18408131.0	114354320.0	419885	start	start	chain	False	True	0.0	12000000.0
+NA19909_hap1_hprc_r2_v1.0.1	NA19909#1#JBIRDH010000008.1	chr22	random	44936386	+	34759915	10510000.0	50807283.0	226356	start	start	chain	False	True	0.0	12000000.0
+NA19909_hap1_hprc_r2_v1.0.1	NA19909#1#JBIRDH010000011.1	chr14	random	101264286	+	87179088	19122915.0	105236229.0	461480	start	start	chain	False	True	0.0	12102991.0
+NA19909_hap1_hprc_r2_v1.0.1	NA19909#1#JBIRDH010000013.1	chr21	random	41494405	+	34118992	9527143.0	46699974.0	508955	start	start	chain	False	True	0.0	12000000.0
+NA19909_hap1_hprc_r2_v1.0.1	NA19909#1#JBIRDH010000018.1	chr22	random	71955		0			52501	start	start	censat_rdna	False	True	0.0	71955.0
+NA19909_hap1_hprc_r2_v1.0.1	NA19909#1#JBIRDH010000019.1	chr14	random	1077746	+	823340	105237559.0	106883718.0	0		start	chain	False	False		
+NA19909_hap1_hprc_r2_v1.0.1	NA19909#1#JBIRDH010000034.1	chr15	random	80351930	+	78614694	22358244.0	101981174.0	0		start	chain	False	False		
+NA19909_hap1_hprc_r2_v1.0.1	NA19909#1#JBIRDH010000037.1	chr15	random	14954408		0			153582	start	start	censat_rdna	False	True	0.0	12579168.0
+NA19909_hap1_hprc_r2_v1.0.1	NA19909#1#JBIRDH010000049.1	chr15	random	3811461		0			139907	end	end	censat_rdna	False	True	0.0	3811461.0
+NA19909_hap1_hprc_r2_v1.0.1	NA19909#1#JBIRDH010000066.1	chr14	random	72845	+	70657	105954063.0	106025136.0	0		start	chain	False	False		

@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#CM101639.1	chr21	chromosome	50100142	+	34334052	8100181.0	46699939.0	545129	start	start	chain	False	True	0.0	14019001.0
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000013.1	chr13	random	103609059	+	95514854	18408131.0	114354300.0	240682	start	start	chain	False	True	0.0	12000000.0
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000014.1	chr14	random	99532347	+	87060741	19170578.0	106883718.0	241095	start	start	chain	False	True	0.0	12000000.0
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000015.1	chr15	random	91174645	+	79871575	19782761.0	101981155.0	132466	start	start	chain	False	True	0.0	12000000.0
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000022.1	chr22	random	45887282	+	34762247	10510000.0	50808468.0	10028	start	start	chain	False	True	0.0	12000000.0
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000026.1	chr21	random	249100		0			0		start	default	False	True	0.0	249100.0
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000027.1	chr14	random	196657	+	136329	106027051.0	106200783.0	0		start	chain	False	False		
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000034.1	chr13	random	401763		0			0		start	default	False	True	0.0	401763.0
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000035.1	chr13	random	247898		0			0		start	default	False	True	0.0	247898.0
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000037.1	chr21	random	311071	+	34887	8203401.0	8471774.0	238557	start	start	chain	False	True	0.0	311071.0
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000038.1	chr21	random	275846	+	34862	8203401.0	8471774.0	228833	start	start	chain	False	True	0.0	275846.0
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000043.1	chr22	random	182368		0			148760	end	end	censat_rdna	False	True	0.0	182368.0
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000047.1	chr13	random	51484	+	51458	113510693.0	113562168.0	0		start	chain	False	False		
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000051.1	chr14	random	51626	+	51620	45093742.0	45145368.0	0		start	chain	False	False		
+NA18945_hap2_hprc_r2_v1.0.1	NA18945#2#JBKACF010000053.1	chr14	random	51691	+	51686	45085425.0	45137112.0	0		start	chain	False	False		

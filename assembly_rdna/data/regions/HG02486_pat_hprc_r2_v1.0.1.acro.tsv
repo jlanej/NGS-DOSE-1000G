@@ -1,0 +1,11 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02486_pat_hprc_r2_v1.0.1	HG02486#1#CM088205.1	chr21	chromosome	44388259	+	34295420	8100181.0	46699974.0	231164	start	start	chain	False	True	0	12000000
+HG02486_pat_hprc_r2_v1.0.1	HG02486#1#JAGYVM020000005.1	chr15	random	94319735	+	78785106	20113538.0	101930299.0	336103	start	start	chain	False	True	0	12000000
+HG02486_pat_hprc_r2_v1.0.1	HG02486#1#JAGYVM020000010.1	chr13	random	104742200	+	95364140	18408131.0	114354167.0	187077	start	start	chain	False	True	0	12000000
+HG02486_pat_hprc_r2_v1.0.1	HG02486#1#JAGYVM020000016.1	chr14	random	265360		0			232083	end	end	censat_rdna	False	True	0	265360
+HG02486_pat_hprc_r2_v1.0.1	HG02486#1#JAGYVM020000024.1	chr14	random	241239		0			227535	start	start	censat_rdna	False	True	0	241239
+HG02486_pat_hprc_r2_v1.0.1	HG02486#1#JAGYVM020000037.1	chr14	random	99332193	+	87428966	19170578.0	106883718.0	248156	start	start	chain	False	True	0	12000000
+HG02486_pat_hprc_r2_v1.0.1	HG02486#1#JAGYVM020000040.1	chr15	random	6003416		0			54539	end	end	censat_rdna	False	True	0	6003416
+HG02486_pat_hprc_r2_v1.0.1	HG02486#1#JAGYVM020000043.1	chr22	random	44406022	+	34769478	10510000.0	50808438.0	142831	start	start	chain	False	True	0	12000000
+HG02486_pat_hprc_r2_v1.0.1	HG02486#1#JAGYVM020000046.1	chr14	random	4726711		0			7474	end	end	censat_rdna	False	True	0	4726711
+HG02486_pat_hprc_r2_v1.0.1	HG02486#1#JAGYVM020000050.1	chr22	random	4199244		0			7481	end	end	censat_rdna	False	True	0	4199244

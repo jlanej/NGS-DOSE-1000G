@@ -1,0 +1,19 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000010.1	chr13	random	74501692	+	68166213	18408131.0	86779389.0	0		start	chain	False	True	0.0	12000000.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000013.1	chr13	random	14931277	+	14900373	86780101.0	101704158.0	0		start	chain	False	False		
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000015.1	chr14	random	98044206	+	87018355	19170578.0	106883718.0	329765	start	start	chain	False	True	0.0	12000000.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000017.1	chr15	random	95995490	+	79261973	22358244.0	101981188.0	109333	start	start	chain	False	True	0.0	12024694.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000018.1	chr21	random	4796034	+	655412	8203401.0	10814560.0	280166	start	start	chain	False	True	0.0	4796034.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000020.1	chr15	random	2614173		0			0		start	default	False	True	0.0	2614173.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000022.1	chr22	random	276743		0			227444	start	start	censat_rdna	False	True	0.0	276743.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000043.1	chr22	random	32244845	+	31778942	18873404.0	50808468.0	0		start	chain	False	False		
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000049.1	chr13	random	12443917	+	12167329	101918278.0	114354320.0	0		start	chain	False	False		
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000050.1	chr21	random	43487776	+	34313193	8100181.0	46699939.0	277015	start	start	chain	False	True	0.0	15271093.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000052.1	chr22	random	11357894		0			55490	start	start	censat_rdna	False	True	0.0	11357894.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000058.1	chr22	random	5747373	+	3028122	15154318.0	18873346.0	0		start	chain	False	True	0.0	5747373.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000059.1	chr14	random	4307161		0			7445	end	end	censat_rdna	False	True	0.0	4307161.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000065.1	chr14	random	2908381		0			7475	end	end	censat_rdna	False	True	0.0	2908381.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000066.1	chr15	random	359274		0			0		start	default	False	True	0.0	359274.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000067.1	chr22	random	290159		0			229103	end	end	censat_rdna	False	True	0.0	290159.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000081.1	chr22	random	107670		0			0		start	default	False	True	0.0	107670.0
+NA21309_pat_hprc_r2_v1.0.1	NA21309#1#JAHEPC020000084.1	chr22	random	192864		0			0		start	default	False	True	0.0	192864.0

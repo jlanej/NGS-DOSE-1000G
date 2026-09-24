@@ -1,0 +1,36 @@
+{
+ "records": 6,
+ "bp_input": 60830000,
+ "tiles_total": 12166,
+ "tiles_skipped_N": 457,
+ "tiles_skipped_short": 0,
+ "bp_tiled": 58545000,
+ "params": {
+  "tile": 5000,
+  "run_min": 50000,
+  "min_tile": 500,
+  "max_n_frac": 0.5,
+  "min_identity": 0.9,
+  "min_aln_frac": 0.5,
+  "minimap2": "-x asm20 -c --secondary=no",
+  "targets": {
+   "45S": "/Users/Kitty/git/NGS-DOSE-1000G/assembly_rdna/data/targets/target_45S_2x.fa",
+   "5S_DJ": "/Users/Kitty/git/NGS-DOSE-1000G/assembly_rdna/data/targets/target_5S2x_DJ.fa"
+  }
+ },
+ "inputs": [
+  "data/seq/HG06807_pat_v1.fa.gz"
+ ],
+ "45S_tiles": 255,
+ "45S_bp": 1275000,
+ "45S_n_runs_ge50kb": 5,
+ "45S_bp_runs_ge50kb": 1205000,
+ "5S_tiles": 46,
+ "5S_bp": 230000,
+ "5S_n_runs_ge50kb": 1,
+ "5S_bp_runs_ge50kb": 230000,
+ "DJ_tiles": 570,
+ "DJ_bp": 2850000,
+ "DJ_n_runs_ge50kb": 5,
+ "DJ_bp_runs_ge50kb": 1925000
+}

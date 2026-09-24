@@ -1,0 +1,12 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02615_pat_hprc_r2_v1.0.1	HG02615#1#JBHDSZ010000014.1	chr15	random	95575486	+	78981772	22358244.0	101981175.0	61693	start	start	chain	False	True	0.0	12000000.0
+HG02615_pat_hprc_r2_v1.0.1	HG02615#1#JBHDSZ010000015.1	chr14	random	97170359	+	86359005	19170578.0	105842340.0	253406	start	start	chain	False	True	0.0	12000000.0
+HG02615_pat_hprc_r2_v1.0.1	HG02615#1#JBHDSZ010000018.1	chr21	random	4583514		0			7476	end	end	censat_rdna	False	True	0.0	4583514.0
+HG02615_pat_hprc_r2_v1.0.1	HG02615#1#JBHDSZ010000020.1	chr22	random	46150937	+	35162141	10510000.0	50808468.0	8302	start	start	chain	False	True	0.0	12000000.0
+HG02615_pat_hprc_r2_v1.0.1	HG02615#1#JBHDSZ010000021.1	chr21	random	40284785	+	34227088	9527143.0	46699974.0	325155	start	start	chain	False	True	0.0	12000000.0
+HG02615_pat_hprc_r2_v1.0.1	HG02615#1#JBHDSZ010000022.1	chr14	random	1009305	+	899500	105694068.0	106883718.0	0		start	chain	False	False		
+HG02615_pat_hprc_r2_v1.0.1	HG02615#1#JBHDSZ010000024.1	chr15	random	82320		0			0		start	default	False	True	0.0	82320.0
+HG02615_pat_hprc_r2_v1.0.1	HG02615#1#JBHDSZ010000028.1	chr14	random	415718		0			365320	start	start	censat_rdna	False	True	0.0	415718.0
+HG02615_pat_hprc_r2_v1.0.1	HG02615#1#JBHDSZ010000038.1	chr13	random	154646		0			93088	start	start	censat_rdna	False	True	0.0	154646.0
+HG02615_pat_hprc_r2_v1.0.1	HG02615#1#JBHDSZ010000049.1	chr13	random	107199321	+	95471774	18408131.0	114354320.0	54291	start	start	chain	False	True	0.0	12000000.0
+HG02615_pat_hprc_r2_v1.0.1	HG02615#1#JBHDSZ010000052.1	chr14	random	4652485		0			52427	end	end	censat_rdna	False	True	0.0	4652485.0

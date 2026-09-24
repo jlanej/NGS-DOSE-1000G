@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000006.1	chr15	random	93159479	+	78920109	22358244.0	101981155.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000008.1	chr13	random	105215903	+	95417416	18408131.0	114354320.0	330506	start	start	chain	False	True	0.0	12000000.0
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000011.1	chr22	random	43669836	+	34650943	10510000.0	50808438.0	10027	start	start	chain	False	True	0.0	12000000.0
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000013.1	chr21	random	35137724	+	33579473	12965808.0	46699042.0	0		start	chain	False	True	0.0	12000000.0
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000016.1	chr21	random	309751		0			272976	start	start	censat_rdna	False	True	0.0	309751.0
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000019.1	chr13	random	346691		0			321016	start	start	censat_rdna	False	True	0.0	346691.0
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000025.1	chr14	random	379115		0			361418	start	start	censat_rdna	False	True	0.0	379115.0
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000042.1	chr21	random	88756		0			0		start	default	False	True	0.0	88756.0
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000047.1	chr14	random	67535	+	43824	105906905.0	105950838.0	0		start	chain	False	False		
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000049.1	chr22	random	143249		0			0		start	default	False	True	0.0	143249.0
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000052.1	chr14	random	97664410	+	87459026	18223523.0	106883718.0	148937	start	start	chain	False	True	0.0	12000000.0
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000066.1	chr13	random	5332392		0			408786	start	start	censat_rdna	False	True	0.0	5332392.0
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000068.1	chr14	random	2435333		0			52410	end	end	censat_rdna	False	True	0.0	2435333.0
+HG02976_hap2_hprc_r2_v1.0.1	HG02976#2#JBHDVX010000080.1	chr14	random	460158		0			410914	end	end	censat_rdna	False	True	0.0	460158.0

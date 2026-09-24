@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#CM089380.1	chr21	chromosome	42907728	+	34217657	9527143.0	46699940.0	53175	start	start	chain	False	True	0.0	12000000.0
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#CM089381.1	chr22	chromosome	48607338	+	34762098	10510000.0	50808426.0	100159	start	start	chain	False	True	0.0	12000000.0
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#JBHIIM010000006.1	chr13	random	104394352	+	95469619	18408131.0	114354320.0	236349	start	start	chain	False	True	0.0	12000000.0
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#JBHIIM010000008.1	chr15	random	93122144	+	78932169	22358244.0	101981183.0	64680	start	start	chain	False	True	0.0	12000000.0
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#JBHIIM010000015.1	chr14	random	2546634		0			142549	end	end	censat_rdna	False	True	0.0	2546634.0
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#JBHIIM010000017.1	chr22	random	901263		0			0		start	default	False	True	0.0	901263.0
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#JBHIIM010000018.1	chr13	random	119405		0			96489	end	end	censat_rdna	False	True	0.0	119405.0
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#JBHIIM010000037.1	chr14	random	95836982	+	86778817	19170578.0	105858329.0	13165	start	start	chain	False	True	0.0	12000000.0
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#JBHIIM010000042.1	chr14	random	3423194		0			143696	end	end	censat_rdna	False	True	0.0	3423194.0
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#JBHIIM010000045.1	chr22	random	274505		0			231964	start	start	censat_rdna	False	True	0.0	274505.0
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#JBHIIM010000049.1	chr14	random	101427	+	101265	105781743.0	105936626.0	0		start	chain	False	False		
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#JBHIIM010000054.1	chr22	random	69276		0			47934	start	start	censat_rdna	False	True	0.0	69276.0
+HG00544_pat_hprc_r2_v1.0.1	HG00544#1#JBHIIM010000059.1	chr22	random	164147		0			0		start	default	False	True	0.0	164147.0

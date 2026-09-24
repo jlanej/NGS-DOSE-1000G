@@ -1,0 +1,20 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000002.1	chr21	random	34287560	+	33417535	12965808.0	46699961.0	0		start	chain	False	True	0.0	12000000.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000005.1	chr13	random	104377822	+	95424529	18408131.0	114354320.0	145211	start	start	chain	False	True	0.0	12000000.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000010.1	chr14	random	98764773	+	87617522	19170578.0	106883718.0	724510	start	start	chain	False	True	0.0	12000000.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000012.1	chr15	random	97812514	+	78343380	22358244.0	101981188.0	392242	start	start	chain	False	True	0.0	12000000.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000016.1	chr22	random	45696017	+	34799075	10510000.0	50808426.0	419360	start	start	chain	False	True	0.0	12000000.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000018.1	chr14	random	522847		0			501853	start	start	censat_rdna	False	True	0.0	522847.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000025.1	chr14	random	121416		0			97015	start	start	censat_rdna	False	True	0.0	121416.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000026.1	chr14	random	385039		0			340003	end	end	censat_rdna	False	True	0.0	385039.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000029.1	chr14	random	433466		0			400962	end	end	censat_rdna	False	True	0.0	433466.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000049.1	chr13	random	4348407		0			54285	start	start	censat_rdna	False	True	0.0	4348407.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000052.1	chr14	random	3855894		0			52407	end	end	censat_rdna	False	True	0.0	3855894.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000053.1	chr14	random	2466258		0			52250	end	end	censat_rdna	False	True	0.0	2466258.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000057.1	chr14	random	359410		0			321877	start	start	censat_rdna	False	True	0.0	359410.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000060.1	chr22	random	191118		0			140241	start	start	censat_rdna	False	True	0.0	191118.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000064.1	chr22	random	53843		0			0		start	default	False	True	0.0	53843.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000066.1	chr14	random	413561		0			370475	start	start	censat_rdna	False	True	0.0	413561.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000068.1	chr22	random	132686		0			95942	end	end	censat_rdna	False	True	0.0	132686.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000070.1	chr21	random	147384		0			133541	start	start	censat_rdna	False	True	0.0	147384.0
+NA19835_hap1_hprc_r2_v1.0.1	NA19835#1#JBIRCZ010000081.1	chr13	random	65127	+	65118	107451848.0	107516976.0	0		start	chain	False	False		

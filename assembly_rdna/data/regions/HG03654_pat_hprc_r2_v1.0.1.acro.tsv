@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000004.1	chr13	random	104373791	+	95465286	18408131.0	114354320.0	381407	start	start	chain	False	True	0	12000000
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000007.1	chr15	random	87077096	+	79005052	22358244.0	101911314.0	11993	start	start	chain	False	True	0	12000000
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000014.1	chr21	random	34798610	+	33605326	12965808.0	46699974.0	0		start	chain	False	True	0	12000000
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000015.1	chr22	random	38225663	+	34922858	15154318.0	50808468.0	0		start	chain	False	True	0	12000000
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000019.1	chr22	random	6271498		0			95827	end	end	censat_rdna	False	True	0	6271498
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000022.1	chr15	random	3994176		0			0		start	default	False	True	0	3994176
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000023.1	chr21	random	1895172		0			137183	start	start	censat_rdna	False	True	0	1895172
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000025.1	chr22	random	1260484		0			140793	start	start	censat_rdna	False	True	0	1260484
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000030.1	chr13	random	50457		0			0		start	default	False	True	0	50457
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000038.1	chr21	random	57214	+	57027	13133817.0	13190845.0	0		start	chain	False	True	0	57214
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000051.1	chr15	random	3893471		0			142009	end	end	censat_rdna	False	True	0	3893471
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000052.1	chr14	random	98842666	+	87614016	19170578.0	106883718.0	284466	start	start	chain	False	True	0	18222405
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000053.1	chr22	random	4811820		0			3054	end	end	censat_rdna	False	True	0	4811820
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000057.1	chr21	random	4271345	+	912020	9527143.0	10814560.0	3078	start	start	chain	False	True	0	4271345
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000068.1	chr13	random	56536		0			0		start	default	False	True	0	56536
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000069.1	chr13	random	104334		0			0		start	default	False	True	0	104334
+HG03654_pat_hprc_r2_v1.0.1	HG03654#1#JBHDTN010000072.1	chr21	random	51518		0			0		start	default	False	True	0	51518

@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#CM088501.1	chr13	chromosome	107576128	+	95481706	18408131.0	114354320.0	189459	start	start	chain	False	True	0.0	12000000.0
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000002.1	chr14	random	98607507	+	87552675	18223523.0	106883718.0	98620	start	start	chain	False	True	0.0	12000000.0
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000013.1	chr15	random	95254849	+	79687966	21242091.0	101981175.0	61915	start	start	chain	False	True	0.0	12000000.0
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000014.1	chr22	random	50615493	+	34817022	10510000.0	50808438.0	926667	start	start	chain	False	True	0.0	12000000.0
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000025.1	chr15	random	624831		0			0		start	default	False	True	0.0	624831.0
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000028.1	chr15	random	417849		0			0		start	default	False	True	0.0	417849.0
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000032.1	chr13	random	1130948		0			0		start	default	False	True	0.0	1130948.0
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000033.1	chr13	random	81504	+	80558	89440763.0	89521356.0	0		start	chain	False	False		
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000059.1	chr21	random	38787302	+	34192323	9527143.0	46699939.0	3079	start	start	chain	False	True	0.0	12000000.0
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000063.1	chr14	random	3183924		0			7461	end	end	censat_rdna	False	True	0.0	3183924.0
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000066.1	chr14	random	3421037		0			409296	end	end	censat_rdna	False	True	0.0	3421037.0
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000073.1	chr21	random	220466		0			186159	start	start	censat_rdna	False	True	0.0	220466.0
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000076.1	chr14	random	700378	+	556541	105712006.0	106577137.0	0		start	chain	False	False		
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000085.1	chr22	random	68408		0			44963	start	start	censat_rdna	False	True	0.0	68408.0
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000100.1	chr13	random	53116	+	53040	105839402.0	105892448.0	0		start	chain	False	False		
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000103.1	chr22	random	53004	+	26395	22901912.0	22931365.0	0		start	chain	False	False		
+HG00558_pat_hprc_r2_v1.0.1	HG00558#1#JBHIHC010000104.1	chr21	random	100962		0			47950	start	start	censat_rdna	False	True	0.0	100962.0

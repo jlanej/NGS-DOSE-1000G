@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000007.1	chr15	random	96857442	+	79737454	19782761.0	101981156.0	63313	start	start	chain	False	True	0.0	12000000.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000010.1	chr14	random	97367191	+	87613269	19170578.0	106883718.0	297961	start	start	chain	False	True	0.0	12000000.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000013.1	chr21	random	38029174	+	32158352	9527143.0	44602853.0	53038	start	start	chain	False	True	0.0	12000000.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000015.1	chr22	random	38957081	+	34756286	15154318.0	50808465.0	3055	start	start	chain	False	True	0.0	12000000.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000018.1	chr13	random	6512942		0			101017	start	start	censat_rdna	False	True	0.0	6512942.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000025.1	chr22	random	242681		0			188805	end	end	censat_rdna	False	True	0.0	242681.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000026.1	chr21	random	575348		0			544483	start	start	censat_rdna	False	True	0.0	575348.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000032.1	chr21	random	309774		0			0		start	default	False	True	0.0	309774.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000036.1	chr13	random	96760207	+	95486047	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000053.1	chr15	random	3760582		0			95281	end	end	censat_rdna	False	True	0.0	3760582.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000055.1	chr22	random	4376086		0			7476	end	end	censat_rdna	False	True	0.0	4376086.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000058.1	chr14	random	3114816		0			7461	end	end	censat_rdna	False	True	0.0	3114816.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000062.1	chr21	random	2141998	+	2084007	44588263.0	46699940.0	0		start	chain	False	False		
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000063.1	chr21	random	89956		0			52474	start	start	censat_rdna	False	True	0.0	89956.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000065.1	chr22	random	71415		0			50080	end	end	censat_rdna	False	True	0.0	71415.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000070.1	chr21	random	68715		0			55867	start	start	censat_rdna	False	True	0.0	68715.0
+NA20870_hap2_hprc_r2_v1.0.1	NA20870#2#JBHIJL010000079.1	chr22	random	84486		0			51286	start	start	censat_rdna	False	True	0.0	84486.0

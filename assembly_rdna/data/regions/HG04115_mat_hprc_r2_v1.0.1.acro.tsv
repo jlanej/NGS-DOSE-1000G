@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#CM086771.1	chr14	chromosome	101869331	+	86715841	19170578.0	106883718.0	195815	start	start	chain	False	True	0.0	13129235.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000002.1	chr13	random	98982859	+	95497652	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000007.1	chr22	random	44328436	+	34895507	10510000.0	50805921.0	190237	start	start	chain	False	True	0.0	12000000.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000013.1	chr15	random	90728035	+	79639818	21242091.0	101981175.0	329172	start	start	chain	False	True	0.0	12000000.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000019.1	chr21	random	454168		0			0		start	default	False	True	0.0	454168.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000027.1	chr21	random	198280		0			0		start	default	False	True	0.0	198280.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000039.1	chr14	random	68289	+	68228	52715901.0	52784161.0	0		start	chain	False	False		
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000051.1	chr13	random	6179576		0			657449	start	start	censat_rdna	False	True	0.0	6179576.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000052.1	chr21	random	40605367	+	34235724	8452782.0	46699974.0	327818	start	start	chain	False	True	0.0	21948695.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000059.1	chr21	random	350054		0			0		start	default	False	True	0.0	350054.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000064.1	chr14	random	2783907		0			0		start	default	False	True	0.0	2783907.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000069.1	chr21	random	447444		0			0		start	default	False	True	0.0	447444.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000070.1	chr13	random	315919		0			0		start	default	False	True	0.0	315919.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000077.1	chr14	random	234816	+	138819	105929556.0	106069209.0	0		start	chain	False	False		
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000079.1	chr22	random	104139		0			0		start	default	False	True	0.0	104139.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000084.1	chr22	random	243666		0			187927	start	start	censat_rdna	False	True	0.0	243666.0
+HG04115_mat_hprc_r2_v1.0.1	HG04115#2#JBHDTG010000091.1	chr22	random	61268		0			0		start	default	False	True	0.0	61268.0

@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#CM086395.1	chr13	chromosome	109852011	+	95422878	18408131.0	114354320.0	891912	start	start	chain	False	True	0.0	12000000.0
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#CM086396.1	chr15	chromosome	99578488	+	79523504	19782761.0	101981188.0	496967	start	start	chain	False	True	0.0	16340333.0
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#JBHDSA010000013.1	chr22	random	44839887	+	34798718	10510000.0	50808468.0	232438	start	start	chain	False	True	0.0	12000000.0
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#JBHDSA010000015.1	chr21	random	34118868	+	33597921	12965808.0	46699939.0	0		start	chain	False	True	0.0	12000000.0
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#JBHDSA010000016.1	chr21	random	257425		0			233234	end	end	censat_rdna	False	True	0.0	257425.0
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#JBHDSA010000021.1	chr14	random	890226	+	807470	105919345.0	106883718.0	0		start	chain	False	False		
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#JBHDSA010000025.1	chr14	random	225138		0			185796	start	start	censat_rdna	False	True	0.0	225138.0
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#JBHDSA010000034.1	chr14	random	99218356	+	86524033	19170578.0	105745262.0	54256	start	start	chain	False	True	0.0	12000000.0
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#JBHDSA010000038.1	chr22	random	2545891		0			7477	end	end	censat_rdna	False	True	0.0	2545891.0
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#JBHDSA010000039.1	chr14	random	3213321		0			212312	end	end	censat_rdna	False	True	0.0	3213321.0
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#JBHDSA010000041.1	chr14	random	2577762		0			142308	end	end	censat_rdna	False	True	0.0	2577762.0
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#JBHDSA010000042.1	chr13	random	5849063		0			454650	start	start	censat_rdna	False	True	0.0	5849063.0
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#JBHDSA010000047.1	chr14	random	64480	+	33677	105548628.0	105710620.0	0		start	chain	False	False		
+HG01496_mat_hprc_r2_v1.0.1	HG01496#2#JBHDSA010000049.1	chr14	random	61026	+	61020	93819495.0	93880519.0	0		start	chain	False	False		

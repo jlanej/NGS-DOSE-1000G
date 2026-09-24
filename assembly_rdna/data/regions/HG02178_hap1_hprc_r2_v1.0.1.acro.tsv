@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000005.1	chr13	random	106034885	+	95454249	18408131.0	114354320.0	510859	start	start	chain	False	True	0.0	12000000.0
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000007.1	chr14	random	95286519	+	87520600	18223523.0	106883718.0	9176	start	start	chain	False	True	0.0	12000000.0
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000015.1	chr21	random	34363564	+	31280767	12981756.0	44373393.0	0		start	chain	False	True	0.0	12000000.0
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000020.1	chr22	random	45457185	+	34783162	10510000.0	50808468.0	225738	start	start	chain	False	True	0.0	12000000.0
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000021.1	chr21	random	2306492	+	2254351	44417515.0	46699969.0	0		start	chain	False	False		
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000024.1	chr21	random	4236920		0			369310	start	start	censat_rdna	False	True	0.0	4236920.0
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000028.1	chr13	random	247927		0			0		start	default	False	True	0.0	247927.0
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000029.1	chr21	random	133492		0			96630	start	start	censat_rdna	False	True	0.0	133492.0
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000033.1	chr15	random	182688		0			0		start	default	False	True	0.0	182688.0
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000043.1	chr15	random	88556193	+	77166808	20030663.0	101981188.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000048.1	chr15	random	1522828		0			0		start	default	False	True	0.0	1522828.0
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000051.1	chr13	random	1820500		0			0		start	default	False	True	0.0	1820500.0
+HG02178_hap1_hprc_r2_v1.0.1	HG02178#1#JBHIKG010000053.1	chr14	random	349182		0			322262	start	start	censat_rdna	False	True	0.0	349182.0

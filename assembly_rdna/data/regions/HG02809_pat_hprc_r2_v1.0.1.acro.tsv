@@ -1,0 +1,19 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#CM088351.1	chr13	chromosome	110453072	+	95381760	18408131.0	114354320.0	187550	start	start	chain	False	True	0.0	12000000.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#CM088357.1	chr22	chromosome	46537639	+	34819005	10510000.0	50808468.0	318222	start	start	chain	False	True	0.0	12000000.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000008.1	chr14	random	99332264	+	87957078	19170578.0	106883718.0	413130	start	start	chain	False	True	0.0	12000000.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000011.1	chr15	random	90914600	+	79250863	22358244.0	101981175.0	54464	start	start	chain	False	True	0.0	12000000.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000012.1	chr21	random	40435639	+	34247026	8203401.0	46699974.0	276746	start	start	chain	False	True	0.0	12000000.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000016.1	chr21	random	678008		0			0		start	default	False	True	0.0	678008.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000025.1	chr14	random	610740	+	546960	105728834.0	106397820.0	0		start	chain	False	False		
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000026.1	chr21	random	322945		0			272958	start	start	censat_rdna	False	True	0.0	322945.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000033.1	chr15	random	207890		0			0		start	default	False	True	0.0	207890.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000041.1	chr21	random	466949		0			412011	start	start	censat_rdna	False	True	0.0	466949.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000042.1	chr15	random	151494		0			0		start	default	False	True	0.0	151494.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000044.1	chr22	random	106156		0			52358	end	end	censat_rdna	False	True	0.0	106156.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000055.1	chr22	random	69111		0			51700	end	end	censat_rdna	False	True	0.0	69111.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000059.1	chr14	random	51579	+	51505	71493229.0	71544740.0	0		start	chain	False	False		
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000074.1	chr22	random	110956		0			90762	end	end	censat_rdna	False	True	0.0	110956.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000075.1	chr15	random	161374		0			0		start	default	False	True	0.0	161374.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000078.1	chr15	random	200074		0			0		start	default	False	True	0.0	200074.0
+HG02809_pat_hprc_r2_v1.0.1	HG02809#1#JBHIGO010000081.1	chr22	random	70761		0			50754	start	start	censat_rdna	False	True	0.0	70761.0

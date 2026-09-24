@@ -1,0 +1,25 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#CM086874.1	chr14	chromosome	100763016	+	87254429	19170578.0	106883718.0	70093	start	start	chain	False	True	0.0	12000000.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000003.1	chr22	random	37655282	+	34833540	15154318.0	50808468.0	0		start	chain	False	True	0.0	12000000.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000006.1	chr21	random	39518062	+	34228369	9527143.0	46699974.0	220986	start	start	chain	False	True	0.0	12000000.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000010.1	chr13	random	97928467	+	95511816	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000012.1	chr15	random	95231172	+	79550040	20030663.0	101981156.0	462019	start	start	chain	False	True	0.0	12000000.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000019.1	chr21	random	427493		0			0		start	default	False	True	0.0	427493.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000020.1	chr14	random	726663	+	645877	105883904.0	106563029.0	0		start	chain	False	False		
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000026.1	chr13	random	536054		0			0		start	default	False	True	0.0	536054.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000028.1	chr22	random	300367		0			277356	start	start	censat_rdna	False	True	0.0	300367.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000031.1	chr21	random	197128	+	16902	8452722.0	8469693.0	140923	start	start	chain	False	True	0.0	197128.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000040.1	chr22	random	97176		0			50828	start	start	censat_rdna	False	True	0.0	97176.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000044.1	chr15	random	52748	+	52724	64204416.0	64257149.0	0		start	chain	False	False		
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000048.1	chr14	random	183495		0			139208	end	end	censat_rdna	False	True	0.0	183495.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000057.1	chr14	random	2420524		0			52377	end	end	censat_rdna	False	True	0.0	2420524.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000065.1	chr21	random	6479178		0			4829	start	start	censat_rdna	False	True	0.0	6479178.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000067.1	chr22	random	7644232		0			499027	start	start	censat_rdna	False	True	0.0	7644232.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000070.1	chr15	random	3473683		0			7480	end	end	censat_rdna	False	True	0.0	3473683.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000076.1	chr22	random	89776		0			52335	end	end	censat_rdna	False	True	0.0	89776.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000077.1	chr22	random	159896		0			0		start	default	False	True	0.0	159896.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000078.1	chr22	random	72997		0			48019	start	start	censat_rdna	False	True	0.0	72997.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000088.1	chr13	random	261941		0			0		start	default	False	True	0.0	261941.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000093.1	chr21	random	92781		0			0		start	default	False	True	0.0	92781.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000095.1	chr21	random	299114	+	33721	8203401.0	8471774.0	277430	end	start	chain	True	True	0.0	299114.0
+HG03710_pat_hprc_r2_v1.0.1	HG03710#1#JBHDTP010000096.1	chr22	random	125609		0			94672	end	end	censat_rdna	False	True	0.0	125609.0

@@ -1,0 +1,27 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000003.1	chr15	random	85291519	+	80013892	20030663.0	101981172.0	0		start	chain	False	True	0.0	12000000.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000010.1	chr14	random	97145756	+	88304832	19122915.0	106883718.0	6100	start	start	chain	False	True	0.0	12000000.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000011.1	chr21	random	38954688	+	34228287	9527143.0	46699969.0	3078	start	start	chain	False	True	0.0	12000000.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000012.1	chr13	random	99232257	+	95461811	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000019.1	chr15	random	7723229		0			19065	start	start	censat_rdna	False	True	0.0	7723229.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000022.1	chr22	random	3548839		0			7466	end	end	censat_rdna	False	True	0.0	3548839.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000033.1	chr22	random	184636		0			139376	start	start	censat_rdna	False	True	0.0	184636.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000035.1	chr15	random	262754		0			0		start	default	False	True	0.0	262754.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000037.1	chr22	random	54873	+	54778	32930411.0	32985205.0	0		start	chain	False	False		
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000043.1	chr14	random	61687	+	61202	105842340.0	106155988.0	0		start	chain	False	False		
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000061.1	chr15	random	737749		0			0		start	default	False	True	0.0	737749.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000063.1	chr22	random	44401706	+	34936806	10510000.0	50808360.0	54867	start	start	chain	False	True	0.0	12000000.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000065.1	chr13	random	1049894		0			0		start	default	False	True	0.0	1049894.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000066.1	chr15	random	327166		0			0		start	default	False	True	0.0	327166.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000067.1	chr14	random	1718810		0			52364	end	end	censat_rdna	False	True	0.0	1718810.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000070.1	chr14	random	2984458		0			231226	end	end	censat_rdna	False	True	0.0	2984458.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000071.1	chr15	random	59463		0			0		start	default	False	True	0.0	59463.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000074.1	chr22	random	147987		0			102661	start	start	censat_rdna	False	True	0.0	147987.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000076.1	chr21	random	144592		0			134875	end	end	censat_rdna	False	True	0.0	144592.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000077.1	chr13	random	1578874		0			440747	start	start	censat_rdna	False	True	0.0	1578874.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000080.1	chr22	random	594483		0			0		start	default	False	True	0.0	594483.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000084.1	chr13	random	319297		0			0		start	default	False	True	0.0	319297.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000085.1	chr15	random	739020		0			0		start	default	False	True	0.0	739020.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000086.1	chr15	random	458373		0			0		start	default	False	True	0.0	458373.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000100.1	chr15	random	136616		0			133770	end	end	censat_rdna	False	True	0.0	136616.0
+NA20809_hap2_hprc_r2_v1.0.1	NA20809#2#JBIREA010000103.1	chr13	random	54039		0			0		start	default	False	True	0.0	54039.0

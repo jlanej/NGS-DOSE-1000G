@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#CM099738.1	chr22	chromosome	48146706	+	34899762	10510000.0	50808438.0	413096	start	start	chain	False	True	0.0	12000000.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000004.1	chr13	random	105512646	+	95641147	18408131.0	114352829.0	55663	start	start	chain	False	True	0.0	12000000.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000013.1	chr21	random	39297398	+	34193388	9527143.0	46699939.0	3078	start	start	chain	False	True	0.0	12000000.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000014.1	chr15	random	100183204	+	79733858	19782761.0	101911314.0	73694	start	start	chain	False	True	0.0	17431217.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000021.1	chr15	random	359320		0			0		start	default	False	True	0.0	359320.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000024.1	chr21	random	66052		0			0		start	default	False	True	0.0	66052.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000026.1	chr15	random	101744	+	101683	29736286.0	29838022.0	0		start	chain	False	False		
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000028.1	chr21	random	408926		0			366548	start	start	censat_rdna	False	True	0.0	408926.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000034.1	chr21	random	69214	+	69173	9844529.0	9913813.0	0		start	chain	False	True	0.0	69214.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000035.1	chr13	random	98210	+	97454	18484474.0	18582122.0	0		start	chain	False	True	0.0	98210.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000049.1	chr14	random	95111256	+	87585771	19170578.0	106883718.0	9176	start	start	chain	False	True	0.0	12000000.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000055.1	chr15	random	3461312		0			95956	end	end	censat_rdna	False	True	0.0	3461312.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000060.1	chr22	random	53167	+	51050	16526980.0	16579391.0	0		start	chain	False	True	0.0	53167.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000064.1	chr14	random	379723		0			321767	end	end	censat_rdna	False	True	0.0	379723.0
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000074.1	chr13	random	51936	+	42212	57115234.0	57170610.0	0		start	chain	False	False		
+NA18879_hap2_hprc_r2_v1.0.1	NA18879#2#JBJUVN010000076.1	chr15	random	141053		0			0		start	default	False	True	0.0	141053.0

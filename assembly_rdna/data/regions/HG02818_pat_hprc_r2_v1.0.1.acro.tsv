@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000006.1	chr21	random	36227398	+	33599819	10324341.0	46699974.0	0		start	chain	False	True	0.0	12000000.0
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000009.1	chr15	random	91220409	+	78532361	22358244.0	101981156.0	151172	start	start	chain	False	True	0.0	12000000.0
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000013.1	chr13	random	106783451	+	95452293	18408131.0	114354320.0	53631	start	start	chain	False	True	0.0	12000000.0
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000015.1	chr14	random	8671897		0			405702	start	start	censat_rdna	False	True	0.0	8671897.0
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000017.1	chr22	random	5654342	+	2994007	15154318.0	18201323.0	0		start	chain	False	True	0.0	5654342.0
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000018.1	chr14	random	92882636	+	87360452	19170578.0	106883718.0	6100	start	start	chain	False	True	0.0	12000000.0
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000019.1	chr13	random	4402521		0			235161	start	start	censat_rdna	False	True	0.0	4402521.0
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000026.1	chr22	random	100136		0			89837	start	start	censat_rdna	False	True	0.0	100136.0
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000039.1	chr22	random	52354	+	42429	50765799.0	50808468.0	0		start	chain	False	False		
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000048.1	chr22	random	29755140	+	29438734	21167047.0	50808317.0	0		start	chain	False	False		
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000051.1	chr22	random	7615544		0			235601	start	start	censat_rdna	False	True	0.0	7615544.0
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000054.1	chr22	random	3090479	+	2540873	18359955.0	21283626.0	0		start	chain	False	False		
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000061.1	chr15	random	125583	+	125437	75904498.0	76029987.0	0		start	chain	False	False		
+HG02818_pat_hprc_r2_v1.0.1	HG02818#1#JAHEOS020000068.1	chr22	random	60786		0			0		start	default	False	True	0.0	60786.0

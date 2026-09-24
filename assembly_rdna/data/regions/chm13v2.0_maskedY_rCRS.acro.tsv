@@ -1,0 +1,6 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+chm13v2.0_maskedY_rCRS	CHM13#0#chr13	chr13	chromosome	113566686		0			3577493	start	start	censat_rdna	False	True	0	12000000
+chm13v2.0_maskedY_rCRS	CHM13#0#chr14	chr14	chromosome	101161492		0			718274	start	start	censat_rdna	False	True	0	12000000
+chm13v2.0_maskedY_rCRS	CHM13#0#chr15	chr15	chromosome	99753195		0			2201043	start	start	censat_rdna	False	True	0	12000000
+chm13v2.0_maskedY_rCRS	CHM13#0#chr21	chr21	chromosome	45090682		0			2504417	start	start	censat_rdna	False	True	0	12000000
+chm13v2.0_maskedY_rCRS	CHM13#0#chr22	chr22	chromosome	51324926		0			926856	start	start	censat_rdna	False	True	0	12000000

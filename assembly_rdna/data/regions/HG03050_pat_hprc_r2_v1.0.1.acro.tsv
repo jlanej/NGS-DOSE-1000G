@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000004.1	chr13	random	103290474	+	95410208	18408131.0	114354300.0	233682	start	start	chain	False	True	0.0	12000000.0
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000006.1	chr14	random	97620551	+	86674487	19170578.0	105626358.0	148746	start	start	chain	False	True	0.0	12000000.0
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000008.1	chr15	random	91122890	+	79226857	19782761.0	101981174.0	106740	start	start	chain	False	True	0.0	12000000.0
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000011.1	chr22	random	45357650	+	34779228	10510000.0	50808438.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000022.1	chr21	random	230055	+	11098	8452746.0	8463878.0	181011	end	start	chain	True	True	0.0	230055.0
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000025.1	chr14	random	1226804	+	1081754	105697497.0	106883718.0	0		start	chain	False	False		
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000039.1	chr22	random	134026		0			95091	end	end	censat_rdna	False	True	0.0	134026.0
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000049.1	chr22	random	2617745		0			97469	end	end	censat_rdna	False	True	0.0	2617745.0
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000059.1	chr21	random	38868464	+	34179758	9527143.0	46699938.0	3078	start	start	chain	False	True	0.0	12000000.0
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000064.1	chr14	random	2676107		0			97242	end	end	censat_rdna	False	True	0.0	2676107.0
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000065.1	chr14	random	3188873		0			0		start	default	False	True	0.0	3188873.0
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000084.1	chr22	random	150013		0			0		start	default	False	True	0.0	150013.0
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000085.1	chr22	random	78488		0			51296	start	start	censat_rdna	False	True	0.0	78488.0
+HG03050_pat_hprc_r2_v1.0.1	HG03050#1#JBJKOK010000097.1	chr14	random	63402		0			0		start	default	False	True	0.0	63402.0

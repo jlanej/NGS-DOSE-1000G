@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000005.1	chr22	random	44716864	+	35150591	10510000.0	50808468.0	231019	start	start	chain	False	True	0.0	12000000.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000010.1	chr13	random	102226084	+	95478897	18408131.0	114354320.0	54877	start	start	chain	False	True	0.0	12000000.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000014.1	chr22	random	4106009		0			412710	end	end	censat_rdna	False	True	0.0	4106009.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000017.1	chr21	random	40272240	+	34272143	8203401.0	46699974.0	410088	start	start	chain	False	True	0.0	12000000.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000020.1	chr14	random	1075906		0			462090	end	end	censat_rdna	False	True	0.0	1075906.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000023.1	chr14	random	157132		0			0		start	default	False	True	0.0	157132.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000030.1	chr15	random	179745	+	179382	97257433.0	97436967.0	0		start	chain	False	False		
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000034.1	chr21	random	184448	+	63057	10360087.0	10492373.0	0		start	chain	False	True	0.0	184448.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000035.1	chr22	random	66771		0			7483	start	start	censat_rdna	False	True	0.0	66771.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000042.1	chr15	random	89432019	+	79083297	19782761.0	101981151.0	61497	start	start	chain	False	True	0.0	12000000.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000049.1	chr14	random	95803614	+	87276579	19170578.0	106879570.0	639743	start	start	chain	False	True	0.0	12000000.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000051.1	chr14	random	2984266		0			52385	end	end	censat_rdna	False	True	0.0	2984266.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000062.1	chr21	random	360947	+	18980	8452741.0	8471774.0	324356	end	start	chain	True	True	0.0	360947.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000081.1	chr21	random	71550		0			53619	start	start	censat_rdna	False	True	0.0	71550.0
+HG04157_mat_hprc_r2_v1.0.1	HG04157#2#JBHIGV010000087.1	chr22	random	82495		0			52277	start	start	censat_rdna	False	True	0.0	82495.0

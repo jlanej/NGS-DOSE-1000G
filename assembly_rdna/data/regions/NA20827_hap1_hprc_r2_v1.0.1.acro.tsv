@@ -1,0 +1,10 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20827_hap1_hprc_r2_v1.0.1	NA20827#1#CM102551.1	chr13	chromosome	105602915	+	95528141	18408131.0	114354320.0	147268	start	start	chain	False	True	0.0	12000000.0
+NA20827_hap1_hprc_r2_v1.0.1	NA20827#1#CM102552.1	chr15	chromosome	95081244	+	79171715	22358244.0	101981156.0	165207	start	start	chain	False	True	0.0	12000000.0
+NA20827_hap1_hprc_r2_v1.0.1	NA20827#1#CM102558.1	chr21	chromosome	43079686	+	34214339	9527143.0	46699939.0	72587	start	start	chain	False	True	0.0	12000000.0
+NA20827_hap1_hprc_r2_v1.0.1	NA20827#1#JBKOQY010000014.1	chr22	random	46039828	+	35236519	10510000.0	50808449.0	10012	start	start	chain	False	True	0.0	12000000.0
+NA20827_hap1_hprc_r2_v1.0.1	NA20827#1#JBKOQY010000018.1	chr13	random	232106		0			0		start	default	False	True	0.0	232106.0
+NA20827_hap1_hprc_r2_v1.0.1	NA20827#1#JBKOQY010000027.1	chr14	random	98849742	+	87843374	19170578.0	105864256.0	431284	start	start	chain	False	True	0.0	12000000.0
+NA20827_hap1_hprc_r2_v1.0.1	NA20827#1#JBKOQY010000030.1	chr14	random	942864	+	838874	105849125.0	106872147.0	0		start	chain	False	False		
+NA20827_hap1_hprc_r2_v1.0.1	NA20827#1#JBKOQY010000036.1	chr13	random	169813		0			0		start	default	False	True	0.0	169813.0
+NA20827_hap1_hprc_r2_v1.0.1	NA20827#1#JBKOQY010000037.1	chr13	random	87938		0			0		start	default	False	True	0.0	87938.0

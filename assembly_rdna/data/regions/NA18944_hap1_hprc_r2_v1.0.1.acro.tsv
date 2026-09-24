@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#CM101655.1	chr21	chromosome	42333219	+	34330231	8100181.0	46699939.0	277473	start	start	chain	False	True	0	12000000
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#CM101656.1	chr22	chromosome	55705316	+	34359239	10510000.0	50808430.0	1353991	start	start	chain	False	True	0	18564467
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#JBKACG010000013.1	chr13	random	103014703	+	95417691	18408131.0	114354320.0	95691	start	start	chain	False	True	0	12000000
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#JBKACG010000014.1	chr14	random	99507727	+	87505394	19170578.0	106883718.0	234220	start	start	chain	False	True	0	12000000
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#JBKACG010000015.1	chr15	random	94594438	+	79144205	22358244.0	101981156.0	137667	start	start	chain	False	True	0	12000000
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#JBKACG010000026.1	chr14	random	2719461		0			50973	end	end	censat_rdna	False	True	0	2719461
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#JBKACG010000029.1	chr14	random	506049		0			0		start	default	False	True	0	506049
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#JBKACG010000035.1	chr14	random	260465		0			222763	end	end	censat_rdna	False	True	0	260465
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#JBKACG010000038.1	chr22	random	238504		0			226121	end	end	censat_rdna	False	True	0	238504
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#JBKACG010000039.1	chr14	random	450870		0			414445	end	end	censat_rdna	False	True	0	450870
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#JBKACG010000040.1	chr21	random	388029	+	34566	8203401.0	8471774.0	373099	end	start	chain	True	True	0	388029
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#JBKACG010000042.1	chr21	random	109016	+	14734	8452754.0	8467544.0	51648	end	start	chain	True	True	0	109016
+NA18944_hap1_hprc_r2_v1.0.1	NA18944#1#JBKACG010000051.1	chr21	random	231330		0			219022	end	end	censat_rdna	False	True	0	231330

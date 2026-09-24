@@ -1,0 +1,23 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000005.1	chr21	random	39884150	+	34221365	9527143.0	46699974.0	142560	start	start	chain	False	True	0.0	12000000.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000006.1	chr22	random	44971035	+	35025259	10510000.0	50808449.0	235277	start	start	chain	False	True	0.0	16549065.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000008.1	chr13	random	104682915	+	95403923	18408131.0	114354320.0	579561	start	start	chain	False	True	0.0	12000000.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000011.1	chr22	random	8040968		0			850162	start	start	censat_rdna	False	True	0.0	8040968.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000012.1	chr14	random	2756169		0			7475	end	end	censat_rdna	False	True	0.0	2756169.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000013.1	chr13	random	989443		0			0		start	default	False	True	0.0	989443.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000020.1	chr21	random	187800		0			142147	end	end	censat_rdna	False	True	0.0	187800.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000023.1	chr21	random	72414		0			7480	start	start	censat_rdna	False	True	0.0	72414.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000026.1	chr13	random	89667		0			52300	start	start	censat_rdna	False	True	0.0	89667.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000027.1	chr15	random	66360		0			0		start	default	False	True	0.0	66360.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000032.1	chr15	random	85873917	+	79893469	19782761.0	101981172.0	13234	start	start	chain	False	True	0.0	12000000.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000033.1	chr22	random	3608972		0			52480	end	end	censat_rdna	False	True	0.0	3608972.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000042.1	chr14	random	88108681	+	87346891	19170578.0	106883718.0	0		start	chain	False	True	0.0	12000000.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000044.1	chr14	random	3059460		0			7426	end	end	censat_rdna	False	True	0.0	3059460.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000045.1	chr14	random	3502949		0			408520	end	end	censat_rdna	False	True	0.0	3502949.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000046.1	chr14	random	8335431		0			229684	start	start	censat_rdna	False	True	0.0	8335431.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000051.1	chr14	random	448402		0			411011	end	end	censat_rdna	False	True	0.0	448402.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000055.1	chr22	random	95609	-	82291	21409419.0	21491760.0	0		end	chain	False	False		
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000058.1	chr14	random	4485445		0			231303	end	end	censat_rdna	False	True	0.0	4485445.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000065.1	chr14	random	142801	+	135599	105727567.0	105863254.0	0		start	chain	False	False		
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000067.1	chr22	random	201212		0			175033	start	start	censat_rdna	False	True	0.0	201212.0
+HG00126_hap1_hprc_r2_v1.0.1	HG00126#1#JBHIKU010000072.1	chr13	random	66575	+	61632	114292512.0	114354320.0	0		start	chain	False	False		

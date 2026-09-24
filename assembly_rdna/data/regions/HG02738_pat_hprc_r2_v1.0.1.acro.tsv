@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000010.1	chr15	random	91743710	+	79016516	22358244.0	101981172.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000013.1	chr21	random	40246689	+	34230589	9527143.0	46699938.0	3078	start	start	chain	False	True	0.0	12000000.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000014.1	chr22	random	46788563	+	34987463	10510000.0	50808468.0	276056	start	start	chain	False	True	0.0	12000000.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000017.1	chr13	random	101529915	+	95467562	18408131.0	114354320.0	3078	start	start	chain	False	True	0.0	12000000.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000019.1	chr14	random	98263485	+	86720122	19170578.0	106883718.0	159538	start	start	chain	False	True	0.0	12000000.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000030.1	chr14	random	725801		0			0		start	default	False	True	0.0	725801.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000031.1	chr21	random	155163		0			141659	start	start	censat_rdna	False	True	0.0	155163.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000037.1	chr21	random	311902		0			0		start	default	False	True	0.0	311902.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000038.1	chr14	random	185433	+	183471	106077104.0	106260745.0	0		start	chain	False	False		
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000040.1	chr21	random	189577		0			140857	end	end	censat_rdna	False	True	0.0	189577.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000043.1	chr21	random	89535		0			52230	end	end	censat_rdna	False	True	0.0	89535.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000045.1	chr21	random	81680		0			45742	end	end	censat_rdna	False	True	0.0	81680.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000057.1	chr21	random	4836484		0			7478	end	end	censat_rdna	False	True	0.0	4836484.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000058.1	chr21	random	485557		0			455466	end	end	censat_rdna	False	True	0.0	485557.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000060.1	chr22	random	3710845		0			457179	end	end	censat_rdna	False	True	0.0	3710845.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000064.1	chr22	random	999140		0			93549	start	start	censat_rdna	False	True	0.0	999140.0
+HG02738_pat_hprc_r2_v1.0.1	HG02738#1#JBJXQJ010000083.1	chr22	random	113348		0			55544	start	start	censat_rdna	False	True	0.0	113348.0

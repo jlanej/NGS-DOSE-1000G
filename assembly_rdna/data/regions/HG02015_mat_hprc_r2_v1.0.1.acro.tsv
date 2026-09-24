@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#CM085905.1	chr21	chromosome	42998892	+	34311543	8100181.0	46699966.0	232385	start	start	chain	False	True	0.0	12000000.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000007.1	chr13	random	101783372	+	95469853	18408131.0	114354320.0	3078	start	start	chain	False	True	0.0	12000000.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000011.1	chr15	random	94776161	+	79235975	20030663.0	101981188.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000013.1	chr14	random	96803508	+	86086629	19170578.0	105236234.0	150940	start	start	chain	False	True	0.0	12000000.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000017.1	chr22	random	3422215		0			0		start	default	False	True	0.0	3422215.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000022.1	chr22	random	44115739	+	35040565	10510000.0	50808438.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000023.1	chr14	random	1491754	+	1339688	105237558.0	106883718.0	0		start	chain	False	False		
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000026.1	chr14	random	896124		0			44507	start	start	censat_rdna	False	True	0.0	896124.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000030.1	chr21	random	267148	+	15898	8203401.0	8219363.0	231658	start	start	chain	False	True	0.0	267148.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000031.1	chr15	random	251948		0			0		start	default	False	True	0.0	251948.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000032.1	chr14	random	2449179		0			7459	end	end	censat_rdna	False	True	0.0	2449179.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000040.1	chr21	random	128340		0			91240	end	end	censat_rdna	False	True	0.0	128340.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000074.1	chr22	random	3532322		0			272042	end	end	censat_rdna	False	True	0.0	3532322.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000078.1	chr14	random	1326948		0			47311	start	start	censat_rdna	False	True	0.0	1326948.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000087.1	chr14	random	129313	+	129012	105752363.0	105935198.0	0		start	chain	False	False		
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000088.1	chr22	random	237482		0			0		start	default	False	True	0.0	237482.0
+HG02015_mat_hprc_r2_v1.0.1	HG02015#2#JBHDVF010000095.1	chr21	random	78538		0			52391	end	end	censat_rdna	False	True	0.0	78538.0

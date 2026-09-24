@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#CM092127.1	chr15	chromosome	94222495	+	78984023	22358244.0	101981174.0	331490	start	start	chain	False	True	0.0	12000000.0
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000001.1	chr21	random	41792920	+	34212946	9527143.0	46699975.0	323521	start	start	chain	False	True	0.0	12000000.0
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000003.1	chr14	random	97898680	+	87441413	18223523.0	106883718.0	146123	start	start	chain	False	True	0.0	12000000.0
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000006.1	chr13	random	57331342	+	56918583	57158557.0	114354320.0	0		start	chain	False	False		
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000015.1	chr13	random	37467025	+	37297055	19798708.0	57170609.0	0		start	chain	False	True	0.0	12000000.0
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000019.1	chr22	random	48376825	+	34785629	10510000.0	50808468.0	3056	start	start	chain	False	True	0.0	19810356.0
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000024.1	chr22	random	1420726		0			316557	start	start	censat_rdna	False	True	0.0	1420726.0
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000026.1	chr22	random	111279		0			95938	start	start	censat_rdna	False	True	0.0	111279.0
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000028.1	chr21	random	214089		0			182922	end	end	censat_rdna	False	True	0.0	214089.0
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000033.1	chr22	random	82824	-	40236	21283626.0	21323934.0	0		end	chain	False	False		
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000036.1	chr21	random	159658		0			139984	start	start	censat_rdna	False	True	0.0	159658.0
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000058.1	chr22	random	2692531		0			140242	end	end	censat_rdna	False	True	0.0	2692531.0
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000061.1	chr13	random	8336072		0			453692	start	start	censat_rdna	False	True	0.0	8336072.0
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000062.1	chr14	random	3410638		0			276475	end	end	censat_rdna	False	True	0.0	3410638.0
+NA20129_mat_hprc_r2_v1.0.1	NA20129#2#JAHEPD020000082.1	chr14	random	587693		0			544327	start	start	censat_rdna	False	True	0.0	587693.0

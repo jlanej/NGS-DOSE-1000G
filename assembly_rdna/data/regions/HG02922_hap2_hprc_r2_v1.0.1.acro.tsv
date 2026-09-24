@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000003.1	chr15	random	4529247		0			7476	end	end	censat_rdna	False	True	0.0	4529247.0
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000006.1	chr13	random	105590246	+	95425399	18408131.0	114354320.0	81233	start	start	chain	False	True	0.0	12000000.0
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000009.1	chr15	random	97567619	+	79448361	20030663.0	101930299.0	1083507	start	start	chain	False	True	0.0	12000000.0
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000013.1	chr21	random	40939931	+	34272049	8203401.0	46699974.0	511535	start	start	chain	False	True	0.0	12000000.0
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000016.1	chr22	random	46859735	+	35138493	10510000.0	50808438.0	143599	start	start	chain	False	True	0.0	12000000.0
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000020.1	chr13	random	563854		0			498920	start	start	censat_rdna	False	True	0.0	563854.0
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000039.1	chr15	random	54936		0			0		start	default	False	True	0.0	54936.0
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000052.1	chr14	random	98248013	+	87350904	18223523.0	106883718.0	463904	start	start	chain	False	True	0.0	12000000.0
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000056.1	chr14	random	3114268		0			97305	end	end	censat_rdna	False	True	0.0	3114268.0
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000060.1	chr22	random	321968		0			277890	start	start	censat_rdna	False	True	0.0	321968.0
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000064.1	chr21	random	131051		0			95600	end	end	censat_rdna	False	True	0.0	131051.0
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000067.1	chr21	random	266002	+	18891	8452824.0	8471774.0	229117	end	start	chain	True	True	0.0	266002.0
+HG02922_hap2_hprc_r2_v1.0.1	HG02922#2#JBHDVP010000068.1	chr14	random	60240	+	56906	105716939.0	105944006.0	0		start	chain	False	False		

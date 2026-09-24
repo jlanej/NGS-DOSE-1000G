@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#CM087262.1	chr13	chromosome	107951847	+	95408472	18408131.0	114354320.0	184266	start	start	chain	False	True	0	12000000
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#CM087265.1	chr22	chromosome	50320969	+	34829164	10510000.0	50808468.0	638014	start	start	chain	False	True	0	14713453
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000006.1	chr21	random	42086025	+	34191723	9527143.0	46699974.0	53796	start	start	chain	False	True	0	12000000
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000010.1	chr14	random	99114613	+	87557083	19170578.0	106883718.0	58647	start	start	chain	False	True	0	12000000
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000014.1	chr15	random	91393914	+	79714947	19782761.0	101981172.0	11993	start	start	chain	False	True	0	12000000
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000020.1	chr13	random	8755525		0			188064	start	start	censat_rdna	False	True	0	8755525
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000022.1	chr14	random	294803		0			0		start	default	False	True	0	294803
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000031.1	chr22	random	134032		0			96818	end	end	censat_rdna	False	True	0	134032
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000039.1	chr22	random	53244		0			0		start	default	False	True	0	53244
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000041.1	chr22	random	52263		0			0		start	default	False	True	0	52263
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000058.1	chr14	random	4601132		0			140102	end	end	censat_rdna	False	True	0	4601132
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000063.1	chr22	random	3312122		0			183154	end	end	censat_rdna	False	True	0	3312122
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000065.1	chr14	random	3730817		0			51216	end	end	censat_rdna	False	True	0	3730817
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000070.1	chr21	random	359930	+	34522	8203401.0	8471774.0	293281	end	start	chain	True	True	0	359930
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000076.1	chr14	random	264238		0			0		start	default	False	True	0	264238
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000082.1	chr13	random	161195		0			0		start	default	False	True	0	161195
+HG03130_hap1_hprc_r2_v1.0.1	HG03130#1#JBHDWI010000086.1	chr22	random	54402	+	53947	15745730.0	15799728.0	0		start	chain	False	True	0	54402

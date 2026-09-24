@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#CM087411.1	chr14	chromosome	100190429	+	86830926	19170578.0	106883718.0	192353	start	start	chain	False	True	0.0	12000000.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000003.1	chr13	random	103303356	+	95473963	18408131.0	114354320.0	143950	start	start	chain	False	True	0.0	12000000.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000007.1	chr22	random	45867198	+	34805755	10510000.0	50808468.0	3057	start	start	chain	False	True	0.0	12000000.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000014.1	chr21	random	43517281	+	34435079	5216452.0	46699974.0	773376	start	start	chain	False	True	0.0	12000000.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000015.1	chr13	random	179030		0			0		start	default	False	True	0.0	179030.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000018.1	chr13	random	252517		0			0		start	default	False	True	0.0	252517.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000020.1	chr13	random	121909		0			0		start	default	False	True	0.0	121909.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000027.1	chr13	random	66630		0			0		start	default	False	True	0.0	66630.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000028.1	chr13	random	95257		0			0		start	default	False	True	0.0	95257.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000040.1	chr15	random	92812155	+	76822452	22358244.0	101981175.0	110370	start	start	chain	False	True	0.0	12000000.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000049.1	chr14	random	577934		0			547185	end	end	censat_rdna	False	True	0.0	577934.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000052.1	chr15	random	3675271		0			135277	end	end	censat_rdna	False	True	0.0	3675271.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000053.1	chr15	random	1866618	+	533480	20238700.0	21778477.0	0		start	chain	False	True	0.0	1866618.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000054.1	chr13	random	118488		0			0		start	default	False	True	0.0	118488.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000056.1	chr14	random	3429377		0			52370	end	end	censat_rdna	False	True	0.0	3429377.0
+HG02040_hap2_hprc_r2_v1.0.1	HG02040#2#JBHDWT010000066.1	chr14	random	185568	+	178014	49734006.0	49912762.0	0		start	chain	False	False		

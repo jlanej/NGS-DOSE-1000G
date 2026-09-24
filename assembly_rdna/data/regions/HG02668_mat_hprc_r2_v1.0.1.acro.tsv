@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000001.1	chr21	random	42137806	+	34251828	8203401.0	46699940.0	289472	start	start	chain	False	True	0.0	12000000.0
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000002.1	chr13	random	57184515	+	56746260	57214729.0	114354320.0	0		start	chain	False	False		
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000011.1	chr14	random	95592766	+	87061713	18223523.0	106883718.0	286455	start	start	chain	False	True	0.0	12000000.0
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000013.1	chr15	random	97037450	+	79937801	20030663.0	101911314.0	267601	start	start	chain	False	True	0.0	12000000.0
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000016.1	chr13	random	41004642	+	38691612	18408131.0	57170610.0	0		start	chain	False	True	0.0	12000000.0
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000019.1	chr22	random	44565396	+	34830828	10510000.0	50808426.0	54230	start	start	chain	False	True	0.0	12000000.0
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000021.1	chr14	random	3504630		0			7474	end	end	censat_rdna	False	True	0.0	3504630.0
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000025.1	chr22	random	221531		0			0		start	default	False	True	0.0	221531.0
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000033.1	chr22	random	186874		0			0		start	default	False	True	0.0	186874.0
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000034.1	chr13	random	77214		0			0		start	default	False	True	0.0	77214.0
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000054.1	chr14	random	417044		0			366692	end	end	censat_rdna	False	True	0.0	417044.0
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000056.1	chr14	random	473038		0			0		start	default	False	True	0.0	473038.0
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000062.1	chr22	random	578637		0			0		start	default	False	True	0.0	578637.0
+HG02668_mat_hprc_r2_v1.0.1	HG02668#2#JBHIID010000068.1	chr22	random	139360		0			0		start	default	False	True	0.0	139360.0

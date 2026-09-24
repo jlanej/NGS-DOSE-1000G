@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#CM089093.1	chr21	chromosome	42539291	+	34272927	8100181.0	46699939.0	287103	start	start	chain	False	True	0.0	12000000.0
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#JAGYYZ020000012.1	chr14	random	100354326	+	87141382	19170578.0	106883718.0	397465	start	start	chain	False	True	0.0	12000000.0
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#JAGYYZ020000013.1	chr22	random	44998938	+	34770387	10510000.0	50808468.0	251976	start	start	chain	False	True	0.0	17984742.0
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#JAGYYZ020000015.1	chr15	random	91812026	+	78195492	19782761.0	101911314.0	238326	start	start	chain	False	True	0.0	12000000.0
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#JAGYYZ020000016.1	chr13	random	57173533	+	56815759	57170622.0	114354320.0	0		start	chain	False	False		
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#JAGYYZ020000018.1	chr14	random	2938500		0			7454	end	end	censat_rdna	False	True	0.0	2938500.0
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#JAGYYZ020000027.1	chr14	random	486078		0			336139	start	start	censat_rdna	False	True	0.0	486078.0
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#JAGYYZ020000038.1	chr21	random	89857	+	15431	8452735.0	8468259.0	52402	start	start	chain	False	True	0.0	89857.0
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#JAGYYZ020000051.1	chr22	random	127248		0			97975	end	end	censat_rdna	False	True	0.0	127248.0
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#JAGYYZ020000054.1	chr13	random	49141750	+	38678508	18408131.0	57188843.0	96174	start	start	chain	False	True	0.0	12000000.0
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#JAGYYZ020000069.1	chr13	random	154788	+	154631	55246468.0	55401550.0	0		start	chain	False	False		
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#JAGYYZ020000077.1	chr13	random	65115	+	65088	55146665.0	55211775.0	0		start	chain	False	False		
+HG01123_pat_hprc_r2_v1.0.1	HG01123#1#JAGYYZ020000079.1	chr14	random	56573	+	56518	91972836.0	92029368.0	0		start	chain	False	False		

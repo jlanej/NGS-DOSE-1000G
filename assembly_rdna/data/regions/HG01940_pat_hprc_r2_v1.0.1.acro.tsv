@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#CM088638.1	chr15	chromosome	95675561	+	79245694	22358244.0	101981174.0	278515	start	start	chain	False	True	0.0	12000000.0
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000003.1	chr14	random	97991856	+	87250836	19170578.0	106883718.0	105004	start	start	chain	False	True	0.0	12000000.0
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000013.1	chr22	random	28186212	+	28007602	22727508.0	50808468.0	0		start	chain	False	False		
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000015.1	chr21	random	38856940	+	34217459	9527143.0	46699969.0	3078	start	start	chain	False	True	0.0	12000000.0
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000016.1	chr21	random	264265	+	18984	8452720.0	8471774.0	229658	end	start	chain	True	True	0.0	264265.0
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000023.1	chr21	random	206442		0			0		start	default	False	True	0.0	206442.0
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000030.1	chr21	random	146640		0			136326	end	end	censat_rdna	False	True	0.0	146640.0
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000033.1	chr14	random	387897	+	343130	20945666.0	21289731.0	0		start	chain	False	False		
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000043.1	chr13	random	104291221	+	95414896	18408131.0	114354320.0	189374	start	start	chain	False	True	0.0	12000000.0
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000044.1	chr22	random	17067796	+	7204768	10510000.0	22923955.0	275768	start	start	chain	False	True	0.0	12000000.0
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000047.1	chr14	random	4404289		0			186879	end	end	censat_rdna	False	True	0.0	4404289.0
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000050.1	chr21	random	360640		0			0		start	default	False	True	0.0	360640.0
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000059.1	chr14	random	380902		0			363958	end	end	censat_rdna	False	True	0.0	380902.0
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000060.1	chr21	random	490889		0			0		start	default	False	True	0.0	490889.0
+HG01940_pat_hprc_r2_v1.0.1	HG01940#1#JBHIHK010000070.1	chr14	random	51407		0			0		start	default	False	True	0.0	51407.0

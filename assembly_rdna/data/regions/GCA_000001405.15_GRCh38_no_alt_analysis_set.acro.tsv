@@ -1,0 +1,24 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr13	chr13	chromosome	114364328	+	114364328	0		0		start	chain	False	True	0	19408106
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr14	chr14	chromosome	107043718	+	107043718	0		0		start	chain	False	True	0	20611713
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr15	chr15	chromosome	101991189	+	101991189	0		0		start	chain	False	True	0	24276874
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr21	chr21	chromosome	46709983	+	46709983	0		0		start	chain	False	True	0	13965808
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr22	chr22	chromosome	50818468	+	50818468	0		0		start	chain	False	True	0	19709564
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr14_GL000009v2_random	chr14	random	201709	+	201709	0		0		start	chain	False	True	0	201709
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr14_GL000225v1_random	chr14	random	211173	+	211173	0		0		start	chain	False	True	0	211173
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr14_KI270722v1_random	chr14	random	194050	+	194050	0		0		start	chain	False	True	0	194050
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr14_GL000194v1_random	chr14	random	191469	+	191469	0		0		start	chain	False	True	0	191469
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr14_KI270723v1_random	chr14	random	38115	+	38115	0		0		start	chain	False	True	0	38115
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr14_KI270724v1_random	chr14	random	39555	+	39555	0		0		start	chain	False	True	0	39555
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr14_KI270725v1_random	chr14	random	172810	+	172810	0		0		start	chain	False	True	0	172810
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr14_KI270726v1_random	chr14	random	43739	+	43739	0		0		start	chain	False	True	0	43739
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr15_KI270727v1_random	chr15	random	448248	+	448248	0		0		start	chain	False	True	0	448248
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr22_KI270731v1_random	chr22	random	150754	+	150754	0		0		start	chain	False	True	0	150754
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr22_KI270732v1_random	chr22	random	41543	+	41543	0		0		start	chain	False	True	0	41543
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr22_KI270733v1_random	chr22	random	179772	+	179772	0		0		start	chain	False	True	0	179772
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr22_KI270734v1_random	chr22	random	165050	+	165050	0		0		start	chain	False	True	0	165050
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr22_KI270735v1_random	chr22	random	42811	+	42811	0		0		start	chain	False	True	0	42811
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr22_KI270736v1_random	chr22	random	181920	+	181920	0		0		start	chain	False	True	0	181920
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr22_KI270737v1_random	chr22	random	103838	+	103838	0		0		start	chain	False	True	0	103838
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr22_KI270738v1_random	chr22	random	99375	+	99375	0		0		start	chain	False	True	0	99375
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr22_KI270739v1_random	chr22	random	73985	+	73985	0		0		start	chain	False	True	0	73985

@@ -1,0 +1,23 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#CM094268.1	chr15	chromosome	100327094	+	80341578	20030663.0	101911314.0	557631	start	start	chain	False	True	0.0	13469583.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000001.1	chr14	random	91169448	+	87887307	19170578.0	106883718.0	0		start	chain	False	True	0.0	12000000.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000011.1	chr13	random	49708087	+	38673006	18408131.0	57230128.0	231874	start	start	chain	False	True	0.0	12000000.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000012.1	chr21	random	41072836	+	34219315	9527143.0	46699969.0	472967	start	start	chain	False	True	0.0	12000000.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000013.1	chr22	random	6655748		0			3055	end	end	censat_rdna	False	True	0.0	6655748.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000019.1	chr22	random	132288		0			95654	end	end	censat_rdna	False	True	0.0	132288.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000030.1	chr22	random	233389		0			232158	end	end	censat_rdna	False	True	0.0	233389.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000031.1	chr13	random	691440		0			669979	end	end	censat_rdna	False	True	0.0	691440.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000032.1	chr21	random	102924		0			86853	start	start	censat_rdna	False	True	0.0	102924.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000034.1	chr22	random	77111		0			0		start	default	False	True	0.0	77111.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000035.1	chr22	random	89410		0			52204	start	start	censat_rdna	False	True	0.0	89410.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000036.1	chr22	random	95967		0			52182	start	start	censat_rdna	False	True	0.0	95967.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000064.1	chr22	random	37994716	+	34834950	15192666.0	50808447.0	0		start	chain	False	True	0.0	12000000.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000066.1	chr13	random	57174814	+	56807002	57144079.0	114354320.0	0		start	chain	False	False		
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000068.1	chr14	random	4751989		0			96611	end	end	censat_rdna	False	True	0.0	4751989.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000070.1	chr15	random	4966986		0			245688	end	end	censat_rdna	False	True	0.0	4966986.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000071.1	chr22	random	134048		0			95100	end	end	censat_rdna	False	True	0.0	134048.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000073.1	chr14	random	338667		0			302057	end	end	censat_rdna	False	True	0.0	338667.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000084.1	chr14	random	375622		0			358180	end	end	censat_rdna	False	True	0.0	375622.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000091.1	chr22	random	97700		0			52209	start	start	censat_rdna	False	True	0.0	97700.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000093.1	chr22	random	134685		0			97253	start	start	censat_rdna	False	True	0.0	134685.0
+NA20346_hap2_hprc_r2_v1.0.1	NA20346#2#JBIRDS010000095.1	chr22	random	108780		0			97310	end	end	censat_rdna	False	True	0.0	108780.0

@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#CM089267.1	chr14	chromosome	102606376	+	87802232	19170578.0	106883718.0	192887	start	start	chain	False	True	0.0	12955998.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000002.1	chr13	random	105658788	+	95320295	18408131.0	114354320.0	3079	start	start	chain	False	True	0.0	12000000.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000003.1	chr22	random	44622860	+	34795765	10510000.0	50808438.0	627617	start	start	chain	False	True	0.0	12000000.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000006.1	chr21	random	41638800	+	34174193	8203401.0	46699939.0	529871	start	start	chain	False	True	0.0	12000000.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000015.1	chr15	random	11264519		0			1241	end	end	censat_rdna	False	True	0.0	11264519.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000019.1	chr14	random	3234352		0			7475	end	end	censat_rdna	False	True	0.0	3234352.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000039.1	chr14	random	128644		0			96166	end	end	censat_rdna	False	True	0.0	128644.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000045.1	chr15	random	85326238	+	79123555	20030663.0	101981174.0	0		start	chain	False	True	0.0	12000000.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000056.1	chr14	random	6535560		0			7456	end	end	censat_rdna	False	True	0.0	6535560.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000060.1	chr21	random	320918		0			193966	start	start	censat_rdna	False	True	0.0	320918.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000065.1	chr22	random	227236		0			183249	end	end	censat_rdna	False	True	0.0	227236.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000073.1	chr21	random	142905		0			96602	end	end	censat_rdna	False	True	0.0	142905.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000077.1	chr15	random	50421		0			7465	start	start	censat_rdna	False	True	0.0	50421.0
+HG02257_mat_hprc_r2_v1.1.0	HG02257#2#JAGYVI020000078.1	chr13	random	51142	+	51118	56020841.0	56072073.0	0		start	chain	False	False		

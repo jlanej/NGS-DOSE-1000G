@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000009.1	chr15	random	91986247	+	79084397	19993354.0	101981175.0	155600	start	start	chain	False	True	0.0	12000000.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000013.1	chr21	random	41899562	+	34250428	8203401.0	46699939.0	370387	start	start	chain	False	True	0.0	12000000.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000014.1	chr13	random	104599198	+	95494055	18408131.0	114354320.0	321226	start	start	chain	False	True	0.0	12000000.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000028.1	chr22	random	74299		0			52956	end	end	censat_rdna	False	True	0.0	74299.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000036.1	chr14	random	167083	+	151598	105727567.0	106619937.0	0		start	chain	False	False		
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000040.1	chr22	random	88829		0			51466	end	end	censat_rdna	False	True	0.0	88829.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000046.1	chr14	random	96820926	+	88273492	19122915.0	106883718.0	240936	start	start	chain	False	True	0.0	12000000.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000053.1	chr22	random	45211011	+	34725993	10510000.0	50808468.0	186861	start	start	chain	False	True	0.0	17925947.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000056.1	chr22	random	3786709		0			52311	end	end	censat_rdna	False	True	0.0	3786709.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000058.1	chr14	random	1444131		0			274513	end	end	censat_rdna	False	True	0.0	1444131.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000063.1	chr22	random	115857		0			53738	end	end	censat_rdna	False	True	0.0	115857.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000072.1	chr22	random	70294		0			52293	end	end	censat_rdna	False	True	0.0	70294.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000073.1	chr21	random	149529	+	15446	8452746.0	8468259.0	95241	start	start	chain	False	True	0.0	149529.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000077.1	chr21	random	66043		0			7462	start	start	censat_rdna	False	True	0.0	66043.0
+HG04199_mat_hprc_r2_v1.0.1	HG04199#2#JBHDTI010000081.1	chr22	random	68963		0			0		start	default	False	True	0.0	68963.0

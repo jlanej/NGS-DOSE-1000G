@@ -1,0 +1,21 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000001.1	chr13	random	102470836	+	95466121	18408131.0	114354320.0	52486	start	start	chain	False	True	0	12000000
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000005.1	chr14	random	95911588	+	86870946	19170578.0	105628377.0	9176	start	start	chain	False	True	0	12000000
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000008.1	chr15	random	91620654	+	79624952	19782761.0	101981174.0	629419	start	start	chain	False	True	0	12000000
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000009.1	chr22	random	45721809	+	34916936	10510000.0	50808468.0	151448	start	start	chain	False	True	0	12000000
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000013.1	chr21	random	39879531	+	34220693	9527143.0	46699919.0	203312	start	start	chain	False	True	0	12000000
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000023.1	chr22	random	1169720		0			51241	start	start	censat_rdna	False	True	0	1169720
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000033.1	chr13	random	167774		0			141754	start	start	censat_rdna	False	True	0	167774
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000034.1	chr22	random	88570		0			52262	end	end	censat_rdna	False	True	0	88570
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000035.1	chr22	random	191315		0			0		start	default	False	True	0	191315
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000037.1	chr21	random	72744		0			52273	start	start	censat_rdna	False	True	0	72744
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000050.1	chr22	random	72959		0			52269	end	end	censat_rdna	False	True	0	72959
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000051.1	chr22	random	83402		0			52243	start	start	censat_rdna	False	True	0	83402
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000061.1	chr15	random	3226328		0			52269	end	end	censat_rdna	False	True	0	3226328
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000067.1	chr14	random	3351182		0			0		start	default	False	True	0	3351182
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000072.1	chr22	random	228749		0			165383	end	end	censat_rdna	False	True	0	228749
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000088.1	chr14	random	518707		0			465469	end	end	censat_rdna	False	True	0	518707
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000090.1	chr22	random	206186		0			182745	start	start	censat_rdna	False	True	0	206186
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000102.1	chr13	random	91121		0			52234	end	end	censat_rdna	False	True	0	91121
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000107.1	chr22	random	76242		0			7449	end	end	censat_rdna	False	True	0	76242
+HG04187_pat_hprc_r2_v1.0.1	HG04187#1#JBJUVO010000112.1	chr22	random	72152		0			45561	end	end	censat_rdna	False	True	0	72152

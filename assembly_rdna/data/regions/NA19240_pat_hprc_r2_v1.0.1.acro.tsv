@@ -1,0 +1,19 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000012.1	chr14	random	98463486	+	86026583	19170578.0	105207950.0	550419	start	start	chain	False	True	0.0	13322700.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000014.1	chr21	random	5416289		0			91061	start	start	censat_rdna	False	True	0.0	5416289.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000016.1	chr22	random	44430177	+	34418948	10510000.0	50808468.0	186027	start	start	chain	False	True	0.0	15850686.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000017.1	chr21	random	39249016	+	34206661	9527143.0	46699938.0	3079	start	start	chain	False	True	0.0	12000000.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000019.1	chr15	random	95945261	+	79510487	20030663.0	101911314.0	195851	start	start	chain	False	True	0.0	12000000.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000021.1	chr22	random	90187		0			52141	end	end	censat_rdna	False	True	0.0	90187.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000028.1	chr22	random	372192		0			353821	start	start	censat_rdna	False	True	0.0	372192.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000030.1	chr14	random	213282		0			203935	end	end	censat_rdna	False	True	0.0	213282.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000032.1	chr13	random	55626	+	34685	57141801.0	57220615.0	0		start	chain	False	False		
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000033.1	chr14	random	52723	+	50785	79246354.0	79297187.0	0		start	chain	False	False		
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000035.1	chr22	random	95926		0			91107	start	start	censat_rdna	False	True	0.0	95926.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000042.1	chr13	random	98523824	+	95437537	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000047.1	chr14	random	4612470		0			899233	end	end	censat_rdna	False	True	0.0	4612470.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000049.1	chr22	random	4680346		0			143488	end	end	censat_rdna	False	True	0.0	4680346.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000050.1	chr14	random	1694168	+	1325213	105237558.0	106883718.0	0		start	chain	False	False		
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000052.1	chr14	random	1760083		0			7474	end	end	censat_rdna	False	True	0.0	1760083.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000055.1	chr14	random	642746	+	410247	19427624.0	19956597.0	0		start	chain	False	True	0.0	642746.0
+NA19240_pat_hprc_r2_v1.0.1	NA19240#1#JAHEOM020000064.1	chr22	random	89659		0			0		start	default	False	True	0.0	89659.0

@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#CM086596.1	chr22	chromosome	50304960	+	34854725	10510000.0	50808468.0	158755	start	start	chain	False	True	0.0	12333025.0
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000009.1	chr14	random	98242649	+	87391520	19170578.0	106883718.0	205066	start	start	chain	False	True	0.0	19431419.0
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000012.1	chr13	random	103709708	+	95514790	18408131.0	114354320.0	316313	start	start	chain	False	True	0.0	12000000.0
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000017.1	chr15	random	91620024	+	79786627	21242091.0	101981125.0	240590	start	start	chain	False	True	0.0	12000000.0
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000018.1	chr21	random	41187372	+	34220166	9527143.0	46699939.0	140488	start	start	chain	False	True	0.0	12000000.0
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000020.1	chr14	random	3483438		0			141349	end	end	censat_rdna	False	True	0.0	3483438.0
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000022.1	chr14	random	649871		0			637458	end	end	censat_rdna	False	True	0.0	649871.0
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000041.1	chr15	random	55440	+	55095	27474750.0	27529861.0	0		start	chain	False	False		
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000050.1	chr14	random	3083445		0			52425	end	end	censat_rdna	False	True	0.0	3083445.0
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000057.1	chr22	random	4449234		0			51677	end	end	censat_rdna	False	True	0.0	4449234.0
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000058.1	chr14	random	373678		0			354327	start	start	censat_rdna	False	True	0.0	373678.0
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000067.1	chr14	random	363799		0			347209	start	start	censat_rdna	False	True	0.0	363799.0
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000077.1	chr22	random	100944		0			95254	end	end	censat_rdna	False	True	0.0	100944.0
+HG01346_pat_hprc_r2_v1.0.1	HG01346#1#JBHDSR010000082.1	chr22	random	170280		0			139826	start	start	censat_rdna	False	True	0.0	170280.0

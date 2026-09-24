@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#CM087945.1	chr15	chromosome	95220272	+	79174806	20030663.0	101981175.0	63483	start	start	chain	False	True	0.0	12000000.0
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000011.1	chr21	random	40495410	+	34211610	9527143.0	46699974.0	144832	start	start	chain	False	True	0.0	12000000.0
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000015.1	chr22	random	46454717	+	35235957	10510000.0	50808468.0	187972	start	start	chain	False	True	0.0	12000000.0
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000019.1	chr13	random	12683154		0			100753	start	start	censat_rdna	False	True	0.0	12000000.0
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000022.1	chr14	random	11753232		0			281063	start	start	censat_rdna	False	True	0.0	11753232.0
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000025.1	chr21	random	760352		0			759919	end	end	censat_rdna	False	True	0.0	760352.0
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000031.1	chr21	random	84887		0			52419	start	start	censat_rdna	False	True	0.0	84887.0
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000032.1	chr22	random	287706		0			3055	start	start	censat_rdna	False	True	0.0	287706.0
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000039.1	chr14	random	79465752	+	79076477	27575576.0	106883718.0	0		start	chain	False	False		
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000042.1	chr13	random	95477909	+	94761371	18936349.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000045.1	chr14	random	8710723	+	8617136	19163463.0	27610583.0	0		start	chain	False	True	0.0	8710723.0
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000046.1	chr22	random	4672363		0			182555	end	end	censat_rdna	False	True	0.0	4672363.0
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000048.1	chr22	random	2597997		0			52091	end	end	censat_rdna	False	True	0.0	2597997.0
+HG01175_mat_hprc_r2_v1.0.1	HG01175#2#JAHALZ020000049.1	chr15	random	3494614		0			314220	end	end	censat_rdna	False	True	0.0	3494614.0

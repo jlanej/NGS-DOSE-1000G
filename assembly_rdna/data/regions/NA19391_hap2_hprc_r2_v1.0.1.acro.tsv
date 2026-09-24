@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#CM087808.1	chr14	chromosome	104142122	+	87193043	18223523.0	106883718.0	374824	start	start	chain	False	True	0.0	15542219.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#CM087814.1	chr22	chromosome	48300602	+	35099221	10510000.0	50808468.0	364915	start	start	chain	False	True	0.0	12000000.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000007.1	chr15	random	94833436	+	79846403	19782761.0	101981174.0	415279	start	start	chain	False	True	0.0	12327139.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000015.1	chr21	random	41745382	+	34211989	9527143.0	46699974.0	174613	start	start	chain	False	True	0.0	12000000.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000016.1	chr13	random	104550470	+	95228128	18408131.0	114354320.0	74604	start	start	chain	False	True	0.0	12000000.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000017.1	chr13	random	295416		0			0		start	default	False	True	0.0	295416.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000018.1	chr22	random	268949		0			231688	start	start	censat_rdna	False	True	0.0	268949.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000024.1	chr22	random	158541	+	158403	32777927.0	32936769.0	0		start	chain	False	False		
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000025.1	chr22	random	270946		0			247856	end	end	censat_rdna	False	True	0.0	270946.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000027.1	chr21	random	132428		0			95790	end	end	censat_rdna	False	True	0.0	132428.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000029.1	chr22	random	56311		0			0		start	default	False	True	0.0	56311.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000048.1	chr15	random	983187		0			982574	end	end	censat_rdna	False	True	0.0	983187.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000056.1	chr21	random	177014	+	10180	8452543.0	8463272.0	140248	start	start	chain	False	True	0.0	177014.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000057.1	chr21	random	300261	+	34863	8203401.0	8471774.0	229213	end	start	chain	True	True	0.0	300261.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000061.1	chr22	random	224345		0			152985	start	start	censat_rdna	False	True	0.0	224345.0
+NA19391_hap2_hprc_r2_v1.0.1	NA19391#2#JBHDXW010000066.1	chr15	random	175389		0			0		start	default	False	True	0.0	175389.0

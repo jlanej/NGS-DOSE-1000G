@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#CM101583.1	chr21	chromosome	40058607	+	33699082	8100181.0	46699974.0	696605	start	start	chain	False	True	0	13431427
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#CM101584.1	chr22	chromosome	55646395	+	35061605	10510000.0	50808468.0	1487889	start	start	chain	False	True	0	18974128
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000013.1	chr13	random	113121734	+	95534609	18408131.0	114354320.0	736495	start	start	chain	False	True	0	12651957
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000014.1	chr14	random	102164685	+	87963169	19122915.0	106883718.0	177170	start	start	chain	False	True	0	12000000
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000015.1	chr15	random	92692921	+	78620714	19782761.0	101981155.0	110061	start	start	chain	False	True	0	12000000
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000025.1	chr14	random	461611		0			438407	start	start	censat_rdna	False	True	0	461611
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000028.1	chr13	random	3040872		0			142773	start	start	censat_rdna	False	True	0	3040872
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000031.1	chr14	random	118310		0			95902	start	start	censat_rdna	False	True	0	118310
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000034.1	chr22	random	5490512		0			182554	end	end	censat_rdna	False	True	0	5490512
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000049.1	chr21	random	89935		0			52242	start	start	censat_rdna	False	True	0	89935
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000051.1	chr22	random	224461		0			183763	end	end	censat_rdna	False	True	0	224461
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000058.1	chr15	random	93536		0			0		start	default	False	True	0	93536
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000061.1	chr13	random	82593		0			0		start	default	False	True	0	82593
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000064.1	chr21	random	89713	+	13209	8452733.0	8466002.0	52319	start	start	chain	False	True	0	89713
+NA18959_hap2_hprc_r2_v1.0.1	NA18959#2#JBKACB010000066.1	chr22	random	124734		0			96685	end	end	censat_rdna	False	True	0	124734

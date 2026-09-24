@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000008.1	chr13	random	104831372	+	95508633	18408131.0	114354320.0	141532	start	start	chain	False	True	0	12000000
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000011.1	chr14	random	97339730	+	86933918	19170578.0	106883718.0	277492	start	start	chain	False	True	0	12000000
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000012.1	chr22	random	45590183	+	35115208	10510000.0	50808449.0	550568	start	start	chain	False	True	0	12000000
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000017.1	chr21	random	40618796	+	34197154	9527143.0	46699974.0	190565	start	start	chain	False	True	0	12000000
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000024.1	chr14	random	168346		0			142555	end	end	censat_rdna	False	True	0	168346
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000026.1	chr22	random	88229		0			0		start	default	False	True	0	88229
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000031.1	chr13	random	82983		0			51084	start	start	censat_rdna	False	True	0	82983
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000032.1	chr14	random	149514		0			94742	start	start	censat_rdna	False	True	0	149514
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000037.1	chr15	random	90916094	+	79157548	22358244.0	101981188.0	284924	start	start	chain	False	True	0	12000000
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000044.1	chr22	random	3766845		0			51958	end	end	censat_rdna	False	True	0	3766845
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000049.1	chr22	random	89623		0			52272	start	start	censat_rdna	False	True	0	89623
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000051.1	chr21	random	64295		0			51101	start	start	censat_rdna	False	True	0	64295
+HG02486_mat_hprc_r2_v1.0.1	HG02486#2#JAGYVL020000057.1	chr21	random	66500		0			7450	start	start	censat_rdna	False	True	0	66500

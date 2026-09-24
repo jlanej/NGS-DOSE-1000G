@@ -1,0 +1,11 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18945_hap1_hprc_r2_v1.0.1	NA18945#1#CM101625.1	chr21	chromosome	40307984	+	33590842	12976641.0	46699974.0	57161	start	start	chain	False	True	0	12000000
+NA18945_hap1_hprc_r2_v1.0.1	NA18945#1#JBKACE010000013.1	chr13	random	111320949	+	95292948	18408131.0	114354300.0	333945	start	start	chain	False	True	0	12000000
+NA18945_hap1_hprc_r2_v1.0.1	NA18945#1#JBKACE010000014.1	chr14	random	100754857	+	87169473	19170578.0	106883718.0	57941	start	start	chain	False	True	0	12000000
+NA18945_hap1_hprc_r2_v1.0.1	NA18945#1#JBKACE010000015.1	chr15	random	93320015	+	79031963	19782761.0	101981147.0	175272	start	start	chain	False	True	0	12000000
+NA18945_hap1_hprc_r2_v1.0.1	NA18945#1#JBKACE010000022.1	chr22	random	54298696	+	34248361	10510000.0	50808468.0	513470	start	start	chain	False	True	0	16482015
+NA18945_hap1_hprc_r2_v1.0.1	NA18945#1#JBKACE010000024.1	chr15	random	436999		0			0		start	default	False	True	0	436999
+NA18945_hap1_hprc_r2_v1.0.1	NA18945#1#JBKACE010000025.1	chr22	random	189873		0			142667	end	end	censat_rdna	False	True	0	189873
+NA18945_hap1_hprc_r2_v1.0.1	NA18945#1#JBKACE010000029.1	chr14	random	499220		0			462395	end	end	censat_rdna	False	True	0	499220
+NA18945_hap1_hprc_r2_v1.0.1	NA18945#1#JBKACE010000030.1	chr21	random	68733		0			46175	end	end	censat_rdna	False	True	0	68733
+NA18945_hap1_hprc_r2_v1.0.1	NA18945#1#JBKACE010000033.1	chr13	random	165900		0			0		start	default	False	True	0	165900

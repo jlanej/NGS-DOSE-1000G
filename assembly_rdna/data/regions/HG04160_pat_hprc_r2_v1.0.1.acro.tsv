@@ -1,0 +1,32 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#CM088435.1	chr21	chromosome	43155025	+	34207097	9527143.0	46699939.0	143589	start	start	chain	False	True	0.0	19883845.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000014.1	chr22	random	45208858	+	34729939	10510000.0	50808438.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000020.1	chr22	random	5037051		0			550430	end	end	censat_rdna	False	True	0.0	5037051.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000022.1	chr14	random	478531	+	405193	105698528.0	106340690.0	0		start	chain	False	False		
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000024.1	chr14	random	140793	+	136189	105727567.0	105864254.0	0		start	chain	False	False		
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000027.1	chr14	random	1074858	-	644962	18893443.0	19956597.0	0		end	chain	False	True	0.0	1074858.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000028.1	chr21	random	68463		0			0		start	default	False	True	0.0	68463.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000031.1	chr14	random	267308	+	80255	105558761.0	106280997.0	0		start	chain	False	False		
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000034.1	chr13	random	326302	+	324869	67857414.0	68182398.0	0		start	chain	False	False		
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000038.1	chr22	random	78066		0			52301	end	end	censat_rdna	False	True	0.0	78066.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000041.1	chr14	random	122127		0			99445	start	start	censat_rdna	False	True	0.0	122127.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000044.1	chr13	random	113231		0			0		start	default	False	True	0.0	113231.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000047.1	chr21	random	83533		0			52381	start	start	censat_rdna	False	True	0.0	83533.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000051.1	chr13	random	50139		0			0		start	default	False	True	0.0	50139.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000053.1	chr21	random	58678	+	58649	38515702.0	38574710.0	0		start	chain	False	False		
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000056.1	chr13	random	97206947	+	95243003	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000061.1	chr15	random	81089607	+	79080079	20627319.0	101981153.0	0		start	chain	False	True	0.0	12000000.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000062.1	chr14	random	97161192	+	86965730	19170578.0	106883718.0	105411	start	start	chain	False	True	0.0	12000000.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000064.1	chr14	random	10115386		0			94414	end	end	censat_rdna	False	True	0.0	10115386.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000068.1	chr14	random	3062541		0			7462	end	end	censat_rdna	False	True	0.0	3062541.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000069.1	chr15	random	7932850		0			13237	start	start	censat_rdna	False	True	0.0	7932850.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000074.1	chr22	random	2700378		0			52475	end	end	censat_rdna	False	True	0.0	2700378.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000081.1	chr21	random	64990		0			7466	start	start	censat_rdna	False	True	0.0	64990.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000087.1	chr13	random	201343		0			0		start	default	False	True	0.0	201343.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000088.1	chr21	random	62795	+	13024	8453857.0	8466956.0	7476	start	start	chain	False	True	0.0	62795.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000092.1	chr21	random	149527		0			96047	end	end	censat_rdna	False	True	0.0	149527.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000096.1	chr15	random	95664		0			52225	start	start	censat_rdna	False	True	0.0	95664.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000099.1	chr21	random	58758		0			7476	start	start	censat_rdna	False	True	0.0	58758.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000106.1	chr21	random	85550	+	85494	17149000.0	17234537.0	0		start	chain	False	False		
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000107.1	chr21	random	68668	+	10705	8453860.0	8464613.0	7476	end	start	chain	True	True	0.0	68668.0
+HG04160_pat_hprc_r2_v1.0.1	HG04160#1#JBHIGW010000108.1	chr15	random	55726	+	55661	61143875.0	61199627.0	0		start	chain	False	False		

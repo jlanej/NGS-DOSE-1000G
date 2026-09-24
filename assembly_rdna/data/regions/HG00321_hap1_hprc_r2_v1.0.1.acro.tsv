@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#CM089548.1	chr15	chromosome	103395868	+	80449139	19782761.0	101981174.0	63747	start	start	chain	False	True	0.0	20959787.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000002.1	chr14	random	99611659	+	87414331	19170578.0	106883715.0	469878	start	start	chain	False	True	0.0	12000000.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000010.1	chr13	random	102956333	+	95478012	18408131.0	114354320.0	364036	start	start	chain	False	True	0.0	12000000.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000011.1	chr21	random	38346663	+	32873356	9527143.0	45324286.0	52321	start	start	chain	False	True	0.0	12000000.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000015.1	chr21	random	1405242	+	1351173	45340560.0	46699974.0	0		start	chain	False	False		
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000016.1	chr14	random	386749		0			325096	start	start	censat_rdna	False	True	0.0	386749.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000022.1	chr13	random	727470		0			716985	start	start	censat_rdna	False	True	0.0	727470.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000027.1	chr14	random	611378		0			599831	start	start	censat_rdna	False	True	0.0	611378.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000030.1	chr13	random	408860		0			374500	start	start	censat_rdna	False	True	0.0	408860.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000033.1	chr22	random	45970609	+	34750221	10510000.0	50790017.0	516616	start	start	chain	False	True	0.0	12000000.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000038.1	chr22	random	88006		0			52198	start	start	censat_rdna	False	True	0.0	88006.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000064.1	chr14	random	3693543		0			317400	end	end	censat_rdna	False	True	0.0	3693543.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000073.1	chr14	random	2168507		0			7439	end	end	censat_rdna	False	True	0.0	2168507.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000089.1	chr21	random	77616		0			52388	end	end	censat_rdna	False	True	0.0	77616.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000093.1	chr21	random	92943	+	14111	8452732.0	8466902.0	52320	start	start	chain	False	True	0.0	92943.0
+HG00321_hap1_hprc_r2_v1.0.1	HG00321#1#JBHIIY010000094.1	chr15	random	69609	+	69495	25948004.0	26017691.0	0		start	chain	False	False		

@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#CM094467.1	chr22	chromosome	48986972	+	34797780	10510000.0	50808426.0	416468	start	start	chain	False	True	0.0	19987161.0
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000008.1	chr13	random	103292497	+	95428402	18408131.0	114354320.0	641954	start	start	chain	False	True	0.0	12000000.0
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000011.1	chr15	random	90748723	+	80311187	19782761.0	101981172.0	11994	start	start	chain	False	True	0.0	12000000.0
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000012.1	chr14	random	99618482	+	87856555	19170578.0	106883718.0	191807	start	start	chain	False	True	0.0	12000000.0
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000015.1	chr22	random	3467494		0			7480	end	end	censat_rdna	False	True	0.0	3467494.0
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000017.1	chr21	random	2314449	+	2255353	44414476.0	46699974.0	0		start	chain	False	False		
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000019.1	chr22	random	70516		0			52287	end	end	censat_rdna	False	True	0.0	70516.0
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000020.1	chr13	random	520610		0			364923	end	end	censat_rdna	False	True	0.0	520610.0
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000021.1	chr14	random	224020		0			186556	start	start	censat_rdna	False	True	0.0	224020.0
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000027.1	chr22	random	184624		0			116632	end	end	censat_rdna	False	True	0.0	184624.0
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000036.1	chr14	random	69647	+	69065	105851577.0	105966362.0	0		start	chain	False	False		
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000047.1	chr21	random	38969304	+	31604936	9527143.0	44406607.0	97950	start	start	chain	False	True	0.0	22628434.0
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000062.1	chr22	random	3807619		0			7482	end	end	censat_rdna	False	True	0.0	3807619.0
+HG00253_hap1_hprc_r2_v1.0.1	HG00253#1#JBIREJ010000076.1	chr22	random	140186		0			94885	start	start	censat_rdna	False	True	0.0	140186.0

@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000013.1	chr14	random	100905204	+	88993663	19122915.0	106883718.0	328008	start	start	chain	False	True	0.0	12000000.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000014.1	chr22	random	46097133	+	34843795	10510000.0	50808438.0	142728	start	start	chain	False	True	0.0	12000000.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000023.1	chr21	random	6755802		0			10034	start	start	censat_rdna	False	True	0.0	6755802.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000032.1	chr13	random	93826		0			0		start	default	False	True	0.0	93826.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000033.1	chr21	random	84306		0			52367	start	start	censat_rdna	False	True	0.0	84306.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000036.1	chr21	random	93067		0			52419	end	end	censat_rdna	False	True	0.0	93067.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000047.1	chr13	random	39949533	+	38673982	18408131.0	57166750.0	0		start	chain	False	True	0.0	12000000.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000049.1	chr15	random	91533837	+	77201407	20030663.0	101911314.0	421049	start	start	chain	False	True	0.0	12000000.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000050.1	chr21	random	42136718	+	34233600	9527143.0	46699974.0	98163	start	start	chain	False	True	0.0	12000000.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000053.1	chr13	random	57249967	+	56843611	57114508.0	114354320.0	0		start	chain	False	False		
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000063.1	chr13	random	291612		0			0		start	default	False	True	0.0	291612.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000067.1	chr13	random	80288		0			0		start	default	False	True	0.0	80288.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000069.1	chr22	random	179931		0			142407	end	end	censat_rdna	False	True	0.0	179931.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000075.1	chr13	random	82241		0			0		start	default	False	True	0.0	82241.0
+HG00735_pat_hprc_r2_v1.0.1	HG00735#1#JAHBCH020000077.1	chr21	random	78665	+	18087	8452756.0	8470891.0	0		start	chain	False	True	0.0	78665.0

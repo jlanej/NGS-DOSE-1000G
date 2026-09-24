@@ -1,0 +1,12 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02040_hap1_hprc_r2_v1.0.1	HG02040#1#CM087384.1	chr22	chromosome	48879606	+	34794013	10510000.0	50808426.0	656083	start	start	chain	False	True	0.0	12000000.0
+HG02040_hap1_hprc_r2_v1.0.1	HG02040#1#JBHDWS010000001.1	chr13	random	104765210	+	95467857	18408131.0	114354328.0	10101	start	start	chain	False	True	0.0	12000000.0
+HG02040_hap1_hprc_r2_v1.0.1	HG02040#1#JBHDWS010000005.1	chr21	random	40449313	+	34265666	8203401.0	46699974.0	740106	start	start	chain	False	True	0.0	12000000.0
+HG02040_hap1_hprc_r2_v1.0.1	HG02040#1#JBHDWS010000012.1	chr15	random	96089649	+	76936075	22358244.0	101981175.0	196819	start	start	chain	False	True	0.0	12456199.0
+HG02040_hap1_hprc_r2_v1.0.1	HG02040#1#JBHDWS010000014.1	chr14	random	96605425	+	87113173	19170578.0	106883718.0	244443	start	start	chain	False	True	0.0	12000000.0
+HG02040_hap1_hprc_r2_v1.0.1	HG02040#1#JBHDWS010000021.1	chr13	random	84628		0			0		start	default	False	True	0.0	84628.0
+HG02040_hap1_hprc_r2_v1.0.1	HG02040#1#JBHDWS010000023.1	chr22	random	148283		0			139013	end	end	censat_rdna	False	True	0.0	148283.0
+HG02040_hap1_hprc_r2_v1.0.1	HG02040#1#JBHDWS010000025.1	chr13	random	178140		0			0		start	default	False	True	0.0	178140.0
+HG02040_hap1_hprc_r2_v1.0.1	HG02040#1#JBHDWS010000030.1	chr15	random	213943		0			188724	end	end	censat_rdna	False	True	0.0	213943.0
+HG02040_hap1_hprc_r2_v1.0.1	HG02040#1#JBHDWS010000058.1	chr14	random	436654		0			424606	start	start	censat_rdna	False	True	0.0	436654.0
+HG02040_hap1_hprc_r2_v1.0.1	HG02040#1#JBHDWS010000070.1	chr13	random	54244	+	54088	31641576.0	31695687.0	0		start	chain	False	False		

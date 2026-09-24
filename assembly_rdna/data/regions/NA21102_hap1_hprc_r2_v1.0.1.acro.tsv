@@ -1,0 +1,21 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000004.1	chr14	random	98906520	+	88927951	19122915.0	106883718.0	781460	start	start	chain	False	True	0	12000000
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000009.1	chr15	random	90768250	+	79150160	22358244.0	101981147.0	63200	start	start	chain	False	True	0	12000000
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000010.1	chr13	random	97808686	+	95510198	18408131.0	114354320.0	0		start	chain	False	True	0	12000000
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000014.1	chr21	random	40345867	+	34200417	9527143.0	46699951.0	143131	start	start	chain	False	True	0	12000000
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000020.1	chr22	random	47785626	+	35602108	10510000.0	50808426.0	407237	start	start	chain	False	True	0	12000000
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000021.1	chr13	random	7375070		0			458455	start	start	censat_rdna	False	True	0	7375070
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000023.1	chr22	random	7355759		0			95344	start	start	censat_rdna	False	True	0	7355759
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000027.1	chr15	random	865036		0			316490	start	start	censat_rdna	False	True	0	865036
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000029.1	chr21	random	136385		0			97868	end	end	censat_rdna	False	True	0	136385
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000030.1	chr14	random	380233		0			321819	start	start	censat_rdna	False	True	0	380233
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000033.1	chr13	random	92000		0			0		start	default	False	True	0	92000
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000035.1	chr21	random	321829		0			274775	start	start	censat_rdna	False	True	0	321829
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000038.1	chr14	random	120300		0			0		start	default	False	True	0	120300
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000039.1	chr21	random	170887		0			140989	start	start	censat_rdna	False	True	0	170887
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000057.1	chr15	random	4081827		0			271111	end	end	censat_rdna	False	True	0	4081827
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000058.1	chr22	random	2631837		0			53163	end	end	censat_rdna	False	True	0	2631837
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000059.1	chr22	random	2587871		0			86805	end	end	censat_rdna	False	True	0	2587871
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000065.1	chr22	random	247572		0			229483	end	end	censat_rdna	False	True	0	247572
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000072.1	chr21	random	60193		0			51478	start	start	censat_rdna	False	True	0	60193
+NA21102_hap1_hprc_r2_v1.0.1	NA21102#1#JBIREH010000075.1	chr21	random	85079	+	17891	8452729.0	8470707.0	52417	start	start	chain	False	True	0	85079

@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000004.1	chr22	random	45998306	+	34779449	10510000.0	50807283.0	688048	start	start	chain	False	True	0.0	12000000.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000009.1	chr13	random	102571803	+	95490456	18408131.0	114354320.0	55553	start	start	chain	False	True	0.0	12000000.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000010.1	chr14	random	98838157	+	87541664	19170578.0	106868546.0	285395	start	start	chain	False	True	0.0	12000000.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000015.1	chr21	random	91511		0			0		start	default	False	True	0.0	91511.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000018.1	chr22	random	352950		0			95981	start	start	censat_rdna	False	True	0.0	352950.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000019.1	chr21	random	188604	+	14625	8452729.0	8467448.0	139198	start	start	chain	False	True	0.0	188604.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000026.1	chr21	random	134073		0			97181	start	start	censat_rdna	False	True	0.0	134073.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000029.1	chr21	random	154023		0			0		start	default	False	True	0.0	154023.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000031.1	chr14	random	99421	+	99402	83581309.0	83680766.0	0		start	chain	False	False		
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000034.1	chr21	random	39151582	+	34230813	8203401.0	46699940.0	374081	start	start	chain	False	True	0.0	12000000.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000043.1	chr15	random	88557281	+	79631667	20030663.0	101981172.0	11994	start	start	chain	False	True	0.0	12000000.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000050.1	chr22	random	4596770		0			0		start	default	False	True	0.0	4596770.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000051.1	chr14	random	3511600		0			426266	end	end	censat_rdna	False	True	0.0	3511600.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000055.1	chr21	random	182869		0			113044	end	end	censat_rdna	False	True	0.0	182869.0
+HG00344_hap2_hprc_r2_v1.0.1	HG00344#2#JBIREO010000059.1	chr14	random	515491		0			395337	end	end	censat_rdna	False	True	0.0	515491.0

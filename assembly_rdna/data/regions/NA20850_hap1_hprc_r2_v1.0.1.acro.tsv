@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#CM094301.1	chr21	chromosome	43491173	+	34229324	9527143.0	46699949.0	416575	start	start	chain	False	True	0	12000000
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000005.1	chr14	random	96839011	+	87371412	19170578.0	106883718.0	542995	start	start	chain	False	True	0	12000000
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000008.1	chr15	random	92773036	+	80685390	19782761.0	101981131.0	20301	start	start	chain	False	True	0	12000000
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000015.1	chr13	random	104395872	+	95488274	18408131.0	114354107.0	3078	start	start	chain	False	True	0	12000000
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000019.1	chr14	random	2357361		0			7456	end	end	censat_rdna	False	True	0	2357361
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000020.1	chr14	random	425515		0			405385	start	start	censat_rdna	False	True	0	425515
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000022.1	chr13	random	2092918		0			315809	start	start	censat_rdna	False	True	0	2092918
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000040.1	chr22	random	153300		0			94339	end	end	censat_rdna	False	True	0	153300
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000049.1	chr22	random	42387929	+	34207100	10510000.0	50807283.0	3054	start	start	chain	False	True	0	12000000
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000053.1	chr15	random	4139944		0			50952	end	end	censat_rdna	False	True	0	4139944
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000054.1	chr22	random	6636545		0			7454	end	end	censat_rdna	False	True	0	6636545
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000056.1	chr14	random	2405450		0			0		start	default	False	True	0	2405450
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000058.1	chr22	random	4520458		0			133815	end	end	censat_rdna	False	True	0	4520458
+NA20850_hap1_hprc_r2_v1.0.1	NA20850#1#JBIRDV010000060.1	chr22	random	207701		0			170811	end	end	censat_rdna	False	True	0	207701

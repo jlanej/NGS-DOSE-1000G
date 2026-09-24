@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#CM087787.1	chr21	chromosome	45827312	+	34329968	8100181.0	46699974.0	675513	start	start	chain	False	True	0.0	12000000.0
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000001.1	chr13	random	106293096	+	95379187	18408131.0	114354320.0	640043	start	start	chain	False	True	0.0	12000000.0
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000004.1	chr15	random	91495742	+	79148142	20030663.0	101911314.0	152335	start	start	chain	False	True	0.0	12000000.0
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000009.1	chr22	random	46699969	+	34801055	10510000.0	50808438.0	187470	start	start	chain	False	True	0.0	12000000.0
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000011.1	chr14	random	96003165	+	87083746	19170578.0	106614147.0	103517	start	start	chain	False	True	0.0	12000000.0
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000016.1	chr14	random	5133582		0			139629	end	end	censat_rdna	False	True	0.0	5133582.0
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000028.1	chr13	random	87841	+	87697	84813234.0	84900984.0	0		start	chain	False	False		
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000029.1	chr21	random	86181		0			0		start	default	False	True	0.0	86181.0
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000044.1	chr14	random	5498742		0			359486	end	end	censat_rdna	False	True	0.0	5498742.0
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000046.1	chr14	random	2448171		0			52394	end	end	censat_rdna	False	True	0.0	2448171.0
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000054.1	chr14	random	287034	+	145978	105846719.0	106397820.0	0		start	chain	False	False		
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000056.1	chr14	random	169266		0			142432	end	end	censat_rdna	False	True	0.0	169266.0
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000057.1	chr14	random	380335	+	352964	106483683.0	106883718.0	0		start	chain	False	False		
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000061.1	chr14	random	71540		0			0		start	default	False	True	0.0	71540.0
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000067.1	chr13	random	116874	+	116859	87672003.0	87788956.0	0		start	chain	False	False		
+NA19338_hap2_hprc_r2_v1.0.1	NA19338#2#JBHDXU010000068.1	chr15	random	107049		0			0		start	default	False	True	0.0	107049.0

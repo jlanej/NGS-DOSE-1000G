@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#CM089865.1	chr15	chromosome	95311795	+	79713028	21242091.0	101930299.0	240240	start	start	chain	False	True	0.0	12000000.0
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000010.1	chr21	random	42006542	+	34229064	8203401.0	46699954.0	722578	start	start	chain	False	True	0.0	12000000.0
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000011.1	chr22	random	222147		0			184531	end	end	censat_rdna	False	True	0.0	222147.0
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000012.1	chr14	random	1350098		0			50708	start	start	censat_rdna	False	True	0.0	1350098.0
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000018.1	chr21	random	788179	+	50811	8203401.0	8471774.0	756883	start	start	chain	False	True	0.0	788179.0
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000019.1	chr15	random	150173		0			0		start	default	False	True	0.0	150173.0
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000026.1	chr22	random	80179		0			51725	start	start	censat_rdna	False	True	0.0	80179.0
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000030.1	chr15	random	51342	+	51276	56956692.0	57008010.0	0		start	chain	False	False		
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000040.1	chr14	random	96038031	+	87500325	18223523.0	106883718.0	143988	start	start	chain	False	True	0.0	12000000.0
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000041.1	chr13	random	104162133	+	95586599	18408131.0	114354328.0	3078	start	start	chain	False	True	0.0	12000000.0
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000054.1	chr22	random	44672015	+	34846874	10510000.0	50808468.0	187050	start	start	chain	False	True	0.0	12000000.0
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000055.1	chr14	random	3264963		0			276429	end	end	censat_rdna	False	True	0.0	3264963.0
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000071.1	chr22	random	206900		0			185674	start	start	censat_rdna	False	True	0.0	206900.0
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000072.1	chr21	random	75710	+	75682	18487897.0	18563583.0	0		start	chain	False	False		
+NA18505_hap1_hprc_r2_v1.0.1	NA18505#1#JBHIJY010000077.1	chr14	random	136347	+	135749	105738327.0	106383179.0	0		start	chain	False	False		

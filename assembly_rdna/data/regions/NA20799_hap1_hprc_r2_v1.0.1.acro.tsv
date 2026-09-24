@@ -1,0 +1,23 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#CM098697.1	chr22	chromosome	46383710	+	34729166	10510000.0	50808465.0	54861	start	start	chain	False	True	0.0	12000000.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000010.1	chr14	random	98660623	+	87961657	19122915.0	106883718.0	469276	start	start	chain	False	True	0.0	12000000.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000013.1	chr15	random	92859916	+	78974286	22358244.0	101981147.0	198380	start	start	chain	False	True	0.0	12000000.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000018.1	chr21	random	36095720	+	33592573	10324341.0	46699974.0	0		start	chain	False	True	0.0	12000000.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000019.1	chr21	random	9485693		0			411556	start	start	censat_rdna	False	True	0.0	9485693.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000021.1	chr13	random	3817641		0			3078	end	end	censat_rdna	False	True	0.0	3817641.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000023.1	chr14	random	505495		0			504043	start	start	censat_rdna	False	True	0.0	505495.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000034.1	chr14	random	247843		0			233818	end	end	censat_rdna	False	True	0.0	247843.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000037.1	chr21	random	221999		0			187033	end	end	censat_rdna	False	True	0.0	221999.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000042.1	chr22	random	91411		0			53163	end	end	censat_rdna	False	True	0.0	91411.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000045.1	chr13	random	91726	+	91724	100150222.0	100241975.0	0		start	chain	False	False		
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000053.1	chr22	random	68046		0			52424	start	start	censat_rdna	False	True	0.0	68046.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000060.1	chr13	random	98499737	+	95433976	18408131.0	114354315.0	0		start	chain	False	True	0.0	12000000.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000064.1	chr22	random	3002061		0			394829	end	end	censat_rdna	False	True	0.0	3002061.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000067.1	chr22	random	4506150		0			52486	end	end	censat_rdna	False	True	0.0	4506150.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000068.1	chr14	random	4902705		0			7471	end	end	censat_rdna	False	True	0.0	4902705.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000069.1	chr21	random	1677663	+	103168	8203401.0	8471774.0	1357715	end	start	chain	True	True	0.0	1677663.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000072.1	chr14	random	2813882		0			190735	end	end	censat_rdna	False	True	0.0	2813882.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000078.1	chr22	random	228526		0			190275	start	start	censat_rdna	False	True	0.0	228526.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000080.1	chr13	random	509197		0			443180	start	start	censat_rdna	False	True	0.0	509197.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000083.1	chr14	random	475235		0			415137	start	start	censat_rdna	False	True	0.0	475235.0
+NA20799_hap1_hprc_r2_v1.0.1	NA20799#1#JBJKOE010000101.1	chr15	random	51623	+	51564	57249968.0	57301559.0	0		start	chain	False	False		

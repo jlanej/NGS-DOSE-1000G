@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000001.1	chr13	random	104115872	+	95468680	18408131.0	114354320.0	56564	start	start	chain	False	True	0.0	12000000.0
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000003.1	chr15	random	97087789	+	80436038	19782761.0	101981107.0	241723	start	start	chain	False	True	0.0	12000000.0
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000011.1	chr22	random	49533278	+	35162324	10510000.0	50808468.0	45200	start	start	chain	False	True	0.0	12000000.0
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000012.1	chr21	random	39928684	+	34217174	9527143.0	46699939.0	96004	start	start	chain	False	True	0.0	12000000.0
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000016.1	chr14	random	85784126	+	85610757	19353526.0	105236114.0	0		start	chain	False	True	0.0	12000000.0
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000020.1	chr14	random	1107713	+	933240	105237559.0	106883718.0	0		start	chain	False	False		
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000021.1	chr21	random	189093		0			140581	start	start	censat_rdna	False	True	0.0	189093.0
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000023.1	chr14	random	169614	+	165049	105698286.0	105864259.0	0		start	chain	False	False		
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000024.1	chr15	random	60837	+	60828	59083212.0	59144080.0	0		start	chain	False	False		
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000028.1	chr21	random	83836		0			51630	start	start	censat_rdna	False	True	0.0	83836.0
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000040.1	chr14	random	13768860		0			193901	start	start	censat_rdna	False	True	0.0	13768860.0
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000057.1	chr21	random	100246		0			35283	start	start	censat_rdna	False	True	0.0	100246.0
+HG00642_pat_hprc_r2_v1.0.1	HG00642#1#JBHDST010000063.1	chr21	random	94567		0			52366	end	end	censat_rdna	False	True	0.0	94567.0

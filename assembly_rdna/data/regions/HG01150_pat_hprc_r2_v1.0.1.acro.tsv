@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#CM088605.1	chr13	chromosome	108036010	+	95458609	18408131.0	114354320.0	779587	start	start	chain	False	True	0.0	12000000.0
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000001.1	chr15	random	95097395	+	76783901	22358244.0	101981174.0	734783	start	start	chain	False	True	0.0	12000000.0
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000011.1	chr14	random	99990810	+	86312833	19170578.0	105236233.0	326360	start	start	chain	False	True	0.0	12000000.0
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000017.1	chr21	random	40383240	+	34230194	9527143.0	46699940.0	184775	start	start	chain	False	True	0.0	12000000.0
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000023.1	chr13	random	995597		0			941486	end	end	censat_rdna	False	True	0.0	995597.0
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000034.1	chr14	random	303054	+	297181	105237559.0	105535711.0	0		start	chain	False	False		
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000048.1	chr21	random	83429		0			45664	end	end	censat_rdna	False	True	0.0	83429.0
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000056.1	chr14	random	64173	+	56776	106826911.0	106883718.0	0		start	chain	False	False		
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000060.1	chr21	random	68677		0			7439	start	start	censat_rdna	False	True	0.0	68677.0
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000067.1	chr22	random	42823181	+	34858085	10510000.0	50808438.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000074.1	chr14	random	5317313		0			848151	end	end	censat_rdna	False	True	0.0	5317313.0
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000076.1	chr14	random	2677966		0			51702	end	end	censat_rdna	False	True	0.0	2677966.0
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000089.1	chr21	random	315776	+	34539	8203401.0	8471774.0	310364	start	start	chain	False	True	0.0	315776.0
+HG01150_pat_hprc_r2_v1.0.1	HG01150#1#JBHIHI010000099.1	chr22	random	86587		0			50746	end	end	censat_rdna	False	True	0.0	86587.0

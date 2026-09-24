@@ -1,0 +1,21 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#CM099895.1	chr14	chromosome	100073353	+	87383914	19170578.0	106883718.0	217132	start	start	chain	False	True	0.0	12000000.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#CM099898.1	chr22	chromosome	48150198	+	35156913	10510000.0	50808468.0	96010	start	start	chain	False	True	0.0	12000000.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000009.1	chr13	random	104309624	+	95464820	18408131.0	114354320.0	10068	start	start	chain	False	True	0.0	12000000.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000012.1	chr21	random	36719882	+	33577817	12976641.0	46699973.0	0		start	chain	False	True	0.0	12000000.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000015.1	chr15	random	1244648		0			0		start	default	False	True	0.0	1244648.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000020.1	chr21	random	448562	+	18977	8452733.0	8471774.0	411462	end	start	chain	True	True	0.0	448562.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000023.1	chr21	random	185477		0			145078	end	end	censat_rdna	False	True	0.0	185477.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000028.1	chr21	random	404859		0			211675	start	start	censat_rdna	False	True	0.0	404859.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000030.1	chr21	random	84919		0			52388	end	end	censat_rdna	False	True	0.0	84919.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000031.1	chr15	random	764422		0			0		start	default	False	True	0.0	764422.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000032.1	chr14	random	176864		0			0		start	default	False	True	0.0	176864.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000033.1	chr13	random	71608	+	71587	53805595.0	53877200.0	0		start	chain	False	False		
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000038.1	chr13	random	170463		0			0		start	default	False	True	0.0	170463.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000045.1	chr21	random	162340		0			142433	end	end	censat_rdna	False	True	0.0	162340.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000047.1	chr14	random	86871	-	29195	105712006.0	105932564.0	0		end	chain	False	False		
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000059.1	chr15	random	88154765	+	79258352	22358244.0	101981183.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000066.1	chr21	random	93141		0			51798	start	start	censat_rdna	False	True	0.0	93141.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000073.1	chr21	random	693950	+	53491	8203401.0	8471774.0	0		start	chain	False	True	0.0	693950.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000074.1	chr13	random	200619		0			0		start	default	False	True	0.0	200619.0
+HG02392_hap2_hprc_r2_v1.0.1	HG02392#2#JBHIKF010000088.1	chr13	random	55647		0			0		start	default	False	True	0.0	55647.0

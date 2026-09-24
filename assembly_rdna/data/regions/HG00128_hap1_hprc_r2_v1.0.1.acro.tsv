@@ -1,0 +1,20 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#CM090087.1	chr14	chromosome	104460688	+	87018854	19170578.0	106883718.0	283062	start	start	chain	False	True	0.0	12933541.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#CM090088.1	chr15	chromosome	97209115	+	79057712	22358244.0	101981172.0	63134	start	start	chain	False	True	0.0	12000000.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000005.1	chr13	random	104645511	+	95481819	18408131.0	114354300.0	234049	start	start	chain	False	True	0.0	12000000.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000009.1	chr22	random	44811703	+	34867698	10510000.0	50808438.0	278312	start	start	chain	False	True	0.0	18496892.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000013.1	chr13	random	2861174		0			648855	start	start	censat_rdna	False	True	0.0	2861174.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000014.1	chr14	random	436793		0			413251	end	end	censat_rdna	False	True	0.0	436793.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000015.1	chr21	random	38080305	+	34147318	9527143.0	46699939.0	3079	start	start	chain	False	True	0.0	12000000.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000016.1	chr13	random	3803549		0			0		start	default	False	True	0.0	3803549.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000021.1	chr14	random	2100404		0			0		start	default	False	True	0.0	2100404.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000022.1	chr21	random	2641523		0			0		start	default	False	True	0.0	2641523.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000030.1	chr22	random	68133		0			47875	end	end	censat_rdna	False	True	0.0	68133.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000039.1	chr14	random	163885	+	162274	105916830.0	106079188.0	0		start	chain	False	False		
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000052.1	chr21	random	4777011		0			51119	end	end	censat_rdna	False	True	0.0	4777011.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000053.1	chr14	random	3619546		0			7477	end	end	censat_rdna	False	True	0.0	3619546.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000056.1	chr14	random	3555934		0			716269	end	end	censat_rdna	False	True	0.0	3555934.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000061.1	chr14	random	2583378		0			7480	end	end	censat_rdna	False	True	0.0	2583378.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000065.1	chr13	random	58973		0			0		start	default	False	True	0.0	58973.0
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000066.1	chr14	random	477979	+	440903	106086119.0	106552649.0	0		start	chain	False	False		
+HG00128_hap1_hprc_r2_v1.0.1	HG00128#1#JBHIKS010000068.1	chr22	random	106340		0			51609	end	end	censat_rdna	False	True	0.0	106340.0

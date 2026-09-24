@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#CM088695.1	chr21	chromosome	42746842	+	34330150	8100181.0	46699939.0	395018	start	start	chain	False	True	0.0	12000000.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000003.1	chr13	random	105977995	+	95474762	18408131.0	114354320.0	504468	start	start	chain	False	True	0.0	12000000.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000008.1	chr22	random	38193087	+	34925688	15154318.0	50808438.0	0		start	chain	False	True	0.0	12000000.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000011.1	chr14	random	99526070	+	87191688	19170578.0	106883718.0	288272	start	start	chain	False	True	0.0	12000000.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000015.1	chr15	random	94789391	+	77466673	20113538.0	101981172.0	622220	start	start	chain	False	True	0.0	12000000.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000018.1	chr22	random	8137276		0			367192	start	start	censat_rdna	False	True	0.0	8137276.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000021.1	chr14	random	575058		0			526450	start	start	censat_rdna	False	True	0.0	575058.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000022.1	chr13	random	71743	+	70327	113205731.0	113276157.0	0		start	chain	False	False		
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000023.1	chr22	random	183755		0			144180	end	end	censat_rdna	False	True	0.0	183755.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000029.1	chr21	random	428745	+	428047	16143815.0	16572375.0	0		start	chain	False	False		
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000041.1	chr22	random	72968		0			47870	start	start	censat_rdna	False	True	0.0	72968.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000052.1	chr21	random	5962392		0			231619	end	end	censat_rdna	False	True	0.0	5962392.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000053.1	chr14	random	2796602		0			139021	end	end	censat_rdna	False	True	0.0	2796602.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000069.1	chr14	random	51881		0			0		start	default	False	True	0.0	51881.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000073.1	chr22	random	77431		0			50829	start	start	censat_rdna	False	True	0.0	77431.0
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000079.1	chr22	random	51145	+	45318	22859323.0	22928515.0	0		start	chain	False	False		
+HG01969_pat_hprc_r2_v1.0.1	HG01969#1#JBHIHO010000083.1	chr14	random	51490	+	51404	105213974.0	105267442.0	0		start	chain	False	False		

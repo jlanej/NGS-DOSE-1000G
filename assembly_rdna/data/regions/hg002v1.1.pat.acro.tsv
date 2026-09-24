@@ -1,0 +1,6 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+hg002v1.1.pat	HG002#1#chr13	chr13	chromosome	109226264	+	95501700	18408131	114354320	279021	start	start	chain	False	True	0	12000000
+hg002v1.1.pat	HG002#1#chr14	chr14	chromosome	105804016	+	87393768	19122915	106883718	295553	start	start	chain	False	True	0	15187859
+hg002v1.1.pat	HG002#1#chr15	chr15	chromosome	96256967	+	79762055	19782761	101981147	236706	start	start	chain	False	True	0	13637593
+hg002v1.1.pat	HG002#1#chr21	chr21	chromosome	44312598	+	34217935	9527143	46699940	274662	start	start	chain	False	True	0	12000000
+hg002v1.1.pat	HG002#1#chr22	chr22	chromosome	49430517	+	34924638	10510000	50808468	275417	start	start	chain	False	True	0	12000000

@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000010.1	chr14	random	96469052	+	87252567	19170578.0	106883718.0	13153	start	start	chain	False	True	0	12000000
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000016.1	chr21	random	40373477	+	34205512	9527143.0	46699042.0	54150	start	start	chain	False	True	0	12000000
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000017.1	chr22	random	44792061	+	34857880	10510000.0	50808468.0	187532	start	start	chain	False	True	0	12000000
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000023.1	chr15	random	3600502		0			7485	end	end	censat_rdna	False	True	0	3600502
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000024.1	chr15	random	8526711		0			333764	start	start	censat_rdna	False	True	0	8526711
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000052.1	chr22	random	273060		0			249088	end	end	censat_rdna	False	True	0	273060
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000057.1	chr22	random	146954		0			128279	start	start	censat_rdna	False	True	0	146954
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000070.1	chr22	random	199460		0			187048	start	start	censat_rdna	False	True	0	199460
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000091.1	chr15	random	84402199	+	80433791	19783324.0	101981156.0	0		start	chain	False	True	0	12000000
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000098.1	chr13	random	102369537	+	95385356	18408131.0	114277060.0	143000	start	start	chain	False	True	0	12000000
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000100.1	chr22	random	2998449		0			231202	end	end	censat_rdna	False	True	0	2998449
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000102.1	chr14	random	2877225		0			50266	end	end	censat_rdna	False	True	0	2877225
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000145.1	chr22	random	83994		0			51691	start	start	censat_rdna	False	True	0	83994
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000146.1	chr22	random	110151		0			91089	end	end	censat_rdna	False	True	0	110151
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000150.1	chr21	random	79856		0			7461	end	end	censat_rdna	False	True	0	79856
+HG02015_pat_hprc_r2_v1.0.1	HG02015#1#JBHDVE010000151.1	chr22	random	105053		0			0		start	default	False	True	0	105053

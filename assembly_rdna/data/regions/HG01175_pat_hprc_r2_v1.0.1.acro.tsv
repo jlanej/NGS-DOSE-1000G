@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#CM087935.1	chr22	chromosome	50024860	+	33352654	10510000.0	50808468.0	409563	start	start	chain	False	True	0.0	12000000.0
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#JAHAMA020000006.1	chr15	random	98841650	+	79713905	19782761.0	101981172.0	199333	start	start	chain	False	True	0.0	14629177.0
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#JAHAMA020000008.1	chr21	random	40731298	+	34235492	9527143.0	46699940.0	144329	start	start	chain	False	True	0.0	12000000.0
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#JAHAMA020000011.1	chr14	random	10046306		0			275739	start	start	censat_rdna	False	True	0.0	10046306.0
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#JAHAMA020000022.1	chr22	random	122759	+	122445	22519625.0	22642156.0	0		start	chain	False	False		
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#JAHAMA020000027.1	chr14	random	98102	+	64163	106027051.0	106091348.0	0		start	chain	False	False		
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#JAHAMA020000036.1	chr14	random	79239197	+	79020682	27382952.0	106883718.0	0		start	chain	False	False		
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#JAHAMA020000039.1	chr13	random	102084129	+	95453380	18408131.0	114343485.0	97851	start	start	chain	False	True	0.0	12000000.0
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#JAHAMA020000051.1	chr14	random	3061822		0			7437	end	end	censat_rdna	False	True	0.0	3061822.0
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#JAHAMA020000052.1	chr22	random	2765038		0			271182	end	end	censat_rdna	False	True	0.0	2765038.0
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#JAHAMA020000054.1	chr14	random	8096368	+	8025003	19170578.0	27424733.0	0		start	chain	False	True	0.0	8096368.0
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#JAHAMA020000056.1	chr14	random	140116		0			0		start	default	False	True	0.0	140116.0
+HG01175_pat_hprc_r2_v1.0.1	HG01175#1#JAHAMA020000058.1	chr22	random	96095		0			52463	start	start	censat_rdna	False	True	0.0	96095.0

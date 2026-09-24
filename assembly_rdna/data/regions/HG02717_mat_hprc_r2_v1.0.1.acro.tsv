@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000005.1	chr22	random	45886164	+	34824469	10510000.0	50808445.0	269077	start	start	chain	False	True	0.0	12000000.0
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000012.1	chr21	random	41329992	+	34203285	9527143.0	46699042.0	316984	start	start	chain	False	True	0.0	12000000.0
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000014.1	chr15	random	90289168	+	79218055	19782761.0	101981156.0	194521	start	start	chain	False	True	0.0	12000000.0
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000015.1	chr14	random	93701909	+	82861529	19170578.0	102275807.0	194028	start	start	chain	False	True	0.0	12000000.0
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000018.1	chr22	random	7429755		0			7466	end	end	censat_rdna	False	True	0.0	7429755.0
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000020.1	chr14	random	3402502		0			7450	end	end	censat_rdna	False	True	0.0	3402502.0
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000024.1	chr21	random	130440		0			98012	end	end	censat_rdna	False	True	0.0	130440.0
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000038.1	chr21	random	188233		0			143451	start	start	censat_rdna	False	True	0.0	188233.0
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000051.1	chr13	random	105060239	+	95421218	18408131.0	114354320.0	236751	start	start	chain	False	True	0.0	20497996.0
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000054.1	chr14	random	4725832	+	4213121	102244630.0	106883718.0	0		start	chain	False	False		
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000055.1	chr14	random	8342813		0			0		start	default	False	True	0.0	8342813.0
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000059.1	chr21	random	111325		0			51009	start	start	censat_rdna	False	True	0.0	111325.0
+HG02717_mat_hprc_r2_v1.0.1	HG02717#2#JAHAOR020000061.1	chr14	random	392127		0			370173	end	end	censat_rdna	False	True	0.0	392127.0

@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000005.1	chr15	random	87042215	+	76966584	22358244.0	101981174.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000006.1	chr14	random	99803679	+	87630124	19170578.0	106883718.0	598427	start	start	chain	False	True	0.0	12000000.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000008.1	chr22	random	44915781	+	34962941	10510000.0	50808426.0	538877	start	start	chain	False	True	0.0	12000000.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000010.1	chr21	random	40517478	+	34226812	9527143.0	46699940.0	97433	start	start	chain	False	True	0.0	12000000.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000011.1	chr13	random	103077986	+	95428058	18408131.0	114354320.0	413464	start	start	chain	False	True	0.0	12000000.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000013.1	chr14	random	663607		0			496798	start	start	censat_rdna	False	True	0.0	663607.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000015.1	chr22	random	4971999		0			272665	start	start	censat_rdna	False	True	0.0	4971999.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000022.1	chr22	random	76759		0			51511	end	end	censat_rdna	False	True	0.0	76759.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000028.1	chr15	random	79218		0			0		start	default	False	True	0.0	79218.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000029.1	chr14	random	144092	+	85026	105657867.0	106357656.0	0		start	chain	False	False		
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000034.1	chr22	random	69834		0			51509	start	start	censat_rdna	False	True	0.0	69834.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000047.1	chr14	random	4458929		0			224583	end	end	censat_rdna	False	True	0.0	4458929.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000048.1	chr14	random	4180372		0			7480	end	end	censat_rdna	False	True	0.0	4180372.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000049.1	chr14	random	3583133		0			7476	end	end	censat_rdna	False	True	0.0	3583133.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000050.1	chr14	random	913580	+	831172	105727567.0	106809008.0	0		start	chain	False	False		
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000051.1	chr14	random	4999321		0			272794	end	end	censat_rdna	False	True	0.0	4999321.0
+HG01255_mat_hprc_r2_v1.0.1	HG01255#2#JBHDTC010000052.1	chr14	random	2556472		0			7466	end	end	censat_rdna	False	True	0.0	2556472.0

@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#CM091907.1	chr22	chromosome	46639085	+	35081309	10510000.0	50808326.0	141216	start	start	chain	False	True	0.0	12000000.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000011.1	chr14	random	98694578	+	87526980	19170578.0	106883718.0	105951	start	start	chain	False	True	0.0	12000000.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000016.1	chr15	random	96182384	+	80540600	19782761.0	101981138.0	108877	start	start	chain	False	True	0.0	12000000.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000022.1	chr13	random	8357335		0			144803	start	start	censat_rdna	False	True	0.0	8357335.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000025.1	chr22	random	287317		0			268586	end	end	censat_rdna	False	True	0.0	287317.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000027.1	chr21	random	5038295		0			10078	start	start	censat_rdna	False	True	0.0	5038295.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000032.1	chr22	random	719287		0			711003	end	end	censat_rdna	False	True	0.0	719287.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000033.1	chr13	random	132446		0			0		start	default	False	True	0.0	132446.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000048.1	chr21	random	34758858	+	33588274	12976641.0	46699969.0	0		start	chain	False	True	0.0	12000000.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000052.1	chr13	random	104386848	+	95492525	18408131.0	114354320.0	275466	start	start	chain	False	True	0.0	12000000.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000063.1	chr13	random	94137		0			0		start	default	False	True	0.0	94137.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000064.1	chr21	random	85343		0			53671	start	start	censat_rdna	False	True	0.0	85343.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000068.1	chr14	random	200785	+	188128	105674622.0	105864252.0	0		start	chain	False	False		
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000070.1	chr21	random	199501	+	15891	8203401.0	8219327.0	190198	end	start	chain	True	True	0.0	199501.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000074.1	chr13	random	375194		0			339203	end	end	censat_rdna	False	True	0.0	375194.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000076.1	chr13	random	131773		0			0		start	default	False	True	0.0	131773.0
+NA20805_hap2_hprc_r2_v1.0.1	NA20805#2#JBIECA010000082.1	chr21	random	89930		0			52424	end	end	censat_rdna	False	True	0.0	89930.0

@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000003.1	chr14	random	95771003	+	87120649	19170578.0	106883718.0	232870	start	start	chain	False	True	0	12000000
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000008.1	chr13	random	97046940	+	95365828	18408131.0	114354320.0	0		start	chain	False	True	0	12000000
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000011.1	chr21	random	40522869	+	34197236	9527143.0	46699939.0	3078	start	start	chain	False	True	0	12000000
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000013.1	chr21	random	8269235		0			593363	start	start	censat_rdna	False	True	0	8269235
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000015.1	chr22	random	46109043	+	34864853	10510000.0	50808468.0	275952	start	start	chain	False	True	0	12000000
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000027.1	chr22	random	272010		0			228711	start	start	censat_rdna	False	True	0	272010
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000029.1	chr22	random	286329		0			229018	start	start	censat_rdna	False	True	0	286329
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000030.1	chr22	random	1260993		0			143331	start	start	censat_rdna	False	True	0	1260993
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000033.1	chr13	random	362879		0			0		start	default	False	True	0	362879
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000038.1	chr21	random	159441		0			142159	end	end	censat_rdna	False	True	0	159441
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000054.1	chr15	random	93554322	+	79038681	20030663.0	101981147.0	11993	start	start	chain	False	True	0	12000000
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000059.1	chr15	random	2399835		0			627462	end	end	censat_rdna	False	True	0	2399835
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000060.1	chr13	random	896266		0			0		start	default	False	True	0	896266
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000075.1	chr22	random	617988		0			134993	start	start	censat_rdna	False	True	0	617988
+NA18906_mat_hprc_r2_v1.0.1	NA18906#2#JAHEON020000081.1	chr22	random	291103		0			255013	start	start	censat_rdna	False	True	0	291103

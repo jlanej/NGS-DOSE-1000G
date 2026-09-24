@@ -1,0 +1,9 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18948_hap1_hprc_r2_v1.0.1	NA18948#1#JBKACC010000013.1	chr13	random	102406657	+	95455101	18408131.0	114354320.0	498313	start	start	chain	False	True	0	12000000
+NA18948_hap1_hprc_r2_v1.0.1	NA18948#1#JBKACC010000014.1	chr14	random	97775229	+	87459202	19170578.0	106883718.0	66785	start	start	chain	False	True	0	12000000
+NA18948_hap1_hprc_r2_v1.0.1	NA18948#1#JBKACC010000015.1	chr15	random	89983810	+	78999339	22358244.0	101981176.0	11993	start	start	chain	False	True	0	12000000
+NA18948_hap1_hprc_r2_v1.0.1	NA18948#1#JBKACC010000021.1	chr21	random	45059052	+	34369056	8100181.0	46699975.0	909313	start	start	chain	False	True	0	12000000
+NA18948_hap1_hprc_r2_v1.0.1	NA18948#1#JBKACC010000022.1	chr22	random	53165067	+	34917407	10510000.0	50808466.0	112870	start	start	chain	False	True	0	14222932
+NA18948_hap1_hprc_r2_v1.0.1	NA18948#1#JBKACC010000027.1	chr14	random	411473		0			365363	start	start	censat_rdna	False	True	0	411473
+NA18948_hap1_hprc_r2_v1.0.1	NA18948#1#JBKACC010000031.1	chr21	random	960654		0			914738	end	end	censat_rdna	False	True	0	960654
+NA18948_hap1_hprc_r2_v1.0.1	NA18948#1#JBKACC010000038.1	chr21	random	281045	+	34872	8203401.0	8471774.0	269038	end	start	chain	True	True	0	281045

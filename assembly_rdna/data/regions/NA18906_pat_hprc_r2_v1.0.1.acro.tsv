@@ -1,0 +1,27 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#CM091945.1	chr22	chromosome	46577108	+	34682224	10510000.0	50808468.0	231318	start	start	chain	False	True	0.0	12000000.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000012.1	chr15	random	92282812	+	78971918	20030663.0	101981174.0	109310	start	start	chain	False	True	0.0	12000000.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000015.1	chr13	random	96969221	+	95307836	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000016.1	chr14	random	18935120	+	16775737	19170578.0	35832656.0	0		start	chain	False	True	0.0	12000000.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000020.1	chr21	random	4968641		0			229950	start	start	censat_rdna	False	True	0.0	4968641.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000023.1	chr14	random	855471	+	744103	106112754.0	106883718.0	0		start	chain	False	False		
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000028.1	chr13	random	136261		0			0		start	default	False	True	0.0	136261.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000031.1	chr14	random	464945		0			410261	start	start	censat_rdna	False	True	0.0	464945.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000034.1	chr14	random	380784	-	271803	18916134.0	19188575.0	0		end	chain	False	True	0.0	380784.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000035.1	chr14	random	281633	+	230418	105712006.0	106146389.0	0		start	chain	False	False		
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000046.1	chr14	random	144917		0			0		start	default	False	True	0.0	144917.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000047.1	chr13	random	254722		0			0		start	default	False	True	0.0	254722.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000050.1	chr13	random	80311		0			0		start	default	False	True	0.0	80311.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000070.1	chr14	random	5499088		0			9176	end	end	censat_rdna	False	True	0.0	5499088.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000074.1	chr14	random	70063206	+	69752697	35750772.0	105625243.0	0		start	chain	False	False		
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000079.1	chr13	random	175596		0			0		start	default	False	True	0.0	175596.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000080.1	chr21	random	42749673	+	34184230	9527143.0	46699969.0	324305	start	start	chain	False	True	0.0	12000000.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000084.1	chr14	random	1182710		0			96854	end	end	censat_rdna	False	True	0.0	1182710.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000089.1	chr21	random	742582		0			716983	end	end	censat_rdna	False	True	0.0	742582.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000090.1	chr13	random	177337		0			0		start	default	False	True	0.0	177337.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000093.1	chr14	random	188533	+	162841	105912099.0	106077104.0	0		start	chain	False	False		
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000096.1	chr14	random	154811	+	136363	105730502.0	106115361.0	0		start	chain	False	False		
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000098.1	chr21	random	142264		0			135315	end	end	censat_rdna	False	True	0.0	142264.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000099.1	chr13	random	84086		0			0		start	default	False	True	0.0	84086.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000100.1	chr13	random	91349		0			0		start	default	False	True	0.0	91349.0
+NA18906_pat_hprc_r2_v1.0.1	NA18906#1#JAHEOO020000125.1	chr14	random	66588		0			0		start	default	False	True	0.0	66588.0

@@ -1,0 +1,10 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20503_hap1_hprc_r2_v1.0.1	NA20503#1#CM102466.1	chr13	chromosome	106733574	+	95467624	18408131.0	114354320.0	166442	start	start	chain	False	True	0	12000000
+NA20503_hap1_hprc_r2_v1.0.1	NA20503#1#CM102467.1	chr14	chromosome	101849822	+	87233526	19170578.0	106883718.0	78109	start	start	chain	False	True	0	12000000
+NA20503_hap1_hprc_r2_v1.0.1	NA20503#1#JBKOQS010000010.1	chr15	random	94625975	+	79770885	21242091.0	101981150.0	19020	start	start	chain	False	True	0	12000000
+NA20503_hap1_hprc_r2_v1.0.1	NA20503#1#JBKOQS010000012.1	chr21	random	39012033	+	34219606	9527143.0	46699042.0	3078	start	start	chain	False	True	0	12000000
+NA20503_hap1_hprc_r2_v1.0.1	NA20503#1#JBKOQS010000014.1	chr13	random	474806		0			51848	start	start	censat_rdna	False	True	0	474806
+NA20503_hap1_hprc_r2_v1.0.1	NA20503#1#JBKOQS010000015.1	chr22	random	86037		0			0		start	default	False	True	0	86037
+NA20503_hap1_hprc_r2_v1.0.1	NA20503#1#JBKOQS010000016.1	chr22	random	96279		0			0		start	default	False	True	0	96279
+NA20503_hap1_hprc_r2_v1.0.1	NA20503#1#JBKOQS010000026.1	chr22	random	44978648	+	32718534	10510000.0	48956577.0	65322	start	start	chain	False	True	0	12000000
+NA20503_hap1_hprc_r2_v1.0.1	NA20503#1#JBKOQS010000034.1	chr22	random	166136		0			0		start	default	False	True	0	166136

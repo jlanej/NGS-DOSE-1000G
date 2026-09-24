@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#CM091844.1	chr13	chromosome	109863947	+	95411433	18408131.0	114354320.0	363369	start	start	chain	False	True	0.0	12000000.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#CM091845.1	chr14	chromosome	103759710	+	87897415	19170578.0	106883718.0	649992	start	start	chain	False	True	0.0	13151536.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000007.1	chr21	random	42893317	+	34212884	9527143.0	46699969.0	324417	start	start	chain	False	True	0.0	12000000.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000011.1	chr15	random	92629154	+	79856519	19782761.0	101981174.0	868425	start	start	chain	False	True	0.0	12000000.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000012.1	chr13	random	1320915	+	1319812	55840389.0	57161240.0	0		start	chain	False	False		
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000016.1	chr14	random	561007		0			539926	end	end	censat_rdna	False	True	0.0	561007.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000020.1	chr22	random	267973		0			267130	end	end	censat_rdna	False	True	0.0	267973.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000023.1	chr22	random	112707		0			93019	end	end	censat_rdna	False	True	0.0	112707.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000024.1	chr13	random	347903		0			311889	start	start	censat_rdna	False	True	0.0	347903.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000025.1	chr21	random	440625	+	34868	8203401.0	8471774.0	438515	end	start	chain	True	True	0.0	440625.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000027.1	chr21	random	90580		0			52410	end	end	censat_rdna	False	True	0.0	90580.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000031.1	chr21	random	84260		0			51721	start	start	censat_rdna	False	True	0.0	84260.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000046.1	chr22	random	44904648	+	34797186	10510000.0	50808438.0	376409	start	start	chain	False	True	0.0	12000000.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000049.1	chr14	random	3861102		0			7477	end	end	censat_rdna	False	True	0.0	3861102.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000052.1	chr21	random	484576	+	34911	8203401.0	8471774.0	446472	end	start	chain	True	True	0.0	484576.0
+HG03139_hap2_hprc_r2_v1.0.1	HG03139#2#JBIEBY010000053.1	chr14	random	368646		0			0		start	default	False	True	0.0	368646.0

@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#CM086199.1	chr21	chromosome	42874325	+	34222772	9527143.0	46699974.0	143034	start	start	chain	False	True	0.0	12000000.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000002.1	chr14	random	87434839	+	86877441	19170578.0	106549728.0	0		start	chain	False	True	0.0	12000000.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000005.1	chr13	random	96736356	+	95434302	18408131.0	114354321.0	0		start	chain	False	True	0.0	12000000.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000007.1	chr15	random	97111855	+	80221497	19782761.0	101981172.0	198640	start	start	chain	False	True	0.0	12000000.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000010.1	chr22	random	45731008	+	34854168	10510000.0	50808468.0	235063	start	start	chain	False	True	0.0	24304159.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000014.1	chr14	random	1019849	+	883696	105914360.0	106883718.0	0		start	chain	False	False		
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000021.1	chr13	random	122446		0			0		start	default	False	True	0.0	122446.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000024.1	chr13	random	102041		0			0		start	default	False	True	0.0	102041.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000025.1	chr15	random	104519	+	104458	44205833.0	44310335.0	0		start	chain	False	False		
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000028.1	chr13	random	147211		0			0		start	default	False	True	0.0	147211.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000048.1	chr14	random	13109966		0			419378	start	start	censat_rdna	False	True	0.0	12000000.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000049.1	chr13	random	11404334		0			288583	start	start	censat_rdna	False	True	0.0	11404334.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000050.1	chr22	random	2615021		0			7459	end	end	censat_rdna	False	True	0.0	2615021.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000052.1	chr13	random	683167		0			0		start	default	False	True	0.0	683167.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000054.1	chr14	random	458093	-	365055	18962423.0	19389449.0	0		end	chain	False	True	0.0	458093.0
+HG03704_mat_hprc_r2_v1.0.1	HG03704#2#JBHDRM010000058.1	chr22	random	89520		0			86581	end	end	censat_rdna	False	True	0.0	89520.0

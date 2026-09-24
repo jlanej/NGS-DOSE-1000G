@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000013.1	chr15	random	97600470	+	79357822	20030663.0	101911314.0	195679	start	start	chain	False	True	0.0	14662504.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000014.1	chr13	random	71475314	+	68114746	18408131.0	86774872.0	0		start	chain	False	True	0.0	12000000.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000015.1	chr21	random	41694645	+	34153687	9527143.0	46699939.0	230035	start	start	chain	False	True	0.0	12000000.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000019.1	chr22	random	45364553	+	34751100	10510000.0	50808438.0	173559	start	start	chain	False	True	0.0	16761671.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000020.1	chr13	random	27603869	+	27297726	86780147.0	114354320.0	0		start	chain	False	False		
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000034.1	chr13	random	502047		0			0		start	default	False	True	0.0	502047.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000037.1	chr13	random	58032		0			0		start	default	False	True	0.0	58032.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000066.1	chr13	random	157706		0			0		start	default	False	True	0.0	157706.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000077.1	chr14	random	98915902	+	88247104	19170578.0	106883718.0	16174	start	start	chain	False	True	0.0	12000000.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000083.1	chr21	random	4764850		0			122691	start	start	censat_rdna	False	True	0.0	4764850.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000086.1	chr14	random	2451531		0			7478	end	end	censat_rdna	False	True	0.0	2451531.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000092.1	chr13	random	64008		0			0		start	default	False	True	0.0	64008.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000093.1	chr13	random	488317		0			0		start	default	False	True	0.0	488317.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000094.1	chr13	random	85394		0			0		start	default	False	True	0.0	85394.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000107.1	chr14	random	425785		0			367195	end	end	censat_rdna	False	True	0.0	425785.0
+HG03453_pat_hprc_r2_v1.0.1	HG03453#1#JAGYVW020000109.1	chr15	random	63098	+	62824	41570106.0	41632971.0	0		start	chain	False	False		

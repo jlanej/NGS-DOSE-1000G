@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#CM086788.1	chr22	chromosome	48882780	+	35201336	10510000.0	50808438.0	322016	start	start	chain	False	True	0.0	12000000.0
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000004.1	chr15	random	83676975	+	79066432	22358244.0	101981188.0	0		start	chain	False	False		
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000012.1	chr15	random	11263635		0			415592	start	start	censat_rdna	False	True	0.0	11263635.0
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000013.1	chr13	random	102854098	+	95494269	18408131.0	114354320.0	54980	start	start	chain	False	True	0.0	12000000.0
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000014.1	chr21	random	41502852	+	34264677	8203401.0	46699976.0	550766	start	start	chain	False	True	0.0	12000000.0
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000020.1	chr14	random	1715056		0			52233	end	end	censat_rdna	False	True	0.0	1715056.0
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000025.1	chr13	random	206304	+	206127	57190835.0	57397223.0	0		start	chain	False	False		
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000044.1	chr22	random	72205		0			7458	start	start	censat_rdna	False	True	0.0	72205.0
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000046.1	chr15	random	56124	+	56063	29454865.0	29510936.0	0		start	chain	False	False		
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000050.1	chr14	random	96212046	+	87605086	18223523.0	106883718.0	94791	start	start	chain	False	True	0.0	12000000.0
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000061.1	chr14	random	2873470		0			7456	end	end	censat_rdna	False	True	0.0	2873470.0
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000064.1	chr21	random	337883		0			276083	start	start	censat_rdna	False	True	0.0	337883.0
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000068.1	chr15	random	647927		0			0		start	default	False	True	0.0	647927.0
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000073.1	chr22	random	144138		0			134789	start	start	censat_rdna	False	True	0.0	144138.0
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000082.1	chr21	random	189313		0			175176	end	end	censat_rdna	False	True	0.0	189313.0
+HG04199_pat_hprc_r2_v1.0.1	HG04199#1#JBHDTH010000084.1	chr22	random	146092		0			139520	end	end	censat_rdna	False	True	0.0	146092.0

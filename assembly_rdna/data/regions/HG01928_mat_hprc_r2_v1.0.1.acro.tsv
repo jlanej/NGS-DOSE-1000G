@@ -1,0 +1,8 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01928_mat_hprc_r2_v1.0.1	HG01928#2#CM089011.1	chr15	chromosome	94156504	+	76749039	22358244.0	101981183.0	153349	start	start	chain	False	True	0.0	12000000.0
+HG01928_mat_hprc_r2_v1.0.1	HG01928#2#CM089017.1	chr21	chromosome	43312368	+	34326157	8100181.0	46699974.0	192692	start	start	chain	False	True	0.0	12000000.0
+HG01928_mat_hprc_r2_v1.0.1	HG01928#2#JAGYVP020000009.1	chr22	random	45794011	+	34840246	10510000.0	50808468.0	321307	start	start	chain	False	True	0.0	12000000.0
+HG01928_mat_hprc_r2_v1.0.1	HG01928#2#JAGYVP020000022.1	chr22	random	80894	+	80344	21558621.0	21639010.0	0		start	chain	False	False		
+HG01928_mat_hprc_r2_v1.0.1	HG01928#2#JAGYVP020000031.1	chr13	random	103323322	+	95283499	18408131.0	114354320.0	225345	start	start	chain	False	True	0.0	12000000.0
+HG01928_mat_hprc_r2_v1.0.1	HG01928#2#JAGYVP020000036.1	chr14	random	98614916	+	87170735	18223523.0	106883718.0	114408	start	start	chain	False	True	0.0	12000000.0
+HG01928_mat_hprc_r2_v1.0.1	HG01928#2#JAGYVP020000044.1	chr22	random	4384237		0			40497	end	end	censat_rdna	False	True	0.0	4384237.0

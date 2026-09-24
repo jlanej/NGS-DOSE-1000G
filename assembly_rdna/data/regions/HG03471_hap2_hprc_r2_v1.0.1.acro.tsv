@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000002.1	chr13	random	98284391	+	95435189	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000003.1	chr15	random	82782988	+	79088316	22358244.0	101981174.0	0		start	chain	False	False		
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000005.1	chr14	random	95097132	+	87663752	18223523.0	106883718.0	16190	start	start	chain	False	True	0.0	12000000.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000010.1	chr21	random	35560624	+	33564773	12965808.0	46699949.0	0		start	chain	False	True	0.0	12000000.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000012.1	chr22	random	44674721	+	33991811	10510000.0	50808438.0	457618	start	start	chain	False	True	0.0	12000000.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000016.1	chr15	random	11946554		0			463027	start	start	censat_rdna	False	True	0.0	11946554.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000018.1	chr21	random	520298		0			470372	end	end	censat_rdna	False	True	0.0	520298.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000019.1	chr13	random	5377553		0			98446	start	start	censat_rdna	False	True	0.0	5377553.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000020.1	chr13	random	5613215		0			613057	start	start	censat_rdna	False	True	0.0	5613215.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000031.1	chr21	random	316033	+	33359	8204598.0	8471774.0	254071	end	start	chain	True	True	0.0	316033.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000044.1	chr22	random	247411		0			185864	start	start	censat_rdna	False	True	0.0	247411.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000049.1	chr21	random	571283		0			307482	end	end	censat_rdna	False	True	0.0	571283.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000070.1	chr14	random	1425723		0			231443	end	end	censat_rdna	False	True	0.0	1425723.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000075.1	chr13	random	269056		0			54729	start	start	censat_rdna	False	True	0.0	269056.0
+HG03471_hap2_hprc_r2_v1.0.1	HG03471#2#JBHDXE010000104.1	chr13	random	59695		0			0		start	default	False	True	0.0	59695.0

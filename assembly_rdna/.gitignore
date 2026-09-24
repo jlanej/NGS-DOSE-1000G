@@ -1,0 +1,18 @@
+# Re-derivable working data (FULL=1 bash regenerate.sh rebuilds it); multi-GB, kept out of git
+data/seq/
+data/meta/
+data/censat/
+data/full/
+data/tmp/
+data/targets/
+data/validation/*.hits*.tsv.gz
+data/regions/*.hits.tsv.gz
+work_units/*.paf.gz
+work_units/all.*
+work_units/names.txt
+work_units/queries.fa
+work_tiles/
+logs/
+scripts/__pycache__/
+# committed gzipped instead
+tables/validation_outside_hits.tsv

@@ -1,0 +1,19 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#CM085803.1	chr13	chromosome	107398185	+	95496254	18408131.0	114354320.0	648129	start	start	chain	False	True	0.0	12000000.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#CM085807.1	chr22	chromosome	48058156	+	34433679	10510000.0	50808468.0	363653	start	start	chain	False	True	0.0	12000000.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000012.1	chr15	random	93902532	+	79233201	22358244.0	101981172.0	287613	start	start	chain	False	True	0.0	21248939.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000013.1	chr21	random	38967327	+	34226497	9527143.0	46699939.0	332191	start	start	chain	False	True	0.0	12000000.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000015.1	chr14	random	741764	+	600532	19232895.0	19956597.0	0		start	chain	False	True	0.0	741764.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000018.1	chr15	random	129530		0			0		start	default	False	True	0.0	129530.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000025.1	chr22	random	144298		0			95689	end	end	censat_rdna	False	True	0.0	144298.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000026.1	chr21	random	331083	+	34525	8203401.0	8471774.0	273908	end	start	chain	True	True	0.0	331083.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000031.1	chr22	random	51344		0			0		start	default	False	True	0.0	51344.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000038.1	chr14	random	55236	+	55146	25691939.0	25747113.0	0		start	chain	False	False		
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000040.1	chr14	random	57905		0			0		start	default	False	True	0.0	57905.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000050.1	chr14	random	87490128	+	87074025	19347906.0	106883718.0	0		start	chain	False	True	0.0	12000000.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000055.1	chr15	random	3132122		0			0		start	default	False	True	0.0	3132122.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000058.1	chr14	random	14560282		0			239173	start	start	censat_rdna	False	True	0.0	12000000.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000064.1	chr22	random	558021	+	557590	22381851.0	22943055.0	0		start	chain	False	False		
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000071.1	chr22	random	132178		0			95683	start	start	censat_rdna	False	True	0.0	132178.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000078.1	chr14	random	92549		0			0		start	default	False	True	0.0	92549.0
+HG03834_pat_hprc_r2_v1.0.1	HG03834#1#JBHDUW010000080.1	chr21	random	215974		0			182302	end	end	censat_rdna	False	True	0.0	215974.0

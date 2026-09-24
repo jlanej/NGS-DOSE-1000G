@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#CM086344.1	chr21	chromosome	43431212	+	34213183	9527143.0	46699919.0	596585	start	start	chain	False	True	0.0	12000000.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000001.1	chr22	random	44487818	+	34658631	10510000.0	50808438.0	232145	start	start	chain	False	True	0.0	12000000.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000005.1	chr14	random	96960067	+	86476819	19170578.0	106883718.0	58008	start	start	chain	False	True	0.0	12000000.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000012.1	chr13	random	106900044	+	95417205	18408131.0	114354320.0	224571	start	start	chain	False	True	0.0	12000000.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000016.1	chr14	random	50433		0			0		start	default	False	True	0.0	50433.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000017.1	chr22	random	148501		0			0		start	default	False	True	0.0	148501.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000018.1	chr22	random	89562		0			52238	start	start	censat_rdna	False	True	0.0	89562.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000031.1	chr15	random	94095097	+	80401739	19782761.0	101981175.0	108947	start	start	chain	False	True	0.0	13899952.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000037.1	chr22	random	5009021		0			91322	end	end	censat_rdna	False	True	0.0	5009021.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000049.1	chr14	random	589655		0			0		start	default	False	True	0.0	589655.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000050.1	chr15	random	248672	-	147179	20251735.0	22286225.0	0		end	chain	False	True	0.0	248672.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000052.1	chr15	random	892994		0			0		start	default	False	True	0.0	892994.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000056.1	chr14	random	525489		0			0		start	default	False	True	0.0	525489.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000059.1	chr22	random	72812		0			47947	start	start	censat_rdna	False	True	0.0	72812.0
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000063.1	chr14	random	124751	+	124413	106471967.0	106596587.0	0		start	chain	False	False		
+HG01981_mat_hprc_r2_v1.0.1	HG01981#2#JBHDRW010000069.1	chr21	random	76307		0			52411	end	end	censat_rdna	False	True	0.0	76307.0

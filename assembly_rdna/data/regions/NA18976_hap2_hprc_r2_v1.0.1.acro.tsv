@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#CM089767.1	chr15	chromosome	99048982	+	80227415	19782761.0	101981172.0	154791	start	start	chain	False	True	0.0	25135965.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#CM089769.1	chr22	chromosome	46499361	+	34710669	10510000.0	50808430.0	466853	start	start	chain	False	True	0.0	12000000.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000002.1	chr13	random	105056894	+	95467420	18408131.0	114354320.0	3079	start	start	chain	False	True	0.0	12000000.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000005.1	chr14	random	97790698	+	87818365	19170578.0	106883718.0	194888	start	start	chain	False	True	0.0	12000000.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000011.1	chr21	random	34528321	+	33575505	12976641.0	46699974.0	0		start	chain	False	True	0.0	12000000.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000018.1	chr13	random	5363042		0			377349	start	start	censat_rdna	False	True	0.0	5363042.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000019.1	chr14	random	2338879		0			7474	end	end	censat_rdna	False	True	0.0	2338879.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000023.1	chr22	random	199879		0			138425	end	end	censat_rdna	False	True	0.0	199879.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000033.1	chr22	random	183834		0			145516	end	end	censat_rdna	False	True	0.0	183834.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000038.1	chr15	random	58268		0			0		start	default	False	True	0.0	58268.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000042.1	chr13	random	88649		0			0		start	default	False	True	0.0	88649.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000059.1	chr14	random	3652211		0			52329	end	end	censat_rdna	False	True	0.0	3652211.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000065.1	chr21	random	3794780		0			96627	end	end	censat_rdna	False	True	0.0	3794780.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000066.1	chr14	random	409250		0			366528	start	start	censat_rdna	False	True	0.0	409250.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000067.1	chr22	random	4107550		0			93839	end	end	censat_rdna	False	True	0.0	4107550.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000071.1	chr14	random	413367		0			366876	start	start	censat_rdna	False	True	0.0	413367.0
+NA18976_hap2_hprc_r2_v1.0.1	NA18976#2#JBHIJP010000084.1	chr13	random	107451	+	107359	21742787.0	21850312.0	0		start	chain	False	False		

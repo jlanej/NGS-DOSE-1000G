@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000004.1	chr15	random	95104714	+	80476208	19782761.0	101981147.0	63646	start	start	chain	False	True	0	12000000
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000005.1	chr14	random	98093996	+	87421754	19170578.0	106883718.0	150690	start	start	chain	False	True	0	12000000
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000009.1	chr22	random	46148734	+	34773427	10510000.0	50808438.0	3054	start	start	chain	False	True	0	12000000
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000017.1	chr22	random	3479218		0			53116	start	start	censat_rdna	False	True	0	3479218
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000034.1	chr14	random	376895		0			321947	end	end	censat_rdna	False	True	0	376895
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000036.1	chr22	random	104364		0			88478	end	end	censat_rdna	False	True	0	104364
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000041.1	chr15	random	102802		0			0		start	default	False	True	0	102802
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000044.1	chr22	random	86709		0			85953	end	end	censat_rdna	False	True	0	86709
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000052.1	chr13	random	105123810	+	95423909	18408131.0	114354320.0	3078	start	start	chain	False	True	0	21774444
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000053.1	chr21	random	39833881	+	34231014	9527143.0	46699974.0	53113	start	start	chain	False	True	0	12000000
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000060.1	chr22	random	3919911		0			136080	end	end	censat_rdna	False	True	0	3919911
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000072.1	chr14	random	2397033		0			187577	end	end	censat_rdna	False	True	0	2397033
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000073.1	chr22	random	178767		0			140759	end	end	censat_rdna	False	True	0	178767
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000076.1	chr14	random	515157		0			0		start	default	False	True	0	515157
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000079.1	chr13	random	200633		0			0		start	default	False	True	0	200633
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000091.1	chr22	random	233377		0			187048	end	end	censat_rdna	False	True	0	233377
+HG00706_pat_hprc_r2_v1.0.1	HG00706#1#JBJXWD010000092.1	chr13	random	50934		0			0		start	default	False	True	0	50934

@@ -1,0 +1,41 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000005.1	chr14	random	98067334	+	87255831	19170578.0	106883718.0	9177	start	start	chain	False	True	0	12000000
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000009.1	chr21	random	34621103	+	33591529	12965808.0	46699969.0	0		start	chain	False	True	0	12000000
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000010.1	chr13	random	96636001	+	95427758	18408131.0	114354320.0	0		start	chain	False	True	0	12000000
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000012.1	chr22	random	44110797	+	35234042	10510000.0	50808456.0	3054	start	start	chain	False	True	0	12000000
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000015.1	chr15	random	6548359		0			19031	start	start	censat_rdna	False	True	0	6548359
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000016.1	chr21	random	3716988	+	624979	9527143.0	10814560.0	3079	start	start	chain	False	True	0	3716988
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000018.1	chr13	random	164684		0			0		start	default	False	True	0	164684
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000019.1	chr21	random	5373856		0			298463	start	start	censat_rdna	False	True	0	5373856
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000022.1	chr13	random	1047166		0			142959	start	start	censat_rdna	False	True	0	1047166
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000024.1	chr13	random	395378		0			0		start	default	False	True	0	395378
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000025.1	chr13	random	276355		0			0		start	default	False	True	0	276355
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000026.1	chr15	random	255576		0			0		start	default	False	True	0	255576
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000027.1	chr21	random	135043	+	11143	8452543.0	8464234.0	95934	start	start	chain	False	True	0	135043
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000029.1	chr13	random	60512		0			0		start	default	False	True	0	60512
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000030.1	chr14	random	1103375		0			230044	start	start	censat_rdna	False	True	0	1103375
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000032.1	chr13	random	236379		0			0		start	default	False	True	0	236379
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000033.1	chr14	random	263553		0			225829	start	start	censat_rdna	False	True	0	263553
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000036.1	chr13	random	87389		0			0		start	default	False	True	0	87389
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000037.1	chr13	random	130959		0			0		start	default	False	True	0	130959
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000041.1	chr22	random	57613		0			0		start	default	False	True	0	57613
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000045.1	chr13	random	195846		0			0		start	default	False	True	0	195846
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000048.1	chr13	random	93096		0			0		start	default	False	True	0	93096
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000052.1	chr13	random	77503		0			0		start	default	False	True	0	77503
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000053.1	chr13	random	65278		0			0		start	default	False	True	0	65278
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000062.1	chr15	random	85650688	+	80505385	19782761.0	101981174.0	0		start	chain	False	True	0	12000000
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000075.1	chr13	random	647624		0			0		start	default	False	True	0	647624
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000076.1	chr14	random	1829977		0			0		start	default	False	True	0	1829977
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000077.1	chr14	random	4028864		0			452606	end	end	censat_rdna	False	True	0	4028864
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000082.1	chr14	random	1451849		0			51081	end	end	censat_rdna	False	True	0	1451849
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000084.1	chr21	random	79435		0			52466	start	start	censat_rdna	False	True	0	79435
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000086.1	chr21	random	136609		0			0		start	default	False	True	0	136609
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000087.1	chr13	random	153313		0			0		start	default	False	True	0	153313
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000091.1	chr13	random	263238		0			0		start	default	False	True	0	263238
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000092.1	chr13	random	395136		0			0		start	default	False	True	0	395136
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000099.1	chr13	random	52560		0			0		start	default	False	True	0	52560
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000105.1	chr21	random	63424		0			44327	end	end	censat_rdna	False	True	0	63424
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000106.1	chr13	random	169708		0			0		start	default	False	True	0	169708
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000107.1	chr22	random	72470		0			50923	end	end	censat_rdna	False	True	0	72470
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000117.1	chr13	random	94576		0			0		start	default	False	True	0	94576
+HG01109_pat_hprc_r2_v1.0.1	HG01109#1#JAHEPA020000119.1	chr13	random	89783		0			0		start	default	False	True	0	89783

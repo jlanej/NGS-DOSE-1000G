@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000006.1	chr13	random	105625660	+	95478129	18408131.0	114354320.0	100021	start	start	chain	False	True	0.0	12000000.0
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000009.1	chr14	random	98890381	+	88680188	19122915.0	106883718.0	9176	start	start	chain	False	True	0.0	12000000.0
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000017.1	chr21	random	41362241	+	32057620	8100181.0	44397332.0	190869	start	start	chain	False	True	0.0	12000000.0
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000020.1	chr22	random	46588883	+	34756148	10510000.0	50808438.0	650930	start	start	chain	False	True	0.0	12000000.0
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000023.1	chr14	random	348624		0			318498	start	start	censat_rdna	False	True	0.0	348624.0
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000029.1	chr21	random	92225		0			53553	start	start	censat_rdna	False	True	0.0	92225.0
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000043.1	chr15	random	93577938	+	79728000	19782761.0	101981172.0	107734	start	start	chain	False	True	0.0	12000000.0
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000049.1	chr21	random	2330795	+	2267280	44407389.0	46699938.0	0		start	chain	False	False		
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000050.1	chr22	random	4093391		0			53052	end	end	censat_rdna	False	True	0.0	4093391.0
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000051.1	chr21	random	7752736		0			7473	end	end	censat_rdna	False	True	0.0	7752736.0
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000055.1	chr14	random	3621500		0			189500	end	end	censat_rdna	False	True	0.0	3621500.0
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000057.1	chr13	random	164400	+	163838	54245064.0	54409056.0	0		start	chain	False	False		
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000062.1	chr15	random	62037		0			0		start	default	False	True	0.0	62037.0
+HG00232_hap1_hprc_r2_v1.0.1	HG00232#1#JBHIKM010000068.1	chr13	random	57221	+	48989	114305184.0	114354300.0	0		start	chain	False	False		

@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000005.1	chr15	random	73623750	+	73021788	28452480.0	101981183.0	0		start	chain	False	False		
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000012.1	chr13	random	6458677		0			246822	end	end	censat_rdna	False	True	0.0	6458677.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000013.1	chr14	random	94791601	+	87537760	19170578.0	106883718.0	9179	start	start	chain	False	True	0.0	12000000.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000014.1	chr21	random	40508024	+	34211964	9527143.0	46699969.0	145332	start	start	chain	False	True	0.0	12000000.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000021.1	chr22	random	275342		0			236623	start	start	censat_rdna	False	True	0.0	275342.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000031.1	chr21	random	263157	+	18653	8452543.0	8471774.0	0		start	chain	False	True	0.0	263157.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000033.1	chr21	random	102019		0			96036	end	end	censat_rdna	False	True	0.0	102019.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000055.1	chr22	random	45727099	+	34827477	10510000.0	50808468.0	145268	start	start	chain	False	True	0.0	12000000.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000061.1	chr13	random	103260180	+	95484360	18408131.0	114354320.0	143346	start	start	chain	False	True	0.0	12000000.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000065.1	chr15	random	21999773	+	5993157	20030663.0	28441183.0	109457	start	start	chain	False	True	0.0	12000000.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000066.1	chr14	random	3181321		0			249552	end	end	censat_rdna	False	True	0.0	3181321.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000071.1	chr14	random	2445760		0			0		start	default	False	True	0.0	2445760.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000072.1	chr14	random	3301838		0			0		start	default	False	True	0.0	3301838.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000106.1	chr22	random	83626		0			52266	start	start	censat_rdna	False	True	0.0	83626.0
+HG005_pat_hprc_r2_v1.0.1	HG005#1#JAHEPO020000109.1	chr15	random	113397		0			51944	end	end	censat_rdna	False	True	0.0	113397.0

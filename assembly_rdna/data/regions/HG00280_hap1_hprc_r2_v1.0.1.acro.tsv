@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000005.1	chr13	random	104008810	+	95492224	18408131.0	114354320.0	86334	start	start	chain	False	True	0.0	12000000.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000008.1	chr14	random	98341892	+	87674779	18223523.0	106883718.0	389849	start	start	chain	False	True	0.0	12000000.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000009.1	chr21	random	39037577	+	34232015	9527143.0	46699939.0	3078	start	start	chain	False	True	0.0	12000000.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000014.1	chr15	random	92402535	+	79044153	20030663.0	101981151.0	235510	start	start	chain	False	True	0.0	12000000.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000017.1	chr22	random	47115485	+	35632777	10510000.0	50808468.0	427085	start	start	chain	False	True	0.0	12000000.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000019.1	chr14	random	3324492		0			0		start	default	False	True	0.0	3324492.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000031.1	chr14	random	753429	+	667481	105906905.0	106648205.0	0		start	chain	False	False		
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000032.1	chr21	random	189948		0			0		start	default	False	True	0.0	189948.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000043.1	chr21	random	281876	+	29085	8203401.0	8467101.0	235590	start	start	chain	False	True	0.0	281876.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000046.1	chr13	random	50348		0			0		start	default	False	True	0.0	50348.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000071.1	chr14	random	3654983		0			0		start	default	False	True	0.0	3654983.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000075.1	chr14	random	3151271		0			52271	end	end	censat_rdna	False	True	0.0	3151271.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000077.1	chr14	random	165581		0			0		start	default	False	True	0.0	165581.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000087.1	chr14	random	177958		0			141170	end	end	censat_rdna	False	True	0.0	177958.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000093.1	chr22	random	235086		0			186737	start	start	censat_rdna	False	True	0.0	235086.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000098.1	chr22	random	158103		0			0		start	default	False	True	0.0	158103.0
+HG00280_hap1_hprc_r2_v1.0.1	HG00280#1#JBHDWA010000100.1	chr14	random	95097		0			51735	start	start	censat_rdna	False	True	0.0	95097.0

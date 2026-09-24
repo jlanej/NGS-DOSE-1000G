@@ -1,0 +1,5 @@
+assembly	array	contig	start	end	span	n_18S	n_28S	strand	mixed_strand	left	right	contig_len	n_periods	period_median	period_min	period_max	n_identical
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr21:8209630	GRCh38#0#chr21	8209630	8255704	46074	2	1	+	0	flank+DJ	gap+DJ	46709983	1	44211.0	44211	44211	0
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr21:8392665	GRCh38#0#chr21	8392665	8438744	46079	2	2	+	0	gap+DJ	gap	46709983	1	44210.0	44210	44210	0
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chr22_KI270733v1_random:125930	GRCh38#0#chr22_KI270733v1_random	125930	172880	46950	2	1	+	0	flank+DJ	contig_end	179772	1	45081.0	45081	45081	0
+GCA_000001405.15_GRCh38_no_alt_analysis_set	GRCh38#0#chrUn_GL000220v1:109077	GRCh38#0#chrUn_GL000220v1	109077	154918	45841	2	1	+	0	flank+DJ	contig_end	161802	1	43972.0	43972	43972	0

@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000003.1	chr13	random	103681810	+	95470238	18408131.0	114354320.0	54346	start	start	chain	False	True	0.0	24875839.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000004.1	chr22	random	46721678	+	35155840	10510000.0	50808468.0	278761	start	start	chain	False	True	0.0	12000000.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000011.1	chr14	random	97470092	+	86970474	19188575.0	106883718.0	60454	start	start	chain	False	True	0.0	12000000.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000029.1	chr22	random	124567		0			0		start	default	False	True	0.0	124567.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000044.1	chr21	random	95540		0			0		start	default	False	True	0.0	95540.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000046.1	chr21	random	64448	-	64271	10327460.0	10391937.0	0		end	chain	False	True	0.0	64448.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000050.1	chr21	random	41121646	+	34234471	9527143.0	46699961.0	443792	start	start	chain	False	True	0.0	12000000.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000051.1	chr15	random	90749207	+	79727009	19782761.0	101981170.0	108847	start	start	chain	False	True	0.0	12000000.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000058.1	chr22	random	586667		0			0		start	default	False	True	0.0	586667.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000062.1	chr14	random	3212540		0			45480	end	end	censat_rdna	False	True	0.0	3212540.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000063.1	chr22	random	4402073		0			7485	end	end	censat_rdna	False	True	0.0	4402073.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000067.1	chr21	random	466269	+	15873	8203401.0	8219308.0	446637	start	start	chain	False	True	0.0	466269.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000070.1	chr22	random	184522		0			107437	end	end	censat_rdna	False	True	0.0	184522.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000071.1	chr22	random	241727		0			227430	start	start	censat_rdna	False	True	0.0	241727.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000079.1	chr22	random	399977		0			0		start	default	False	True	0.0	399977.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000093.1	chr21	random	83192	+	82849	9954942.0	10037809.0	0		start	chain	False	True	0.0	83192.0
+HG01978_pat_hprc_r2_v1.1.0	HG01978#1#JAGYVR020000094.1	chr14	random	56952	+	56898	27297900.0	27354836.0	0		start	chain	False	False		

@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#CM101474.1	chr13	chromosome	105956497	+	95491086	18408131.0	114354273.0	100385	start	start	chain	False	True	0.0	12000000.0
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#CM101478.1	chr22	chromosome	50350395	+	34870012	10510000.0	50808326.0	205339	start	start	chain	False	True	0.0	12000000.0
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#JBKABU010000014.1	chr14	random	96280756	+	87208824	18223523.0	106883718.0	328426	start	start	chain	False	True	0.0	12000000.0
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#JBKABU010000015.1	chr15	random	93055881	+	79713414	19782761.0	101981183.0	125340	start	start	chain	False	True	0.0	12000000.0
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#JBKABU010000021.1	chr21	random	44666999	+	34318700	8100181.0	46699962.0	801080	start	start	chain	False	True	0.0	12000000.0
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#JBKABU010000026.1	chr14	random	575396		0			546221	end	end	censat_rdna	False	True	0.0	575396.0
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#JBKABU010000028.1	chr14	random	230600	+	188478	105728467.0	106247800.0	0		start	chain	False	False		
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#JBKABU010000029.1	chr14	random	460247		0			408825	start	start	censat_rdna	False	True	0.0	460247.0
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#JBKABU010000032.1	chr15	random	233553	+	223078	20466016.0	20689291.0	0		start	chain	False	True	0.0	233553.0
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#JBKABU010000033.1	chr21	random	76097	+	15857	8452741.0	8468654.0	0		start	chain	False	True	0.0	76097.0
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#JBKABU010000037.1	chr13	random	50382	+	34417	57170610.0	57205063.0	0		start	chain	False	False		
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#JBKABU010000040.1	chr14	random	92088	+	92022	21439537.0	21533697.0	0		start	chain	False	False		
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#JBKABU010000045.1	chr14	random	63113	+	63102	81778872.0	81841986.0	0		start	chain	False	False		
+NA18970_hap1_hprc_r2_v1.0.1	NA18970#1#JBKABU010000046.1	chr14	random	53823	+	53811	98983165.0	99036976.0	0		start	chain	False	False		

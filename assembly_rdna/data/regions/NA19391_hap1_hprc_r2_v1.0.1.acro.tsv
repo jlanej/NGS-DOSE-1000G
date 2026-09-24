@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#CM087794.1	chr14	chromosome	102790354	+	88221933	19122915.0	106883718.0	68248	start	start	chain	False	True	0	12000000
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000005.1	chr13	random	105757766	+	95396384	18408131.0	114354320.0	3079	start	start	chain	False	True	0	12000000
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000008.1	chr22	random	46719822	+	34677728	10510000.0	50808438.0	495465	start	start	chain	False	True	0	12000000
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000009.1	chr21	random	40000676	+	34233590	8203401.0	46699974.0	551508	start	start	chain	False	True	0	12000000
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000026.1	chr14	random	400973		0			364180	end	end	censat_rdna	False	True	0	400973
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000030.1	chr22	random	105286		0			57793	start	start	censat_rdna	False	True	0	105286
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000052.1	chr15	random	93162901	+	79812428	19782761.0	101911314.0	107548	start	start	chain	False	True	0	12000000
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000061.1	chr14	random	4077639		0			266774	end	end	censat_rdna	False	True	0	4077639
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000064.1	chr22	random	2420235		0			142261	end	end	censat_rdna	False	True	0	2420235
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000066.1	chr15	random	3419764		0			51757	end	end	censat_rdna	False	True	0	3419764
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000079.1	chr21	random	465010		0			451929	start	start	censat_rdna	False	True	0	465010
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000083.1	chr21	random	187000		0			0		start	default	False	True	0	187000
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000085.1	chr13	random	59776		0			0		start	default	False	True	0	59776
+NA19391_hap1_hprc_r2_v1.0.1	NA19391#1#JBHDXV010000088.1	chr14	random	69521		0			0		start	default	False	True	0	69521

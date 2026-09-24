@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000004.1	chr22	random	45677478	+	35026823	10510000.0	50808468.0	276063	start	start	chain	False	True	0.0	12000000.0
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000006.1	chr15	random	96754720	+	79173783	22358244.0	101981175.0	597255	start	start	chain	False	True	0.0	13615190.0
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000008.1	chr21	random	39843457	+	34215217	9527143.0	46699939.0	188424	start	start	chain	False	True	0.0	12000000.0
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000013.1	chr13	random	103282266	+	95451067	18408131.0	114354320.0	273698	start	start	chain	False	True	0.0	12000000.0
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000020.1	chr14	random	3027751		0			97350	end	end	censat_rdna	False	True	0.0	3027751.0
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000024.1	chr21	random	155308		0			98401	start	start	censat_rdna	False	True	0.0	155308.0
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000030.1	chr15	random	79745		0			0		start	default	False	True	0.0	79745.0
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000049.1	chr14	random	97295873	+	86331113	19170578.0	105984307.0	411820	start	start	chain	False	True	0.0	12000000.0
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000050.1	chr22	random	6147666		0			1048029	end	end	censat_rdna	False	True	0.0	6147666.0
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000052.1	chr14	random	3103154		0			204389	end	end	censat_rdna	False	True	0.0	3103154.0
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000055.1	chr14	random	776240	+	649395	106186311.0	106883718.0	0		start	chain	False	False		
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000063.1	chr15	random	114972		0			0		start	default	False	True	0.0	114972.0
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000064.1	chr14	random	104099	+	99570	105728526.0	106444094.0	0		start	chain	False	False		
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000067.1	chr21	random	104922		0			88463	end	end	censat_rdna	False	True	0.0	104922.0
+HG00408_mat_hprc_r2_v1.0.1	HG00408#2#JBHDVL010000071.1	chr21	random	68501		0			45043	end	end	censat_rdna	False	True	0.0	68501.0

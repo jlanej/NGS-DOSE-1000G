@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000001.1	chr14	random	98985654	+	87672247	19122915.0	105857304.0	9178	start	start	chain	False	True	0.0	20940534.0
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000010.1	chr13	random	108910237	+	95369226	18408131.0	114354320.0	262678	start	start	chain	False	True	0.0	12000000.0
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000014.1	chr22	random	46381131	+	34764791	10510000.0	50808468.0	318059	start	start	chain	False	True	0.0	12000000.0
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000015.1	chr15	random	91629259	+	79182178	19782761.0	101981147.0	11994	start	start	chain	False	True	0.0	21696393.0
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000027.1	chr14	random	392241		0			360368	end	end	censat_rdna	False	True	0.0	392241.0
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000028.1	chr14	random	161376	+	150591	106685990.0	106883718.0	0		start	chain	False	False		
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000031.1	chr22	random	317482		0			269683	end	end	censat_rdna	False	True	0.0	317482.0
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000035.1	chr15	random	81942		0			0		start	default	False	True	0.0	81942.0
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000056.1	chr21	random	34479757	+	33592366	12965808.0	46699974.0	0		start	chain	False	True	0.0	12000000.0
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000057.1	chr14	random	807911		0			264428	start	start	censat_rdna	False	True	0.0	807911.0
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000062.1	chr14	random	3844027		0			320906	end	end	censat_rdna	False	True	0.0	3844027.0
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000063.1	chr22	random	445812		0			369469	end	end	censat_rdna	False	True	0.0	445812.0
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000075.1	chr14	random	203214		0			0		start	default	False	True	0.0	203214.0
+HG01255_pat_hprc_r2_v1.0.1	HG01255#1#JBHDTB010000078.1	chr22	random	214655		0			179868	start	start	censat_rdna	False	True	0.0	214655.0

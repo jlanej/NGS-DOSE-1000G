@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#CM092139.1	chr15	chromosome	98381797	+	78801129	22358244.0	101981172.0	296371	start	start	chain	False	True	0.0	15626827.0
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000009.1	chr21	random	42927431	+	34254836	8100181.0	46699961.0	186580	start	start	chain	False	True	0.0	12000000.0
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000012.1	chr14	random	91580834	+	86959537	19170578.0	105864257.0	6101	start	start	chain	False	True	0.0	12000000.0
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000014.1	chr22	random	1885673		0			221229	start	start	censat_rdna	False	True	0.0	1885673.0
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000023.1	chr21	random	6688528		0			450808	end	end	censat_rdna	False	True	0.0	6688528.0
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000053.1	chr22	random	42162026	+	31190620	10510000.0	50808468.0	3055	start	start	chain	False	True	0.0	12000000.0
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000054.1	chr13	random	49887509	+	38653619	18408131.0	57166750.0	54247	start	start	chain	False	True	0.0	12000000.0
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000057.1	chr13	random	57179332	+	56804769	57145531.0	114354320.0	0		start	chain	False	False		
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000058.1	chr22	random	3942033		0			178558	end	end	censat_rdna	False	True	0.0	3942033.0
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000064.1	chr14	random	993943	+	849798	105741599.0	106883718.0	0		start	chain	False	False		
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000067.1	chr21	random	618008	+	69297	8203401.0	8471774.0	579857	end	start	chain	True	True	0.0	618008.0
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000075.1	chr15	random	86239		0			0		start	default	False	True	0.0	86239.0
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000078.1	chr14	random	122833	+	122237	105939150.0	106074034.0	0		start	chain	False	False		
+NA20129_pat_hprc_r2_v1.0.1	NA20129#1#JAHEPE020000081.1	chr15	random	146214		0			0		start	default	False	True	0.0	146214.0

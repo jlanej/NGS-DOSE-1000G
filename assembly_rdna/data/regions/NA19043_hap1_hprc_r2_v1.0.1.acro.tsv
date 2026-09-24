@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#CM087052.1	chr14	chromosome	102504639	+	87027236	19170578.0	106883718.0	287386	start	start	chain	False	True	0	13239604
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#CM087056.1	chr22	chromosome	48260959	+	34901019	10510000.0	50808468.0	449025	start	start	chain	False	True	0	12000000
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000013.1	chr21	random	41811340	+	34216435	9527143.0	46699919.0	546839	start	start	chain	False	True	0	12000000
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000021.1	chr21	random	5250071		0			143044	start	start	censat_rdna	False	True	0	5250071
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000031.1	chr22	random	363492		0			321362	end	end	censat_rdna	False	True	0	363492
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000042.1	chr13	random	103387383	+	95405967	18408131.0	114354320.0	97584	start	start	chain	False	True	0	12000000
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000049.1	chr15	random	92637483	+	79001400	20030663.0	101981175.0	64616	start	start	chain	False	True	0	12000000
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000051.1	chr14	random	2492366		0			7461	end	end	censat_rdna	False	True	0	2492366
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000052.1	chr22	random	4632531		0			277526	end	end	censat_rdna	False	True	0	4632531
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000053.1	chr14	random	2916752		0			186666	end	end	censat_rdna	False	True	0	2916752
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000056.1	chr14	random	3653338		0			46470	end	end	censat_rdna	False	True	0	3653338
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000057.1	chr13	random	766004		0			0		start	default	False	True	0	766004
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000061.1	chr22	random	73525		0			47915	start	start	censat_rdna	False	True	0	73525
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000069.1	chr13	random	76671		0			0		start	default	False	True	0	76671
+NA19043_hap1_hprc_r2_v1.0.1	NA19043#1#JBHDVS010000072.1	chr14	random	53276		0			0		start	default	False	True	0	53276

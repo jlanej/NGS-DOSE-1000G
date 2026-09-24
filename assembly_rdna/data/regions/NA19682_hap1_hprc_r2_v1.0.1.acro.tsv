@@ -1,0 +1,12 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19682_hap1_hprc_r2_v1.0.1	NA19682#1#CM094156.1	chr14	chromosome	101147947	+	87926285	19122915.0	106883718.0	369695	start	start	chain	False	True	0	12000000
+NA19682_hap1_hprc_r2_v1.0.1	NA19682#1#JBIRDJ010000001.1	chr15	random	93530543	+	80189100	19782761.0	101981188.0	236370	start	start	chain	False	True	0	12000000
+NA19682_hap1_hprc_r2_v1.0.1	NA19682#1#JBIRDJ010000004.1	chr13	random	102089718	+	95399992	18408131.0	114354300.0	421918	start	start	chain	False	True	0	12000000
+NA19682_hap1_hprc_r2_v1.0.1	NA19682#1#JBIRDJ010000019.1	chr22	random	45302081	+	34752346	10510000.0	50808337.0	630762	start	start	chain	False	True	0	12000000
+NA19682_hap1_hprc_r2_v1.0.1	NA19682#1#JBIRDJ010000020.1	chr21	random	40752110	+	34207699	8452718.0	46699939.0	469800	start	start	chain	False	True	0	12000000
+NA19682_hap1_hprc_r2_v1.0.1	NA19682#1#JBIRDJ010000021.1	chr14	random	638475		0			594211	start	start	censat_rdna	False	True	0	638475
+NA19682_hap1_hprc_r2_v1.0.1	NA19682#1#JBIRDJ010000024.1	chr21	random	74605		0			53460	end	end	censat_rdna	False	True	0	74605
+NA19682_hap1_hprc_r2_v1.0.1	NA19682#1#JBIRDJ010000025.1	chr14	random	649016		0			0		start	default	False	True	0	649016
+NA19682_hap1_hprc_r2_v1.0.1	NA19682#1#JBIRDJ010000026.1	chr21	random	445883	+	34861	8203401.0	8471774.0	399804	start	start	chain	False	True	0	445883
+NA19682_hap1_hprc_r2_v1.0.1	NA19682#1#JBIRDJ010000047.1	chr14	random	3296563		0			51309	end	end	censat_rdna	False	True	0	3296563
+NA19682_hap1_hprc_r2_v1.0.1	NA19682#1#JBIRDJ010000062.1	chr22	random	89231		0			88159	end	end	censat_rdna	False	True	0	89231

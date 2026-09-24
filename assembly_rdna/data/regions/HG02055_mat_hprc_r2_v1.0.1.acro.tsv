@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#CM092201.1	chr15	chromosome	93758111	+	79761273	19782761.0	101911314.0	107416	start	start	chain	False	True	0.0	12000000.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000010.1	chr14	random	90877805	+	87347882	19170578.0	106883718.0	0		start	chain	False	True	0.0	17744128.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000016.1	chr13	random	105295120	+	95462512	18408131.0	114354320.0	324983	start	start	chain	False	True	0.0	21884994.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000021.1	chr13	random	139028	+	130519	114223531.0	114354320.0	0		start	chain	False	False		
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000022.1	chr21	random	40027236	+	34209718	9527143.0	46699966.0	53065	start	start	chain	False	True	0.0	12000000.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000024.1	chr22	random	4642985		0			7462	end	end	censat_rdna	False	True	0.0	4642985.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000026.1	chr22	random	10568494		0			190387	start	start	censat_rdna	False	True	0.0	10568494.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000027.1	chr14	random	3473185		0			7454	end	end	censat_rdna	False	True	0.0	3473185.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000054.1	chr22	random	86932		0			0		start	default	False	True	0.0	86932.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000064.1	chr22	random	38063356	+	34762108	15154318.0	50808437.0	0		start	chain	False	True	0.0	12000000.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000069.1	chr14	random	10896168		0			103098	start	start	censat_rdna	False	True	0.0	10896168.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000073.1	chr21	random	276414		0			0		start	default	False	True	0.0	276414.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000075.1	chr14	random	479296		0			451942	end	end	censat_rdna	False	True	0.0	479296.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000079.1	chr22	random	89890		0			52393	end	end	censat_rdna	False	True	0.0	89890.0
+HG02055_mat_hprc_r2_v1.0.1	HG02055#2#JAHEPJ020000093.1	chr14	random	124585	+	120199	106752486.0	106873156.0	0		start	chain	False	False		

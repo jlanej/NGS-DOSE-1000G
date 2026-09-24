@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000006.1	chr14	random	96468650	+	87681253	18223523.0	106883718.0	232041	start	start	chain	False	True	0	12000000
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000010.1	chr21	random	39901667	+	34213896	9527143.0	46699939.0	55676	start	start	chain	False	True	0	12000000
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000012.1	chr14	random	2326462		0			7464	end	end	censat_rdna	False	True	0	2326462
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000013.1	chr14	random	473331		0			407240	start	start	censat_rdna	False	True	0	473331
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000024.1	chr21	random	66602	+	16939	8452737.0	8469743.0	7479	start	start	chain	False	True	0	66602
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000036.1	chr15	random	93915174	+	80439201	19782761.0	101981156.0	343234	start	start	chain	False	True	0	12000000
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000038.1	chr22	random	45333917	+	34822331	10510000.0	50807283.0	187989	start	start	chain	False	True	0	12000000
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000039.1	chr13	random	105962298	+	95462179	18408131.0	114354320.0	126158	start	start	chain	False	True	0	12000000
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000045.1	chr14	random	2713207		0			26057	end	end	censat_rdna	False	True	0	2713207
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000047.1	chr21	random	302478		0			0		start	default	False	True	0	302478
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000048.1	chr13	random	341479		0			301797	start	start	censat_rdna	False	True	0	341479
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000049.1	chr13	random	1414150		0			7470	end	end	censat_rdna	False	True	0	1414150
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000053.1	chr22	random	114195		0			52444	start	start	censat_rdna	False	True	0	114195
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000056.1	chr21	random	89920		0			52451	start	start	censat_rdna	False	True	0	89920
+HG00621_pat_hprc_r2_v1.0.1	HG00621#1#JAHBCD020000062.1	chr14	random	372434		0			195816	start	start	censat_rdna	False	True	0	372434

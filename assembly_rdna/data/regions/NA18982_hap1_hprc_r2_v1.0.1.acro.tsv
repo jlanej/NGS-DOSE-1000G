@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#CM101425.1	chr13	chromosome	108387280	+	95473868	18408131.0	114354320.0	77387	start	start	chain	False	True	0	12000000
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#CM101426.1	chr15	chromosome	96830641	+	80626037	19782761.0	101981147.0	348710	start	start	chain	False	True	0	12000000
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#CM101428.1	chr21	chromosome	44812734	+	34444611	8100181.0	46699956.0	1886891	start	start	chain	False	True	0	12000000
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#JBKABS010000014.1	chr14	random	98006989	+	87237497	19170578.0	106883718.0	281856	start	start	chain	False	True	0	12000000
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#JBKABS010000022.1	chr22	random	50344505	+	34960959	10510000.0	50808468.0	557001	start	start	chain	False	True	0	12000000
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#JBKABS010000027.1	chr22	random	290297		0			237918	start	start	censat_rdna	False	True	0	290297
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#JBKABS010000028.1	chr14	random	147255		0			144314	end	end	censat_rdna	False	True	0	147255
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#JBKABS010000036.1	chr22	random	298862		0			237868	end	end	censat_rdna	False	True	0	298862
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#JBKABS010000037.1	chr22	random	312025		0			309076	end	end	censat_rdna	False	True	0	312025
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#JBKABS010000040.1	chr15	random	67408		0			0		start	default	False	True	0	67408
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#JBKABS010000041.1	chr21	random	428931	+	34551	8203401.0	8471774.0	375957	start	start	chain	False	True	0	428931
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#JBKABS010000042.1	chr21	random	355131		0			324214	start	start	censat_rdna	False	True	0	355131
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#JBKABS010000044.1	chr14	random	222612		0			199596	end	end	censat_rdna	False	True	0	222612
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#JBKABS010000048.1	chr15	random	59928		0			0		start	default	False	True	0	59928
+NA18982_hap1_hprc_r2_v1.0.1	NA18982#1#JBKABS010000049.1	chr14	random	52094		0			0		start	default	False	True	0	52094

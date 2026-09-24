@@ -1,0 +1,6 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG06807_pat_v1	HG06807#1#CM101407.1	chr13	chromosome	106744095		0			0		start	default	False	True	0	12000000
+HG06807_pat_v1	HG06807#1#CM101408.1	chr14	chromosome	103033217		0			0		start	default	False	True	0	12000000
+HG06807_pat_v1	HG06807#1#CM101409.1	chr15	chromosome	98817676		0			0		start	default	False	True	0	12000000
+HG06807_pat_v1	HG06807#1#CM101415.1	chr21	chromosome	43903639		0			0		start	default	False	True	0	12000000
+HG06807_pat_v1	HG06807#1#CM101416.1	chr22	chromosome	48384154		0			0		start	default	False	True	0	12000000

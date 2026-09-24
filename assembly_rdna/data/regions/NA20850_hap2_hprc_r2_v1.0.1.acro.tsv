@@ -1,0 +1,9 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20850_hap2_hprc_r2_v1.0.1	NA20850#2#CM094315.1	chr22	chromosome	48102357	+	34773824	10510000.0	50808383.0	187166	start	start	chain	False	True	0	12000000
+NA20850_hap2_hprc_r2_v1.0.1	NA20850#2#JBIRDW010000001.1	chr21	random	40736079	+	34214254	9527143.0	46699951.0	449407	start	start	chain	False	True	0	12000000
+NA20850_hap2_hprc_r2_v1.0.1	NA20850#2#JBIRDW010000003.1	chr15	random	94199782	+	79694456	21242091.0	101981172.0	63691	start	start	chain	False	True	0	12000000
+NA20850_hap2_hprc_r2_v1.0.1	NA20850#2#JBIRDW010000007.1	chr13	random	103805141	+	95454612	18408131.0	114354320.0	319835	start	start	chain	False	True	0	12000000
+NA20850_hap2_hprc_r2_v1.0.1	NA20850#2#JBIRDW010000011.1	chr14	random	97998420	+	86987903	19170578.0	106883718.0	16141	start	start	chain	False	True	0	12000000
+NA20850_hap2_hprc_r2_v1.0.1	NA20850#2#JBIRDW010000020.1	chr13	random	63558		0			0		start	default	False	True	0	63558
+NA20850_hap2_hprc_r2_v1.0.1	NA20850#2#JBIRDW010000028.1	chr21	random	280247	+	31935	8203401.0	8469109.0	230190	start	start	chain	False	True	0	280247
+NA20850_hap2_hprc_r2_v1.0.1	NA20850#2#JBIRDW010000054.1	chr14	random	471656		0			415699	start	start	censat_rdna	False	True	0	471656

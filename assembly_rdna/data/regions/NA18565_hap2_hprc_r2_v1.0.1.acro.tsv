@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000001.1	chr15	random	92697719	+	81155164	19782761.0	101981175.0	193747	start	start	chain	False	True	0.0	12000000.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000003.1	chr14	random	89418841	+	87056970	19170578.0	106871881.0	0		start	chain	False	True	0.0	12000000.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000004.1	chr13	random	104214260	+	95475956	18408131.0	114354320.0	125186	start	start	chain	False	True	0.0	12000000.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000006.1	chr21	random	39532266	+	34209161	9527143.0	46699962.0	53358	start	start	chain	False	True	0.0	12000000.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000007.1	chr22	random	44999206	+	34746151	10510000.0	50808468.0	54943	start	start	chain	False	True	0.0	12000000.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000017.1	chr14	random	846536		0			0		start	default	False	True	0.0	846536.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000019.1	chr14	random	688301		0			633421	start	start	censat_rdna	False	True	0.0	688301.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000021.1	chr15	random	163312	+	163157	72586677.0	72749952.0	0		start	chain	False	False		
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000028.1	chr22	random	117295		0			0		start	default	False	True	0.0	117295.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000052.1	chr14	random	3430839		0			186762	end	end	censat_rdna	False	True	0.0	3430839.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000053.1	chr14	random	2642609		0			98625	end	end	censat_rdna	False	True	0.0	2642609.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000054.1	chr14	random	7126614		0			66787	start	start	censat_rdna	False	True	0.0	7126614.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000056.1	chr14	random	5703738		0			0		start	default	False	True	0.0	5703738.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000060.1	chr14	random	2372510		0			7478	end	end	censat_rdna	False	True	0.0	2372510.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000062.1	chr21	random	250202		0			213824	end	end	censat_rdna	False	True	0.0	250202.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000067.1	chr22	random	176506		0			140413	end	end	censat_rdna	False	True	0.0	176506.0
+NA18565_hap2_hprc_r2_v1.0.1	NA18565#2#JBIRDY010000068.1	chr14	random	136937	+	126326	105832800.0	106871153.0	0		start	chain	False	False		

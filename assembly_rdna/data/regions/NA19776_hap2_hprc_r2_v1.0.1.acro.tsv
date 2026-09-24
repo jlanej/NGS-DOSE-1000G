@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#CM094059.1	chr21	chromosome	42476364	+	34312590	8100181.0	46699951.0	651363	start	start	chain	False	True	0.0	12000000.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000006.1	chr14	random	99412824	+	88613561	19122915.0	106883718.0	366362	start	start	chain	False	True	0.0	12000000.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000011.1	chr13	random	103307065	+	95479001	18408131.0	114354315.0	351818	start	start	chain	False	True	0.0	12000000.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000013.1	chr22	random	4842301		0			7454	end	end	censat_rdna	False	True	0.0	4842301.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000014.1	chr22	random	45087795	+	35034486	10510000.0	50808438.0	140897	start	start	chain	False	True	0.0	12000000.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000015.1	chr22	random	2950410		0			418442	start	start	censat_rdna	False	True	0.0	2950410.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000017.1	chr15	random	4470645		0			7458	end	end	censat_rdna	False	True	0.0	4470645.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000018.1	chr14	random	3033728		0			7459	end	end	censat_rdna	False	True	0.0	3033728.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000027.1	chr14	random	530389		0			486144	start	start	censat_rdna	False	True	0.0	530389.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000032.1	chr15	random	182213	+	182064	71522167.0	71704409.0	0		start	chain	False	False		
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000038.1	chr15	random	89631495	+	79725161	19782761.0	101981188.0	151043	start	start	chain	False	True	0.0	12000000.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000049.1	chr14	random	549004		0			534766	end	end	censat_rdna	False	True	0.0	549004.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000055.1	chr21	random	606920	+	68601	8203401.0	8471774.0	550384	start	start	chain	False	True	0.0	606920.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000056.1	chr13	random	241201		0			0		start	default	False	True	0.0	241201.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000059.1	chr21	random	307688	+	34888	8203401.0	8471774.0	275202	end	start	chain	True	True	0.0	307688.0
+NA19776_hap2_hprc_r2_v1.0.1	NA19776#2#JBIRDC010000060.1	chr21	random	533941	+	34858	8203401.0	8471774.0	501474	start	start	chain	False	True	0.0	533941.0

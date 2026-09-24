@@ -1,0 +1,26 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000002.1	chr21	random	39644281	+	34214619	9527143.0	46699974.0	450624	start	start	chain	False	True	0.0	12000000.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000003.1	chr14	random	98296035	+	87254682	19170578.0	106883718.0	9175	start	start	chain	False	True	0.0	12000000.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000005.1	chr13	random	104410656	+	95480113	18408131.0	114354320.0	502793	start	start	chain	False	True	0.0	12000000.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000014.1	chr15	random	86357476	+	79766079	19782761.0	101981188.0	11993	start	start	chain	False	True	0.0	12000000.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000016.1	chr22	random	45109065	+	34804163	10510000.0	50808438.0	314147	start	start	chain	False	True	0.0	18786003.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000019.1	chr22	random	6408407		0			635736	start	start	censat_rdna	False	True	0.0	6408407.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000025.1	chr21	random	876930		0			643427	end	end	censat_rdna	False	True	0.0	876930.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000026.1	chr13	random	233598		0			0		start	default	False	True	0.0	233598.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000031.1	chr14	random	152417		0			106101	start	start	censat_rdna	False	True	0.0	152417.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000034.1	chr22	random	254439		0			0		start	default	False	True	0.0	254439.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000036.1	chr21	random	68484		0			52226	end	end	censat_rdna	False	True	0.0	68484.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000039.1	chr21	random	55071	+	55027	24775745.0	24830788.0	0		start	chain	False	False		
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000055.1	chr14	random	364879		0			347426	start	start	censat_rdna	False	True	0.0	364879.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000057.1	chr13	random	1001601		0			949435	start	start	censat_rdna	False	True	0.0	1001601.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000058.1	chr22	random	2833740		0			452182	end	end	censat_rdna	False	True	0.0	2833740.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000063.1	chr14	random	3054065		0			97836	end	end	censat_rdna	False	True	0.0	3054065.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000064.1	chr22	random	408338		0			370449	end	end	censat_rdna	False	True	0.0	408338.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000067.1	chr15	random	4594313		0			727148	end	end	censat_rdna	False	True	0.0	4594313.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000068.1	chr14	random	647616		0			613953	start	start	censat_rdna	False	True	0.0	647616.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000072.1	chr14	random	434269		0			409675	end	end	censat_rdna	False	True	0.0	434269.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000081.1	chr15	random	64542	+	64484	42177184.0	42241682.0	0		start	chain	False	False		
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000085.1	chr14	random	134403	+	118207	105954216.0	106077104.0	0		start	chain	False	False		
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000086.1	chr14	random	101327		0			61186	start	start	censat_rdna	False	True	0.0	101327.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000091.1	chr21	random	72757	+	12670	8452737.0	8465468.0	0		start	chain	False	True	0.0	72757.0
+NA19087_hap1_hprc_r2_v1.0.1	NA19087#1#JBHDXP010000093.1	chr14	random	53258	+	53201	42970369.0	43023614.0	0		start	chain	False	False		

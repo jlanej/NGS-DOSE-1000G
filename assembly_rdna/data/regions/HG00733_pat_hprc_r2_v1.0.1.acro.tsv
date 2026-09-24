@@ -1,0 +1,25 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000011.1	chr14	random	97464160	+	87202664	18223523.0	106883718.0	9176	start	start	chain	False	True	0.0	12000000.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000013.1	chr15	random	91353280	+	79393310	19782761.0	101981172.0	197882	start	start	chain	False	True	0.0	12000000.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000014.1	chr13	random	104627271	+	95451605	18408131.0	114354320.0	235348	start	start	chain	False	True	0.0	12000000.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000017.1	chr22	random	44432770	+	34802208	10510000.0	50808468.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000018.1	chr21	random	39274658	+	34226789	9527143.0	46699939.0	3079	start	start	chain	False	True	0.0	12000000.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000022.1	chr15	random	779284		0			0		start	default	False	True	0.0	779284.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000023.1	chr22	random	271587		0			234217	start	start	censat_rdna	False	True	0.0	271587.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000025.1	chr14	random	401053		0			329419	end	end	censat_rdna	False	True	0.0	401053.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000029.1	chr13	random	782131		0			53048	start	start	censat_rdna	False	True	0.0	782131.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000030.1	chr14	random	470548		0			447897	start	start	censat_rdna	False	True	0.0	470548.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000031.1	chr14	random	249722	+	228177	105850416.0	106121304.0	0		start	chain	False	False		
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000039.1	chr21	random	74626	+	74361	10021626.0	10095991.0	0		start	chain	False	True	0.0	74626.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000048.1	chr14	random	3051986		0			437356	end	end	censat_rdna	False	True	0.0	3051986.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000057.1	chr14	random	5549731		0			95624	end	end	censat_rdna	False	True	0.0	5549731.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000058.1	chr14	random	3440409		0			280402	end	end	censat_rdna	False	True	0.0	3440409.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000059.1	chr22	random	1321696		0			231427	start	start	censat_rdna	False	True	0.0	1321696.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000060.1	chr22	random	2470894		0			97275	end	end	censat_rdna	False	True	0.0	2470894.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000061.1	chr14	random	3599977		0			0		start	default	False	True	0.0	3599977.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000064.1	chr22	random	200566		0			142471	end	end	censat_rdna	False	True	0.0	200566.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000069.1	chr15	random	473298		0			0		start	default	False	True	0.0	473298.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000074.1	chr22	random	182050		0			142175	end	end	censat_rdna	False	True	0.0	182050.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000075.1	chr22	random	83079		0			50786	end	end	censat_rdna	False	True	0.0	83079.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000084.1	chr21	random	95514		0			52403	end	end	censat_rdna	False	True	0.0	95514.0
+HG00733_pat_hprc_r2_v1.0.1	HG00733#1#JAHEPQ020000087.1	chr22	random	68448		0			50895	end	end	censat_rdna	False	True	0.0	68448.0

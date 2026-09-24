@@ -1,0 +1,13 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02109_pat_hprc_r2_v1.0.1	HG02109#1#CM092168.1	chr14	chromosome	102810563	+	87630266	19170578.0	106883718.0	284660	start	start	chain	False	True	0	12261910
+HG02109_pat_hprc_r2_v1.0.1	HG02109#1#JAHEPG020000011.1	chr15	random	91048446	+	80479394	19782761.0	101981174.0	58137	start	start	chain	False	True	0	12000000
+HG02109_pat_hprc_r2_v1.0.1	HG02109#1#JAHEPG020000012.1	chr13	random	105465358	+	95410043	18408131.0	114354320.0	54913	start	start	chain	False	True	0	13746060
+HG02109_pat_hprc_r2_v1.0.1	HG02109#1#JAHEPG020000022.1	chr21	random	39929406	+	34177795	9527143.0	46699939.0	141933	start	start	chain	False	True	0	12000000
+HG02109_pat_hprc_r2_v1.0.1	HG02109#1#JAHEPG020000051.1	chr22	random	71875		0			50823	end	end	censat_rdna	False	True	0	71875
+HG02109_pat_hprc_r2_v1.0.1	HG02109#1#JAHEPG020000052.1	chr14	random	84660		0			0		start	default	False	True	0	84660
+HG02109_pat_hprc_r2_v1.0.1	HG02109#1#JAHEPG020000053.1	chr22	random	181028		0			0		start	default	False	True	0	181028
+HG02109_pat_hprc_r2_v1.0.1	HG02109#1#JAHEPG020000054.1	chr22	random	144494		0			100486	end	end	censat_rdna	False	True	0	144494
+HG02109_pat_hprc_r2_v1.0.1	HG02109#1#JAHEPG020000068.1	chr22	random	44662611	+	34563640	10510000.0	50808438.0	96172	start	start	chain	False	True	0	12000000
+HG02109_pat_hprc_r2_v1.0.1	HG02109#1#JAHEPG020000072.1	chr14	random	2816901		0			7474	end	end	censat_rdna	False	True	0	2816901
+HG02109_pat_hprc_r2_v1.0.1	HG02109#1#JAHEPG020000091.1	chr14	random	142245		0			0		start	default	False	True	0	142245
+HG02109_pat_hprc_r2_v1.0.1	HG02109#1#JAHEPG020000104.1	chr14	random	105050		0			0		start	default	False	True	0	105050

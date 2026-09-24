@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#CM087118.1	chr14	chromosome	99238952	+	87438576	18223523.0	106883718.0	101587	start	start	chain	False	True	0.0	12000000.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000009.1	chr13	random	102680801	+	95514602	18408131.0	114354320.0	99112	start	start	chain	False	True	0.0	12000000.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000011.1	chr15	random	90984902	+	80551280	19782761.0	101981147.0	197099	start	start	chain	False	True	0.0	12000000.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000012.1	chr21	random	41134988	+	34263971	8203401.0	46699973.0	551449	start	start	chain	False	True	0.0	12000000.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000013.1	chr22	random	44766540	+	34891703	10510000.0	50808426.0	190200	start	start	chain	False	True	0.0	12000000.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000025.1	chr14	random	464555		0			411657	start	start	censat_rdna	False	True	0.0	464555.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000026.1	chr21	random	769419	+	69820	8203401.0	8471774.0	727235	start	start	chain	False	True	0.0	769419.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000027.1	chr22	random	212555		0			187799	start	start	censat_rdna	False	True	0.0	212555.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000033.1	chr15	random	117276		0			0		start	default	False	True	0.0	117276.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000060.1	chr13	random	65928		0			0		start	default	False	True	0.0	65928.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000061.1	chr14	random	412303		0			394445	end	end	censat_rdna	False	True	0.0	412303.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000069.1	chr22	random	319326		0			0		start	default	False	True	0.0	319326.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000070.1	chr13	random	1064566		0			1061332	end	end	censat_rdna	False	True	0.0	1064566.0
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000073.1	chr14	random	55068	+	55031	64605707.0	64660773.0	0		start	chain	False	False		
+HG00140_hap1_hprc_r2_v1.0.1	HG00140#1#JBHDVY010000083.1	chr22	random	54186	+	54167	32214147.0	32268323.0	0		start	chain	False	False		

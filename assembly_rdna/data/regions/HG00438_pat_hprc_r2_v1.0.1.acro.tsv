@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#CM089184.1	chr22	chromosome	49765337	+	34943208	10510000.0	50808468.0	188173	start	start	chain	False	True	0.0	22781348.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000009.1	chr14	random	96696962	+	87129944	19170578.0	106883718.0	193427	start	start	chain	False	True	0.0	12000000.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000014.1	chr13	random	104417486	+	95481903	18408131.0	114354320.0	364758	start	start	chain	False	True	0.0	12000000.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000015.1	chr15	random	93708031	+	79241789	22358244.0	101981175.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000017.1	chr21	random	40737686	+	34212144	9527143.0	46699938.0	320258	start	start	chain	False	True	0.0	12000000.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000018.1	chr14	random	398271		0			368832	end	end	censat_rdna	False	True	0.0	398271.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000024.1	chr15	random	52892	+	52821	87009715.0	87062570.0	0		start	chain	False	False		
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000028.1	chr22	random	167407		0			140994	end	end	censat_rdna	False	True	0.0	167407.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000029.1	chr21	random	72526		0			44054	end	end	censat_rdna	False	True	0.0	72526.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000035.1	chr21	random	64591		0			7455	start	start	censat_rdna	False	True	0.0	64591.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000036.1	chr21	random	268851	+	15929	8203401.0	8219362.0	230260	start	start	chain	False	True	0.0	268851.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000049.1	chr21	random	4684850		0			138489	end	end	censat_rdna	False	True	0.0	4684850.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000053.1	chr21	random	68806		0			7479	start	start	censat_rdna	False	True	0.0	68806.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000058.1	chr14	random	373053	+	341198	105914421.0	106266360.0	0		start	chain	False	False		
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000059.1	chr22	random	280937		0			0		start	default	False	True	0.0	280937.0
+HG00438_pat_hprc_r2_v1.0.1	HG00438#1#JAHBCB020000075.1	chr13	random	53595	+	53577	108751163.0	108804757.0	0		start	chain	False	False		

@@ -1,0 +1,21 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000001.1	chr13	random	103857198	+	95464024	18408131.0	114354320.0	233999	start	start	chain	False	True	0	12000000
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000010.1	chr15	random	89684497	+	79185441	19782761.0	101981188.0	108511	start	start	chain	False	True	0	12000000
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000013.1	chr22	random	45025098	+	35111792	10510000.0	50808438.0	54873	start	start	chain	False	True	0	12000000
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000014.1	chr21	random	40640997	+	34230963	9527143.0	46699965.0	227188	start	start	chain	False	True	0	12000000
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000035.1	chr14	random	383645		0			332160	start	start	censat_rdna	False	True	0	383645
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000036.1	chr21	random	125569		0			96609	end	end	censat_rdna	False	True	0	125569
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000040.1	chr22	random	208054		0			199353	start	start	censat_rdna	False	True	0	208054
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000054.1	chr14	random	96375224	+	87403379	19170578.0	106883718.0	107966	start	start	chain	False	True	0	12000000
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000063.1	chr14	random	2763579		0			7472	end	end	censat_rdna	False	True	0	2763579
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000065.1	chr14	random	3231114		0			401591	end	end	censat_rdna	False	True	0	3231114
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000072.1	chr14	random	2995509		0			96973	end	end	censat_rdna	False	True	0	2995509
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000076.1	chr22	random	471702		0			438558	end	end	censat_rdna	False	True	0	471702
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000077.1	chr13	random	405133		0			0		start	default	False	True	0	405133
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000083.1	chr22	random	199705		0			141778	start	start	censat_rdna	False	True	0	199705
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000092.1	chr22	random	73938		0			0		start	default	False	True	0	73938
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000096.1	chr21	random	173372		0			140260	end	end	censat_rdna	False	True	0	173372
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000097.1	chr22	random	202095		0			0		start	default	False	True	0	202095
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000098.1	chr22	random	197516		0			181469	start	start	censat_rdna	False	True	0	197516
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000100.1	chr22	random	144889		0			96065	end	end	censat_rdna	False	True	0	144889
+HG02735_mat_hprc_r2_v1.0.1	HG02735#2#JBHIIJ010000103.1	chr21	random	77967		0			53609	start	start	censat_rdna	False	True	0	77967

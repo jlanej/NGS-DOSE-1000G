@@ -1,0 +1,6 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20762_hap2_hprc_r2_v1.0.1	NA20762#2#CM102534.1	chr14	chromosome	100536573	+	87686586	19122915	106883718	45444	start	start	chain	False	True	0	17894749
+NA20762_hap2_hprc_r2_v1.0.1	NA20762#2#CM102538.1	chr21	chromosome	42568278	+	34223208	9527143	46699909	30146	start	start	chain	False	True	0	12000000
+NA20762_hap2_hprc_r2_v1.0.1	NA20762#2#JBKOQX010000003.1	chr22	random	52539374	+	34869196	10510000	50808468	288801	start	start	chain	False	True	0	12000000
+NA20762_hap2_hprc_r2_v1.0.1	NA20762#2#JBKOQX010000021.1	chr13	random	103406526	+	95382203	18408131	114354320	145758	start	start	chain	False	True	0	12000000
+NA20762_hap2_hprc_r2_v1.0.1	NA20762#2#JBKOQX010000025.1	chr15	random	94172217	+	78877275	19993354	101981147	13234	start	start	chain	False	True	0	12000000

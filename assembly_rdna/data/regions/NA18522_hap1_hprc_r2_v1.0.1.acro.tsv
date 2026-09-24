@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000002.1	chr13	random	104120223	+	95381390	18408131.0	114354320.0	589904	start	start	chain	False	True	0.0	12000000.0
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000007.1	chr15	random	96450446	+	79101538	20030663.0	101981188.0	375909	start	start	chain	False	True	0.0	12000000.0
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000012.1	chr14	random	95218552	+	86441872	19170578.0	105236234.0	190812	start	start	chain	False	True	0.0	12000000.0
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000014.1	chr13	random	5542840		0			312132	start	start	censat_rdna	False	True	0.0	5542840.0
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000016.1	chr22	random	45946466	+	35200948	10510000.0	50807283.0	233599	start	start	chain	False	True	0.0	12000000.0
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000017.1	chr14	random	5853039		0			7468	end	end	censat_rdna	False	True	0.0	5853039.0
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000020.1	chr21	random	770749	+	69641	8203401.0	8471774.0	726768	start	start	chain	False	True	0.0	770749.0
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000025.1	chr21	random	65404		0			0		start	default	False	True	0.0	65404.0
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000032.1	chr14	random	100476	+	48243	106027051.0	106077104.0	0		start	chain	False	False		
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000048.1	chr21	random	34645722	+	33560997	12965808.0	46699939.0	0		start	chain	False	True	0.0	12000000.0
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000054.1	chr14	random	1568740	+	1395723	105237558.0	106883718.0	0		start	chain	False	False		
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000058.1	chr14	random	2895798		0			53064	end	end	censat_rdna	False	True	0.0	2895798.0
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000062.1	chr22	random	2640674		0			51760	end	end	censat_rdna	False	True	0.0	2640674.0
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000070.1	chr15	random	82822		0			0		start	default	False	True	0.0	82822.0
+NA18522_hap1_hprc_r2_v1.0.1	NA18522#1#JBHDWC010000074.1	chr14	random	51248	+	33566	105676221.0	105712006.0	0		start	chain	False	False		

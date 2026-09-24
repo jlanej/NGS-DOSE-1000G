@@ -1,0 +1,10 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01969_mat_hprc_r2_v1.0.1	HG01969#2#CM088706.1	chr13	chromosome	106628318	+	95426012	18408131.0	114354320.0	416101	start	start	chain	False	True	0.0	12000000.0
+HG01969_mat_hprc_r2_v1.0.1	HG01969#2#CM088709.1	chr22	chromosome	47238976	+	35184829	10510000.0	50808438.0	229060	start	start	chain	False	True	0.0	12000000.0
+HG01969_mat_hprc_r2_v1.0.1	HG01969#2#JBHIHP010000008.1	chr14	random	99781828	+	87885041	19170578.0	106883718.0	335906	start	start	chain	False	True	0.0	12000000.0
+HG01969_mat_hprc_r2_v1.0.1	HG01969#2#JBHIHP010000011.1	chr15	random	91357466	+	76824259	19993354.0	101981188.0	1032806	start	start	chain	False	True	0.0	12000000.0
+HG01969_mat_hprc_r2_v1.0.1	HG01969#2#JBHIHP010000014.1	chr21	random	40391467	+	34217867	9527143.0	46699974.0	3078	start	start	chain	False	True	0.0	12000000.0
+HG01969_mat_hprc_r2_v1.0.1	HG01969#2#JBHIHP010000019.1	chr14	random	711684		0			681481	start	start	censat_rdna	False	True	0.0	711684.0
+HG01969_mat_hprc_r2_v1.0.1	HG01969#2#JBHIHP010000045.1	chr22	random	3992658		0			94965	end	end	censat_rdna	False	True	0.0	3992658.0
+HG01969_mat_hprc_r2_v1.0.1	HG01969#2#JBHIHP010000048.1	chr14	random	289214	+	288886	106003475.0	106292501.0	0		start	chain	False	False		
+HG01969_mat_hprc_r2_v1.0.1	HG01969#2#JBHIHP010000050.1	chr14	random	411749		0			404448	end	end	censat_rdna	False	True	0.0	411749.0

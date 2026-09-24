@@ -1,0 +1,22 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000006.1	chr22	random	5594899	+	3056418	15154318.0	18415652.0	0		start	chain	False	True	0.0	5594899.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000010.1	chr15	random	92446196	+	79668045	19782761.0	101930299.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000018.1	chr14	random	97529052	+	87661368	18223523.0	106883718.0	371348	start	start	chain	False	True	0.0	12000000.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000020.1	chr22	random	32478459	+	31826529	18414210.0	50808468.0	0		start	chain	False	False		
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000021.1	chr22	random	9759815		0			141971	start	start	censat_rdna	False	True	0.0	9759815.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000022.1	chr13	random	104189997	+	95399962	18408131.0	114354320.0	3079	start	start	chain	False	True	0.0	12000000.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000025.1	chr14	random	3464302		0			227586	start	start	censat_rdna	False	True	0.0	3464302.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000029.1	chr21	random	142982		0			97328	start	start	censat_rdna	False	True	0.0	142982.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000030.1	chr14	random	188347		0			0		start	default	False	True	0.0	188347.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000035.1	chr14	random	126784		0			94810	start	start	censat_rdna	False	True	0.0	126784.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000041.1	chr15	random	213326		0			0		start	default	False	True	0.0	213326.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000046.1	chr15	random	62756		0			0		start	default	False	True	0.0	62756.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000053.1	chr21	random	161377		0			141057	start	start	censat_rdna	False	True	0.0	161377.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000062.1	chr21	random	37095110	+	33875181	9834686.0	46699939.0	0		start	chain	False	True	0.0	12000000.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000070.1	chr22	random	4872387		0			95767	end	end	censat_rdna	False	True	0.0	4872387.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000071.1	chr14	random	1825122		0			3077	start	start	censat_rdna	False	True	0.0	1825122.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000073.1	chr15	random	2454507		0			274706	end	end	censat_rdna	False	True	0.0	2454507.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000074.1	chr22	random	4433506		0			50867	start	start	censat_rdna	False	True	0.0	4433506.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000082.1	chr22	random	472705		0			0		start	default	False	True	0.0	472705.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000088.1	chr14	random	222951		0			183204	start	start	censat_rdna	False	True	0.0	222951.0
+HG02818_mat_hprc_r2_v1.0.1	HG02818#2#JAHEOR020000109.1	chr21	random	77896		0			45171	end	end	censat_rdna	False	True	0.0	77896.0

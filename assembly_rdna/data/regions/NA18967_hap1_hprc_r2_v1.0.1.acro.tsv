@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#CM101507.1	chr21	chromosome	39431485	+	33485683	12981756.0	46699939.0	0		start	chain	False	True	0.0	12000000.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#CM101508.1	chr22	chromosome	51198502	+	34922843	10510000.0	50808468.0	233571	start	start	chain	False	True	0.0	14214289.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000013.1	chr13	random	111563696	+	95504966	18408131.0	114354320.0	516716	start	start	chain	False	True	0.0	12000000.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000014.1	chr14	random	98926653	+	87010551	19170578.0	106883718.0	550813	start	start	chain	False	True	0.0	12000000.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000015.1	chr15	random	100933015	+	79244181	22358244.0	101981175.0	633531	start	start	chain	False	True	0.0	16728423.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000027.1	chr14	random	2304230		0			0		start	default	False	True	0.0	2304230.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000028.1	chr14	random	3532069		0			0		start	default	False	True	0.0	3532069.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000033.1	chr14	random	2550256		0			0		start	default	False	True	0.0	2550256.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000037.1	chr21	random	80306	+	80052	10004660.0	10084712.0	0		start	chain	False	True	0.0	80306.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000042.1	chr13	random	245450		0			0		start	default	False	True	0.0	245450.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000044.1	chr13	random	56818	+	56799	84623863.0	84680665.0	0		start	chain	False	False		
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000050.1	chr22	random	52881		0			0		start	default	False	True	0.0	52881.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000052.1	chr21	random	196280	+	196118	15942253.0	16138420.0	0		start	chain	False	False		
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000053.1	chr13	random	106016	+	106002	83342670.0	83448672.0	0		start	chain	False	False		
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000055.1	chr21	random	84451		0			48054	start	start	censat_rdna	False	True	0.0	84451.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000060.1	chr21	random	64409	+	15852	8452751.0	8468655.0	7473	start	start	chain	False	True	0.0	64409.0
+NA18967_hap1_hprc_r2_v1.0.1	NA18967#1#JBKABW010000068.1	chr21	random	72431		0			49672	end	end	censat_rdna	False	True	0.0	72431.0

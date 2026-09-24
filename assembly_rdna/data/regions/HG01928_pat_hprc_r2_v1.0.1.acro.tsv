@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000001.1	chr13	random	102957533	+	95438085	18408131.0	114354315.0	187438	start	start	chain	False	True	0	12000000
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000004.1	chr15	random	93904804	+	76860174	22599906.0	101981156.0	11993	start	start	chain	False	True	0	12000000
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000006.1	chr14	random	98729031	+	87489677	19170578.0	106883718.0	61013	start	start	chain	False	True	0	12000000
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000009.1	chr22	random	42952729	+	34873273	10510000.0	50808468.0	3055	start	start	chain	False	True	0	12000000
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000012.1	chr13	random	5269333		0			365497	start	start	censat_rdna	False	True	0	5269333
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000013.1	chr21	random	404001		0			0		start	default	False	True	0	404001
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000014.1	chr22	random	917166		0			96439	start	start	censat_rdna	False	True	0	917166
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000042.1	chr21	random	35163861	+	33605201	12965808.0	46699974.0	0		start	chain	False	True	0	12000000
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000047.1	chr14	random	4399783		0			7449	end	end	censat_rdna	False	True	0	4399783
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000048.1	chr15	random	415280		0			0		start	default	False	True	0	415280
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000054.1	chr22	random	1362635		0			503592	start	start	censat_rdna	False	True	0	1362635
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000055.1	chr21	random	237999		0			0		start	default	False	True	0	237999
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000059.1	chr15	random	250623		0			0		start	default	False	True	0	250623
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000061.1	chr21	random	374691	+	34873	8203401.0	8471774.0	357600	end	start	chain	True	True	0	374691
+HG01928_pat_hprc_r2_v1.0.1	HG01928#1#JAGYVQ020000068.1	chr21	random	73167		0			52430	end	end	censat_rdna	False	True	0	73167

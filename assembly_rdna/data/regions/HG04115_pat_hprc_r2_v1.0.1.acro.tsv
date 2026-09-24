@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000001.1	chr15	random	93171058	+	79153517	22358244.0	101981175.0	463294	start	start	chain	False	True	0.0	12000000.0
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000006.1	chr22	random	45493051	+	34758490	10510000.0	50808468.0	141515	start	start	chain	False	True	0.0	12000000.0
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000015.1	chr14	random	96005188	+	86657757	19170578.0	105496905.0	56510	start	start	chain	False	True	0.0	12000000.0
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000024.1	chr21	random	4413505	+	4335941	42277276.0	46699974.0	0		start	chain	False	False		
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000025.1	chr21	random	35404400	+	29941430	8203401.0	42299041.0	285253	start	start	chain	False	True	0.0	24221839.0
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000028.1	chr22	random	212069		0			144511	start	start	censat_rdna	False	True	0.0	212069.0
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000029.1	chr14	random	449808		0			342537	end	end	censat_rdna	False	True	0.0	449808.0
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000046.1	chr15	random	67887	+	67860	84139512.0	84207382.0	0		start	chain	False	False		
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000058.1	chr13	random	104597950	+	95445310	18408131.0	114354320.0	233305	start	start	chain	False	True	0.0	12000000.0
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000065.1	chr14	random	3359296		0			7469	end	end	censat_rdna	False	True	0.0	3359296.0
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000070.1	chr14	random	3113318		0			53593	end	end	censat_rdna	False	True	0.0	3113318.0
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000074.1	chr13	random	192834		0			0		start	default	False	True	0.0	192834.0
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000076.1	chr14	random	1335594	+	1055498	105453808.0	106883718.0	0		start	chain	False	False		
+HG04115_pat_hprc_r2_v1.0.1	HG04115#1#JBHDTF010000100.1	chr22	random	69952		0			7465	start	start	censat_rdna	False	True	0.0	69952.0

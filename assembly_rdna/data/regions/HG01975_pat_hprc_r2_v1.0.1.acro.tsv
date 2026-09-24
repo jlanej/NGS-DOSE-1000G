@@ -1,0 +1,13 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01975_pat_hprc_r2_v1.0.1	HG01975#1#JBJUVS010000002.1	chr13	random	104069419	+	95463970	18408131.0	114354320.0	323068	start	start	chain	False	True	0	12000000
+HG01975_pat_hprc_r2_v1.0.1	HG01975#1#JBJUVS010000004.1	chr22	random	44541071	+	34815915	10510000.0	50808468.0	187593	start	start	chain	False	True	0	12000000
+HG01975_pat_hprc_r2_v1.0.1	HG01975#1#JBJUVS010000005.1	chr21	random	40394391	+	34225275	9527143.0	46699896.0	237424	start	start	chain	False	True	0	12000000
+HG01975_pat_hprc_r2_v1.0.1	HG01975#1#JBJUVS010000030.1	chr22	random	90473		0			53085	start	start	censat_rdna	False	True	0	90473
+HG01975_pat_hprc_r2_v1.0.1	HG01975#1#JBJUVS010000044.1	chr21	random	64459		0			0		start	default	False	True	0	64459
+HG01975_pat_hprc_r2_v1.0.1	HG01975#1#JBJUVS010000057.1	chr14	random	97387970	+	87165846	19170578.0	106883718.0	374098	start	start	chain	False	True	0	12000000
+HG01975_pat_hprc_r2_v1.0.1	HG01975#1#JBJUVS010000065.1	chr15	random	96252930	+	78966058	22358244.0	101981183.0	377874	start	start	chain	False	True	0	12000000
+HG01975_pat_hprc_r2_v1.0.1	HG01975#1#JBJUVS010000068.1	chr22	random	4436686		0			194673	end	end	censat_rdna	False	True	0	4436686
+HG01975_pat_hprc_r2_v1.0.1	HG01975#1#JBJUVS010000072.1	chr14	random	2809698		0			7493	end	end	censat_rdna	False	True	0	2809698
+HG01975_pat_hprc_r2_v1.0.1	HG01975#1#JBJUVS010000075.1	chr14	random	2584481		0			7450	end	end	censat_rdna	False	True	0	2584481
+HG01975_pat_hprc_r2_v1.0.1	HG01975#1#JBJUVS010000076.1	chr15	random	122435		0			0		start	default	False	True	0	122435
+HG01975_pat_hprc_r2_v1.0.1	HG01975#1#JBJUVS010000088.1	chr22	random	85752		0			49808	end	end	censat_rdna	False	True	0	85752

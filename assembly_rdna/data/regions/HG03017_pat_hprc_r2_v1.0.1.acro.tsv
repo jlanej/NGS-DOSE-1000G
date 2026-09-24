@@ -1,0 +1,21 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000004.1	chr21	random	39409063	+	34225782	9527143.0	46699974.0	10096	start	start	chain	False	True	0.0	12000000.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000006.1	chr15	random	95717820	+	80450910	19782761.0	101981174.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000011.1	chr22	random	6734243		0			275950	start	start	censat_rdna	False	True	0.0	6734243.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000016.1	chr14	random	4202526		0			96936	end	end	censat_rdna	False	True	0.0	4202526.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000024.1	chr14	random	178722	+	173011	105698932.0	106290120.0	0		start	chain	False	False		
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000026.1	chr15	random	123220		0			0		start	default	False	True	0.0	123220.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000033.1	chr21	random	88737		0			52442	end	end	censat_rdna	False	True	0.0	88737.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000034.1	chr13	random	54507	+	54477	102854107.0	102908594.0	0		start	chain	False	False		
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000038.1	chr13	random	104535958	+	95479519	18408131.0	114354320.0	237448	start	start	chain	False	True	0.0	12000000.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000043.1	chr14	random	97057041	+	87003421	19170578.0	106883718.0	106485	start	start	chain	False	True	0.0	12000000.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000046.1	chr22	random	38888555	+	34761304	15154318.0	50808438.0	0		start	chain	False	True	0.0	12000000.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000047.1	chr21	random	7250866		0			412341	end	end	censat_rdna	False	True	0.0	7250866.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000049.1	chr14	random	3561316		0			142446	end	end	censat_rdna	False	True	0.0	3561316.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000051.1	chr22	random	146532		0			103553	end	end	censat_rdna	False	True	0.0	146532.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000054.1	chr14	random	4129627		0			767513	end	end	censat_rdna	False	True	0.0	4129627.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000056.1	chr13	random	680245		0			677661	end	end	censat_rdna	False	True	0.0	680245.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000057.1	chr22	random	3966075		0			598733	end	end	censat_rdna	False	True	0.0	3966075.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000061.1	chr13	random	968996		0			949691	start	start	censat_rdna	False	True	0.0	968996.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000071.1	chr14	random	400655		0			325292	start	start	censat_rdna	False	True	0.0	400655.0
+HG03017_pat_hprc_r2_v1.0.1	HG03017#1#JBHIIE010000076.1	chr22	random	131623		0			0		start	default	False	True	0.0	131623.0

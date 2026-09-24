@@ -1,0 +1,19 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#CM087650.1	chr13	chromosome	109397952	+	95481693	18408131.0	114354321.0	187809	start	start	chain	False	True	0	12000000
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000001.1	chr14	random	97546680	+	87592099	18223523.0	106883718.0	333734	start	start	chain	False	True	0	12000000
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000010.1	chr22	random	45317963	+	34776441	10510000.0	50808468.0	738683	start	start	chain	False	True	0	12000000
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000013.1	chr15	random	97665500	+	78460539	22358244.0	101981153.0	363605	start	start	chain	False	True	0	13204591
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000014.1	chr21	random	41208314	+	34258325	8203401.0	46699974.0	315092	start	start	chain	False	True	0	12000000
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000016.1	chr21	random	4313251		0			453047	start	start	censat_rdna	False	True	0	4313251
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000019.1	chr22	random	132550		0			97254	start	start	censat_rdna	False	True	0	132550
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000035.1	chr21	random	87043	+	78921	7915749.0	7994685.0	0		start	chain	False	True	0	87043
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000054.1	chr14	random	4257532		0			186537	end	end	censat_rdna	False	True	0	4257532
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000055.1	chr22	random	2885426		0			142238	end	end	censat_rdna	False	True	0	2885426
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000056.1	chr14	random	3382695		0			7454	end	end	censat_rdna	False	True	0	3382695
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000058.1	chr22	random	2970905		0			279231	end	end	censat_rdna	False	True	0	2970905
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000059.1	chr22	random	2788818		0			7463	end	end	censat_rdna	False	True	0	2788818
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000065.1	chr22	random	115136		0			96261	start	start	censat_rdna	False	True	0	115136
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000069.1	chr22	random	285642		0			240706	end	end	censat_rdna	False	True	0	285642
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000072.1	chr22	random	238454		0			187271	end	end	censat_rdna	False	True	0	238454
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000073.1	chr13	random	1003244		0			0		start	default	False	True	0	1003244
+HG03742_hap2_hprc_r2_v1.0.1	HG03742#2#JBHDXM010000077.1	chr22	random	274306		0			254530	start	start	censat_rdna	False	True	0	274306

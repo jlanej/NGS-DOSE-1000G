@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#CM085889.1	chr22	chromosome	46597492	+	34896363	10510000.0	50808438.0	128422	start	start	chain	False	True	0.0	12000000.0
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000001.1	chr15	random	87151346	+	78974397	22358244.0	101981183.0	160833	start	start	chain	False	True	0.0	12000000.0
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000011.1	chr14	random	101915389	+	87438839	19170578.0	106883718.0	281793	start	start	chain	False	True	0.0	12000000.0
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000015.1	chr13	random	104054959	+	95524516	18408131.0	114354320.0	304767	start	start	chain	False	True	0.0	12000000.0
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000017.1	chr21	random	40938672	+	34248190	8203401.0	46699974.0	274498	start	start	chain	False	True	0.0	12000000.0
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000022.1	chr22	random	237686		0			179213	end	end	censat_rdna	False	True	0.0	237686.0
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000023.1	chr22	random	312686		0			278508	end	end	censat_rdna	False	True	0.0	312686.0
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000029.1	chr15	random	71733	+	71668	71026842.0	71098550.0	0		start	chain	False	False		
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000038.1	chr13	random	66556		0			0		start	default	False	True	0.0	66556.0
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000041.1	chr22	random	72314	+	72166	22735774.0	22808176.0	0		start	chain	False	False		
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000056.1	chr14	random	3769348		0			191418	end	end	censat_rdna	False	True	0.0	3769348.0
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000060.1	chr22	random	4208997		0			53510	end	end	censat_rdna	False	True	0.0	4208997.0
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000062.1	chr14	random	598825	+	547455	105740294.0	106357656.0	0		start	chain	False	False		
+HG02056_mat_hprc_r2_v1.0.1	HG02056#2#JBHDVD010000070.1	chr22	random	243189		0			186030	start	start	censat_rdna	False	True	0.0	243189.0

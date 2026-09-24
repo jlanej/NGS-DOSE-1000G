@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000004.1	chr13	random	104300093	+	95489898	18408131.0	114354320.0	856795	start	start	chain	False	True	0.0	12000000.0
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000010.1	chr22	random	4434230		0			0		start	default	False	True	0.0	4434230.0
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000011.1	chr22	random	52997096	+	34672086	10510000.0	50808449.0	380692	start	start	chain	False	True	0.0	15666574.0
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000014.1	chr21	random	43351818	+	34432208	5216452.0	46699949.0	582977	start	start	chain	False	True	0.0	12000000.0
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000023.1	chr15	random	278427		0			0		start	default	False	True	0.0	278427.0
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000024.1	chr13	random	184494		0			0		start	default	False	True	0.0	184494.0
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000030.1	chr14	random	630770		0			618778	end	end	censat_rdna	False	True	0.0	630770.0
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000033.1	chr14	random	57453	+	18612	105727568.0	105746181.0	0		start	chain	False	False		
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000038.1	chr15	random	59063		0			0		start	default	False	True	0.0	59063.0
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000039.1	chr15	random	89720650	+	80366514	19782761.0	101930299.0	13233	start	start	chain	False	True	0.0	12000000.0
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000046.1	chr14	random	98049637	+	87552021	19170578.0	106883718.0	415438	start	start	chain	False	True	0.0	12000000.0
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000052.1	chr14	random	2439419		0			7443	end	end	censat_rdna	False	True	0.0	2439419.0
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000054.1	chr14	random	4268299		0			52486	end	end	censat_rdna	False	True	0.0	4268299.0
+NA20282_hap1_hprc_r2_v1.0.1	NA20282#1#JBIRDT010000060.1	chr15	random	474255		0			0		start	default	False	True	0.0	474255.0

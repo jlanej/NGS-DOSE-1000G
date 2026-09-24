@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#CM087840.1	chr14	chromosome	101516670	+	87423957	19170578.0	106883718.0	234331	start	start	chain	False	True	0.0	12000000.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#CM087845.1	chr21	chromosome	46872048	+	33958213	8100181.0	46699939.0	371945	start	start	chain	False	True	0.0	12000000.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#CM087846.1	chr22	chromosome	47504265	+	34685130	10510000.0	50808468.0	224531	start	start	chain	False	True	0.0	12000000.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000010.1	chr21	random	6111390		0			322529	start	start	censat_rdna	False	True	0.0	6111390.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000012.1	chr15	random	98175806	+	78966236	20030663.0	101981141.0	11993	start	start	chain	False	True	0.0	12000000.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000014.1	chr14	random	9419956		0			0		start	default	False	True	0.0	9419956.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000016.1	chr15	random	2842411		0			0		start	default	False	True	0.0	2842411.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000018.1	chr13	random	759471		0			723843	start	start	censat_rdna	False	True	0.0	759471.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000024.1	chr22	random	291455		0			270867	end	end	censat_rdna	False	True	0.0	291455.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000028.1	chr22	random	225362		0			188704	end	end	censat_rdna	False	True	0.0	225362.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000038.1	chr13	random	98882428	+	95439342	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000048.1	chr14	random	3872653		0			323901	end	end	censat_rdna	False	True	0.0	3872653.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000049.1	chr15	random	4820322		0			572047	end	end	censat_rdna	False	True	0.0	4820322.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000050.1	chr14	random	2985726		0			495515	end	end	censat_rdna	False	True	0.0	2985726.0
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000063.1	chr14	random	153302	+	133230	105727567.0	105864632.0	0		start	chain	False	False		
+NA19468_hap2_hprc_r2_v1.0.1	NA19468#2#JBHDXY010000068.1	chr14	random	85324	+	80549	106803020.0	106883718.0	0		start	chain	False	False		

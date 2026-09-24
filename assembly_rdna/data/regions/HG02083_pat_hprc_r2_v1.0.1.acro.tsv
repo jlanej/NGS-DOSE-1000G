@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#CM086959.1	chr14	chromosome	102895875	+	87411475	19170578.0	106883718.0	400601	start	start	chain	False	True	0.0	12020251.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000002.1	chr13	random	97310707	+	95483148	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000011.1	chr22	random	44965820	+	34776529	10510000.0	50808438.0	359975	start	start	chain	False	True	0.0	12000000.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000013.1	chr15	random	74313040	+	54985963	20030663.0	77038252.0	328004	start	start	chain	False	True	0.0	12000000.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000017.1	chr21	random	43237598	+	34227048	9527143.0	46699961.0	251319	start	start	chain	False	True	0.0	12000000.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000019.1	chr13	random	6759856		0			459568	start	start	censat_rdna	False	True	0.0	6759856.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000023.1	chr14	random	333736		0			0		start	default	False	True	0.0	333736.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000027.1	chr21	random	158827		0			135785	start	start	censat_rdna	False	True	0.0	158827.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000029.1	chr14	random	75914		0			0		start	default	False	True	0.0	75914.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000034.1	chr21	random	147933		0			93079	end	end	censat_rdna	False	True	0.0	147933.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000045.1	chr15	random	24953435	+	24720726	77040396.0	101981174.0	0		start	chain	False	False		
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000053.1	chr21	random	4323476		0			452513	end	end	censat_rdna	False	True	0.0	4323476.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000054.1	chr14	random	389638		0			0		start	default	False	True	0.0	389638.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000055.1	chr21	random	1103241	+	63552	8203401.0	8471774.0	1072065	start	start	chain	False	True	0.0	1103241.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000056.1	chr22	random	375237		0			321887	end	end	censat_rdna	False	True	0.0	375237.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000057.1	chr21	random	317374		0			267259	start	start	censat_rdna	False	True	0.0	317374.0
+HG02083_pat_hprc_r2_v1.0.1	HG02083#1#JBHDTV010000064.1	chr14	random	361575		0			321748	end	end	censat_rdna	False	True	0.0	361575.0

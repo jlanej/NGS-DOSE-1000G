@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#CM089628.1	chr15	chromosome	98368973	+	79444218	20030663.0	101981153.0	519231	start	start	chain	False	True	0	12149338
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000001.1	chr13	random	106833634	+	95386974	18408131.0	114354320.0	10083	start	start	chain	False	True	0	12000000
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000011.1	chr22	random	44828720	+	34774743	10510000.0	50808438.0	3055	start	start	chain	False	True	0	12000000
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000016.1	chr21	random	40525714	+	33907857	8205818.0	46699974.0	3078	start	start	chain	False	True	0	12000000
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000020.1	chr14	random	3885644		0			589084	start	start	censat_rdna	False	True	0	3885644
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000028.1	chr22	random	70135		0			49781	end	end	censat_rdna	False	True	0	70135
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000031.1	chr22	random	89831		0			52366	end	end	censat_rdna	False	True	0	89831
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000043.1	chr14	random	99580322	+	87523056	19170578.0	106883718.0	295878	start	start	chain	False	True	0	12000000
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000046.1	chr13	random	4821911		0			687870	end	end	censat_rdna	False	True	0	4821911
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000050.1	chr21	random	4496514		0			0		start	default	False	True	0	4496514
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000051.1	chr21	random	5231749		0			51058	end	end	censat_rdna	False	True	0	5231749
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000054.1	chr14	random	357431		0			321201	start	start	censat_rdna	False	True	0	357431
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000056.1	chr22	random	576108		0			471516	start	start	censat_rdna	False	True	0	576108
+NA19700_hap1_hprc_r2_v1.0.1	NA19700#1#JBHIJE010000061.1	chr22	random	129263		0			96752	start	start	censat_rdna	False	True	0	129263

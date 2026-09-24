@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000001.1	chr22	random	47668356	+	34823932	10510000.0	50798753.0	280230	start	start	chain	False	True	0.0	12000000.0
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000010.1	chr15	random	90209525	+	79052426	22358244.0	101911314.0	642402	start	start	chain	False	True	0.0	12000000.0
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000012.1	chr14	random	100362324	+	87776149	19170578.0	106883718.0	9177	start	start	chain	False	True	0.0	12000000.0
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000017.1	chr13	random	102283613	+	95438918	18408131.0	114354320.0	229203	start	start	chain	False	True	0.0	12000000.0
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000018.1	chr21	random	38810622	+	33585014	9527143.0	46699974.0	54090	start	start	chain	False	True	0.0	12000000.0
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000022.1	chr22	random	2315710		0			7425	end	end	censat_rdna	False	True	0.0	2315710.0
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000024.1	chr14	random	465273		0			409290	start	start	censat_rdna	False	True	0.0	465273.0
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000025.1	chr21	random	426536		0			382513	start	start	censat_rdna	False	True	0.0	426536.0
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000027.1	chr21	random	245321	+	10545	8453752.0	8464862.0	193384	start	start	chain	False	True	0.0	245321.0
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000037.1	chr22	random	75033		0			45466	end	end	censat_rdna	False	True	0.0	75033.0
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000044.1	chr22	random	155245	+	155127	39223090.0	39378347.0	0		start	chain	False	False		
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000055.1	chr14	random	3895628		0			98703	end	end	censat_rdna	False	True	0.0	3895628.0
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000078.1	chr21	random	115797		0			95661	end	end	censat_rdna	False	True	0.0	115797.0
+HG01960_mat_hprc_r2_v1.0.1	HG01960#2#JBHIHN010000079.1	chr21	random	145265		0			140760	end	end	censat_rdna	False	True	0.0	145265.0

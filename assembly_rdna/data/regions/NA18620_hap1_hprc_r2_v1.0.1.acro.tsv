@@ -1,0 +1,32 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000009.1	chr22	random	45508899	+	34763060	10510000.0	50803441.0	533842	start	start	chain	False	True	0.0	12000000.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000017.1	chr15	random	8873462		0			243089	start	start	censat_rdna	False	True	0.0	8873462.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000018.1	chr21	random	24829088	+	24550257	22029872.0	46699966.0	0		start	chain	False	False		
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000019.1	chr13	random	6870023		0			3078	start	start	censat_rdna	False	True	0.0	6870023.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000020.1	chr13	random	1001637		0			0		start	default	False	True	0.0	1001637.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000023.1	chr21	random	54820	+	54737	18662945.0	18717700.0	0		start	chain	False	False		
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000025.1	chr21	random	12464347	+	9055411	12981756.0	22063789.0	0		start	chain	False	True	0.0	12000000.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000026.1	chr21	random	747569		0			714983	end	end	censat_rdna	False	True	0.0	747569.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000028.1	chr15	random	987153		0			0		start	default	False	True	0.0	987153.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000038.1	chr21	random	565052		0			0		start	default	False	True	0.0	565052.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000041.1	chr15	random	273645		0			0		start	default	False	True	0.0	273645.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000048.1	chr14	random	188649	+	187492	105666773.0	105856299.0	0		start	chain	False	False		
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000049.1	chr21	random	3656824		0			3078	end	end	censat_rdna	False	True	0.0	3656824.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000057.1	chr15	random	119035		0			0		start	default	False	True	0.0	119035.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000058.1	chr21	random	143497	+	142907	23473753.0	23616768.0	0		start	chain	False	False		
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000067.1	chr21	random	89978		0			88915	end	end	censat_rdna	False	True	0.0	89978.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000068.1	chr21	random	89535		0			52227	end	end	censat_rdna	False	True	0.0	89535.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000071.1	chr21	random	66950		0			0		start	default	False	True	0.0	66950.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000074.1	chr13	random	54208		0			0		start	default	False	True	0.0	54208.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000087.1	chr13	random	98915931	+	95505680	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000093.1	chr15	random	83818054	+	79540514	20113538.0	101980448.0	0		start	chain	False	True	0.0	12000000.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000100.1	chr14	random	3885076		0			1120603	end	end	censat_rdna	False	True	0.0	3885076.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000103.1	chr15	random	313525		0			0		start	default	False	True	0.0	313525.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000107.1	chr15	random	251900		0			0		start	default	False	True	0.0	251900.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000117.1	chr14	random	99475876	+	87056947	19170578.0	106883718.0	363800	start	start	chain	False	True	0.0	12000000.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000121.1	chr14	random	53966	+	47440	19498751.0	19664683.0	0		start	chain	False	True	0.0	53966.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000130.1	chr21	random	67992	+	11554	8452738.0	8464334.0	7304	end	start	chain	True	True	0.0	67992.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000131.1	chr21	random	89893	+	16857	8452706.0	8469734.0	52431	start	start	chain	False	True	0.0	89893.0
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000137.1	chr21	random	52808	+	52760	22030006.0	22082804.0	0		start	chain	False	False		
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000138.1	chr14	random	55681	+	53971	106693345.0	106794421.0	0		start	chain	False	False		
+NA18620_hap1_hprc_r2_v1.0.1	NA18620#1#JBHIJU010000152.1	chr21	random	115227	+	115081	22290620.0	22405820.0	0		start	chain	False	False		

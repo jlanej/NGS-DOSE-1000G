@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#CM087714.1	chr14	chromosome	102264870	+	87521957	19170578.0	106883718.0	311256	start	start	chain	False	True	0.0	12000000.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#CM087715.1	chr15	chromosome	95524054	+	78995638	20102518.0	101981151.0	239206	start	start	chain	False	True	0.0	12000000.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#CM087718.1	chr22	chromosome	47093129	+	35008178	10510000.0	50808438.0	463274	start	start	chain	False	True	0.0	12000000.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#JBHDXQ010000014.1	chr13	random	104765247	+	95498031	18408131.0	114354320.0	578298	start	start	chain	False	True	0.0	12000000.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#JBHDXQ010000017.1	chr14	random	2334837		0			0		start	default	False	True	0.0	2334837.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#JBHDXQ010000018.1	chr21	random	36838294	+	33582875	12976641.0	46699938.0	0		start	chain	False	True	0.0	12000000.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#JBHDXQ010000022.1	chr13	random	5232462		0			144082	start	start	censat_rdna	False	True	0.0	5232462.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#JBHDXQ010000025.1	chr14	random	574830		0			539209	end	end	censat_rdna	False	True	0.0	574830.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#JBHDXQ010000027.1	chr14	random	546626		0			506037	start	start	censat_rdna	False	True	0.0	546626.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#JBHDXQ010000041.1	chr13	random	63453	+	63360	38491645.0	38555068.0	0		start	chain	False	False		
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#JBHDXQ010000055.1	chr15	random	4908693		0			721456	end	end	censat_rdna	False	True	0.0	4908693.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#JBHDXQ010000056.1	chr22	random	3261182		0			253998	end	end	censat_rdna	False	True	0.0	3261182.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#JBHDXQ010000060.1	chr13	random	771684		0			722200	start	start	censat_rdna	False	True	0.0	771684.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#JBHDXQ010000062.1	chr22	random	69671		0			51524	end	end	censat_rdna	False	True	0.0	69671.0
+NA19087_hap2_hprc_r2_v1.0.1	NA19087#2#JBHDXQ010000065.1	chr14	random	424962		0			405050	end	end	censat_rdna	False	True	0.0	424962.0

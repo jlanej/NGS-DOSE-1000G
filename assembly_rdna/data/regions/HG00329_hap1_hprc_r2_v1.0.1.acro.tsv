@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#CM094233.1	chr14	chromosome	103493400	+	88280950	19170578.0	106883718.0	105577	start	start	chain	False	True	0.0	12476489.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#CM094238.1	chr22	chromosome	49233311	+	34862020	10510000.0	50808468.0	54884	start	start	chain	False	True	0.0	12000000.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000011.1	chr13	random	103846157	+	95481187	18408131.0	114354320.0	196273	start	start	chain	False	True	0.0	12000000.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000017.1	chr15	random	1157329		0			0		start	default	False	True	0.0	1157329.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000022.1	chr21	random	84310		0			52426	end	end	censat_rdna	False	True	0.0	84310.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000025.1	chr21	random	218217	+	15327	8452764.0	8468135.0	183059	start	start	chain	False	True	0.0	218217.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000029.1	chr21	random	342545		0			318895	end	end	censat_rdna	False	True	0.0	342545.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000033.1	chr21	random	73013	+	17931	8452748.0	8470729.0	7455	end	start	chain	True	True	0.0	73013.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000034.1	chr21	random	100696		0			52443	end	end	censat_rdna	False	True	0.0	100696.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000037.1	chr15	random	85330233	+	79587187	20030663.0	101981125.0	0		start	chain	False	True	0.0	12000000.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000043.1	chr21	random	37923720	+	31980136	8453871.0	44407006.0	415122	start	start	chain	False	True	0.0	21848346.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000046.1	chr14	random	4514354		0			53163	end	end	censat_rdna	False	True	0.0	4514354.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000051.1	chr22	random	11517187		0			247337	start	start	censat_rdna	False	True	0.0	11517187.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000052.1	chr21	random	2323861	+	2262372	44408246.0	46699042.0	0		start	chain	False	False		
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000054.1	chr14	random	566936		0			528742	end	end	censat_rdna	False	True	0.0	566936.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000060.1	chr21	random	490128	+	34522	8203401.0	8471774.0	453148	end	start	chain	True	True	0.0	490128.0
+HG00329_hap1_hprc_r2_v1.0.1	HG00329#1#JBIRDP010000064.1	chr22	random	193690		0			0		start	default	False	True	0.0	193690.0

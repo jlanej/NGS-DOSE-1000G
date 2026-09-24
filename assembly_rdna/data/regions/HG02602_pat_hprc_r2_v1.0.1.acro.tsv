@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#CM099693.1	chr13	chromosome	106033533	+	95433513	18408131.0	114354320.0	379592	start	start	chain	False	True	0.0	12000000.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#CM099697.1	chr22	chromosome	48940156	+	34714270	10510000.0	50808468.0	10024	start	start	chain	False	True	0.0	16332985.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000010.1	chr14	random	97180957	+	88300436	19122915.0	106883718.0	105862	start	start	chain	False	True	0.0	12000000.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000013.1	chr21	random	40560526	+	34220728	9527143.0	46699939.0	99194	start	start	chain	False	True	0.0	12000000.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000015.1	chr15	random	95257445	+	79654561	19782761.0	101981153.0	629684	start	start	chain	False	True	0.0	15708392.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000019.1	chr15	random	612810	+	447050	20238700.0	20757741.0	0		start	chain	False	True	0.0	612810.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000022.1	chr15	random	133196	-	61834	20238700.0	20689291.0	0		end	chain	False	True	0.0	133196.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000023.1	chr15	random	96920	-	55893	20664492.0	20760986.0	0		end	chain	False	True	0.0	96920.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000025.1	chr15	random	735274		0			0		start	default	False	True	0.0	735274.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000027.1	chr21	random	383642	+	18977	8452725.0	8471774.0	0		start	chain	False	True	0.0	383642.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000036.1	chr15	random	97626		0			0		start	default	False	True	0.0	97626.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000069.1	chr22	random	2732586		0			187352	end	end	censat_rdna	False	True	0.0	2732586.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000070.1	chr22	random	4046142		0			51902	end	end	censat_rdna	False	True	0.0	4046142.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000071.1	chr14	random	4265812		0			7459	end	end	censat_rdna	False	True	0.0	4265812.0
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000090.1	chr21	random	54198	+	52684	31784567.0	31837652.0	0		start	chain	False	False		
+HG02602_pat_hprc_r2_v1.0.1	HG02602#1#JBJUVK010000097.1	chr14	random	63201	+	63187	87763594.0	87826790.0	0		start	chain	False	False		

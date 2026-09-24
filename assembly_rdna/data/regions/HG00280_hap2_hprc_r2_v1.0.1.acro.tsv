@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#CM087167.1	chr13	chromosome	108006358	+	95480893	18408131.0	114354320.0	322586	start	start	chain	False	True	0.0	12000000.0
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#JBHDWB010000007.1	chr14	random	96619145	+	86865042	18223523.0	106883718.0	9176	start	start	chain	False	True	0.0	12000000.0
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#JBHDWB010000013.1	chr15	random	93794689	+	79034328	22358244.0	101981183.0	239269	start	start	chain	False	True	0.0	12000000.0
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#JBHDWB010000015.1	chr22	random	46041550	+	34863318	10510000.0	50807283.0	364206	start	start	chain	False	True	0.0	12000000.0
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#JBHDWB010000017.1	chr21	random	40598547	+	34437066	5216452.0	46699974.0	463519	start	start	chain	False	True	0.0	12000000.0
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#JBHDWB010000027.1	chr14	random	151302		0			111366	end	end	censat_rdna	False	True	0.0	151302.0
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#JBHDWB010000028.1	chr21	random	92018		0			53360	start	start	censat_rdna	False	True	0.0	92018.0
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#JBHDWB010000032.1	chr22	random	115870		0			52263	end	end	censat_rdna	False	True	0.0	115870.0
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#JBHDWB010000050.1	chr14	random	3651417		0			7483	end	end	censat_rdna	False	True	0.0	3651417.0
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#JBHDWB010000053.1	chr14	random	286169		0			232555	end	end	censat_rdna	False	True	0.0	286169.0
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#JBHDWB010000067.1	chr22	random	163326		0			0		start	default	False	True	0.0	163326.0
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#JBHDWB010000069.1	chr14	random	53757	+	53726	48146589.0	48200337.0	0		start	chain	False	False		
+HG00280_hap2_hprc_r2_v1.0.1	HG00280#2#JBHDWB010000076.1	chr21	random	80538		0			0		start	default	False	True	0.0	80538.0

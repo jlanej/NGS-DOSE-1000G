@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#CM086809.1	chr15	chromosome	94002114	+	79713058	19782761.0	101981172.0	151238	start	start	chain	False	True	0.0	12000000.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000009.1	chr13	random	104698002	+	95356352	18408131.0	114354320.0	198340	start	start	chain	False	True	0.0	12000000.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000013.1	chr21	random	39976660	+	34227835	9527143.0	46699974.0	104312	start	start	chain	False	True	0.0	12000000.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000019.1	chr22	random	1339190		0			227393	start	start	censat_rdna	False	True	0.0	1339190.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000022.1	chr14	random	2647233		0			52264	end	end	censat_rdna	False	True	0.0	2647233.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000023.1	chr14	random	763917	+	748088	106062436.0	106883718.0	0		start	chain	False	False		
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000036.1	chr14	random	136701		0			98078	start	start	censat_rdna	False	True	0.0	136701.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000040.1	chr22	random	73373		0			7466	end	end	censat_rdna	False	True	0.0	73373.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000044.1	chr22	random	82535		0			52482	start	start	censat_rdna	False	True	0.0	82535.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000050.1	chr14	random	2979737		0			51813	end	end	censat_rdna	False	True	0.0	2979737.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000057.1	chr14	random	93836428	+	88167599	19122915.0	106883718.0	6102	start	start	chain	False	True	0.0	12000000.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000063.1	chr22	random	43733186	+	34857651	10510000.0	50808438.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000067.1	chr14	random	3091210		0			46439	end	end	censat_rdna	False	True	0.0	3091210.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000080.1	chr13	random	113467		0			0		start	default	False	True	0.0	113467.0
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000081.1	chr14	random	74764	+	73890	106003200.0	106077104.0	0		start	chain	False	False		
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000083.1	chr14	random	163677	+	99145	105628377.0	106079234.0	0		start	chain	False	False		
+HG03688_pat_hprc_r2_v1.0.1	HG03688#1#JBHDTJ010000084.1	chr21	random	68762		0			50957	end	end	censat_rdna	False	True	0.0	68762.0

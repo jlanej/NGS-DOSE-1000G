@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000009.1	chr13	random	103195824	+	95459411	18408131.0	114354320.0	404745	start	start	chain	False	True	0.0	12000000.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000013.1	chr21	random	35190642	+	33606349	12965808.0	46699939.0	0		start	chain	False	True	0.0	12000000.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000020.1	chr14	random	6693873		0			130769	end	end	censat_rdna	False	True	0.0	6693873.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000032.1	chr22	random	182533		0			179832	end	end	censat_rdna	False	True	0.0	182533.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000033.1	chr13	random	130197		0			0		start	default	False	True	0.0	130197.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000034.1	chr21	random	199540	+	14459	8204858.0	8219354.0	190589	start	start	chain	False	True	0.0	199540.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000035.1	chr13	random	99669	+	99469	36355220.0	36454805.0	0		start	chain	False	False		
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000039.1	chr21	random	210688		0			165496	end	end	censat_rdna	False	True	0.0	210688.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000047.1	chr14	random	97877380	+	87746641	19170578.0	106883718.0	6096	start	start	chain	False	True	0.0	13698820.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000052.1	chr15	random	92560739	+	78268321	22358244.0	101981175.0	63988	start	start	chain	False	True	0.0	12000000.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000053.1	chr22	random	42630207	+	34937424	10510000.0	50807283.0	3055	start	start	chain	False	True	0.0	12000000.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000058.1	chr22	random	2596282		0			7478	end	end	censat_rdna	False	True	0.0	2596282.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000068.1	chr13	random	249004	+	248812	101485218.0	101734105.0	0		start	chain	False	False		
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000070.1	chr13	random	200283		0			0		start	default	False	True	0.0	200283.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000071.1	chr15	random	99191	+	99150	51096385.0	51195593.0	0		start	chain	False	False		
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000073.1	chr13	random	205219		0			0		start	default	False	True	0.0	205219.0
+NA20805_hap1_hprc_r2_v1.0.1	NA20805#1#JBIEBZ010000083.1	chr13	random	101738		0			0		start	default	False	True	0.0	101738.0

@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#CM089563.1	chr15	chromosome	95283177	+	79170456	22358244.0	101981147.0	61943	start	start	chain	False	True	0.0	12055832.0
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000008.1	chr14	random	96574231	+	86697514	18223523.0	105851577.0	594015	start	start	chain	False	True	0.0	12000000.0
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000010.1	chr22	random	46552541	+	34829419	10510000.0	50808426.0	191912	start	start	chain	False	True	0.0	12000000.0
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000014.1	chr21	random	37397064	+	31990546	8203401.0	44405680.0	415287	start	start	chain	False	True	0.0	12000000.0
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000017.1	chr13	random	96703982	+	95467088	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000019.1	chr13	random	5557671		0			48823	start	start	censat_rdna	False	True	0.0	5557671.0
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000023.1	chr14	random	973964	+	883816	105922362.0	106882527.0	0		start	chain	False	False		
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000024.1	chr21	random	2326897	+	2264661	44407154.0	46699969.0	0		start	chain	False	False		
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000026.1	chr22	random	224437		0			221484	start	start	censat_rdna	False	True	0.0	224437.0
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000027.1	chr22	random	89842		0			0		start	default	False	True	0.0	89842.0
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000032.1	chr22	random	67977		0			0		start	default	False	True	0.0	67977.0
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000048.1	chr14	random	2494998		0			97008	end	end	censat_rdna	False	True	0.0	2494998.0
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000053.1	chr21	random	790406		0			768267	start	start	censat_rdna	False	True	0.0	790406.0
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000057.1	chr15	random	78966		0			0		start	default	False	True	0.0	78966.0
+NA21106_hap1_hprc_r2_v1.0.1	NA21106#1#JBHIJA010000060.1	chr22	random	269983		0			0		start	default	False	True	0.0	269983.0

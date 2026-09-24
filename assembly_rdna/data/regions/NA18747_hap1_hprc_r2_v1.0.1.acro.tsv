@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000003.1	chr22	random	32501323	+	31974969	17826870.0	50808468.0	0		start	chain	False	False		
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000007.1	chr15	random	98080251	+	77659553	22358244.0	101981156.0	194018	start	start	chain	False	True	0.0	12000000.0
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000011.1	chr13	random	104136974	+	95311518	18408131.0	114354320.0	142497	start	start	chain	False	True	0.0	12000000.0
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000016.1	chr14	random	95918429	+	87510169	18223523.0	106883718.0	147938	start	start	chain	False	True	0.0	12000000.0
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000018.1	chr21	random	40234519	+	34226444	9527143.0	46699940.0	54806	start	start	chain	False	True	0.0	12000000.0
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000020.1	chr21	random	4057698		0			7421	end	end	censat_rdna	False	True	0.0	4057698.0
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000022.1	chr22	random	12674155	+	2594500	10510000.0	17862682.0	3054	start	start	chain	False	True	0.0	12000000.0
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000024.1	chr22	random	4077783		0			52068	start	start	censat_rdna	False	True	0.0	4077783.0
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000028.1	chr14	random	287749		0			131137	end	end	censat_rdna	False	True	0.0	287749.0
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000029.1	chr21	random	605839	+	34894	8203401.0	8471774.0	584738	start	start	chain	False	True	0.0	605839.0
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000033.1	chr14	random	373697		0			329279	end	end	censat_rdna	False	True	0.0	373697.0
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000065.1	chr14	random	160052		0			0		start	default	False	True	0.0	160052.0
+NA18747_hap1_hprc_r2_v1.0.1	NA18747#1#JBHDWE010000066.1	chr13	random	477009		0			0		start	default	False	True	0.0	477009.0

@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#CM089202.1	chr21	chromosome	43337056	+	34384554	5216452.0	46699939.0	770928	start	start	chain	False	True	0	12000000
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000011.1	chr22	random	45861560	+	35011778	10510000.0	50808438.0	230628	start	start	chain	False	True	0	12000000
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000013.1	chr13	random	104717675	+	95491121	18408131.0	114354320.0	183752	start	start	chain	False	True	0	12000000
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000015.1	chr14	random	97203760	+	87138799	19170578.0	106883718.0	215441	start	start	chain	False	True	0	17612919
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000018.1	chr22	random	4308169		0			412379	end	end	censat_rdna	False	True	0	4308169
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000031.1	chr21	random	84519		0			52411	end	end	censat_rdna	False	True	0	84519
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000033.1	chr22	random	85269		0			52277	start	start	censat_rdna	False	True	0	85269
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000049.1	chr15	random	90612704	+	78360391	19782761.0	101981175.0	255633	start	start	chain	False	True	0	12000000
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000053.1	chr14	random	4716812		0			7476	end	end	censat_rdna	False	True	0	4716812
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000055.1	chr15	random	4065458		0			220814	end	end	censat_rdna	False	True	0	4065458
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000057.1	chr21	random	68400		0			7460	start	start	censat_rdna	False	True	0	68400
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000063.1	chr22	random	78367		0			52863	start	start	censat_rdna	False	True	0	78367
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000070.1	chr14	random	74225		0			0		start	default	False	True	0	74225
+HG00438_mat_hprc_r2_v1.0.1	HG00438#2#JAHBCA020000073.1	chr21	random	65209		0			46088	end	end	censat_rdna	False	True	0	65209

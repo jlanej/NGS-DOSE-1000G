@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#CM089442.1	chr21	chromosome	42080551	+	34323745	8100181.0	46699974.0	277806	start	start	chain	False	True	0.0	12000000.0
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#CM089443.1	chr22	chromosome	47572802	+	34832744	10510000.0	50808430.0	146070	start	start	chain	False	True	0.0	12000000.0
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#JBHIIS010000009.1	chr13	random	102422222	+	95440763	18408131.0	114354320.0	450599	start	start	chain	False	True	0.0	12000000.0
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#JBHIIS010000011.1	chr14	random	95769944	+	87615537	18223523.0	106883718.0	9178	start	start	chain	False	True	0.0	15405959.0
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#JBHIIS010000012.1	chr15	random	88688259	+	77411107	19782761.0	101911314.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#JBHIIS010000019.1	chr15	random	2415970		0			0		start	default	False	True	0.0	2415970.0
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#JBHIIS010000021.1	chr22	random	58857		0			0		start	default	False	True	0.0	58857.0
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#JBHIIS010000022.1	chr22	random	132464		0			95793	end	end	censat_rdna	False	True	0.0	132464.0
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#JBHIIS010000023.1	chr13	random	361798	+	359677	99960120.0	100320031.0	0		start	chain	False	False		
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#JBHIIS010000024.1	chr21	random	282914	+	15901	8203401.0	8219324.0	252929	start	start	chain	False	True	0.0	282914.0
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#JBHIIS010000049.1	chr14	random	2771006		0			96244	end	end	censat_rdna	False	True	0.0	2771006.0
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#JBHIIS010000054.1	chr22	random	3307743		0			184586	start	start	censat_rdna	False	True	0.0	3307743.0
+HG03874_hap1_hprc_r2_v1.0.1	HG03874#1#JBHIIS010000058.1	chr22	random	179771		0			142298	start	start	censat_rdna	False	True	0.0	179771.0

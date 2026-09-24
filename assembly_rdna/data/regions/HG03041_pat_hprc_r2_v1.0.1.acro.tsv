@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000008.1	chr15	random	95045941	+	77419172	21242091.0	101981175.0	241173	start	start	chain	False	True	0	12000000
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000013.1	chr22	random	48135818	+	34813881	10510000.0	50808438.0	552562	start	start	chain	False	True	0	12000000
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000014.1	chr14	random	453113		0			405410	start	start	censat_rdna	False	True	0	453113
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000015.1	chr14	random	2241969		0			7461	end	end	censat_rdna	False	True	0	2241969
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000016.1	chr21	random	161106		0			142277	end	end	censat_rdna	False	True	0	161106
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000021.1	chr21	random	586894		0			534700	start	start	censat_rdna	False	True	0	586894
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000022.1	chr21	random	79465		0			51665	start	start	censat_rdna	False	True	0	79465
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000026.1	chr21	random	77103		0			51681	end	end	censat_rdna	False	True	0	77103
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000028.1	chr13	random	103714091	+	95428191	18408131.0	114354320.0	276934	start	start	chain	False	True	0	12000000
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000034.1	chr14	random	100370835	+	87930002	19170578.0	106883718.0	551357	start	start	chain	False	True	0	12000000
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000036.1	chr21	random	41416185	+	34186366	9527143.0	46699974.0	8343	start	start	chain	False	True	0	12000000
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000037.1	chr22	random	2651833		0			52491	end	end	censat_rdna	False	True	0	2651833
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000040.1	chr22	random	3331135		0			95707	end	end	censat_rdna	False	True	0	3331135
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000041.1	chr14	random	3592322		0			184334	end	end	censat_rdna	False	True	0	3592322
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000042.1	chr22	random	4066603		0			7474	end	end	censat_rdna	False	True	0	4066603
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000048.1	chr21	random	106403		0			52382	start	start	censat_rdna	False	True	0	106403
+HG03041_pat_hprc_r2_v1.0.1	HG03041#1#JBHIHQ010000049.1	chr14	random	60842		0			0		start	default	False	True	0	60842

@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#CM088656.1	chr22	chromosome	49442301	+	34846860	10510000.0	50808432.0	95452	start	start	chain	False	True	0.0	12000000.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000010.1	chr14	random	97918885	+	87322861	19170578.0	106883718.0	14418	start	start	chain	False	True	0.0	12000000.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000012.1	chr15	random	93230483	+	80517301	19782761.0	101981172.0	13234	start	start	chain	False	True	0.0	12000000.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000016.1	chr22	random	802034		0			0		start	default	False	True	0.0	802034.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000022.1	chr14	random	567770		0			537940	end	end	censat_rdna	False	True	0.0	567770.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000031.1	chr13	random	105769407	+	95423449	18408131.0	114354320.0	3079	start	start	chain	False	True	0.0	12000000.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000041.1	chr21	random	36196238	+	29374677	8452543.0	41754859.0	231406	start	start	chain	False	True	0.0	12000000.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000044.1	chr15	random	308163		0			0		start	default	False	True	0.0	308163.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000045.1	chr22	random	2719363		0			139259	start	start	censat_rdna	False	True	0.0	2719363.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000048.1	chr14	random	3228423		0			314429	end	end	censat_rdna	False	True	0.0	3228423.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000049.1	chr22	random	3169194		0			95581	end	end	censat_rdna	False	True	0.0	3169194.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000050.1	chr14	random	74353		0			0		start	default	False	True	0.0	74353.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000052.1	chr15	random	602316		0			0		start	default	False	True	0.0	602316.0
+HG01960_pat_hprc_r2_v1.0.1	HG01960#1#JBHIHM010000053.1	chr21	random	4996116	+	4904917	41710333.0	46699954.0	0		start	chain	False	False		

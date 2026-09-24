@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#CM087608.1	chr22	chromosome	50399516	+	34791088	10510000.0	50808438.0	364402	start	start	chain	False	True	0.0	13247011.0
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000001.1	chr15	random	93328116	+	80453455	19782761.0	101981183.0	11993	start	start	chain	False	True	0.0	12048347.0
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000006.1	chr13	random	105604181	+	95448439	18408131.0	114354320.0	230304	start	start	chain	False	True	0.0	12000000.0
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000014.1	chr14	random	789134		0			779128	start	start	censat_rdna	False	True	0.0	789134.0
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000015.1	chr14	random	1072386	+	933647	105657970.0	106883718.0	0		start	chain	False	False		
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000017.1	chr14	random	292894	+	166138	105776081.0	106537801.0	0		start	chain	False	False		
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000041.1	chr15	random	4835097		0			7446	end	end	censat_rdna	False	True	0.0	4835097.0
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000042.1	chr21	random	39208636	+	34182175	9527143.0	46699939.0	3078	start	start	chain	False	True	0.0	20154467.0
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000043.1	chr14	random	3229901		0			50955	end	end	censat_rdna	False	True	0.0	3229901.0
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000049.1	chr15	random	339072		0			0		start	default	False	True	0.0	339072.0
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000050.1	chr14	random	100284446	+	87136331	19170578.0	106883718.0	1065693	start	start	chain	False	True	0.0	12000000.0
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000052.1	chr15	random	328739		0			0		start	default	False	True	0.0	328739.0
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000057.1	chr13	random	83256	+	83238	83596439.0	83679720.0	0		start	chain	False	False		
+HG01784_hap2_hprc_r2_v1.0.1	HG01784#2#JBHDXI010000067.1	chr22	random	77304		0			0		start	default	False	True	0.0	77304.0

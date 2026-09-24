@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#CM089688.1	chr15	chromosome	98032890	+	78709117	22358244.0	101981172.0	58742	start	start	chain	False	True	0.0	12000000.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000005.1	chr13	random	104688371	+	95264326	18408131.0	114354320.0	274793	start	start	chain	False	True	0.0	12000000.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000008.1	chr21	random	42057473	+	34250022	8203401.0	46699962.0	408224	start	start	chain	False	True	0.0	12000000.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000009.1	chr22	random	39984479	+	34300724	10510000.0	50808449.0	3054	start	start	chain	False	True	0.0	12000000.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000017.1	chr14	random	2729030		0			7470	end	end	censat_rdna	False	True	0.0	2729030.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000019.1	chr22	random	5216512		0			325725	start	start	censat_rdna	False	True	0.0	5216512.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000021.1	chr22	random	292057		0			280419	end	end	censat_rdna	False	True	0.0	292057.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000025.1	chr21	random	64845		0			0		start	default	False	True	0.0	64845.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000028.1	chr15	random	3210309		0			52212	end	end	censat_rdna	False	True	0.0	3210309.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000030.1	chr14	random	96681211	+	87555414	19170578.0	106883718.0	414247	start	start	chain	False	True	0.0	12000000.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000034.1	chr14	random	3134534		0			97138	end	end	censat_rdna	False	True	0.0	3134534.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000042.1	chr22	random	5367989		0			7446	end	end	censat_rdna	False	True	0.0	5367989.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000049.1	chr22	random	89551		0			52230	end	end	censat_rdna	False	True	0.0	89551.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000051.1	chr21	random	89721		0			52388	end	end	censat_rdna	False	True	0.0	89721.0
+NA21110_hap2_hprc_r2_v1.0.1	NA21110#2#JBHIJJ010000054.1	chr13	random	80172	+	80080	28054836.0	28134968.0	0		start	chain	False	False		

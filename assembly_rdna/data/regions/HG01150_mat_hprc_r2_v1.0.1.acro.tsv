@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#CM088621.1	chr15	chromosome	98173358	+	79566215	19993354.0	101981139.0	200762	start	start	chain	False	True	0.0	12000000.0
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#CM088626.1	chr21	chromosome	43362740	+	34347912	8100181.0	46699042.0	581528	start	start	chain	False	True	0.0	12000000.0
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#JBHIHJ010000005.1	chr14	random	72541916	+	72105822	34194197.0	106883718.0	0		start	chain	False	False		
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#JBHIHJ010000009.1	chr22	random	38797002	+	34841522	15154318.0	50808468.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#JBHIHJ010000010.1	chr13	random	103430493	+	95480921	18408131.0	114354320.0	215308	start	start	chain	False	True	0.0	21324156.0
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#JBHIHJ010000016.1	chr14	random	24006239	+	15577672	19122915.0	34212840.0	6100	start	start	chain	False	True	0.0	12000000.0
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#JBHIHJ010000019.1	chr22	random	7567018		0			612677	start	start	censat_rdna	False	True	0.0	7567018.0
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#JBHIHJ010000023.1	chr21	random	220759		0			184094	start	start	censat_rdna	False	True	0.0	220759.0
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#JBHIHJ010000028.1	chr14	random	50459		0			0		start	default	False	True	0.0	50459.0
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#JBHIHJ010000039.1	chr14	random	2639263		0			64200	end	end	censat_rdna	False	True	0.0	2639263.0
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#JBHIHJ010000041.1	chr22	random	4796106		0			303232	end	end	censat_rdna	False	True	0.0	4796106.0
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#JBHIHJ010000042.1	chr22	random	3800399		0			405038	end	end	censat_rdna	False	True	0.0	3800399.0
+HG01150_mat_hprc_r2_v1.0.1	HG01150#2#JBHIHJ010000055.1	chr13	random	57566	+	57497	28109715.0	28167216.0	0		start	chain	False	False		

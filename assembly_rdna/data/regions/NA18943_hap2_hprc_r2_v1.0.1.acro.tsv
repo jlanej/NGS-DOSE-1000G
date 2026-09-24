@@ -1,0 +1,8 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18943_hap2_hprc_r2_v1.0.1	NA18943#2#CM101699.1	chr22	chromosome	59437819	+	34715424	10510000.0	50808468.0	1403026	start	start	chain	False	True	0	20864672
+NA18943_hap2_hprc_r2_v1.0.1	NA18943#2#JBKACJ010000013.1	chr13	random	105597639	+	95503181	18408131.0	114354320.0	458191	start	start	chain	False	True	0	12000000
+NA18943_hap2_hprc_r2_v1.0.1	NA18943#2#JBKACJ010000014.1	chr14	random	97189365	+	87065748	19170578.0	106883718.0	57936	start	start	chain	False	True	0	12000000
+NA18943_hap2_hprc_r2_v1.0.1	NA18943#2#JBKACJ010000015.1	chr15	random	92694839	+	79169988	22358244.0	101981174.0	11993	start	start	chain	False	True	0	12000000
+NA18943_hap2_hprc_r2_v1.0.1	NA18943#2#JBKACJ010000021.1	chr21	random	41213457	+	34260087	8203401.0	46699938.0	953831	start	start	chain	False	True	0	12000000
+NA18943_hap2_hprc_r2_v1.0.1	NA18943#2#JBKACJ010000028.1	chr21	random	89636		0			52276	end	end	censat_rdna	False	True	0	89636
+NA18943_hap2_hprc_r2_v1.0.1	NA18943#2#JBKACJ010000038.1	chr22	random	73281		0			50995	start	start	censat_rdna	False	True	0	73281

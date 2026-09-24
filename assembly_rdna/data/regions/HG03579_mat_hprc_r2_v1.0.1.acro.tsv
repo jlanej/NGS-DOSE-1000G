@@ -1,0 +1,30 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#CM089295.1	chr15	chromosome	97553476	+	80079000	20030663.0	101981172.0	411432	start	start	chain	False	True	0.0	13371198.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000005.1	chr13	random	105782028	+	95410103	18408131.0	114354320.0	123160	start	start	chain	False	True	0.0	12000000.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000011.1	chr21	random	41841026	+	34216139	9527143.0	46699939.0	3079	start	start	chain	False	True	0.0	12000000.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000012.1	chr14	random	98376270	+	87974334	19170578.0	106883718.0	278862	start	start	chain	False	True	0.0	12000000.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000013.1	chr22	random	43506943	+	34777692	10510000.0	50808438.0	314403	start	start	chain	False	True	0.0	12000000.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000023.1	chr14	random	264922		0			228477	end	end	censat_rdna	False	True	0.0	264922.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000027.1	chr15	random	330558		0			0		start	default	False	True	0.0	330558.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000033.1	chr22	random	78321		0			51875	end	end	censat_rdna	False	True	0.0	78321.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000037.1	chr14	random	125677		0			94855	end	end	censat_rdna	False	True	0.0	125677.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000038.1	chr22	random	143588		0			97239	start	start	censat_rdna	False	True	0.0	143588.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000041.1	chr13	random	81257		0			51661	end	end	censat_rdna	False	True	0.0	81257.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000046.1	chr13	random	97965		0			51659	end	end	censat_rdna	False	True	0.0	97965.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000067.1	chr14	random	4750392		0			97267	end	end	censat_rdna	False	True	0.0	4750392.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000068.1	chr21	random	5931872		0			51592	end	end	censat_rdna	False	True	0.0	5931872.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000069.1	chr22	random	1187141		0			94921	start	start	censat_rdna	False	True	0.0	1187141.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000070.1	chr21	random	65081	+	17637	8452543.0	8470563.0	7463	start	start	chain	False	True	0.0	65081.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000071.1	chr14	random	2499099		0			140757	end	end	censat_rdna	False	True	0.0	2499099.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000074.1	chr15	random	218467		0			0		start	default	False	True	0.0	218467.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000078.1	chr15	random	173677		0			0		start	default	False	True	0.0	173677.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000079.1	chr14	random	129196		0			94743	start	start	censat_rdna	False	True	0.0	129196.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000084.1	chr15	random	101044		0			0		start	default	False	True	0.0	101044.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000086.1	chr14	random	55571	+	55555	29366127.0	29421691.0	0		start	chain	False	False		
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000090.1	chr15	random	134934		0			0		start	default	False	True	0.0	134934.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000093.1	chr15	random	50566		0			0		start	default	False	True	0.0	50566.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000096.1	chr21	random	136561		0			133234	end	end	censat_rdna	False	True	0.0	136561.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000097.1	chr13	random	159259		0			0		start	default	False	True	0.0	159259.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000099.1	chr15	random	81033		0			0		start	default	False	True	0.0	81033.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000100.1	chr21	random	140181		0			95879	end	end	censat_rdna	False	True	0.0	140181.0
+HG03579_mat_hprc_r2_v1.0.1	HG03579#2#JAGYVT020000101.1	chr21	random	52500		0			7455	end	end	censat_rdna	False	True	0.0	52500.0

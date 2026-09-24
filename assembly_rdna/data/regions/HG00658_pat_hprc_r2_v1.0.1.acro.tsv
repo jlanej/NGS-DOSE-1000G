@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000006.1	chr21	random	38887974	+	34214790	9527143.0	46699939.0	144198	start	start	chain	False	True	0.0	12000000.0
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000009.1	chr22	random	45739703	+	34844378	10510000.0	50807283.0	54398	start	start	chain	False	True	0.0	12000000.0
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000013.1	chr13	random	104170240	+	95503769	18408131.0	114354320.0	3078	start	start	chain	False	True	0.0	12000000.0
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000015.1	chr14	random	98339854	+	86992869	19170578.0	106883718.0	282363	start	start	chain	False	True	0.0	12000000.0
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000016.1	chr15	random	95898234	+	79170699	19993354.0	101981188.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000044.1	chr22	random	85158		0			84957	end	end	censat_rdna	False	True	0.0	85158.0
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000073.1	chr14	random	4370223		0			142185	end	end	censat_rdna	False	True	0.0	4370223.0
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000078.1	chr21	random	145083		0			96763	start	start	censat_rdna	False	True	0.0	145083.0
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000081.1	chr14	random	3358629		0			228350	end	end	censat_rdna	False	True	0.0	3358629.0
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000096.1	chr13	random	96346		0			0		start	default	False	True	0.0	96346.0
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000101.1	chr22	random	191782	+	191589	22438414.0	22630351.0	0		start	chain	False	False		
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000107.1	chr21	random	85142		0			52435	end	end	censat_rdna	False	True	0.0	85142.0
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000119.1	chr21	random	148905		0			97623	start	start	censat_rdna	False	True	0.0	148905.0
+HG00658_pat_hprc_r2_v1.0.1	HG00658#1#JBHIHU010000124.1	chr13	random	51465		0			0		start	default	False	True	0.0	51465.0

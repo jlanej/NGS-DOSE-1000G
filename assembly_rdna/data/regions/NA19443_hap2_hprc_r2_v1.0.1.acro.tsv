@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000001.1	chr14	random	100148862	+	87544455	19170578.0	106883718.0	282581	start	start	chain	False	True	0.0	12000000.0
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000003.1	chr21	random	42065809	+	31970889	8100181.0	44378660.0	770971	start	start	chain	False	True	0.0	12000000.0
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000014.1	chr22	random	45912198	+	35114447	10510000.0	50808317.0	3054	start	start	chain	False	True	0.0	12000000.0
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000018.1	chr14	random	2894652		0			7477	end	end	censat_rdna	False	True	0.0	2894652.0
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000019.1	chr14	random	406030	+	355872	106307382.0	106792248.0	0		start	chain	False	False		
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000021.1	chr14	random	636158		0			584629	end	end	censat_rdna	False	True	0.0	636158.0
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000025.1	chr14	random	560455		0			540972	end	end	censat_rdna	False	True	0.0	560455.0
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000030.1	chr15	random	177745	-	163006	84324167.0	84487329.0	0		end	chain	False	False		
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000031.1	chr21	random	212082		0			141685	start	start	censat_rdna	False	True	0.0	212082.0
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000041.1	chr13	random	104647504	+	95377973	18408131.0	114354320.0	3078	start	start	chain	False	True	0.0	12000000.0
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000047.1	chr15	random	91929352	+	79309256	20030663.0	101981156.0	13234	start	start	chain	False	True	0.0	12000000.0
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000048.1	chr14	random	4074699		0			933430	end	end	censat_rdna	False	True	0.0	4074699.0
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000053.1	chr21	random	2326998	+	2265065	44407154.0	46699969.0	0		start	chain	False	False		
+NA19443_hap2_hprc_r2_v1.0.1	NA19443#2#JBHIIR010000062.1	chr22	random	67132	+	61458	22759184.0	22932765.0	0		start	chain	False	False		

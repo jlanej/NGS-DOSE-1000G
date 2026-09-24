@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#CM089361.1	chr22	chromosome	48398769	+	34824695	10510000.0	50808468.0	144814	start	start	chain	False	True	0.0	12000000.0
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#JBHIIK010000001.1	chr14	random	101789993	+	87748393	19170578.0	106883718.0	196136	start	start	chain	False	True	0.0	12000000.0
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#JBHIIK010000004.1	chr13	random	104517113	+	95427702	18408131.0	114354320.0	228603	start	start	chain	False	True	0.0	12000000.0
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#JBHIIK010000010.1	chr15	random	93042441	+	76894556	22358244.0	101981174.0	198375	start	start	chain	False	True	0.0	12000000.0
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#JBHIIK010000015.1	chr21	random	40243302	+	34228696	9527143.0	46699974.0	137814	start	start	chain	False	True	0.0	12000000.0
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#JBHIIK010000024.1	chr22	random	3338031		0			0		start	default	False	True	0.0	3338031.0
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#JBHIIK010000034.1	chr14	random	283082		0			0		start	default	False	True	0.0	283082.0
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#JBHIIK010000035.1	chr14	random	248980	+	226463	105647815.0	106077104.0	0		start	chain	False	False		
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#JBHIIK010000036.1	chr14	random	380290		0			366368	start	start	censat_rdna	False	True	0.0	380290.0
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#JBHIIK010000054.1	chr13	random	252837	+	251698	85916370.0	86168354.0	0		start	chain	False	False		
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#JBHIIK010000063.1	chr13	random	94558	+	93566	85260840.0	85354461.0	0		start	chain	False	False		
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#JBHIIK010000082.1	chr22	random	173051		0			0		start	default	False	True	0.0	173051.0
+HG01943_pat_hprc_r2_v1.0.1	HG01943#1#JBHIIK010000117.1	chr22	random	73549		0			52230	start	start	censat_rdna	False	True	0.0	73549.0

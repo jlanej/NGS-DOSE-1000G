@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#CM090055.1	chr14	chromosome	100860350	+	87139581	19170578.0	106883718.0	55427	start	start	chain	False	True	0.0	12000000.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000004.1	chr15	random	90788638	+	79060470	22358244.0	101981156.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000005.1	chr13	random	102606654	+	95470359	18408131.0	114354320.0	3079	start	start	chain	False	True	0.0	12000000.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000011.1	chr22	random	44581490	+	34850342	10510000.0	50808426.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000012.1	chr21	random	38790532	+	34223018	9527143.0	46699974.0	3079	start	start	chain	False	True	0.0	12000000.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000022.1	chr21	random	50919		0			0		start	default	False	True	0.0	50919.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000027.1	chr22	random	71847		0			7463	start	start	censat_rdna	False	True	0.0	71847.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000028.1	chr22	random	233672		0			184404	start	start	censat_rdna	False	True	0.0	233672.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000044.1	chr22	random	5868868		0			274866	end	end	censat_rdna	False	True	0.0	5868868.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000045.1	chr14	random	3152722		0			423560	end	end	censat_rdna	False	True	0.0	3152722.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000046.1	chr22	random	6430567		0			599875	start	start	censat_rdna	False	True	0.0	6430567.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000048.1	chr14	random	375627		0			101498	start	start	censat_rdna	False	True	0.0	375627.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000049.1	chr21	random	627059		0			589615	end	end	censat_rdna	False	True	0.0	627059.0
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000050.1	chr14	random	275788	+	207668	105906905.0	106151955.0	0		start	chain	False	False		
+HG00133_hap1_hprc_r2_v1.0.1	HG00133#1#JBHIKQ010000058.1	chr14	random	81559	+	50699	106306923.0	106357656.0	0		start	chain	False	False		

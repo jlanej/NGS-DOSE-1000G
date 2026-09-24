@@ -1,0 +1,19 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000003.1	chr15	random	93821260	+	78847046	20030663.0	101930299.0	101356	start	start	chain	False	True	0.0	12000000.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000012.1	chr13	random	93698386	+	91297270	18408131.0	109964246.0	0		start	chain	False	True	0.0	12000000.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000014.1	chr13	random	473742		0			423858	start	start	censat_rdna	False	True	0.0	473742.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000015.1	chr21	random	33703951	+	33482011	13044589.0	46699974.0	0		start	chain	False	True	0.0	12000000.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000016.1	chr14	random	100604612	+	87992242	19170578.0	106883718.0	59228	start	start	chain	False	True	0.0	12000000.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000021.1	chr21	random	4782931		0			3079	end	end	censat_rdna	False	True	0.0	4782931.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000026.1	chr22	random	180338		0			142306	end	end	censat_rdna	False	True	0.0	180338.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000030.1	chr13	random	160228		0			0		start	default	False	True	0.0	160228.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000037.1	chr21	random	88930		0			0		start	default	False	True	0.0	88930.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000050.1	chr22	random	44405211	+	34791407	10510000.0	50808438.0	99603	start	start	chain	False	True	0.0	12000000.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000059.1	chr13	random	7271306		0			317492	start	start	censat_rdna	False	True	0.0	7271306.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000061.1	chr13	random	1382291		0			0		start	default	False	True	0.0	1382291.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000062.1	chr13	random	4376477	+	4170172	109919898.0	114345485.0	0		start	chain	False	False		
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000072.1	chr22	random	2936671		0			425014	end	end	censat_rdna	False	True	0.0	2936671.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000086.1	chr13	random	256828		0			0		start	default	False	True	0.0	256828.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000089.1	chr14	random	63733		0			0		start	default	False	True	0.0	63733.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000090.1	chr21	random	176053		0			133163	end	end	censat_rdna	False	True	0.0	176053.0
+HG02622_pat_hprc_r2_v1.0.1	HG02622#1#JAHAOO020000094.1	chr22	random	218357		0			187520	end	end	censat_rdna	False	True	0.0	218357.0

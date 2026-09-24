@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#CM090131.1	chr14	chromosome	101948476	+	87162217	19170578.0	106883718.0	234944	start	start	chain	False	True	0	12000000
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000005.1	chr15	random	89376942	+	79076035	22358244.0	101981156.0	105332	start	start	chain	False	True	0	12000000
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000009.1	chr13	random	102765133	+	95339295	18408131.0	114354320.0	306660	start	start	chain	False	True	0	12000000
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000014.1	chr21	random	40000609	+	34229632	9527143.0	46699969.0	141829	start	start	chain	False	True	0	12000000
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000015.1	chr22	random	4677109		0			89155	start	start	censat_rdna	False	True	0	4677109
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000019.1	chr22	random	929049		0			284584	end	end	censat_rdna	False	True	0	929049
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000021.1	chr13	random	382129		0			358074	start	start	censat_rdna	False	True	0	382129
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000027.1	chr14	random	359056		0			302417	end	end	censat_rdna	False	True	0	359056
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000029.1	chr14	random	407817		0			364105	end	end	censat_rdna	False	True	0	407817
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000030.1	chr21	random	72417		0			7480	start	start	censat_rdna	False	True	0	72417
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000035.1	chr13	random	89664		0			52295	start	start	censat_rdna	False	True	0	89664
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000046.1	chr22	random	39957358	+	34943860	15154318.0	50808468.0	3055	start	start	chain	False	True	0	12000000
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000052.1	chr14	random	3424756		0			6100	start	start	censat_rdna	False	True	0	3424756
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000057.1	chr22	random	266609		0			232005	start	start	censat_rdna	False	True	0	266609
+HG00126_hap2_hprc_r2_v1.0.1	HG00126#2#JBHIKV010000060.1	chr22	random	247105		0			228596	end	end	censat_rdna	False	True	0	247105

@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000004.1	chr13	random	103907836	+	95493973	18408131.0	114354320.0	191051	start	start	chain	False	True	0.0	12000000.0
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000013.1	chr14	random	99540312	+	86058537	19170578.0	105253788.0	219265	start	start	chain	False	True	0.0	12000000.0
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000016.1	chr21	random	41021567	+	34245252	8203401.0	46693402.0	480925	start	start	chain	False	True	0.0	12000000.0
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000017.1	chr22	random	45082068	+	34678883	10510000.0	50807693.0	551419	start	start	chain	False	True	0.0	12000000.0
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000022.1	chr21	random	212981	+	17905	8453752.0	8471774.0	141193	start	start	chain	False	True	0.0	212981.0
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000036.1	chr15	random	92911779	+	79111225	20113538.0	101981188.0	13234	start	start	chain	False	True	0.0	12000000.0
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000041.1	chr14	random	2635607		0			52410	end	end	censat_rdna	False	True	0.0	2635607.0
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000042.1	chr14	random	3242566		0			364632	end	end	censat_rdna	False	True	0.0	3242566.0
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000044.1	chr22	random	3117221		0			267523	end	end	censat_rdna	False	True	0.0	3117221.0
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000045.1	chr21	random	467174	+	34513	8203401.0	8471774.0	446128	end	start	chain	True	True	0.0	467174.0
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000047.1	chr14	random	1056067	+	1012513	105237559.0	106883718.0	0		start	chain	False	False		
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000050.1	chr14	random	3179539		0			272667	end	end	censat_rdna	False	True	0.0	3179539.0
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000052.1	chr21	random	488839	+	34908	8203401.0	8471774.0	427684	start	start	chain	False	True	0.0	488839.0
+NA18608_hap1_hprc_r2_v1.0.1	NA18608#1#JBHIJW010000058.1	chr13	random	149506		0			0		start	default	False	True	0.0	149506.0

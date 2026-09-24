@@ -1,0 +1,13 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01106_mat_hprc_r2_v1.0.1	HG01106#2#JAHAMB020000005.1	chr14	random	96251199	+	87372405	18223523.0	106883718.0	171832	start	start	chain	False	True	0	12000000
+HG01106_mat_hprc_r2_v1.0.1	HG01106#2#JAHAMB020000010.1	chr13	random	98385782	+	95457595	18408131.0	114354320.0	0		start	chain	False	True	0	12000000
+HG01106_mat_hprc_r2_v1.0.1	HG01106#2#JAHAMB020000018.1	chr21	random	35415408	+	33601292	12965808.0	46699974.0	0		start	chain	False	True	0	12000000
+HG01106_mat_hprc_r2_v1.0.1	HG01106#2#JAHAMB020000020.1	chr22	random	46729775	+	34782736	10510000.0	50808438.0	234030	start	start	chain	False	True	0	12000000
+HG01106_mat_hprc_r2_v1.0.1	HG01106#2#JAHAMB020000029.1	chr22	random	86738		0			0		start	default	False	True	0	86738
+HG01106_mat_hprc_r2_v1.0.1	HG01106#2#JAHAMB020000030.1	chr13	random	718542		0			0		start	default	False	True	0	718542
+HG01106_mat_hprc_r2_v1.0.1	HG01106#2#JAHAMB020000045.1	chr21	random	109789		0			0		start	default	False	True	0	109789
+HG01106_mat_hprc_r2_v1.0.1	HG01106#2#JAHAMB020000059.1	chr15	random	93671495	+	79894653	19782761.0	101981175.0	65223	start	start	chain	False	True	0	12000000
+HG01106_mat_hprc_r2_v1.0.1	HG01106#2#JAHAMB020000061.1	chr14	random	2989672		0			7478	end	end	censat_rdna	False	True	0	2989672
+HG01106_mat_hprc_r2_v1.0.1	HG01106#2#JAHAMB020000062.1	chr21	random	5319864		0			3078	end	end	censat_rdna	False	True	0	5319864
+HG01106_mat_hprc_r2_v1.0.1	HG01106#2#JAHAMB020000063.1	chr13	random	261300		0			0		start	default	False	True	0	261300
+HG01106_mat_hprc_r2_v1.0.1	HG01106#2#JAHAMB020000068.1	chr13	random	1130192		0			0		start	default	False	True	0	1130192

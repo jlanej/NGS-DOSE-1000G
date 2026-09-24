@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000007.1	chr14	random	93320449	+	87645355	19170578.0	106883718.0	6100	start	start	chain	False	True	0	12000000
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000013.1	chr15	random	87001409	+	78906533	22358244.0	101981174.0	11994	start	start	chain	False	True	0	12000000
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000015.1	chr21	random	38147961	+	34234531	9527143.0	46699974.0	3078	start	start	chain	False	True	0	12000000
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000016.1	chr22	random	45266929	+	34866765	10510000.0	50808468.0	471908	start	start	chain	False	True	0	12000000
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000017.1	chr13	random	104457710	+	95466923	18408131.0	114354320.0	256431	start	start	chain	False	True	0	12000000
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000024.1	chr15	random	534817		0			0		start	default	False	True	0	534817
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000027.1	chr14	random	53896	+	53879	19807706.0	19861602.0	0		start	chain	False	True	0	53896
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000029.1	chr15	random	108592		0			0		start	default	False	True	0	108592
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000033.1	chr15	random	69795		0			0		start	default	False	True	0	69795
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000050.1	chr14	random	8539600		0			791861	start	start	censat_rdna	False	True	0	8539600
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000051.1	chr22	random	5459985		0			50027	start	start	censat_rdna	False	True	0	5459985
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000052.1	chr14	random	5518020		0			767905	end	end	censat_rdna	False	True	0	5518020
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000054.1	chr14	random	538688		0			0		start	default	False	True	0	538688
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000056.1	chr14	random	450878		0			413382	end	end	censat_rdna	False	True	0	450878
+HG01167_hap2_hprc_r2_v1.0.1	HG01167#2#JBIREQ010000057.1	chr22	random	81194		0			7465	start	start	censat_rdna	False	True	0	81194

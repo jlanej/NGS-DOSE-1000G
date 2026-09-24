@@ -1,0 +1,25 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000001.1	chr21	random	37451976	+	33554156	10324341.0	46699974.0	0		start	chain	False	True	0.0	12000000.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000006.1	chr13	random	99157797	+	95376668	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000014.1	chr22	random	45109685	+	35029806	10510000.0	50808449.0	358505	start	start	chain	False	True	0.0	12000000.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000015.1	chr14	random	96102795	+	86925009	19170578.0	106883718.0	327117	start	start	chain	False	True	0.0	12000000.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000016.1	chr15	random	94171475	+	79429685	20030663.0	101930299.0	376969	start	start	chain	False	True	0.0	12000000.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000018.1	chr13	random	3726491		0			51946	start	start	censat_rdna	False	True	0.0	3726491.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000021.1	chr21	random	3539920		0			551352	start	start	censat_rdna	False	True	0.0	3539920.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000023.1	chr13	random	1966875		0			0		start	default	False	True	0.0	1966875.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000024.1	chr13	random	204661		0			0		start	default	False	True	0.0	204661.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000030.1	chr21	random	229918	+	15318	8452543.0	8468243.0	185777	start	start	chain	False	True	0.0	229918.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000036.1	chr14	random	68870	+	66814	105727567.0	105794381.0	0		start	chain	False	False		
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000039.1	chr21	random	180621		0			143431	end	end	censat_rdna	False	True	0.0	180621.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000041.1	chr21	random	50731		0			45143	end	end	censat_rdna	False	True	0.0	50731.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000050.1	chr14	random	3603774		0			7478	end	end	censat_rdna	False	True	0.0	3603774.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000054.1	chr13	random	280531		0			0		start	default	False	True	0.0	280531.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000055.1	chr15	random	3945976		0			7476	end	end	censat_rdna	False	True	0.0	3945976.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000056.1	chr14	random	3095797		0			128829	end	end	censat_rdna	False	True	0.0	3095797.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000057.1	chr14	random	3909239		0			185151	end	end	censat_rdna	False	True	0.0	3909239.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000060.1	chr14	random	227368	+	209535	106122397.0	106357656.0	0		start	chain	False	False		
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000063.1	chr21	random	299319	+	229563	9674545.0	9918784.0	0		start	chain	False	True	0.0	299319.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000069.1	chr14	random	102103		0			47932	start	start	censat_rdna	False	True	0.0	102103.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000075.1	chr21	random	79906		0			51175	end	end	censat_rdna	False	True	0.0	79906.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000080.1	chr14	random	89738		0			47935	start	start	censat_rdna	False	True	0.0	89738.0
+HG03579_pat_hprc_r2_v1.0.1	HG03579#1#JAGYVU020000082.1	chr22	random	55891	+	55877	28250831.0	28306731.0	0		start	chain	False	False		

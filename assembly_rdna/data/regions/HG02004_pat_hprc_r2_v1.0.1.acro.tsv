@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000005.1	chr15	random	96475293	+	79067054	22358244.0	101981172.0	106267	start	start	chain	False	True	0	12000000
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000008.1	chr14	random	97010444	+	86982991	19170578.0	106883718.0	720503	start	start	chain	False	True	0	12000000
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000016.1	chr22	random	2278401		0			184384	start	start	censat_rdna	False	True	0	2278401
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000017.1	chr13	random	104033800	+	95441250	18408131.0	114354320.0	3078	start	start	chain	False	True	0	12000000
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000019.1	chr21	random	40077086	+	34233150	9527143.0	46699939.0	239344	start	start	chain	False	True	0	12000000
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000021.1	chr21	random	133398		0			97148	end	end	censat_rdna	False	True	0	133398
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000045.1	chr21	random	81357		0			0		start	default	False	True	0	81357
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000053.1	chr22	random	46102297	+	35181677	10510000.0	50808426.0	99004	start	start	chain	False	True	0	12000000
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000060.1	chr14	random	3063015		0			7478	end	end	censat_rdna	False	True	0	3063015
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000063.1	chr14	random	4586993		0			97236	end	end	censat_rdna	False	True	0	4586993
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000064.1	chr14	random	2656992		0			0		start	default	False	True	0	2656992
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000071.1	chr22	random	243597		0			186249	start	start	censat_rdna	False	True	0	243597
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000073.1	chr22	random	271044		0			231204	end	end	censat_rdna	False	True	0	271044
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000074.1	chr21	random	127672		0			0		start	default	False	True	0	127672
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000081.1	chr22	random	99664		0			0		start	default	False	True	0	99664
+HG02004_pat_hprc_r2_v1.0.1	HG02004#1#JBHDRT010000084.1	chr22	random	80190		0			52332	start	start	censat_rdna	False	True	0	80190

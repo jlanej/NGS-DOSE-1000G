@@ -1,0 +1,10 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19240_mat_hprc_r2_v1.0.1	NA19240#2#JAHEOL020000001.1	chr15	random	93624631	+	79892129	20030663.0	101981174.0	62076	start	start	chain	False	True	0	12000000
+NA19240_mat_hprc_r2_v1.0.1	NA19240#2#JAHEOL020000002.1	chr13	random	100191272	+	95426777	18408131.0	114354320.0	0		start	chain	False	True	0	12000000
+NA19240_mat_hprc_r2_v1.0.1	NA19240#2#JAHEOL020000005.1	chr14	random	97546083	+	87240976	19170578.0	106883718.0	366565	start	start	chain	False	True	0	12000000
+NA19240_mat_hprc_r2_v1.0.1	NA19240#2#JAHEOL020000013.1	chr21	random	44230454	+	34316508	8100181.0	46699042.0	234718	start	start	chain	False	True	0	12000000
+NA19240_mat_hprc_r2_v1.0.1	NA19240#2#JAHEOL020000017.1	chr21	random	93234		0			51717	end	end	censat_rdna	False	True	0	93234
+NA19240_mat_hprc_r2_v1.0.1	NA19240#2#JAHEOL020000037.1	chr22	random	46798272	+	34901848	10510000.0	50808438.0	317646	start	start	chain	False	True	0	19710473
+NA19240_mat_hprc_r2_v1.0.1	NA19240#2#JAHEOL020000039.1	chr13	random	5943590		0			185595	end	end	censat_rdna	False	True	0	5943590
+NA19240_mat_hprc_r2_v1.0.1	NA19240#2#JAHEOL020000049.1	chr21	random	268176		0			230460	end	end	censat_rdna	False	True	0	268176
+NA19240_mat_hprc_r2_v1.0.1	NA19240#2#JAHEOL020000059.1	chr15	random	112898		0			0		start	default	False	True	0	112898

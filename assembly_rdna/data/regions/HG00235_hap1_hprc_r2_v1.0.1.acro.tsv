@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#CM094380.1	chr22	chromosome	48044346	+	34839720	15154318.0	50808420.0	504101	start	start	chain	False	True	0.0	12000000.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000009.1	chr13	random	99492978	+	95449857	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000016.1	chr21	random	41417998	+	34331157	8100181.0	46699939.0	235145	start	start	chain	False	True	0.0	12000000.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000020.1	chr22	random	9241577		0			275445	start	start	censat_rdna	False	True	0.0	9241577.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000021.1	chr14	random	556465		0			515076	start	start	censat_rdna	False	True	0.0	556465.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000022.1	chr22	random	1070389		0			363571	start	start	censat_rdna	False	True	0.0	1070389.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000023.1	chr22	random	70539		0			47803	start	start	censat_rdna	False	True	0.0	70539.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000024.1	chr21	random	231210		0			183888	end	end	censat_rdna	False	True	0.0	231210.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000035.1	chr21	random	179966		0			100058	end	end	censat_rdna	False	True	0.0	179966.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000038.1	chr13	random	326778		0			275528	end	end	censat_rdna	False	True	0.0	326778.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000046.1	chr14	random	102254662	+	87794623	19170578.0	106825377.0	215911	start	start	chain	False	True	0.0	12000000.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000053.1	chr15	random	83462665	+	79191711	19993354.0	101981147.0	0		start	chain	False	True	0.0	12000000.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000058.1	chr22	random	52684		0			0		start	default	False	True	0.0	52684.0
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000059.1	chr14	random	966633	+	880108	105843563.0	106883718.0	0		start	chain	False	False		
+HG00235_hap1_hprc_r2_v1.0.1	HG00235#1#JBIRED010000066.1	chr14	random	54224	+	54181	101859810.0	101914024.0	0		start	chain	False	False		

@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000007.1	chr15	random	92032377	+	78773009	22358244.0	101981172.0	152325	start	start	chain	False	True	0.0	12000000.0
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000009.1	chr13	random	103598531	+	95462883	18408131.0	114354320.0	147205	start	start	chain	False	True	0.0	12000000.0
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000016.1	chr21	random	40834070	+	34230416	8452746.0	46699939.0	547912	start	start	chain	False	True	0.0	12000000.0
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000018.1	chr22	random	45619938	+	34905203	10510000.0	50808449.0	813745	start	start	chain	False	True	0.0	12000000.0
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000020.1	chr22	random	3926378		0			52232	end	end	censat_rdna	False	True	0.0	3926378.0
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000025.1	chr22	random	258310		0			225529	end	end	censat_rdna	False	True	0.0	258310.0
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000030.1	chr21	random	133797		0			96847	start	start	censat_rdna	False	True	0.0	133797.0
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000032.1	chr14	random	385382		0			360180	end	end	censat_rdna	False	True	0.0	385382.0
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000039.1	chr22	random	247171		0			206541	start	start	censat_rdna	False	True	0.0	247171.0
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000050.1	chr14	random	98090323	+	87810655	19170578.0	106883718.0	66473	start	start	chain	False	True	0.0	12000000.0
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000052.1	chr22	random	3573751		0			186752	end	end	censat_rdna	False	True	0.0	3573751.0
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000053.1	chr22	random	198832		0			186462	end	end	censat_rdna	False	True	0.0	198832.0
+NA21110_hap1_hprc_r2_v1.0.1	NA21110#1#JBHIJI010000056.1	chr22	random	78080	+	78051	41356704.0	41434793.0	0		start	chain	False	False		

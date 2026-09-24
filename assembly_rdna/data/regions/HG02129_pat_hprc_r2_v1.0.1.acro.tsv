@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000001.1	chr13	random	103694112	+	95487530	18408131.0	114343777.0	316238	start	start	chain	False	True	0.0	12000000.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000015.1	chr14	random	97300301	+	87340957	19170578.0	106883718.0	57920	start	start	chain	False	True	0.0	12000000.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000016.1	chr15	random	82377699	+	77152463	22358244.0	101981174.0	0		start	chain	False	False		
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000017.1	chr22	random	44153353	+	34715362	10510000.0	50808468.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000021.1	chr21	random	40297313	+	34198275	9527143.0	46699975.0	234312	start	start	chain	False	True	0.0	12000000.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000022.1	chr15	random	6257770		0			319753	start	start	censat_rdna	False	True	0.0	6257770.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000027.1	chr14	random	406974		0			0		start	default	False	True	0.0	406974.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000042.1	chr14	random	452431		0			405391	end	end	censat_rdna	False	True	0.0	452431.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000044.1	chr15	random	76710		0			0		start	default	False	True	0.0	76710.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000045.1	chr14	random	198329		0			0		start	default	False	True	0.0	198329.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000048.1	chr22	random	69818		0			51438	start	start	censat_rdna	False	True	0.0	69818.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000070.1	chr21	random	4820327		0			99075	end	end	censat_rdna	False	True	0.0	4820327.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000071.1	chr15	random	3477471		0			97183	end	end	censat_rdna	False	True	0.0	3477471.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000088.1	chr13	random	290343	+	290116	106179835.0	106470107.0	0		start	chain	False	False		
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000105.1	chr22	random	69759		0			7454	end	end	censat_rdna	False	True	0.0	69759.0
+HG02129_pat_hprc_r2_v1.0.1	HG02129#1#JBHDVA010000106.1	chr22	random	81630		0			52343	start	start	censat_rdna	False	True	0.0	81630.0

@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#CM091918.1	chr15	chromosome	96728340	+	79635596	19782761.0	101981183.0	155255	start	start	chain	False	True	0	12000000
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000001.1	chr21	random	39658402	+	34231547	9527143.0	46699939.0	99886	start	start	chain	False	True	0	12000000
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000007.1	chr14	random	97583426	+	87852755	19170578.0	106883718.0	280606	start	start	chain	False	True	0	12000000
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000012.1	chr22	random	48669859	+	35039496	10510000.0	50808438.0	54351	start	start	chain	False	True	0	12000000
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000013.1	chr13	random	6826629		0			415905	start	start	censat_rdna	False	True	0	6826629
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000028.1	chr22	random	154420		0			97319	end	end	censat_rdna	False	True	0	154420
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000041.1	chr13	random	97332759	+	95492529	18408131.0	114354321.0	0		start	chain	False	True	0	12000000
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000051.1	chr14	random	2972640		0			7485	end	end	censat_rdna	False	True	0	2972640
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000057.1	chr14	random	470315		0			455089	start	start	censat_rdna	False	True	0	470315
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000058.1	chr21	random	996900		0			712194	start	start	censat_rdna	False	True	0	996900
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000062.1	chr14	random	3697223		0			499306	end	end	censat_rdna	False	True	0	3697223
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000063.1	chr22	random	3895925		0			140409	end	end	censat_rdna	False	True	0	3895925
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000072.1	chr22	random	89372		0			52186	start	start	censat_rdna	False	True	0	89372
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000074.1	chr21	random	70670		0			52357	end	end	censat_rdna	False	True	0	70670
+HG02155_hap1_hprc_r2_v1.0.1	HG02155#1#JBIECB010000078.1	chr22	random	231030		0			228563	end	end	censat_rdna	False	True	0	231030

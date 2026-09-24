@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#CM094040.1	chr13	chromosome	108871836	+	95423534	18408131.0	114354320.0	714592	start	start	chain	False	True	0	12000000
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000001.1	chr22	random	42437412	+	34834513	10510000.0	50808437.0	639230	start	start	chain	False	True	0	12000000
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000011.1	chr15	random	95576595	+	80539464	19782761.0	101981172.0	560481	start	start	chain	False	True	0	12000000
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000027.1	chr14	random	155443		0			140563	end	end	censat_rdna	False	True	0	155443
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000028.1	chr13	random	59854		0			0		start	default	False	True	0	59854
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000043.1	chr14	random	100973999	+	87765068	19170578.0	106883718.0	501584	start	start	chain	False	True	0	12000000
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000046.1	chr21	random	40662397	+	34169443	9527143.0	46699940.0	47941	start	start	chain	False	True	0	12000000
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000049.1	chr21	random	5160455		0			7484	end	end	censat_rdna	False	True	0	5160455
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000051.1	chr14	random	4367593		0			232408	end	end	censat_rdna	False	True	0	4367593
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000053.1	chr15	random	3710468		0			140870	end	end	censat_rdna	False	True	0	3710468
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000054.1	chr21	random	1860905		0			0		start	default	False	True	0	1860905
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000062.1	chr13	random	343606		0			317140	start	start	censat_rdna	False	True	0	343606
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000063.1	chr14	random	312746		0			273331	start	start	censat_rdna	False	True	0	312746
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000067.1	chr15	random	130179		0			0		start	default	False	True	0	130179
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000068.1	chr15	random	123257	-	95394	20302870.0	20399870.0	0		end	chain	False	True	0	123257
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000073.1	chr15	random	53979		0			0		start	default	False	True	0	53979
+NA19835_hap2_hprc_r2_v1.0.1	NA19835#2#JBIRDA010000076.1	chr22	random	54465		0			0		start	default	False	True	0	54465

@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#CM092043.1	chr21	chromosome	42182035	+	34203969	9527143.0	46699042.0	99998	start	start	chain	False	True	0.0	12000000.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000003.1	chr14	random	99357234	+	87115927	19170578.0	106883718.0	566052	start	start	chain	False	True	0.0	12000000.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000008.1	chr15	random	86507948	+	79177965	19993354.0	101911314.0	0		start	chain	False	True	0.0	12000000.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000009.1	chr13	random	104465283	+	95451887	18408131.0	114354320.0	35559	start	start	chain	False	True	0.0	12000000.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000015.1	chr14	random	4155128		0			232754	end	end	censat_rdna	False	True	0.0	4155128.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000022.1	chr13	random	882828		0			0		start	default	False	True	0.0	882828.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000023.1	chr14	random	337681	+	284677	105746181.0	106077104.0	0		start	chain	False	False		
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000027.1	chr15	random	53343		0			0		start	default	False	True	0.0	53343.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000030.1	chr15	random	80225		0			0		start	default	False	True	0.0	80225.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000039.1	chr15	random	88343		0			52365	start	start	censat_rdna	False	True	0.0	88343.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000040.1	chr15	random	51031		0			0		start	default	False	True	0.0	51031.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000055.1	chr22	random	46232905	+	34821641	10510000.0	50808468.0	3056	start	start	chain	False	True	0.0	12000000.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000056.1	chr15	random	3534075		0			7462	end	end	censat_rdna	False	True	0.0	3534075.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000057.1	chr22	random	7571382		0			287113	start	start	censat_rdna	False	True	0.0	7571382.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000058.1	chr14	random	3298749		0			140632	end	end	censat_rdna	False	True	0.0	3298749.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000064.1	chr22	random	318690		0			278835	start	start	censat_rdna	False	True	0.0	318690.0
+HG02723_pat_hprc_r2_v1.0.1	HG02723#1#JAHEOU020000066.1	chr14	random	295332		0			279217	end	end	censat_rdna	False	True	0.0	295332.0

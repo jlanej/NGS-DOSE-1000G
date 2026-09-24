@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000001.1	chr14	random	97918907	+	87516602	19170578.0	106883718.0	754300	start	start	chain	False	True	0.0	12000000.0
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000004.1	chr13	random	105315677	+	95511139	18408131.0	114354320.0	324364	start	start	chain	False	True	0.0	12000000.0
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000010.1	chr22	random	46022373	+	35029200	10510000.0	50808438.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000015.1	chr15	random	96743133	+	79057123	22358244.0	101981188.0	243000	start	start	chain	False	True	0.0	13738821.0
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000022.1	chr14	random	468775	+	370820	105985367.0	106395131.0	0		start	chain	False	False		
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000033.1	chr21	random	89923	+	17651	8452761.0	8470484.0	52447	start	start	chain	False	True	0.0	89923.0
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000034.1	chr13	random	120985		0			0		start	default	False	True	0.0	120985.0
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000042.1	chr21	random	93872		0			47922	start	start	censat_rdna	False	True	0.0	93872.0
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000061.1	chr21	random	40759410	+	34422687	5216452.0	46699961.0	282051	start	start	chain	False	True	0.0	12000000.0
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000065.1	chr15	random	3035648		0			95532	end	end	censat_rdna	False	True	0.0	3035648.0
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000067.1	chr13	random	203587		0			0		start	default	False	True	0.0	203587.0
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000074.1	chr13	random	156686		0			0		start	default	False	True	0.0	156686.0
+HG00673_pat_hprc_r2_v1.0.1	HG00673#1#JAHBBZ020000075.1	chr21	random	61898	+	61850	46298724.0	46360595.0	0		start	chain	False	False		

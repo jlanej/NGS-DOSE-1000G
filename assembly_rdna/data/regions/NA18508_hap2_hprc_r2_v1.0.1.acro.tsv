@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000003.1	chr13	random	105481849	+	95445609	18408131.0	114354320.0	3078	start	start	chain	False	True	0	12000000
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000008.1	chr21	random	37745492	+	34084562	9645354.0	46695221.0	0		start	chain	False	True	0	12000000
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000010.1	chr22	random	36876637	+	34748647	15154318.0	50808468.0	0		start	chain	False	True	0	12000000
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000012.1	chr14	random	97161525	+	87193569	19170578.0	106883718.0	37514	start	start	chain	False	True	0	12000000
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000015.1	chr22	random	7306249		0			458801	start	start	censat_rdna	False	True	0	7306249
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000016.1	chr13	random	2085381		0			50478	start	start	censat_rdna	False	True	0	2085381
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000019.1	chr15	random	7486626		0			455357	start	start	censat_rdna	False	True	0	7486626
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000022.1	chr15	random	568012		0			531977	end	end	censat_rdna	False	True	0	568012
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000024.1	chr21	random	272576	+	15920	8203401.0	8219347.0	225394	end	start	chain	True	True	0	272576
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000026.1	chr21	random	237118	+	15907	8203401.0	8219347.0	228145	end	start	chain	True	True	0	237118
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000039.1	chr15	random	82918764	+	79146655	20030663.0	101911314.0	0		start	chain	False	True	0	12000000
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000041.1	chr13	random	6801235		0			322704	end	end	censat_rdna	False	True	0	6801235
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000042.1	chr14	random	4309568		0			7477	end	end	censat_rdna	False	True	0	4309568
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000045.1	chr22	random	4226852		0			51732	end	end	censat_rdna	False	True	0	4226852
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000047.1	chr14	random	2852862		0			7476	end	end	censat_rdna	False	True	0	2852862
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000052.1	chr14	random	4450481		0			156583	end	end	censat_rdna	False	True	0	4450481
+NA18508_hap2_hprc_r2_v1.0.1	NA18508#2#JBHIJH010000053.1	chr21	random	78238		0			51749	start	start	censat_rdna	False	True	0	78238

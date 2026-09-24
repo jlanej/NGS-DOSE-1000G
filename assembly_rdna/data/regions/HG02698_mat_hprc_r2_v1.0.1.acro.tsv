@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000006.1	chr22	random	45141599	+	34696807	10510000.0	50808447.0	180917	start	start	chain	False	True	0.0	12000000.0
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000009.1	chr15	random	12878378		0			174226	start	start	censat_rdna	False	True	0.0	12000000.0
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000014.1	chr14	random	323419		0			276896	end	end	censat_rdna	False	True	0.0	323419.0
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000022.1	chr21	random	134115		0			134109	end	end	censat_rdna	False	True	0.0	134115.0
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000027.1	chr21	random	40135657	+	34178718	9527143.0	46678735.0	98236	start	start	chain	False	True	0.0	12000000.0
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000029.1	chr14	random	99162079	+	88080425	19122915.0	106883718.0	104777	start	start	chain	False	True	0.0	12000000.0
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000039.1	chr13	random	104640166	+	95445922	18408131.0	114354320.0	274349	start	start	chain	False	True	0.0	12000000.0
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000044.1	chr15	random	84653703	+	80603492	19782761.0	101981172.0	0		start	chain	False	True	0.0	12000000.0
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000051.1	chr14	random	2847235		0			7483	end	end	censat_rdna	False	True	0.0	2847235.0
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000052.1	chr21	random	4113143		0			449994	end	end	censat_rdna	False	True	0.0	4113143.0
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000053.1	chr14	random	2966740		0			7479	end	end	censat_rdna	False	True	0.0	2966740.0
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000056.1	chr13	random	83227	+	82991	37888343.0	37971381.0	0		start	chain	False	False		
+HG02698_mat_hprc_r2_v1.0.1	HG02698#2#JBHDTM010000058.1	chr14	random	130395		0			97378	start	start	censat_rdna	False	True	0.0	130395.0

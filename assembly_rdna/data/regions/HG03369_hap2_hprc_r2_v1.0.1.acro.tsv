@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000002.1	chr13	random	103939308	+	95381265	18408131.0	114354320.0	51957	start	start	chain	False	True	0.0	12000000.0
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000006.1	chr14	random	98522209	+	89022854	19122915.0	106883718.0	9176	start	start	chain	False	True	0.0	12000000.0
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000008.1	chr15	random	90321843	+	78597399	22358244.0	101981188.0	957156	start	start	chain	False	True	0.0	12000000.0
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000015.1	chr14	random	3075760		0			7482	end	end	censat_rdna	False	True	0.0	3075760.0
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000016.1	chr22	random	43689015	+	34751811	10510000.0	50808468.0	238571	start	start	chain	False	True	0.0	12000000.0
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000018.1	chr14	random	4402951		0			51793	end	end	censat_rdna	False	True	0.0	4402951.0
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000030.1	chr14	random	53014	+	48903	105719909.0	106383678.0	0		start	chain	False	False		
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000044.1	chr15	random	3501172		0			301145	end	end	censat_rdna	False	True	0.0	3501172.0
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000045.1	chr22	random	4877293		0			495906	end	end	censat_rdna	False	True	0.0	4877293.0
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000046.1	chr21	random	41166494	+	34211725	8203401.0	46699940.0	279587	start	start	chain	False	True	0.0	12000000.0
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000050.1	chr14	random	2480873		0			7476	end	end	censat_rdna	False	True	0.0	2480873.0
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000052.1	chr14	random	406483		0			363308	end	end	censat_rdna	False	True	0.0	406483.0
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000055.1	chr21	random	605502		0			235213	start	start	censat_rdna	False	True	0.0	605502.0
+HG03369_hap2_hprc_r2_v1.0.1	HG03369#2#JBIREC010000057.1	chr14	random	272679		0			272678	end	end	censat_rdna	False	True	0.0	272679.0

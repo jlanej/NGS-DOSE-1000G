@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#CM101680.1	chr13	chromosome	109212208	+	95405753	18408131.0	114354320.0	362963	start	start	chain	False	True	0.0	12000000.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000014.1	chr14	random	99683449	+	87656289	19170578.0	106883718.0	233970	start	start	chain	False	True	0.0	12000000.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000015.1	chr15	random	97989646	+	79188940	22358244.0	101981175.0	79818	start	start	chain	False	True	0.0	12000000.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000021.1	chr21	random	40601838	+	34230528	8452543.0	46699896.0	231056	start	start	chain	False	True	0.0	17532312.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000022.1	chr22	random	49035181	+	34806222	10510000.0	50808438.0	307244	start	start	chain	False	True	0.0	12000000.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000026.1	chr14	random	546486		0			0		start	default	False	True	0.0	546486.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000027.1	chr14	random	2397092		0			7454	end	end	censat_rdna	False	True	0.0	2397092.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000043.1	chr21	random	523362		0			490062	end	end	censat_rdna	False	True	0.0	523362.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000044.1	chr22	random	68191		0			0		start	default	False	True	0.0	68191.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000045.1	chr14	random	500300		0			434506	end	end	censat_rdna	False	True	0.0	500300.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000047.1	chr21	random	325341		0			314475	start	start	censat_rdna	False	True	0.0	325341.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000049.1	chr21	random	275013	+	27679	8203401.0	8464560.0	221053	end	start	chain	True	True	0.0	275013.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000055.1	chr14	random	391061		0			368875	end	end	censat_rdna	False	True	0.0	391061.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000056.1	chr22	random	81015		0			43683	end	end	censat_rdna	False	True	0.0	81015.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000070.1	chr21	random	118040		0			97760	start	start	censat_rdna	False	True	0.0	118040.0
+NA18944_hap2_hprc_r2_v1.0.1	NA18944#2#JBKACH010000075.1	chr15	random	50072	+	50050	96382890.0	96432959.0	0		start	chain	False	False		

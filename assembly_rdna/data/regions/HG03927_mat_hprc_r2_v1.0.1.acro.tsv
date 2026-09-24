@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#CM086666.1	chr14	chromosome	103090328	+	87225911	19170578.0	106883718.0	60248	start	start	chain	False	True	0	12499496
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000009.1	chr22	random	45530980	+	35007318	10510000.0	50808468.0	363661	start	start	chain	False	True	0	12000000
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000012.1	chr13	random	97753893	+	95299033	18408131.0	114354320.0	0		start	chain	False	True	0	12000000
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000013.1	chr21	random	39964766	+	34231954	9527143.0	46699974.0	3078	start	start	chain	False	True	0	12000000
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000018.1	chr14	random	2326129		0			7479	end	end	censat_rdna	False	True	0	2326129
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000026.1	chr14	random	448513		0			410817	end	end	censat_rdna	False	True	0	448513
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000033.1	chr22	random	67902		0			52290	start	start	censat_rdna	False	True	0	67902
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000039.1	chr21	random	197733	+	15533	8203780.0	8219355.0	186387	start	start	chain	False	True	0	197733
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000045.1	chr22	random	76807		0			0		start	default	False	True	0	76807
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000047.1	chr15	random	92955147	+	78577907	19993354.0	101911314.0	299265	start	start	chain	False	True	0	12000000
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000058.1	chr14	random	4230742		0			53444	end	end	censat_rdna	False	True	0	4230742
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000061.1	chr13	random	6321867		0			56156	start	start	censat_rdna	False	True	0	6321867
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000079.1	chr14	random	195537		0			190491	start	start	censat_rdna	False	True	0	195537
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000083.1	chr13	random	387883		0			0		start	default	False	True	0	387883
+HG03927_mat_hprc_r2_v1.0.1	HG03927#2#JBHDSW010000091.1	chr22	random	71602		0			7462	start	start	censat_rdna	False	True	0	71602

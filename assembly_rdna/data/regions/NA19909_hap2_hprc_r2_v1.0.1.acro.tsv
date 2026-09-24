@@ -1,0 +1,19 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#CM094144.1	chr21	chromosome	46213089	+	34295751	8100181.0	46699974.0	452260	start	start	chain	False	True	0.0	12000000.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#CM094145.1	chr22	chromosome	45067845	+	34973890	10510000.0	50808468.0	279347	start	start	chain	False	True	0.0	12000000.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000003.1	chr15	random	80680993	+	79113413	22358244.0	101911314.0	0		start	chain	False	False		
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000009.1	chr13	random	103902289	+	95422963	18408131.0	114354318.0	677383	start	start	chain	False	True	0.0	12000000.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000016.1	chr14	random	90123280	+	87205005	19170578.0	106883718.0	0		start	chain	False	True	0.0	12000000.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000019.1	chr14	random	7840776		0			107232	start	start	censat_rdna	False	True	0.0	7840776.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000021.1	chr21	random	176660		0			139948	start	start	censat_rdna	False	True	0.0	176660.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000026.1	chr15	random	580231		0			543908	start	start	censat_rdna	False	True	0.0	580231.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000031.1	chr14	random	132292		0			0		start	default	False	True	0.0	132292.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000033.1	chr14	random	61151		0			44838	end	end	censat_rdna	False	True	0.0	61151.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000050.1	chr15	random	16772401		0			18496	end	end	censat_rdna	False	True	1521019.0	16772401.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000054.1	chr15	random	930295		0			0		start	default	False	True	0.0	930295.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000056.1	chr21	random	5766223		0			433529	end	end	censat_rdna	False	True	0.0	5766223.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000058.1	chr14	random	151540		0			134248	end	end	censat_rdna	False	True	0.0	151540.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000068.1	chr21	random	191565		0			182186	start	start	censat_rdna	False	True	0.0	191565.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000071.1	chr14	random	366418		0			315943	start	start	censat_rdna	False	True	0.0	366418.0
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000072.1	chr14	random	158761	+	155785	105727567.0	106789581.0	0		start	chain	False	False		
+NA19909_hap2_hprc_r2_v1.0.1	NA19909#2#JBIRDI010000073.1	chr14	random	60890		0			7477	start	start	censat_rdna	False	True	0.0	60890.0

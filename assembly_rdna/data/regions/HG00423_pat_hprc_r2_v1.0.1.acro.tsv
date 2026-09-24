@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#CM089407.1	chr14	chromosome	100860885	+	87060999	19170578.0	106883718.0	151728	start	start	chain	False	True	0.0	12000000.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#CM089411.1	chr22	chromosome	49444420	+	34739660	10510000.0	50808468.0	59363	start	start	chain	False	True	0.0	12039600.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000009.1	chr15	random	95126214	+	79145928	22358244.0	101981175.0	415855	start	start	chain	False	True	0.0	12000000.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000012.1	chr15	random	4634599		0			337159	end	end	censat_rdna	False	True	0.0	4634599.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000014.1	chr21	random	40381869	+	34378758	5216452.0	46699975.0	192887	start	start	chain	False	True	0.0	12000000.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000016.1	chr21	random	6814348		0			99393	start	start	censat_rdna	False	True	0.0	6814348.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000017.1	chr15	random	1536498		0			0		start	default	False	True	0.0	1536498.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000022.1	chr14	random	147538	+	136626	105727567.0	105864245.0	0		start	chain	False	False		
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000024.1	chr13	random	322231		0			0		start	default	False	True	0.0	322231.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000035.1	chr14	random	373810		0			316106	start	start	censat_rdna	False	True	0.0	373810.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000050.1	chr13	random	100021271	+	95474992	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000056.1	chr15	random	3244485		0			275393	end	end	censat_rdna	False	True	0.0	3244485.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000058.1	chr13	random	280383		0			0		start	default	False	True	0.0	280383.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000059.1	chr21	random	83392		0			52234	end	end	censat_rdna	False	True	0.0	83392.0
+HG00423_pat_hprc_r2_v1.0.1	HG00423#1#JBHIIO010000068.1	chr13	random	52240		0			0		start	default	False	True	0.0	52240.0

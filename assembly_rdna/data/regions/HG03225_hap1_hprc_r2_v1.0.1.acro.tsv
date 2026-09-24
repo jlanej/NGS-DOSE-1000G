@@ -1,0 +1,21 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000002.1	chr13	random	107260153	+	95364283	18408131.0	114354320.0	263884	start	start	chain	False	True	0	12000000
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000006.1	chr15	random	89612612	+	79237637	22358244.0	101981156.0	99346	start	start	chain	False	True	0	12000000
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000010.1	chr14	random	97405542	+	87453372	19170578.0	106883718.0	278460	start	start	chain	False	True	0	12000000
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000011.1	chr13	random	4905002		0			841577	start	start	censat_rdna	False	True	0	4905002
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000012.1	chr21	random	198274		0			140685	start	start	censat_rdna	False	True	0	198274
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000018.1	chr14	random	83746		0			52379	end	end	censat_rdna	False	True	0	83746
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000021.1	chr14	random	373722		0			0		start	default	False	True	0	373722
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000022.1	chr14	random	390990		0			319438	start	start	censat_rdna	False	True	0	390990
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000026.1	chr22	random	72875		0			52414	end	end	censat_rdna	False	True	0	72875
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000034.1	chr22	random	89448		0			0		start	default	False	True	0	89448
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000045.1	chr21	random	37441242	+	33593092	10324341.0	46699974.0	0		start	chain	False	True	0	12000000
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000046.1	chr22	random	43118785	+	34639269	10510000.0	50808440.0	141731	start	start	chain	False	True	0	12000000
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000050.1	chr14	random	3896174		0			7467	end	end	censat_rdna	False	True	0	3896174
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000052.1	chr21	random	4338824		0			456862	end	end	censat_rdna	False	True	0	4338824
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000054.1	chr21	random	603342		0			567575	end	end	censat_rdna	False	True	0	603342
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000056.1	chr14	random	6699141		0			97275	end	end	censat_rdna	False	True	0	6699141
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000057.1	chr14	random	3157050		0			98673	end	end	censat_rdna	False	True	0	3157050
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000062.1	chr21	random	213175		0			187368	start	start	censat_rdna	False	True	0	213175
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000068.1	chr13	random	144009		0			0		start	default	False	True	0	144009
+HG03225_hap1_hprc_r2_v1.0.1	HG03225#1#JBHIIG010000077.1	chr21	random	52991		0			0		start	default	False	True	0	52991

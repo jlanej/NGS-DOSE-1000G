@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000006.1	chr13	random	107542346	+	95473051	18408131.0	114340288.0	413321	start	start	chain	False	True	0.0	12000000.0
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000007.1	chr14	random	98952612	+	87451102	19122915.0	106273941.0	673831	start	start	chain	False	True	0.0	12000000.0
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000010.1	chr21	random	40647094	+	34259154	8203401.0	46699939.0	411936	start	start	chain	False	True	0.0	12000000.0
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000011.1	chr22	random	44897911	+	34798423	10510000.0	50808449.0	98995	start	start	chain	False	True	0.0	12000000.0
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000013.1	chr14	random	611842	+	553273	106257367.0	106883718.0	0		start	chain	False	False		
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000018.1	chr21	random	79705		0			50780	end	end	censat_rdna	False	True	0.0	79705.0
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000024.1	chr21	random	79758		0			52257	end	end	censat_rdna	False	True	0.0	79758.0
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000034.1	chr15	random	96258320	+	77372219	19782761.0	101980143.0	20266	start	start	chain	False	True	0.0	12000000.0
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000042.1	chr22	random	3481359		0			53452	end	end	censat_rdna	False	True	0.0	3481359.0
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000048.1	chr14	random	3977195		0			7448	end	end	censat_rdna	False	True	0.0	3977195.0
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000051.1	chr21	random	81369		0			47908	start	start	censat_rdna	False	True	0.0	81369.0
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000052.1	chr14	random	3541417		0			187008	end	end	censat_rdna	False	True	0.0	3541417.0
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000056.1	chr14	random	513540	+	486656	105746181.0	106268206.0	0		start	chain	False	False		
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000067.1	chr22	random	68116		0			47959	start	start	censat_rdna	False	True	0.0	68116.0
+HG00741_mat_hprc_r2_v1.0.1	HG00741#2#JAHALX020000072.1	chr14	random	52152		0			0		start	default	False	True	0.0	52152.0

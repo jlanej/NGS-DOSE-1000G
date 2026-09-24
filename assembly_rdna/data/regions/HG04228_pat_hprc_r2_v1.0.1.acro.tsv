@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000005.1	chr21	random	40724730	+	34379293	5216452.0	46699939.0	190025	start	start	chain	False	True	0.0	12000000.0
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000007.1	chr13	random	97886945	+	95443473	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000011.1	chr22	random	43826376	+	34859481	10510000.0	50808438.0	3054	start	start	chain	False	True	0.0	12000000.0
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000013.1	chr15	random	91720671	+	78681679	19993354.0	101981175.0	11993	start	start	chain	False	True	0.0	12000000.0
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000015.1	chr22	random	2716331		0			140383	end	end	censat_rdna	False	True	0.0	2716331.0
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000016.1	chr13	random	5514486		0			496062	start	start	censat_rdna	False	True	0.0	5514486.0
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000025.1	chr21	random	50300	+	50235	36628849.0	36679137.0	0		start	chain	False	False		
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000033.1	chr14	random	291443	+	290558	105914616.0	106205762.0	0		start	chain	False	False		
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000043.1	chr21	random	92904		0			52293	end	end	censat_rdna	False	True	0.0	92904.0
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000048.1	chr14	random	97853579	+	87912250	19170578.0	106883718.0	284392	start	start	chain	False	True	0.0	12000000.0
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000062.1	chr22	random	2872921		0			273094	end	end	censat_rdna	False	True	0.0	2872921.0
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000064.1	chr21	random	4895203		0			140368	end	end	censat_rdna	False	True	0.0	4895203.0
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000066.1	chr14	random	4242173		0			7485	end	end	censat_rdna	False	True	0.0	4242173.0
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000069.1	chr21	random	160698		0			140371	start	start	censat_rdna	False	True	0.0	160698.0
+HG04228_pat_hprc_r2_v1.0.1	HG04228#1#JBHIHA010000078.1	chr21	random	96484		0			0		start	default	False	True	0.0	96484.0

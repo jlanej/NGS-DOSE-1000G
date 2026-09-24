@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#CM089760.1	chr22	chromosome	47456396	+	34555814	10510000.0	50808430.0	325933	start	start	chain	False	True	0	12000000
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000010.1	chr15	random	90640259	+	79566465	19783324.0	101981183.0	279690	start	start	chain	False	True	0	12000000
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000012.1	chr13	random	105723567	+	95511589	18408131.0	114354308.0	234419	start	start	chain	False	True	0	12000000
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000023.1	chr21	random	3801607		0			496018	start	start	censat_rdna	False	True	0	3801607
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000037.1	chr14	random	475442		0			441928	end	end	censat_rdna	False	True	0	475442
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000041.1	chr21	random	64919	+	14069	8452767.0	8466885.0	7482	end	start	chain	True	True	0	64919
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000050.1	chr13	random	56601		0			0		start	default	False	True	0	56601
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000054.1	chr14	random	97155300	+	87255800	19170578.0	106883718.0	61038	start	start	chain	False	True	0	12000000
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000056.1	chr14	random	3134494		0			188403	end	end	censat_rdna	False	True	0	3134494
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000057.1	chr21	random	36238701	+	33932433	9834687.0	46699939.0	0		start	chain	False	True	0	12000000
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000067.1	chr22	random	4642716		0			186983	end	end	censat_rdna	False	True	0	4642716
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000076.1	chr15	random	117783		0			0		start	default	False	True	0	117783
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000087.1	chr22	random	89683		0			52312	start	start	censat_rdna	False	True	0	89683
+NA18976_hap1_hprc_r2_v1.0.1	NA18976#1#JBHIJO010000093.1	chr13	random	89658		0			0		start	default	False	True	0	89658

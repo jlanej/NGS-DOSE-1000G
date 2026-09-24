@@ -1,0 +1,24 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#CM098797.1	chr14	chromosome	100438024	+	88156683	19170578.0	106883718.0	464146	start	start	chain	False	True	0.0	12000000.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#CM098801.1	chr22	chromosome	46296169	+	34314098	10510000.0	50808468.0	284386	start	start	chain	False	True	0.0	12000000.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000002.1	chr15	random	90587962	+	78608923	20030663.0	101911314.0	499236	start	start	chain	False	True	0.0	12000000.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000008.1	chr13	random	97256294	+	95450773	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000009.1	chr21	random	40651975	+	34258392	8203401.0	46699939.0	371764	start	start	chain	False	True	0.0	12000000.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000018.1	chr13	random	216629		0			0		start	default	False	True	0.0	216629.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000019.1	chr22	random	256451		0			0		start	default	False	True	0.0	256451.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000020.1	chr14	random	164760		0			0		start	default	False	True	0.0	164760.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000021.1	chr15	random	629331		0			3056	start	start	censat_rdna	False	True	0.0	629331.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000024.1	chr15	random	393532		0			0		start	default	False	True	0.0	393532.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000028.1	chr13	random	87265		0			0		start	default	False	True	0.0	87265.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000030.1	chr22	random	197893	+	194524	22726444.0	22924720.0	0		start	chain	False	False		
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000031.1	chr15	random	150223		0			140723	start	start	censat_rdna	False	True	0.0	150223.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000032.1	chr22	random	105187		0			52381	start	start	censat_rdna	False	True	0.0	105187.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000042.1	chr15	random	3348841		0			7486	end	end	censat_rdna	False	True	0.0	3348841.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000050.1	chr13	random	5958307		0			143951	start	start	censat_rdna	False	True	0.0	5958307.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000051.1	chr14	random	3455818		0			52541	end	end	censat_rdna	False	True	0.0	3455818.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000056.1	chr22	random	184781		0			142239	start	start	censat_rdna	False	True	0.0	184781.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000061.1	chr21	random	128272		0			97240	end	end	censat_rdna	False	True	0.0	128272.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000062.1	chr13	random	630686		0			0		start	default	False	True	0.0	630686.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000064.1	chr15	random	69544		0			0		start	default	False	True	0.0	69544.0
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000065.1	chr15	random	60639	+	60469	41166346.0	41226983.0	0		start	chain	False	False		
+HG02984_pat_hprc_r2_v1.0.1	HG02984#1#JBJKOM010000068.1	chr15	random	50885		0			0		start	default	False	True	0.0	50885.0

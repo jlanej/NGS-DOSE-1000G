@@ -1,0 +1,13 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA20799_hap2_hprc_r2_v1.0.1	NA20799#2#JBJKOF010000008.1	chr14	random	96007412	+	87077444	19170578.0	106883718.0	148767	start	start	chain	False	True	0	12000000
+NA20799_hap2_hprc_r2_v1.0.1	NA20799#2#JBJKOF010000011.1	chr21	random	39617408	+	34216911	9527143.0	46699976.0	229148	start	start	chain	False	True	0	12000000
+NA20799_hap2_hprc_r2_v1.0.1	NA20799#2#JBJKOF010000013.1	chr15	random	93339846	+	79144698	21242091.0	101981116.0	412293	start	start	chain	False	True	0	12000000
+NA20799_hap2_hprc_r2_v1.0.1	NA20799#2#JBJKOF010000015.1	chr13	random	4054794		0			856363	start	start	censat_rdna	False	True	0	4054794
+NA20799_hap2_hprc_r2_v1.0.1	NA20799#2#JBJKOF010000018.1	chr21	random	427964	+	33707	8203401.0	8471774.0	392930	end	start	chain	True	True	0	427964
+NA20799_hap2_hprc_r2_v1.0.1	NA20799#2#JBJKOF010000040.1	chr22	random	45079763	+	34681787	10510000.0	50808308.0	146169	start	start	chain	False	True	0	12000000
+NA20799_hap2_hprc_r2_v1.0.1	NA20799#2#JBJKOF010000041.1	chr13	random	98774992	+	95469246	18408131.0	114354320.0	0		start	chain	False	True	0	12000000
+NA20799_hap2_hprc_r2_v1.0.1	NA20799#2#JBJKOF010000044.1	chr21	random	1656914	+	67909	8203401.0	8471774.0	1597620	end	start	chain	True	True	0	1656914
+NA20799_hap2_hprc_r2_v1.0.1	NA20799#2#JBJKOF010000046.1	chr22	random	311161		0			305154	end	end	censat_rdna	False	True	0	311161
+NA20799_hap2_hprc_r2_v1.0.1	NA20799#2#JBJKOF010000051.1	chr21	random	78868	+	12799	8452728.0	8465600.0	52214	start	start	chain	False	True	0	78868
+NA20799_hap2_hprc_r2_v1.0.1	NA20799#2#JBJKOF010000054.1	chr21	random	83929	+	18948	8452748.0	8471774.0	47188	start	start	chain	False	True	0	83929
+NA20799_hap2_hprc_r2_v1.0.1	NA20799#2#JBJKOF010000056.1	chr14	random	200907		0			184859	end	end	censat_rdna	False	True	0	200907

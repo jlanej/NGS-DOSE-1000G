@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#CM094087.1	chr21	chromosome	44519255	+	34212708	9527143.0	46699896.0	26515	start	start	chain	False	True	0	12000000
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#CM094088.1	chr22	chromosome	49215166	+	34925605	10510000.0	50808432.0	53456	start	start	chain	False	True	0	12000000
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000003.1	chr14	random	98987319	+	87542629	19170578.0	106883718.0	578727	start	start	chain	False	True	0	12000000
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000006.1	chr13	random	103610886	+	95465585	18408131.0	114354320.0	3078	start	start	chain	False	True	0	12000000
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000008.1	chr15	random	91651328	+	79207969	22358244.0	101981172.0	109611	start	start	chain	False	True	0	12000000
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000017.1	chr21	random	676062		0			634429	start	start	censat_rdna	False	True	0	676062
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000018.1	chr15	random	511072		0			0		start	default	False	True	0	511072
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000020.1	chr15	random	1012146		0			457371	start	start	censat_rdna	False	True	0	1012146
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000021.1	chr22	random	230014		0			181303	end	end	censat_rdna	False	True	0	230014
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000028.1	chr15	random	98611		0			0		start	default	False	True	0	98611
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000029.1	chr21	random	272673	+	26661	8203401.0	8463527.0	227141	end	start	chain	True	True	0	272673
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000048.1	chr14	random	4059613		0			218895	end	end	censat_rdna	False	True	0	4059613
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000051.1	chr14	random	3790520		0			7466	end	end	censat_rdna	False	True	0	3790520
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000052.1	chr22	random	2725730		0			187307	end	end	censat_rdna	False	True	0	2725730
+HG00097_hap2_hprc_r2_v1.0.1	HG00097#2#JBIRDE010000058.1	chr14	random	468355		0			446745	end	end	censat_rdna	False	True	0	468355

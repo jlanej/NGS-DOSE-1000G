@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000003.1	chr14	random	95089093	+	87413915	19170578.0	106883718.0	146560	start	start	chain	False	True	0.0	12000000.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000005.1	chr13	random	104769354	+	95230040	18408131.0	114354320.0	547568	start	start	chain	False	True	0.0	12000000.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000008.1	chr21	random	40496627	+	34207683	8203401.0	46699933.0	391598	start	start	chain	False	True	0.0	12000000.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000010.1	chr15	random	98488390	+	79176229	22358244.0	101981156.0	641390	start	start	chain	False	True	0.0	12000000.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000018.1	chr22	random	45763843	+	35045945	10510000.0	50808438.0	99952	start	start	chain	False	True	0.0	21261648.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000020.1	chr22	random	4550398		0			7480	end	end	censat_rdna	False	True	0.0	4550398.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000024.1	chr22	random	3664157		0			7473	end	end	censat_rdna	False	True	0.0	3664157.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000034.1	chr21	random	160902		0			139927	end	end	censat_rdna	False	True	0.0	160902.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000039.1	chr22	random	121399		0			98506	end	end	censat_rdna	False	True	0.0	121399.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000040.1	chr22	random	117501		0			58659	end	end	censat_rdna	False	True	0.0	117501.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000058.1	chr14	random	3075483		0			53258	end	end	censat_rdna	False	True	0.0	3075483.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000071.1	chr22	random	139412		0			139411	end	end	censat_rdna	False	True	0.0	139412.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000078.1	chr22	random	536347	+	196527	25258781.0	25455948.0	0		start	chain	False	False		
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000080.1	chr21	random	139370		0			96712	start	start	censat_rdna	False	True	0.0	139370.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000089.1	chr21	random	231347		0			190453	end	end	censat_rdna	False	True	0.0	231347.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000090.1	chr21	random	140208		0			135774	end	end	censat_rdna	False	True	0.0	140208.0
+HG01243_pat_hprc_r2_v1.0.1	HG01243#1#JAHEOY020000091.1	chr21	random	56378		0			50403	end	end	censat_rdna	False	True	0.0	56378.0

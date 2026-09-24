@@ -1,0 +1,21 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000005.1	chr15	random	97236748	+	79624426	20030663.0	101911314.0	200069	start	start	chain	False	True	0.0	12000000.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000010.1	chr22	random	41491928	+	34792058	10510000.0	50808468.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000011.1	chr13	random	104261580	+	95283138	18408131.0	114354320.0	96579	start	start	chain	False	True	0.0	12000000.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000013.1	chr21	random	41782172	+	34207842	9527143.0	46699042.0	185014	start	start	chain	False	True	0.0	12000000.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000015.1	chr14	random	103391620	+	86121539	19122915.0	105626358.0	421093	start	start	chain	False	True	0.0	12811979.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000017.1	chr22	random	4893610		0			318839	start	start	censat_rdna	False	True	0.0	4893610.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000023.1	chr13	random	153451		0			0		start	default	False	True	0.0	153451.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000025.1	chr14	random	583386		0			545973	start	start	censat_rdna	False	True	0.0	583386.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000027.1	chr13	random	242115		0			0		start	default	False	True	0.0	242115.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000028.1	chr13	random	96069		0			0		start	default	False	True	0.0	96069.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000037.1	chr13	random	142985		0			0		start	default	False	True	0.0	142985.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000047.1	chr14	random	5009043		0			52363	end	end	censat_rdna	False	True	0.0	5009043.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000048.1	chr14	random	4252679		0			95818	end	end	censat_rdna	False	True	0.0	4252679.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000051.1	chr14	random	1029587	+	898552	105920169.0	106883718.0	0		start	chain	False	False		
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000060.1	chr13	random	164173		0			0		start	default	False	True	0.0	164173.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000063.1	chr13	random	62045		0			0		start	default	False	True	0.0	62045.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000064.1	chr13	random	70926		0			0		start	default	False	True	0.0	70926.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000065.1	chr13	random	60129		0			0		start	default	False	True	0.0	60129.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000068.1	chr13	random	97514		0			0		start	default	False	True	0.0	97514.0
+HG03050_mat_hprc_r2_v1.0.1	HG03050#2#JBJKOL010000071.1	chr13	random	52480		0			0		start	default	False	True	0.0	52480.0

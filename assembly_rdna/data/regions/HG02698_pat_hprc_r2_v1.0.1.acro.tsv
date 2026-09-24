@@ -1,0 +1,17 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000001.1	chr14	random	253770	+	218663	106176522.0	106395563.0	0		start	chain	False	False		
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000002.1	chr13	random	97469109	+	95489147	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000003.1	chr14	random	98677155	+	87545762	19170578.0	106883718.0	148907	start	start	chain	False	True	0.0	12000000.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000004.1	chr15	random	83844504	+	79141379	20030663.0	101981174.0	0		start	chain	False	True	0.0	12000000.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000018.1	chr21	random	37982596	+	34226817	9527143.0	46699974.0	3078	start	start	chain	False	True	0.0	12000000.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000022.1	chr15	random	7008460		0			421919	start	start	censat_rdna	False	True	0.0	7008460.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000025.1	chr21	random	4650432		0			3078	start	start	censat_rdna	False	True	0.0	4650432.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000043.1	chr14	random	63969		0			0		start	default	False	True	0.0	63969.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000054.1	chr21	random	2684447		0			0		start	default	False	True	0.0	2684447.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000056.1	chr22	random	42978043	+	34778696	10510000.0	50793264.0	3055	start	start	chain	False	True	0.0	12000000.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000067.1	chr21	random	2870420		0			359648	start	start	censat_rdna	False	True	0.0	2870420.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000071.1	chr14	random	378497	+	377425	19411165.0	19907338.0	0		start	chain	False	True	0.0	378497.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000077.1	chr14	random	427177		0			368177	start	start	censat_rdna	False	True	0.0	427177.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000083.1	chr21	random	495915		0			453571	start	start	censat_rdna	False	True	0.0	495915.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000090.1	chr14	random	1076680		0			232822	start	start	censat_rdna	False	True	0.0	1076680.0
+HG02698_pat_hprc_r2_v1.0.1	HG02698#1#JBHDTL010000092.1	chr14	random	51051	+	51031	50450096.0	50501162.0	0		start	chain	False	False		

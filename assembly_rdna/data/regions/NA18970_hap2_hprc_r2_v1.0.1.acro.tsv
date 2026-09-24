@@ -1,0 +1,13 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18970_hap2_hprc_r2_v1.0.1	NA18970#2#CM101486.1	chr14	chromosome	102345907	+	88115298	19170578.0	106883718.0	286871	start	start	chain	False	True	0.0	12000000.0
+NA18970_hap2_hprc_r2_v1.0.1	NA18970#2#CM101487.1	chr15	chromosome	98998063	+	80365692	19993354.0	101981175.0	1334680	start	start	chain	False	True	0.0	16671466.0
+NA18970_hap2_hprc_r2_v1.0.1	NA18970#2#CM101492.1	chr21	chromosome	43719884	+	34363967	8100181.0	46699974.0	1172246	start	start	chain	False	True	0.0	12000000.0
+NA18970_hap2_hprc_r2_v1.0.1	NA18970#2#CM101493.1	chr22	chromosome	48861724	+	34764989	10510000.0	50808430.0	173988	start	start	chain	False	True	0.0	12000000.0
+NA18970_hap2_hprc_r2_v1.0.1	NA18970#2#JBKABV010000013.1	chr13	random	106137649	+	95462078	18408131.0	114313473.0	246373	start	start	chain	False	True	0.0	12000000.0
+NA18970_hap2_hprc_r2_v1.0.1	NA18970#2#JBKABV010000028.1	chr14	random	2637894		0			142730	end	end	censat_rdna	False	True	0.0	2637894.0
+NA18970_hap2_hprc_r2_v1.0.1	NA18970#2#JBKABV010000032.1	chr22	random	810689		0			771222	end	end	censat_rdna	False	True	0.0	810689.0
+NA18970_hap2_hprc_r2_v1.0.1	NA18970#2#JBKABV010000042.1	chr14	random	564774		0			542499	start	start	censat_rdna	False	True	0.0	564774.0
+NA18970_hap2_hprc_r2_v1.0.1	NA18970#2#JBKABV010000045.1	chr21	random	69133		0			52256	start	start	censat_rdna	False	True	0.0	69133.0
+NA18970_hap2_hprc_r2_v1.0.1	NA18970#2#JBKABV010000047.1	chr22	random	82042		0			0		start	default	False	True	0.0	82042.0
+NA18970_hap2_hprc_r2_v1.0.1	NA18970#2#JBKABV010000052.1	chr21	random	64375		0			0		start	default	False	True	0.0	64375.0
+NA18970_hap2_hprc_r2_v1.0.1	NA18970#2#JBKABV010000057.1	chr14	random	54559	+	54548	69297481.0	69352046.0	0		start	chain	False	False		

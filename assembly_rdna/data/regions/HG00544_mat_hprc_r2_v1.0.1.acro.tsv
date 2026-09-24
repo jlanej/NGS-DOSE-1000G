@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#CM089395.1	chr22	chromosome	50775831	+	34865919	10510000.0	50807283.0	55602	start	start	chain	False	True	0.0	12000000.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000006.1	chr15	random	95784222	+	77773789	20113538.0	101981156.0	717518	start	start	chain	False	True	0.0	12000000.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000012.1	chr13	random	103840971	+	95485761	18408131.0	114354320.0	3079	start	start	chain	False	True	0.0	12000000.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000015.1	chr14	random	96644554	+	87302327	19170578.0	106883718.0	62051	start	start	chain	False	True	0.0	12000000.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000016.1	chr21	random	1528790		0			593040	start	start	censat_rdna	False	True	0.0	1528790.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000018.1	chr21	random	1245908		0			187310	start	start	censat_rdna	False	True	0.0	1245908.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000020.1	chr14	random	2840136		0			0		start	default	False	True	0.0	2840136.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000026.1	chr22	random	114850		0			96007	end	end	censat_rdna	False	True	0.0	114850.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000041.1	chr21	random	39707538	+	34395471	5216452.0	46699939.0	3078	start	start	chain	False	True	0.0	12000000.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000042.1	chr14	random	3203864		0			52433	end	end	censat_rdna	False	True	0.0	3203864.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000044.1	chr22	random	4023920		0			232170	end	end	censat_rdna	False	True	0.0	4023920.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000045.1	chr14	random	1022156	+	863695	105906905.0	106883718.0	0		start	chain	False	False		
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000046.1	chr14	random	2220285		0			90617	end	end	censat_rdna	False	True	0.0	2220285.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000048.1	chr22	random	73809		0			49607	end	end	censat_rdna	False	True	0.0	73809.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000052.1	chr13	random	234076		0			0		start	default	False	True	0.0	234076.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000055.1	chr22	random	88507		0			50816	start	start	censat_rdna	False	True	0.0	88507.0
+HG00544_mat_hprc_r2_v1.0.1	HG00544#2#JBHIIN010000061.1	chr13	random	66328	+	66289	103840166.0	103906455.0	0		start	chain	False	False		

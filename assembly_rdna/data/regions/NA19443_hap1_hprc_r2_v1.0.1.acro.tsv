@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#CM089453.1	chr13	chromosome	107313513	+	95454635	18408131.0	114354320.0	234871	start	start	chain	False	True	0.0	12000000.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000005.1	chr22	random	47633573	+	35270255	10510000.0	50808447.0	988726	start	start	chain	False	True	0.0	12000000.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000009.1	chr21	random	42388323	+	34252562	8203401.0	46699938.0	719162	start	start	chain	False	True	0.0	12000000.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000010.1	chr22	random	3769925		0			679716	start	start	censat_rdna	False	True	0.0	3769925.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000017.1	chr14	random	365449		0			316862	end	end	censat_rdna	False	True	0.0	365449.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000018.1	chr15	random	1044967	+	871714	19993354.0	20909615.0	0		start	chain	False	True	0.0	1044967.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000024.1	chr14	random	291099	+	250205	105846992.0	106197955.0	0		start	chain	False	False		
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000030.1	chr22	random	224723		0			187256	start	start	censat_rdna	False	True	0.0	224723.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000044.1	chr22	random	74131		0			53712	start	start	censat_rdna	False	True	0.0	74131.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000049.1	chr14	random	98417630	+	87986014	19170578.0	106883718.0	195669	start	start	chain	False	True	0.0	12000000.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000057.1	chr15	random	97752424	+	79664591	19782761.0	101981175.0	327581	start	start	chain	False	True	0.0	13351570.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000062.1	chr21	random	4407264		0			140075	end	end	censat_rdna	False	True	0.0	4407264.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000063.1	chr14	random	2692546		0			51694	end	end	censat_rdna	False	True	0.0	2692546.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000065.1	chr14	random	3369806		0			140123	end	end	censat_rdna	False	True	0.0	3369806.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000069.1	chr22	random	3296016		0			97431	end	end	censat_rdna	False	True	0.0	3296016.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000074.1	chr21	random	154754		0			3077	end	end	censat_rdna	False	True	0.0	154754.0
+NA19443_hap1_hprc_r2_v1.0.1	NA19443#1#JBHIIQ010000085.1	chr21	random	222045		0			185397	start	start	censat_rdna	False	True	0.0	222045.0

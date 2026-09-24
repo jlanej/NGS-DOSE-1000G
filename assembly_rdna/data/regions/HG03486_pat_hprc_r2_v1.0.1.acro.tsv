@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000006.1	chr14	random	96497529	+	87643712	19170578.0	106883718.0	418242	start	start	chain	False	True	0.0	12000000.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000009.1	chr13	random	102369440	+	95283205	18408131.0	114354320.0	3079	start	start	chain	False	True	0.0	12000000.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000019.1	chr22	random	48048984	+	34825927	10510000.0	50808430.0	192661	start	start	chain	False	True	0.0	16208819.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000023.1	chr15	random	10801699		0			13234	end	end	censat_rdna	False	True	0.0	10801699.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000026.1	chr21	random	6302784		0			396747	start	start	censat_rdna	False	True	0.0	6302784.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000031.1	chr21	random	2251736		0			167328	start	start	censat_rdna	False	True	0.0	2251736.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000033.1	chr14	random	306376	+	269229	105752717.0	106077104.0	0		start	chain	False	False		
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000036.1	chr14	random	387897	-	330246	19170578.0	19688772.0	0		end	chain	False	True	0.0	387897.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000039.1	chr13	random	263307		0			0		start	default	False	True	0.0	263307.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000047.1	chr22	random	207290		0			184766	end	end	censat_rdna	False	True	0.0	207290.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000055.1	chr14	random	172864		0			128775	end	end	censat_rdna	False	True	0.0	172864.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000066.1	chr22	random	147463		0			97241	start	start	censat_rdna	False	True	0.0	147463.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000078.1	chr15	random	85311598	+	79537971	21242091.0	101911314.0	0		start	chain	False	True	0.0	12000000.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000084.1	chr21	random	34377030	+	33563201	12965808.0	46699042.0	0		start	chain	False	True	0.0	12000000.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000096.1	chr14	random	1151691		0			498866	end	end	censat_rdna	False	True	0.0	1151691.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000120.1	chr22	random	92910		0			52450	start	start	censat_rdna	False	True	0.0	92910.0
+HG03486_pat_hprc_r2_v1.0.1	HG03486#1#JAHEOQ020000124.1	chr15	random	70604		0			0		start	default	False	True	0.0	70604.0

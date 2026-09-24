@@ -1,0 +1,18 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000006.1	chr13	random	104527725	+	95444508	18408131.0	114354320.0	232672	start	start	chain	False	True	0.0	12000000.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000007.1	chr14	random	98475831	+	87514878	19170578.0	106883718.0	699184	start	start	chain	False	True	0.0	12000000.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000011.1	chr15	random	90645984	+	79095051	22358244.0	101981174.0	11993	start	start	chain	False	True	0.0	12000000.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000015.1	chr22	random	2293600		0			7468	end	end	censat_rdna	False	True	0.0	2293600.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000020.1	chr21	random	64144		0			56448	start	start	censat_rdna	False	True	0.0	64144.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000026.1	chr21	random	79240		0			52368	start	start	censat_rdna	False	True	0.0	79240.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000029.1	chr14	random	102960	+	98213	105730707.0	105992941.0	0		start	chain	False	False		
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000031.1	chr21	random	164653		0			137829	start	start	censat_rdna	False	True	0.0	164653.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000033.1	chr22	random	227600		0			76010	start	start	censat_rdna	False	True	0.0	227600.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000047.1	chr21	random	39424318	+	34227546	9527143.0	46699974.0	54613	start	start	chain	False	True	0.0	12000000.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000048.1	chr22	random	42887991	+	34908071	10510000.0	50807283.0	8300	start	start	chain	False	True	0.0	12000000.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000051.1	chr14	random	5130711		0			370109	end	end	censat_rdna	False	True	0.0	5130711.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000053.1	chr14	random	4207018		0			320159	end	end	censat_rdna	False	True	0.0	4207018.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000054.1	chr14	random	3134580		0			105400	end	end	censat_rdna	False	True	0.0	3134580.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000055.1	chr14	random	3779027		0			692423	end	end	censat_rdna	False	True	0.0	3779027.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000063.1	chr21	random	163845		0			131669	end	end	censat_rdna	False	True	0.0	163845.0
+NA19776_hap1_hprc_r2_v1.0.1	NA19776#1#JBIRDB010000066.1	chr13	random	150590		0			0		start	default	False	True	0.0	150590.0

@@ -1,0 +1,14 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#CM094402.1	chr14	chromosome	100755663	+	88013832	19122915.0	105863861.0	488872	start	start	chain	False	True	0	12000000
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#CM094407.1	chr21	chromosome	42532530	+	34340294	8100181.0	46699042.0	259043	start	start	chain	False	True	0	12000000
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#CM094408.1	chr22	chromosome	53229129	+	34872081	10510000.0	50808437.0	56256	start	start	chain	False	True	0	15335069
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#JBIREE010000005.1	chr15	random	101778679	+	80490261	19782761.0	101981147.0	242391	start	start	chain	False	True	0	22181595
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#JBIREE010000019.1	chr22	random	71280		0			52232	end	end	censat_rdna	False	True	0	71280
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#JBIREE010000020.1	chr15	random	1020596	+	961131	20031907.0	21038558.0	0		start	chain	False	True	0	1020596
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#JBIREE010000022.1	chr22	random	72938		0			7445	end	end	censat_rdna	False	True	0	72938
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#JBIREE010000025.1	chr21	random	300192		0			234392	end	end	censat_rdna	False	True	0	300192
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#JBIREE010000032.1	chr13	random	58856		0			0		start	default	False	True	0	58856
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#JBIREE010000040.1	chr13	random	104012467	+	95468471	18408131.0	114354320.0	234896	start	start	chain	False	True	0	12000000
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#JBIREE010000048.1	chr21	random	408914		0			366229	start	start	censat_rdna	False	True	0	408914
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#JBIREE010000049.1	chr14	random	3259401		0			142261	end	end	censat_rdna	False	True	0	3259401
+HG00235_hap2_hprc_r2_v1.0.1	HG00235#2#JBIREE010000056.1	chr14	random	638305		0			606434	end	end	censat_rdna	False	True	0	638305

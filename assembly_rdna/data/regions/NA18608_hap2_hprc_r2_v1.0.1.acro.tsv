@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000002.1	chr14	random	101842438	+	87328951	19170578.0	106871881.0	419046	start	start	chain	False	True	0.0	12000000.0
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000004.1	chr21	random	40020630	+	34263041	8203401.0	46699956.0	458949	start	start	chain	False	True	0.0	12000000.0
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000009.1	chr13	random	103197324	+	95483164	18408131.0	114353304.0	328617	start	start	chain	False	True	0.0	12000000.0
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000010.1	chr15	random	95704462	+	79173431	22358244.0	101981174.0	102838	start	start	chain	False	True	0.0	12000000.0
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000017.1	chr14	random	584007		0			582386	end	end	censat_rdna	False	True	0.0	584007.0
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000024.1	chr15	random	391855	+	389293	77627570.0	78017102.0	0		start	chain	False	False		
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000025.1	chr14	random	219273		0			13451	end	end	censat_rdna	False	True	0.0	219273.0
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000027.1	chr21	random	205639		0			186868	end	end	censat_rdna	False	True	0.0	205639.0
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000032.1	chr22	random	79464		0			53060	end	end	censat_rdna	False	True	0.0	79464.0
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000034.1	chr21	random	51027		0			0		start	default	False	True	0.0	51027.0
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000035.1	chr21	random	71009		0			56897	start	start	censat_rdna	False	True	0.0	71009.0
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000046.1	chr14	random	2373761		0			7462	end	end	censat_rdna	False	True	0.0	2373761.0
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000049.1	chr22	random	46335223	+	34515941	10510000.0	50808468.0	671746	start	start	chain	False	True	0.0	19949878.0
+NA18608_hap2_hprc_r2_v1.0.1	NA18608#2#JBHIJX010000057.1	chr22	random	193050		0			182358	end	end	censat_rdna	False	True	0.0	193050.0

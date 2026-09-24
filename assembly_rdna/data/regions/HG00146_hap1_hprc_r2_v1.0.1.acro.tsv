@@ -1,0 +1,29 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000005.1	chr13	random	104332432	+	95493067	18408131.0	114354320.0	323602	start	start	chain	False	True	0.0	12000000.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000015.1	chr22	random	39571885	+	35135399	15154318.0	50808426.0	3054	start	start	chain	False	True	0.0	21783302.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000016.1	chr21	random	33415084	+	31336564	10324341.0	44406165.0	0		start	chain	False	True	0.0	12000000.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000018.1	chr15	random	9046839		0			288239	start	start	censat_rdna	False	True	0.0	9046839.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000022.1	chr14	random	395356	-	319829	19170578.0	19668315.0	0		end	chain	False	True	0.0	395356.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000032.1	chr22	random	55903	+	47658	22736693.0	22927179.0	0		start	chain	False	False		
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000033.1	chr15	random	83123		0			0		start	default	False	True	0.0	83123.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000034.1	chr14	random	347411		0			320086	end	end	censat_rdna	False	True	0.0	347411.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000040.1	chr22	random	82200	+	82148	22834759.0	22916912.0	0		start	chain	False	False		
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000053.1	chr15	random	84136221	+	79603754	20030663.0	101981153.0	0		start	chain	False	True	0.0	12000000.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000054.1	chr14	random	87207876	+	86773656	19429420.0	106883718.0	0		start	chain	False	True	0.0	12000000.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000059.1	chr14	random	382994		0			321168	start	start	censat_rdna	False	True	0.0	382994.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000060.1	chr14	random	9233596		0			283605	start	start	censat_rdna	False	True	0.0	9233596.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000063.1	chr22	random	2620390		0			7442	end	end	censat_rdna	False	True	0.0	2620390.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000064.1	chr21	random	2318102	+	2266619	44407144.0	46699860.0	0		start	chain	False	False		
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000065.1	chr13	random	2415193		0			231896	start	start	censat_rdna	False	True	0.0	2415193.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000068.1	chr21	random	524730		0			287730	end	end	censat_rdna	False	True	0.0	524730.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000070.1	chr14	random	301750		0			273216	end	end	censat_rdna	False	True	0.0	301750.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000073.1	chr13	random	134591	+	134482	54114482.0	54249005.0	0		start	chain	False	False		
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000074.1	chr21	random	84471	+	14196	8452750.0	8466988.0	52254	start	start	chain	False	True	0.0	84471.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000078.1	chr14	random	510833		0			482842	end	end	censat_rdna	False	True	0.0	510833.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000081.1	chr22	random	181045		0			142401	end	end	censat_rdna	False	True	0.0	181045.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000083.1	chr13	random	68863	+	68777	34817410.0	34886242.0	0		start	chain	False	False		
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000085.1	chr22	random	73119		0			56766	end	end	censat_rdna	False	True	0.0	73119.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000090.1	chr15	random	81601		0			0		start	default	False	True	0.0	81601.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000092.1	chr14	random	54400		0			0		start	default	False	True	0.0	54400.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000093.1	chr15	random	61247	+	60635	21483899.0	21544575.0	0		start	chain	False	True	0.0	61247.0
+HG00146_hap1_hprc_r2_v1.0.1	HG00146#1#JBHIKO010000096.1	chr14	random	51957	+	51801	18467669.0	18519470.0	0		start	chain	False	True	0.0	51957.0

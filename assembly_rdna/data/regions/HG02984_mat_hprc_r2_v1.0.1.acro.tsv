@@ -1,0 +1,16 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#CM098811.1	chr15	chromosome	96493506	+	80356205	19782761.0	101930299.0	62643	start	start	chain	False	True	0.0	12297779.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#CM098815.1	chr21	chromosome	44012268	+	34211102	9527143.0	46699961.0	54106	start	start	chain	False	True	0.0	12000000.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#CM098816.1	chr22	chromosome	49290440	+	34713785	10510000.0	50808438.0	478643	start	start	chain	False	True	0.0	12814166.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#JBJKON010000026.1	chr21	random	6529011		0			144977	start	start	censat_rdna	False	True	0.0	6529011.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#JBJKON010000027.1	chr13	random	772273		0			0		start	default	False	True	0.0	772273.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#JBJKON010000037.1	chr14	random	156430		0			0		start	default	False	True	0.0	156430.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#JBJKON010000038.1	chr22	random	178940		0			178229	end	end	censat_rdna	False	True	0.0	178940.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#JBJKON010000050.1	chr14	random	95277693	+	86451597	18223523.0	105625243.0	232643	start	start	chain	False	True	0.0	12000000.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#JBJKON010000053.1	chr13	random	96752780	+	95416300	18408131.0	114354320.0	0		start	chain	False	True	0.0	12000000.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#JBJKON010000059.1	chr22	random	656132		0			639327	start	start	censat_rdna	False	True	0.0	656132.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#JBJKON010000063.1	chr22	random	3788654		0			184482	end	end	censat_rdna	False	True	0.0	3788654.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#JBJKON010000070.1	chr22	random	224688		0			187137	start	start	censat_rdna	False	True	0.0	224688.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#JBJKON010000078.1	chr14	random	369366	+	344673	106537801.0	106883718.0	0		start	chain	False	False		
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#JBJKON010000079.1	chr21	random	71393	+	10981	8452789.0	8463812.0	0		start	chain	False	True	0.0	71393.0
+HG02984_mat_hprc_r2_v1.0.1	HG02984#2#JBJKON010000080.1	chr14	random	102664	+	11396	106412849.0	106424284.0	0		start	chain	False	False		

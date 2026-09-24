@@ -1,0 +1,12 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+NA18570_hap2_hprc_r2_v1.0.1	NA18570#2#CM087684.1	chr14	chromosome	100885820	+	88111230	19170578.0	106883718.0	330640	start	start	chain	False	True	0.0	12000000.0
+NA18570_hap2_hprc_r2_v1.0.1	NA18570#2#CM087685.1	chr15	chromosome	95915427	+	77150026	22358244.0	101981175.0	288197	start	start	chain	False	True	0.0	12000000.0
+NA18570_hap2_hprc_r2_v1.0.1	NA18570#2#CM087690.1	chr22	chromosome	49445635	+	34718844	10510000.0	50808402.0	767805	start	start	chain	False	True	0.0	12000000.0
+NA18570_hap2_hprc_r2_v1.0.1	NA18570#2#JBHDXO010000008.1	chr13	random	104149559	+	95501268	18408131.0	114354320.0	369505	start	start	chain	False	True	0.0	12000000.0
+NA18570_hap2_hprc_r2_v1.0.1	NA18570#2#JBHDXO010000020.1	chr13	random	5900214		0			907292	start	start	censat_rdna	False	True	0.0	5900214.0
+NA18570_hap2_hprc_r2_v1.0.1	NA18570#2#JBHDXO010000024.1	chr14	random	414847		0			367577	end	end	censat_rdna	False	True	0.0	414847.0
+NA18570_hap2_hprc_r2_v1.0.1	NA18570#2#JBHDXO010000025.1	chr13	random	53238		0			0		start	default	False	True	0.0	53238.0
+NA18570_hap2_hprc_r2_v1.0.1	NA18570#2#JBHDXO010000031.1	chr21	random	81967	+	13708	8452754.0	8466522.0	52375	start	start	chain	False	True	0.0	81967.0
+NA18570_hap2_hprc_r2_v1.0.1	NA18570#2#JBHDXO010000043.1	chr21	random	37122480	+	33591187	12976641.0	46699921.0	0		start	chain	False	True	0.0	12000000.0
+NA18570_hap2_hprc_r2_v1.0.1	NA18570#2#JBHDXO010000057.1	chr22	random	83391	+	61812	22329537.0	22936577.0	0		start	chain	False	False		
+NA18570_hap2_hprc_r2_v1.0.1	NA18570#2#JBHDXO010000059.1	chr22	random	86404		0			0		start	default	False	True	0.0	86404.0

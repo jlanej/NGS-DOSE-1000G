@@ -1,0 +1,15 @@
+assembly_name	contig	chrom	level	length	chain_strand	chain_aligned_bp	grch38_min	grch38_max	rdna_bp	rdna_side	parm_end	orientation_source	orientation_conflict	taken	seg_start	seg_end
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000009.1	chr13	random	103753492	+	95456992	18408131.0	114354320.0	54961	start	start	chain	False	True	0.0	12000000.0
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000011.1	chr22	random	45672700	+	34250745	10510000.0	50808468.0	465338	start	start	chain	False	True	0.0	12000000.0
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000014.1	chr15	random	92736785	+	79195481	22358244.0	101981174.0	220084	start	start	chain	False	True	0.0	12000000.0
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000016.1	chr21	random	40292107	+	34224659	9527143.0	46699974.0	101147	start	start	chain	False	True	0.0	12000000.0
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000019.1	chr22	random	6384546		0			503136	start	start	censat_rdna	False	True	0.0	6384546.0
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000031.1	chr21	random	80736	+	15471	8452742.0	8468250.0	52336	start	start	chain	False	True	0.0	80736.0
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000041.1	chr14	random	90218289	+	87384772	19170578.0	106883718.0	0		start	chain	False	True	0.0	12000000.0
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000044.1	chr22	random	2786279		0			97087	end	end	censat_rdna	False	True	0.0	2786279.0
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000045.1	chr14	random	3209917		0			307281	end	end	censat_rdna	False	True	0.0	3209917.0
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000046.1	chr21	random	497486		0			0		start	default	False	True	0.0	497486.0
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000050.1	chr14	random	145191	+	139528	105883479.0	106028215.0	0		start	chain	False	False		
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000052.1	chr14	random	3131873		0			0		start	default	False	True	0.0	3131873.0
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000055.1	chr22	random	443587		0			391903	start	start	censat_rdna	False	True	0.0	443587.0
+HG01952_mat_hprc_r2_v1.0.1	HG01952#2#JAHAMD020000062.1	chr22	random	168732	+	159552	22388681.0	22548301.0	0		start	chain	False	False		
