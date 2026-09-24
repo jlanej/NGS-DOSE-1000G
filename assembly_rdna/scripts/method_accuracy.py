@@ -230,7 +230,7 @@ for j, (col, lab, c) in enumerate([("assembly", "the assembly", CA), ("ngs", "NG
     b = np.polyfit(p["mid"], p[col], 1); xs = np.linspace(p["mid"].min(), p["mid"].max(), 10)
     a.plot(xs, np.polyval(b, xs), color="k", lw=0.8)
     rv = r45["r_assembly" if col == "assembly" else "r_ngsdose"]
-    a.set_title(f"Child measured by {lab}\nr = {rv:.2f} ({r45['n']} trios)", loc="left")
+    a.set_title(f"Child measured by {lab}\nPearson r = {rv:.2f} ({r45['n']} trios)", loc="left")
     a.set_xlabel("parents' mean, NGS-DOSE 45S"); a.set_ylabel("child's 45S copies" if j == 0 else "")
     a.set_ylim(*lim); letter(a, "ab"[j], -0.25, 1.2)
 a = ax[2]
@@ -240,7 +240,7 @@ for y, r in zip(ys, inh):
     a.errorbar(r["r_ngsdose"], y - 0.13, xerr=[[r["r_ngsdose"] - r["r_ngsdose_lo"]], [r["r_ngsdose_hi"] - r["r_ngsdose"]]], fmt="s", ms=3.2, color=CN, lw=1)
 a.set_yticks(ys); a.set_yticklabels([f"{r['cls']}, parents:\n{r['parents']} ({r['n']})" for r in inh])
 a.axvline(0, color=CH, lw=0.6); a.set_xlim(-0.4, 1.05); a.set_ylim(-0.6, len(inh) - 0.2)
-a.set_xlabel("child vs parents' mean, r")
+a.set_xlabel("Pearson r with parents' mean")
 a.plot([], [], "o", color=CA, label="child by assembly"); a.plot([], [], "s", color=CN, label="child by NGS-DOSE")
 a.legend(frameon=False, loc="upper left", bbox_to_anchor=(-0.02, 1.02), fontsize=6)
 a.set_title("45S: NGS-DOSE wins; 5S: tie", loc="left"); letter(a, "c", -0.55, 1.2)
@@ -279,7 +279,7 @@ a.annotate("HG02053", (713, x.loc["HG02053", "ngsdose"]), xytext=(-38, -11), tex
 a.set_xlim(lo, hi); a.set_ylim(lo, hi)
 a.set_xlabel("ddPCR 45S copies (±SD)"); a.set_ylabel("short-read 45S copies")
 st, sc, sa12 = dd_stats["ngsdose"], dd_stats["conkord_same12"], dd_stats["ngsdose_any"]
-a.set_title(f"ddPCR, n = {sa12['n']}: NGS-DOSE\nr = {sa12['r']:.2f}, CONKORD {sc['r']:.2f}", loc="left")
+a.set_title(f"ddPCR, n = {sa12['n']}: Pearson r\nNGS-DOSE {sa12['r']:.2f}, CONKORD {sc['r']:.2f}", loc="left")
 a.legend(frameon=False, loc="upper left", fontsize=5.5); letter(a, "b", -0.3)
 a = ax[2]
 xa = pc.dropna(subset=["assembly_18S"])
@@ -309,7 +309,7 @@ a.scatter(fta.fish_total, fta.assembly_18S, marker="o", s=16, color=CA, label=f"
 a.set_xlim(0, hi); a.set_ylim(0, hi)
 a.set_xlabel("FISH, summed over 10 arrays"); a.set_ylabel("45S copies (diploid)")
 fn = fish_tot["ngsdose_any"]
-a.set_title(f"FISH totals (= CONKORD):\nNGS-DOSE r = {fn['r']:.2f} (n = {fn['n']})", loc="left")
+a.set_title(f"FISH totals (= CONKORD) vs\nNGS-DOSE: Pearson r = {fn['r']:.2f}", loc="left")
 a.legend(frameon=False, loc="upper left", fontsize=5.5); letter(a, "d", -0.3)
 a.text(0.97, 0.03, "FISH copies = FISH share\n× CONKORD total, summed", transform=a.transAxes, ha="right", va="bottom", fontsize=5.3, color=CH)
 a = ax[4]
@@ -318,7 +318,7 @@ for s_, g in pm.groupby("sample"):
 m_ = max(pm.fish.max(), pm.assembled.max()) * 1.05
 a.plot([0, m_], [0, m_], color=CH, lw=0.8); a.set_xlim(0, m_); a.set_ylim(0, m_)
 a.set_xlabel("FISH units, both homologues"); a.set_ylabel("assembled units, same chromosome")
-a.set_title(f"Per chromosome, units:\nr = {arr_stats['r_units']:.2f} (n = {arr_stats['n_chrom']})", loc="left")
+a.set_title(f"Per chromosome, units:\nPearson r = {arr_stats['r_units']:.2f} (n = {arr_stats['n_chrom']})", loc="left")
 a.legend(frameon=False, fontsize=5, loc="upper left"); letter(a, "e", -0.3)
 a.text(0.97, 0.97, "units on one chromosome\n(both homologues)", transform=a.transAxes, ha="right", va="top", fontsize=5.3, color=CH)
 a = ax[5]
@@ -326,7 +326,7 @@ for s_, g in pm.groupby("sample"):
     a.scatter(g.fish_share, g.asm_share_of_placed, s=12, label=s_)
 a.plot([0, 0.5], [0, 0.5], color=CH, lw=0.8); a.set_xlim(0, 0.5); a.set_ylim(0, 0.55)
 a.set_xlabel("FISH share of the rDNA"); a.set_ylabel("share of placed assembled units")
-a.set_title(f"Per chromosome, shares:\nr = {arr_stats['r_share']:.2f}", loc="left"); letter(a, "f", -0.3)
+a.set_title(f"Per chromosome, shares:\nPearson r = {arr_stats['r_share']:.2f}", loc="left"); letter(a, "f", -0.3)
 a.text(0.97, 0.97, "share = fraction of the person's\nrDNA on that chromosome", transform=a.transAxes, ha="right", va="top", fontsize=5.3, color=CH)
 fig.tight_layout(h_pad=1.6, w_pad=0.9)
 fig.savefig(f"{FIG}/fig5_truths_and_assays.png", dpi=300)
@@ -398,9 +398,9 @@ for _c in ("c", "mid"):
 _bs = [np.corrcoef(_d.c.values[k], _d.mid.values[k])[0, 1] for k in (rng.integers(0, len(_d), len(_d)) for _ in range(5000))]
 inh18["NGS-DOSE"].update(lo=float(np.percentile(_bs, 2.5)), hi=float(np.percentile(_bs, 97.5)))
 
-fig = plt.figure(figsize=(7.4, 10.6))
-gs = gridspec.GridSpec(4, 3, figure=fig, height_ratios=[1, 1, 1, 1.12], hspace=0.62, wspace=0.62,
-                       left=0.09, right=0.98, top=0.965, bottom=0.01)
+fig = plt.figure(figsize=(7.4, 11.0))
+gs = gridspec.GridSpec(4, 3, figure=fig, height_ratios=[1, 1, 1, 1.3], hspace=0.62, wspace=0.62,
+                       left=0.09, right=0.98, top=0.945, bottom=0.01)
 # a: scatter, every method against ddPCR
 a = fig.add_subplot(gs[0, 0])
 a.plot([0, 750], [0, 750], color=CH, lw=0.8)
@@ -413,7 +413,14 @@ a.annotate("HG002 (T2T)", (pc.loc["HG002", "ddpcr"], pc.loc["HG002", "assembly_1
 a.set_xlim(400, 740); a.set_ylim(0, 750)
 a.set_xlabel("ddPCR 45S copies"); a.set_ylabel("estimate, 45S copies")
 a.set_title("All methods vs ddPCR\n(grey line: equal)", loc="left")
-a.legend(frameon=False, fontsize=5.3, loc="center right", handletextpad=0.3, borderaxespad=0.2, bbox_to_anchor=(1.04, 0.48))
+_h, _l = a.get_legend_handles_labels()
+fig.legend(_h, ["18S depth ratio", "CONKORD", "NGS-DOSE (NYGC reads)", "NGS-DOSE (Google reads)", "HPRC assembly"], loc="upper center",
+           ncol=5, frameon=False, fontsize=6.3, bbox_to_anchor=(0.5, 0.998), handletextpad=0.3, columnspacing=1.4)
+_tab = [("NGS-DOSE", rc["ngsdose_any"], CN), ("CONKORD", rc["conkord"], CC), ("18S ratio", rc["ratio18S_any"], C18), ("assembly", rc["assembly_5"], CA)]
+a.text(562, 470, "Pearson r (n)", fontsize=5.5, fontweight="bold", va="top")
+for k_, (lab_, d_, c_) in enumerate(_tab):
+    a.text(562, 430 - 42 * k_, f"{lab_}", fontsize=5.5, color=c_, va="top")
+    a.text(738, 430 - 42 * k_, f"{d_['r']:.2f} ({d_['n']})", fontsize=5.5, color=c_, va="top", ha="right")
 letter(a, "a", -0.34, 1.2)
 # b: level against ddPCR, every method, every person
 a = fig.add_subplot(gs[0, 1:3])
@@ -441,7 +448,7 @@ for col, c, m, lab in [("ngs", CN, "s", "NGS-DOSE"), ("assembly", CA, "o", "asse
     a.scatter(pp["mid"], pp[col], marker=m, s=10, color=c, lw=0, alpha=0.9, zorder=3)
     b_ = np.polyfit(pp["mid"], pp[col], 1); xs = np.linspace(pp["mid"].min(), pp["mid"].max(), 10)
     a.plot(xs, np.polyval(b_, xs), color=c, lw=0.9)
-    a.text(xs[-1] + 8, np.polyval(b_, xs[-1]), f"{lab}\nr = {np.corrcoef(pp['mid'], pp[col])[0, 1]:.2f}", color=c, fontsize=5.5, va="center")
+    a.text(xs[-1] + 8, np.polyval(b_, xs[-1]), f"{lab}\nPearson r\n= {np.corrcoef(pp['mid'], pp[col])[0, 1]:.2f}", color=c, fontsize=5.5, va="center")
 a.axhline(0, color=CH, lw=0.5); a.axvline(0, color=CH, lw=0.5)
 a.set_xlabel("parents' mean, NGS-DOSE 45S\n(minus population mean)"); a.set_ylabel("child's 45S (minus population mean)")
 a.set_title(f"Child vs parents,\n{inh[0]['n']} trios", loc="left")
@@ -460,8 +467,8 @@ for y, (lab, r_, lo_, hi_, c, m) in zip(ypos, rows_c):
     a.errorbar(r_, y, xerr=[[r_ - lo_], [hi_ - r_]], fmt=m, ms=4, color=c, lw=1)
 a.set_yticks(ypos); a.set_yticklabels([r[0] for r in rows_c])
 a.axhline(2.25, color=CH, lw=0.5, ls=":")
-a.set_xlim(-0.2, 1.05); a.axvline(0, color=CH, lw=0.6); a.set_xlabel("child vs parents' mean, r (95% CI)")
-a.set_title("Inheritance r: 45S short\nreads > assembly; 5S tie", loc="left")
+a.set_xlim(-0.2, 1.05); a.axvline(0, color=CH, lw=0.6); a.set_xlabel("Pearson r, child vs parents' mean\n(95% bootstrap CI)")
+a.set_title("Inheritance: short reads\nwin for 45S; 5S tie", loc="left")
 letter(a, "d", -0.72, 1.2)
 # e: ranking people against ddPCR, r with 95% CI
 a = fig.add_subplot(gs[1, 2])
@@ -475,16 +482,16 @@ a.axhline(1.5, color=CH, lw=0.5, ls=":")
 a.text(-0.97, 1.6, "all 12 ddPCR lines", fontsize=5.3, color=CH, va="bottom")
 a.text(-0.97, 1.4, "the 5 with an assembly", fontsize=5.3, color=CH, va="top")
 a.axvline(0, color=CH, lw=0.6); a.set_xlim(-1, 1.05); a.set_ylim(-0.5, len(rows_b) - 0.5)
-a.set_xlabel("r with ddPCR (95% CI)")
+a.set_xlabel("Pearson r with ddPCR\n(95% CI, Fisher z)")
 a.set_title("Ranking people vs ddPCR:\nNGS-DOSE highest", loc="left")
 letter(a, "e", -0.62, 1.2)
 # f: 45S and 5S, assembly vs NGS-DOSE, same people
 a = fig.add_subplot(gs[2, 0])
 av = asm.join(co[["rDNA45S.cn", "rDNA5S.cn"]], how="inner").dropna(subset=["rDNA45S.cn", "rDNA5S.cn"])
 a.plot([0, 750], [0, 750], color=CH, lw=0.8)
-a.scatter(av["rDNA45S.cn"], av.a45, s=10, color=CA, lw=0, label=f"45S (r = {np.corrcoef(av['rDNA45S.cn'], av.a45)[0,1]:.2f})", zorder=3)
+a.scatter(av["rDNA45S.cn"], av.a45, s=10, color=CA, lw=0, label=f"45S (Pearson r = {np.corrcoef(av['rDNA45S.cn'], av.a45)[0,1]:.2f})", zorder=3)
 a.scatter(av["rDNA5S.cn"], av.a5, s=10, marker="D", facecolor="white", edgecolor=CA, linewidths=0.8,
-          label=f"5S (r = {np.corrcoef(av['rDNA5S.cn'], av.a5)[0,1]:.3f})", zorder=3)
+          label=f"5S (Pearson r = {np.corrcoef(av['rDNA5S.cn'], av.a5)[0,1]:.3f})", zorder=3)
 a.set_xlim(0, 720); a.set_ylim(0, 720)
 a.set_xlabel("NGS-DOSE copies"); a.set_ylabel("assembled copies (both haplotypes)")
 a.set_title(f"Assemblies hold 5S whole,\n45S by half ({len(av)} people)", loc="left")
@@ -517,28 +524,29 @@ a.set_xticks(xx); a.set_xticklabels(ceph, fontsize=6)
 a.set_ylabel("45S change, Google vs NYGC (%)")
 a.set_ylim(-6.5, 34); a.set_yticks([-5, 0, 5, 10, 15, 20, 25])
 a.legend(frameon=False, fontsize=5.5, loc="upper left", ncol=2, columnspacing=0.8, handlelength=1.2)
-a.set_title("Same person, two pipelines:\nNGS-DOSE stable, 18S ratio not", loc="left")
+a.set_title("Same person, two pipelines:\nNGS-DOSE stable", loc="left")
 letter(a, "h", -0.36, 1.2)
 # glossary spanning the bottom row
 a = fig.add_subplot(gs[2, :]); a.axis("off")
-a.set_position([0.03, 0.005, 0.95, 0.225])
+a.set_position([0.03, 0.004, 0.95, 0.25])
 gl = [("What each measure is", ""),
       ("ddPCR", "Droplet digital PCR on each cell line's DNA (Potapova et al. 2025). Counts rDNA copies without sequencing: the independent reference in a, b and e. Replicate CV about 5%."),
       ("NGS-DOSE", "This method: k-mer counts at rDNA windows, calibrated on the NYGC cohort. NYGC reads = 1000 Genomes 30× CRAMs; Google reads = a second NovaSeq pipeline (GIAB; HG002–HG004 and the CEPH trio)."),
       ("CONKORD", "Potapova et al.'s own short-read k-mer estimate, from their reads. Only available for their 12 lines."),
       ("18S depth ratio", "Read depth on the 18S gene ÷ autosomal depth: the estimator of the UK Biobank literature, computed here from the same reads as NGS-DOSE."),
       ("HPRC assembly", "18S genes found in a person's two release-2 haplotype assemblies (hifiasm; HG002 from the curated T2T v1.1)."),
-      ("Inheritance r", "Correlation of the child's value with the mean of its parents' (parents by NGS-DOSE). Error in the child's value lowers it; nothing can raise it."),
+      ("Pearson r, Spearman ρ", "r: Pearson's linear correlation coefficient, used for every correlation in this figure. ρ: Spearman's rank correlation, given in the overview table as a check that no single person drives r."),
+      ("Inheritance", "Pearson r of the child's value with the mean of its parents' (parents by NGS-DOSE), both as deviations from the superpopulation mean. Error in the child's value lowers it; nothing can raise it."),
       ("FISH shares", "Fluorescence of each rDNA array as a fraction of the cell's total (Potapova et al.). Independent of sequencing, but a fraction, not a count."),
       ("FISH copies, totals", "Share × CONKORD total. Summed over a person's arrays they return CONKORD (within 2 copies), so FISH totals are not an independent measurement."),
       ("Per-chromosome units, shares", "Units: FISH copies on one chromosome pair vs assembled 18S genes on contigs assigned to it. Shares: each as a fraction of the person's total. "
-                                       "Assembly vs FISH: r = %.2f (units), %.2f (shares), 25 chromosomes in 5 people (Figure 5e, f)." % (arr_stats["r_units"], arr_stats["r_share"]))]
+                                       "Assembly vs FISH: Pearson r = %.2f (units), %.2f (shares), 25 chromosomes in 5 people (Figure 5e, f)." % (arr_stats["r_units"], arr_stats["r_share"]))]
 import textwrap
 yy = 0.99
 for k, v in gl:
     if not v:
         a.text(0.0, yy, k, fontsize=7, fontweight="bold", va="top", transform=a.transAxes); yy -= 0.07; continue
-    lines = textwrap.wrap(v, 118)
+    lines = textwrap.wrap(v, 112)
     a.text(0.0, yy, k, fontsize=6.2, fontweight="bold", va="top", transform=a.transAxes)
     a.text(0.235, yy, "\n".join(lines), fontsize=6.2, va="top", transform=a.transAxes, linespacing=1.25)
     yy -= 0.03 + 0.042 * len(lines)
@@ -546,26 +554,30 @@ fig.savefig(f"{FIG}/fig7_at_a_glance.png", dpi=300)
 plt.close(fig)
 
 # companion table: one row per test, one column per method
+SP = {c: float(stats.spearmanr(pc[c], pc.ddpcr, nan_policy="omit")[0]) for c in ["ngsdose_any", "conkord", "ratio18S_any", "assembly_18S"]}
+dd_stats["spearman"] = SP
 def f2(v, d=2):
     return "—" if v is None or (isinstance(v, float) and np.isnan(v)) else f"{v:.{d}f}"
 sc_rows = [
     dict(test="Level vs ddPCR (median estimate ÷ ddPCR)", truth="ddPCR", n=f"{dd_stats['ngsdose_any']['n']}; asm. {dd_stats['assembly_18S']['n']}",
          ngsdose=f2(dd_stats["ngsdose_any"]["median_ratio"]), conkord=f2(dd_stats["conkord"]["median_ratio"]),
          ratio18S=f2(dd_stats["ratio18S_any"]["median_ratio"]), assembly=f2(dd_stats["assembly_18S"]["median_ratio"]), best="CONKORD, then NGS-DOSE"),
-    dict(test="Ranking vs ddPCR (r)", truth="ddPCR", n=f"{rc['ngsdose_any']['n']}; asm. {rc['assembly_5']['n']}",
+    dict(test="Ranking vs ddPCR (Pearson r)", truth="ddPCR", n=f"{rc['ngsdose_any']['n']}; asm. {rc['assembly_5']['n']}",
          ngsdose=f2(rc["ngsdose_any"]["r"]), conkord=f2(rc["conkord"]["r"]), ratio18S=f2(rc["ratio18S_any"]["r"]),
-         assembly=f2(rc["assembly_5"]["r"]), best="NGS-DOSE"),
-    dict(test="Ranking vs ddPCR, the 5 assembled people (r)", truth="ddPCR", n="5",
+         assembly=f2(rc["assembly_5"]["r"]), best="NGS-DOSE (CIs overlap)"),
+    dict(test="Ranking vs ddPCR (Spearman ρ)", truth="ddPCR", n=f"{rc['ngsdose_any']['n']}; asm. {rc['assembly_5']['n']}",
+         ngsdose=f2(SP["ngsdose_any"]), conkord=f2(SP["conkord"]), ratio18S=f2(SP["ratio18S_any"]), assembly=f2(SP["assembly_18S"]), best="NGS-DOSE ≈ CONKORD"),
+    dict(test="Ranking vs ddPCR, the 5 assembled people (Pearson r)", truth="ddPCR", n="5",
          ngsdose=f2(rc["ngsdose_same5"]["r"]), conkord=f2(rc["conkord_same5"]["r"]), ratio18S="—", assembly=f2(rc["assembly_5"]["r"]), best="NGS-DOSE"),
-    dict(test="Inheritance, 45S (child vs parents' mean, r)", truth="parents", n=str(inh[0]["n"]),
+    dict(test="Inheritance, 45S (Pearson r, child vs parents' mean)", truth="parents", n=str(inh[0]["n"]),
          ngsdose=f2(inh[0]["r_ngsdose"]), conkord="—", ratio18S=f2(inh18["NGS-DOSE"]["r"]), assembly=f2(inh[0]["r_assembly"]), best="NGS-DOSE = 18S ratio > assembly"),
-    dict(test="Inheritance, 5S (r)", truth="parents", n=str(inh[2]["n"]), ngsdose=f2(inh[2]["r_ngsdose"]), conkord="—", ratio18S="—",
+    dict(test="Inheritance, 5S (Pearson r)", truth="parents", n=str(inh[2]["n"]), ngsdose=f2(inh[2]["r_ngsdose"]), conkord="—", ratio18S="—",
          assembly=f2(inh[2]["r_assembly"]), best="tie"),
     dict(test="Distal junction, known to be 10 (mean copies)", truth="10", n=f"{dj_stats['n']}", ngsdose=f2(dj_stats["ngsdose_mean"]), conkord="—",
          ratio18S="—", assembly=f2(dj_stats["assembly_mean"]), best="assembly (level); both see steps"),
     dict(test="Same person, second pipeline: mean |change| in 45S (%)", truth="0", n=str(len(ceph)), ngsdose=f2(bridge["rDNA45S.cn"]["mean_abs_pct"], 1),
          conkord="—", ratio18S=f2(bridge["rDNA45S.18S.flat"]["mean_abs_pct"], 1), assembly="—", best="NGS-DOSE"),
-    dict(test="Per-chromosome share vs FISH (r)", truth="FISH shares", n=f"{arr_stats['n_chrom']} chrom.", ngsdose="totals only", conkord="—",
+    dict(test="Per-chromosome share vs FISH (Pearson r)", truth="FISH shares", n=f"{arr_stats['n_chrom']} chrom.", ngsdose="totals only", conkord="—",
          ratio18S="—", assembly=f2(arr_stats["r_share"]), best="neither"),
 ]
 pd.DataFrame(sc_rows).to_csv(f"{TAB}/scorecard.tsv", sep="\t", index=False)

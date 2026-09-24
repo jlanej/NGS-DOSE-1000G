@@ -69,7 +69,8 @@ S += [P("HPRC release-2 assemblies, the rDNA, and how NGS-DOSE compares", title)
         f"GRCh38 as references), set against NGS-DOSE short-read copy numbers of the same people and their parents, the independent "
         f"Hall et al. 2021 pipeline, and the ddPCR and FISH measurements of Potapova et al. 2025. NGS-DOSE counts as of {asof} "
         f"({n_cohort:,} genomes; {T['n_people_counted']} assembled people and {T['n_trios']} trios), plus 16 genomes counted for this report: 7 NYGC 1000 Genomes CRAMs of ddPCR-measured people, and 6 genomes from a second NovaSeq "
-        f"pipeline (Google Health's GIAB set) with the NYGC CRAMs of the 3 people sequenced by both.", small),
+        f"pipeline (Google Health's GIAB set) with the NYGC CRAMs of the 3 people sequenced by both. Throughout, r is Pearson's "
+        "correlation coefficient and ρ is Spearman's rank correlation; ICC (the pilot's cross-technology figure) is an intraclass correlation.", small),
       Spacer(1, 6)]
 S += [P("Summary", h1)]
 S += [bullets([
@@ -99,7 +100,7 @@ S += [bullets([
     "assemblies count whole copies exactly where their short arms are complete; NGS-DOSE detects single-copy steps, and all "
     f"{DJ['ngs_steps']} of its steps recur in the assemblies in the same direction ({DJ['ngs_steps_confirmed']} of the same size)."])]
 S += [PageBreak(), P("The comparison at a glance", h2)]
-S += [fig("fig7_at_a_glance.png", 6.1, 6.1 * 10.6 / 7.4),
+S += [fig("fig7_at_a_glance.png", 5.9, 5.9 * 11.0 / 7.4),
       P("<b>Overview figure.</b> Every comparison in this report on one page, with the measures defined underneath. (a) Each method's "
         "45S estimate against ddPCR for the 12 ddPCR-measured lines: NGS-DOSE on the NYGC 1000 Genomes reads (filled squares) and on Google's "
         "GIAB NovaSeq reads (open), CONKORD, the 18S depth ratio, and the HPRC assembly (5 people). (b) The same as estimate ÷ ddPCR, one point "
@@ -114,7 +115,8 @@ S += [table([["Test", "n", "NGS-DOSE", "CONKORD", "18S ratio", "Assembly", "Best
             [[r['test'], r["n"], r["ngsdose"], r["conkord"], r["ratio18S"], r["assembly"], r["best"]] for r in SCT],
             [2.05, 0.7, 0.82, 0.82, 0.7, 0.75, 1.2]),
       P("<b>Overview table.</b> The numbers behind the overview figure (tables/scorecard.tsv). Level is the median of estimate ÷ ddPCR; "
-        "1 is agreement. CONKORD exists only for Potapova et al.'s 12 lines. The 18S depth ratio ranks people as well as NGS-DOSE within one "
+        "1 is agreement. Pearson r measures linear agreement; Spearman ρ uses ranks only, so it is not driven by HG02053, the one line "
+        "far above the others. CONKORD exists only for Potapova et al.'s 12 lines. The 18S depth ratio ranks people as well as NGS-DOSE within one "
         "pipeline (inheritance), but it reads 9% high and moves by 4–25% when the same person is sequenced again elsewhere. The assembly's "
         "r with ddPCR rests on 5 people, one of them the curated T2T HG002, and its interval spans almost the whole range.", cap)]
 
@@ -336,7 +338,7 @@ S += [P(
     "then calibrated with the cohort's saved window efficiencies. This procedure reproduces the cohort's values for the two already "
     "counted to within 0.3%. HG002, HG003 and HG004 are not in 1000 Genomes; their values here come from a second NovaSeq pipeline and "
     "are reported separately in Table 3 and section 5.5.")]
-S += [table([["Method (n = 9 unless noted)", "r with ddPCR", "Level (median ratio)", "Mean |error|", "SD of log ratio"],
+S += [table([["Method (n = 9 unless noted)", "Pearson r with ddPCR", "Level (median ratio)", "Mean |error|", "SD of log ratio"],
              ["NGS-DOSE, calibrated", f"{dn['r']:.2f}", f"{dn['median_ratio']:.2f}", f"{dn['mean_abs_pct']:.1f}%", f"{DD['residual_sd_log']['ngsdose']:.3f}"],
              ["CONKORD (Potapova et al.)", f"{dc['r']:.2f}", f"{dc['median_ratio']:.2f}", f"{dc['mean_abs_pct']:.1f}%", f"{DD['residual_sd_log']['conkord']:.3f}"],
              ["18S depth ratio (published estimator, from NGS-DOSE counts)", f"{dfl['r']:.2f}", f"{dfl['median_ratio']:.2f}", f"{dfl['mean_abs_pct']:.1f}%", f"{DD['residual_sd_log']['ratio18S_flat']:.3f}"],

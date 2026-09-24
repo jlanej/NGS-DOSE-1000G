@@ -341,7 +341,13 @@
     "HG004"
    ]
   },
-  "ddpcr_cv_median": 0.049801665899382244
+  "ddpcr_cv_median": 0.049801665899382244,
+  "spearman": {
+   "ngsdose_any": 0.9667265263069179,
+   "conkord": 0.9632238939652261,
+   "ratio18S_any": 0.9106844088398501,
+   "assembly_18S": -0.29999999999999993
+  }
  },
  "inheritance_18S_ratio": {
   "NGS-DOSE": {
@@ -494,17 +500,27 @@
    "best": "CONKORD, then NGS-DOSE"
   },
   {
-   "test": "Ranking vs ddPCR (r)",
+   "test": "Ranking vs ddPCR (Pearson r)",
    "truth": "ddPCR",
    "n": "12; asm. 5",
    "ngsdose": "0.95",
    "conkord": "0.87",
    "ratio18S": "0.93",
    "assembly": "-0.68",
-   "best": "NGS-DOSE"
+   "best": "NGS-DOSE (CIs overlap)"
   },
   {
-   "test": "Ranking vs ddPCR, the 5 assembled people (r)",
+   "test": "Ranking vs ddPCR (Spearman \u03c1)",
+   "truth": "ddPCR",
+   "n": "12; asm. 5",
+   "ngsdose": "0.97",
+   "conkord": "0.96",
+   "ratio18S": "0.91",
+   "assembly": "-0.30",
+   "best": "NGS-DOSE \u2248 CONKORD"
+  },
+  {
+   "test": "Ranking vs ddPCR, the 5 assembled people (Pearson r)",
    "truth": "ddPCR",
    "n": "5",
    "ngsdose": "0.96",
@@ -514,7 +530,7 @@
    "best": "NGS-DOSE"
   },
   {
-   "test": "Inheritance, 45S (child vs parents' mean, r)",
+   "test": "Inheritance, 45S (Pearson r, child vs parents' mean)",
    "truth": "parents",
    "n": "36",
    "ngsdose": "0.82",
@@ -524,7 +540,7 @@
    "best": "NGS-DOSE = 18S ratio > assembly"
   },
   {
-   "test": "Inheritance, 5S (r)",
+   "test": "Inheritance, 5S (Pearson r)",
    "truth": "parents",
    "n": "36",
    "ngsdose": "0.47",
@@ -554,7 +570,7 @@
    "best": "NGS-DOSE"
   },
   {
-   "test": "Per-chromosome share vs FISH (r)",
+   "test": "Per-chromosome share vs FISH (Pearson r)",
    "truth": "FISH shares",
    "n": "25 chrom.",
    "ngsdose": "totals only",

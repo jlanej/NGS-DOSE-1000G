@@ -173,7 +173,7 @@ m = max(dip["rDNA45S.cn"].max(), dip.a18S.max()) * 1.05
 a.plot([0, m], [0, m], color="#bbbbbb", lw=0.8); a.plot([0, m], [0, m * dip.ratio45.median()], color="#555555", lw=0.8, ls="--")
 a.set_xlim(0, m); a.set_ylim(0, m)
 a.set_xlabel("NGS-DOSE 45S copies"); a.set_ylabel("assembled 18S copies (diploid)")
-r = tests["r_45S"]; a.set_title(f"45S: {100*dip.ratio45.median():.0f}% assembled\nr = {r['r']:.2f}", loc="left"); letter(a, "a", -0.3, 1.2)
+r = tests["r_45S"]; a.set_title(f"45S: {100*dip.ratio45.median():.0f}% assembled\nPearson r = {r['r']:.2f}", loc="left"); letter(a, "a", -0.3, 1.2)
 a.scatter([], [], s=10, c="#1f78b4", label="trio-phased"); a.scatter([], [], s=10, c="#33a02c", label="Hi-C-phased")
 a.legend(frameon=False, loc="upper left", fontsize=6)
 a = ax[1]
@@ -181,7 +181,7 @@ a.scatter(dip["rDNA5S.cn"], dip.a5S, s=10, c=cc, lw=0)
 m5 = max(dip["rDNA5S.cn"].max(), dip.a5S.max()) * 1.05
 a.plot([0, m5], [0, m5], color="#bbbbbb", lw=0.8); a.set_xlim(0, m5); a.set_ylim(0, m5)
 a.set_xlabel("NGS-DOSE 5S copies"); a.set_ylabel("assembled 5S units (diploid)")
-r5 = tests["r_5S"]; a.set_title(f"5S: ratio {dip.ratio5.median():.2f}\nr = {r5['r']:.3f}", loc="left"); letter(a, "b", -0.3, 1.2)
+r5 = tests["r_5S"]; a.set_title(f"5S: ratio {dip.ratio5.median():.2f}\nPearson r = {r5['r']:.3f}", loc="left"); letter(a, "b", -0.3, 1.2)
 a = ax[2]
 hp = tests["hap_parent"]; ceil = tests["hap_parent_ceiling"]
 keys = [("45S", "mat", "mother"), ("45S", "mat", "father"), ("45S", "pat", "father"), ("45S", "pat", "mother"),
