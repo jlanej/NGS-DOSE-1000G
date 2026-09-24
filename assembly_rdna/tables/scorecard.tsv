@@ -1,10 +1,10 @@
 test	truth	n	ngsdose	conkord	ratio18S	assembly	best
-Level vs ddPCR (median estimate ÷ ddPCR)	ddPCR	12; asm. 5	0.95	0.99	1.09	0.38	CONKORD, then NGS-DOSE
-Ranking vs ddPCR (Pearson r)	ddPCR	12; asm. 5	0.95	0.87	0.93	-0.68	NGS-DOSE (CIs overlap)
-Ranking vs ddPCR (Spearman ρ)	ddPCR	12; asm. 5	0.97	0.96	0.91	-0.30	NGS-DOSE ≈ CONKORD
-Ranking vs ddPCR, the 5 assembled people (Pearson r)	ddPCR	5	0.96	0.91	—	-0.68	NGS-DOSE
+Level vs ddPCR (median estimate ÷ ddPCR)	ddPCR	12; asm. 4	0.95	0.99	1.09	0.40	CONKORD, then NGS-DOSE
+Ranking vs ddPCR (Pearson r)	ddPCR	12; asm. 4	0.95	0.87	0.93	0.54	NGS-DOSE (CIs overlap)
+Ranking vs ddPCR (Spearman ρ)	ddPCR	12; asm. 4	0.97	0.96	0.91	0.40	NGS-DOSE ≈ CONKORD
+Ranking vs ddPCR, the 4 assembled people (Pearson r)	ddPCR	4	0.92	0.83	—	0.54	NGS-DOSE
 Inheritance, 45S (Pearson r, child vs parents' mean)	parents	36	0.82	—	0.82	0.58	NGS-DOSE = 18S ratio > assembly
 Inheritance, 5S (Pearson r)	parents	36	0.47	—	—	0.48	tie
 Distal junction, known to be 10 (mean copies)	10	57	9.66	—	—	9.88	assembly (level); both see steps
 Same person, second pipeline: mean |change| in 45S (%)	0	3	1.7	—	14.5	—	NGS-DOSE
-Per-chromosome share vs FISH (Pearson r)	FISH shares	25 chrom.	totals only	—	—	0.22	neither
+Per-chromosome share vs FISH (Pearson r)	FISH shares	20 chrom.	totals only	—	—	0.22	neither

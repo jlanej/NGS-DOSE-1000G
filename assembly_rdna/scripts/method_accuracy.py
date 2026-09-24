@@ -114,7 +114,10 @@ pc["ngsdose_source"] = src.reindex(pc.index)
 pc["ratio18S_flat"] = flat.reindex(pc.index)
 pc["assembly_18S"] = asm.a45.reindex(pc.index)
 hg002 = hap[hap.assembly.str.startswith("hg002")]
-pc.loc["HG002", "assembly_18S"] = hg002.n_18S.sum()
+# T2T-HG002 v1.1 represents the centres of 9 of its 10 rDNA arrays as N-gaps (marbl/HG002 README; Hansen et al. 2025), so its
+# 18S count is the flanking units only, not an assembly measurement: kept for display, excluded from every statistic.
+pc["hg002_scaffold_18S"] = np.nan
+pc.loc["HG002", "hg002_scaffold_18S"] = hg002.n_18S.sum()
 pc["hall"] = (hall["HC.18S.CN"] * 2).reindex(pc.index)
 pc["ngsdose_google"] = gg["rDNA45S.cn"].reindex(pc.index)
 pc["ratio18S_flat_google"] = gg["rDNA45S.18S.flat"].reindex(pc.index)
@@ -145,12 +148,11 @@ dd_stats["without_HG02053"] = {c: dict(r=float(np.corrcoef(_y[c], _y.ddpcr)[0, 1
 def rci(x, y):
     r = float(np.corrcoef(x, y)[0, 1]); n = len(x); se = 1 / np.sqrt(n - 3)
     return dict(n=n, r=r, lo=float(np.tanh(np.arctanh(r) - 1.96 * se)), hi=float(np.tanh(np.arctanh(r) + 1.96 * se)))
-_a = pc.dropna(subset=["assembly_18S"]); _a4 = _a.drop(index="HG002")
+_a = pc.dropna(subset=["assembly_18S"])
 dd_stats["r_ci"] = {"ngsdose_any": rci(_z.ngsdose_any, _z.ddpcr), "conkord": rci(pc.conkord, pc.ddpcr),
                     "ratio18S_any": rci(_z.ratio18S_flat.combine_first(_z.ratio18S_flat_google), _z.ddpcr),
-                    "assembly_5": rci(_a.assembly_18S, _a.ddpcr), "ngsdose_same5": rci(_a.ngsdose_any, _a.ddpcr),
-                    "assembly_4_noHG002": rci(_a4.assembly_18S, _a4.ddpcr), "ngsdose_same4": rci(_a4.ngsdose_any, _a4.ddpcr),
-                    "conkord_same5": rci(_a.conkord, _a.ddpcr)}
+                    "assembly": rci(_a.assembly_18S, _a.ddpcr), "ngsdose_same_asm": rci(_a.ngsdose_any, _a.ddpcr),
+                    "conkord_same_asm": rci(_a.conkord, _a.ddpcr)}
 pc["ratio18S_any"] = pc.ratio18S_flat.combine_first(pc.ratio18S_flat_google)
 dd_stats["ratio18S_any"] = agree("ratio18S_any")
 # ddPCR's own replicate spread, for scale
@@ -163,7 +165,7 @@ fish = s2.groupby(["sample", "chrom"]).fish_units.sum().rename("fish").reset_ind
 fish["fish_share"] = fish.fish / fish.groupby("sample").fish.transform("sum")
 arr = pd.read_csv(f"{TAB}/arrays_all.tsv.gz", sep="\t")
 arr["person"] = arr.assembly.map(hap.set_index("assembly").person)
-arr.loc[arr.assembly.str.startswith("hg002"), "person"] = "HG002"
+arr.loc[arr.assembly.str.startswith("hg002"), "person"] = np.nan   # rDNA gapped by design (see above)
 pa = arr[arr.person.isin(fish["sample"])].copy()
 per = pa.dropna(subset=["chrom"]).groupby(["person", "chrom"]).n_18S.sum().rename("assembled").reset_index()
 tot = pa.groupby("person").n_18S.sum().rename("assembled_total")
@@ -286,18 +288,22 @@ xa = pc.dropna(subset=["assembly_18S"])
 a.plot([0, hi], [0, hi], color=CH, lw=0.8)
 for s_, r_ in xa.iterrows():
     a.plot([r_.ddpcr, r_.ddpcr], [r_.assembly_18S, r_.ngsdose if pd.notna(r_.ngsdose) else r_.assembly_18S], color="#dddddd", lw=0.8, zorder=1)
-a.errorbar(xa.ddpcr, xa.assembly_18S, xerr=xa.ddpcr_sd, fmt="o", ms=4, color=CA, lw=0.6, label=f"assembly (all {len(xa)} with ddPCR)", zorder=3)
+a.errorbar(xa.ddpcr, xa.assembly_18S, xerr=xa.ddpcr_sd, fmt="o", ms=4, color=CA, lw=0.6, label=f"HPRC assembly ({len(xa)})", zorder=3)
 xn = xa.dropna(subset=["ngsdose"]); xgn = xa.dropna(subset=["ngsdose_google"])
 for s_, r_ in xgn.iterrows():
     a.plot([r_.ddpcr, r_.ddpcr], [r_.assembly_18S, r_.ngsdose_google], color="#dddddd", lw=0.8, zorder=1)
 a.scatter(xn.ddpcr, xn.ngsdose, marker="s", s=14, color=CN, label=f"NGS-DOSE, NYGC ({len(xn)})", zorder=3)
-a.scatter(xgn.ddpcr, xgn.ngsdose_google, label=f"NGS-DOSE, Google ({len(xgn)})", zorder=4, **GOOGLE)
-a.annotate("HG002: curated T2T v1.1\nvs Google NovaSeq", (xa.loc["HG002", "ddpcr"], xa.loc["HG002", "assembly_18S"]), xytext=(-78, 12),
-           textcoords="offset points", fontsize=5, color=PG)
+h2 = pc.loc["HG002"]
+a.plot([h2.ddpcr, h2.ddpcr], [h2.hg002_scaffold_18S, h2.ngsdose_google], color="#dddddd", lw=0.8, ls=":", zorder=1)
+a.scatter([h2.ddpcr], [h2.hg002_scaffold_18S], marker="o", s=18, facecolor="white", edgecolor=CA, linewidths=0.9, zorder=3,
+          label="HG002 T2T (rDNA gapped; excluded)")
+a.scatter([h2.ddpcr], [h2.ngsdose_google], label="NGS-DOSE, Google (HG002)", zorder=4, **GOOGLE)
+a.annotate("HG002: 9 of 10 arrays\nare N-gaps by design", (h2.ddpcr, h2.hg002_scaffold_18S), xytext=(-86, 10),
+           textcoords="offset points", fontsize=5, color=CA)
 a.set_xlim(0, hi); a.set_ylim(0, hi)
 sa = dd_stats["assembly_18S"]
 a.set_xlabel("ddPCR 45S copies (±SD)"); a.set_ylabel("45S copies (diploid)")
-a.set_title(f"Assemblies hold {100*sa['median_ratio']:.0f}% of\nddPCR (all {len(xa)} with ddPCR)", loc="left")
+a.set_title(f"HPRC assemblies hold {100*sa['median_ratio']:.0f}%\nof ddPCR ({len(xa)} people)", loc="left")
 a.legend(frameon=False, loc="upper left", fontsize=5.5); letter(a, "c", -0.3)
 a = ax[3]
 ftn = ft.dropna(subset=["ngsdose"]); fta = ft.dropna(subset=["assembly_18S"])
@@ -409,14 +415,15 @@ a.scatter(pc.ddpcr, pc.conkord, marker="^", s=12, color=CC, lw=0, label="CONKORD
 a.scatter(pc.ddpcr, pc.ngsdose, marker="s", s=13, color=CN, lw=0, label="NGS-DOSE, NYGC", zorder=4)
 a.scatter(pc.ddpcr, pc.ngsdose_google, marker="s", s=13, facecolor="white", edgecolor=CN, linewidths=0.9, label="NGS-DOSE, Google", zorder=4)
 a.scatter(pc.ddpcr, pc.assembly_18S, marker="o", s=14, color=CA, lw=0, label="HPRC assembly", zorder=4)
-a.annotate("HG002 (T2T)", (pc.loc["HG002", "ddpcr"], pc.loc["HG002", "assembly_18S"]), xytext=(-44, -2), textcoords="offset points", fontsize=5.5, color=CA)
+a.scatter([pc.loc["HG002", "ddpcr"]], [pc.loc["HG002", "hg002_scaffold_18S"]], marker="o", s=14, facecolor="white", edgecolor=CA, linewidths=0.9, zorder=4)
+a.annotate("HG002 T2T: rDNA\ngapped, excluded", (pc.loc["HG002", "ddpcr"], pc.loc["HG002", "hg002_scaffold_18S"]), xytext=(-62, -4), textcoords="offset points", fontsize=5.3, color=CA)
 a.set_xlim(400, 740); a.set_ylim(0, 750)
 a.set_xlabel("ddPCR 45S copies"); a.set_ylabel("estimate, 45S copies")
 a.set_title("All methods vs ddPCR\n(grey line: equal)", loc="left")
 _h, _l = a.get_legend_handles_labels()
 fig.legend(_h, ["18S depth ratio", "CONKORD", "NGS-DOSE (NYGC reads)", "NGS-DOSE (Google reads)", "HPRC assembly"], loc="upper center",
            ncol=5, frameon=False, fontsize=6.3, bbox_to_anchor=(0.5, 0.998), handletextpad=0.3, columnspacing=1.4)
-_tab = [("NGS-DOSE", rc["ngsdose_any"], CN), ("CONKORD", rc["conkord"], CC), ("18S ratio", rc["ratio18S_any"], C18), ("assembly", rc["assembly_5"], CA)]
+_tab = [("NGS-DOSE", rc["ngsdose_any"], CN), ("CONKORD", rc["conkord"], CC), ("18S ratio", rc["ratio18S_any"], C18), ("assembly", rc["assembly"], CA)]
 a.text(562, 470, "Pearson r (n)", fontsize=5.5, fontweight="bold", va="top")
 for k_, (lab_, d_, c_) in enumerate(_tab):
     a.text(562, 430 - 42 * k_, f"{lab_}", fontsize=5.5, color=c_, va="top")
@@ -474,13 +481,13 @@ letter(a, "d", -0.72, 1.2)
 a = fig.add_subplot(gs[1, 2])
 rows_b = [(f"NGS-DOSE ({rc['ngsdose_any']['n']})", rc["ngsdose_any"], CN), (f"CONKORD ({rc['conkord']['n']})", rc["conkord"], CC),
           (f"18S ratio ({rc['ratio18S_any']['n']})", rc["ratio18S_any"], C18),
-          (f"NGS-DOSE ({rc['ngsdose_same5']['n']})", rc["ngsdose_same5"], CN), (f"assembly ({rc['assembly_5']['n']})", rc["assembly_5"], CA)]
+          (f"NGS-DOSE ({rc['ngsdose_same_asm']['n']})", rc["ngsdose_same_asm"], CN), (f"assembly ({rc['assembly']['n']})", rc["assembly"], CA)]
 for y, (lab, d_, c) in enumerate(rows_b[::-1]):
     a.errorbar(d_["r"], y, xerr=[[d_["r"] - d_["lo"]], [d_["hi"] - d_["r"]]], fmt="o", ms=4, color=c, lw=1)
 a.set_yticks(range(len(rows_b))); a.set_yticklabels([r[0] for r in rows_b[::-1]])
 a.axhline(1.5, color=CH, lw=0.5, ls=":")
 a.text(-0.97, 1.6, "all 12 ddPCR lines", fontsize=5.3, color=CH, va="bottom")
-a.text(-0.97, 1.4, "the 5 with an assembly", fontsize=5.3, color=CH, va="top")
+a.text(-0.97, 1.4, f"the {rc['assembly']['n']} with an HPRC assembly", fontsize=5.3, color=CH, va="top")
 a.axvline(0, color=CH, lw=0.6); a.set_xlim(-1, 1.05); a.set_ylim(-0.5, len(rows_b) - 0.5)
 a.set_xlabel("Pearson r with ddPCR\n(95% CI, Fisher z)")
 a.set_title("Ranking people vs ddPCR:\nNGS-DOSE highest", loc="left")
@@ -534,13 +541,13 @@ gl = [("What each measure is", ""),
       ("NGS-DOSE", "This method: k-mer counts at rDNA windows, calibrated on the NYGC cohort. NYGC reads = 1000 Genomes 30× CRAMs; Google reads = a second NovaSeq pipeline (GIAB; HG002–HG004 and the CEPH trio)."),
       ("CONKORD", "Potapova et al.'s own short-read k-mer estimate, from their reads. Only available for their 12 lines."),
       ("18S depth ratio", "Read depth on the 18S gene ÷ autosomal depth: the estimator of the UK Biobank literature, computed here from the same reads as NGS-DOSE."),
-      ("HPRC assembly", "18S genes found in a person's two release-2 haplotype assemblies (hifiasm; HG002 from the curated T2T v1.1)."),
+      ("HPRC assembly", "18S genes found in a person's two release-2 hifiasm haplotype assemblies. T2T-HG002 v1.1 is shown open and excluded: 9 of its 10 rDNA arrays are N-gaps by design."),
       ("Pearson r, Spearman ρ", "r: Pearson's linear correlation coefficient, used for every correlation in this figure. ρ: Spearman's rank correlation, given in the overview table as a check that no single person drives r."),
       ("Inheritance", "Pearson r of the child's value with the mean of its parents' (parents by NGS-DOSE), both as deviations from the superpopulation mean. Error in the child's value lowers it; nothing can raise it."),
       ("FISH shares", "Fluorescence of each rDNA array as a fraction of the cell's total (Potapova et al.). Independent of sequencing, but a fraction, not a count."),
       ("FISH copies, totals", "Share × CONKORD total. Summed over a person's arrays they return CONKORD (within 2 copies), so FISH totals are not an independent measurement."),
       ("Per-chromosome units, shares", "Units: FISH copies on one chromosome pair vs assembled 18S genes on contigs assigned to it. Shares: each as a fraction of the person's total. "
-                                       "Assembly vs FISH: Pearson r = %.2f (units), %.2f (shares), 25 chromosomes in 5 people (Figure 5e, f)." % (arr_stats["r_units"], arr_stats["r_share"]))]
+                                       "Assembly vs FISH: Pearson r = %.2f (units), %.2f (shares), %d chromosomes in %d people (Figure 5e, f)." % (arr_stats["r_units"], arr_stats["r_share"], arr_stats["n_chrom"], len(arr_stats["samples"])))]
 import textwrap
 yy = 0.99
 for k, v in gl:
@@ -562,13 +569,13 @@ sc_rows = [
     dict(test="Level vs ddPCR (median estimate ÷ ddPCR)", truth="ddPCR", n=f"{dd_stats['ngsdose_any']['n']}; asm. {dd_stats['assembly_18S']['n']}",
          ngsdose=f2(dd_stats["ngsdose_any"]["median_ratio"]), conkord=f2(dd_stats["conkord"]["median_ratio"]),
          ratio18S=f2(dd_stats["ratio18S_any"]["median_ratio"]), assembly=f2(dd_stats["assembly_18S"]["median_ratio"]), best="CONKORD, then NGS-DOSE"),
-    dict(test="Ranking vs ddPCR (Pearson r)", truth="ddPCR", n=f"{rc['ngsdose_any']['n']}; asm. {rc['assembly_5']['n']}",
+    dict(test="Ranking vs ddPCR (Pearson r)", truth="ddPCR", n=f"{rc['ngsdose_any']['n']}; asm. {rc['assembly']['n']}",
          ngsdose=f2(rc["ngsdose_any"]["r"]), conkord=f2(rc["conkord"]["r"]), ratio18S=f2(rc["ratio18S_any"]["r"]),
-         assembly=f2(rc["assembly_5"]["r"]), best="NGS-DOSE (CIs overlap)"),
-    dict(test="Ranking vs ddPCR (Spearman ρ)", truth="ddPCR", n=f"{rc['ngsdose_any']['n']}; asm. {rc['assembly_5']['n']}",
+         assembly=f2(rc["assembly"]["r"]), best="NGS-DOSE (CIs overlap)"),
+    dict(test="Ranking vs ddPCR (Spearman ρ)", truth="ddPCR", n=f"{rc['ngsdose_any']['n']}; asm. {rc['assembly']['n']}",
          ngsdose=f2(SP["ngsdose_any"]), conkord=f2(SP["conkord"]), ratio18S=f2(SP["ratio18S_any"]), assembly=f2(SP["assembly_18S"]), best="NGS-DOSE ≈ CONKORD"),
-    dict(test="Ranking vs ddPCR, the 5 assembled people (Pearson r)", truth="ddPCR", n="5",
-         ngsdose=f2(rc["ngsdose_same5"]["r"]), conkord=f2(rc["conkord_same5"]["r"]), ratio18S="—", assembly=f2(rc["assembly_5"]["r"]), best="NGS-DOSE"),
+    dict(test=f"Ranking vs ddPCR, the {rc['assembly']['n']} assembled people (Pearson r)", truth="ddPCR", n=str(rc['assembly']['n']),
+         ngsdose=f2(rc["ngsdose_same_asm"]["r"]), conkord=f2(rc["conkord_same_asm"]["r"]), ratio18S="—", assembly=f2(rc["assembly"]["r"]), best="NGS-DOSE"),
     dict(test="Inheritance, 45S (Pearson r, child vs parents' mean)", truth="parents", n=str(inh[0]["n"]),
          ngsdose=f2(inh[0]["r_ngsdose"]), conkord="—", ratio18S=f2(inh18["NGS-DOSE"]["r"]), assembly=f2(inh[0]["r_assembly"]), best="NGS-DOSE = 18S ratio > assembly"),
     dict(test="Inheritance, 5S (Pearson r)", truth="parents", n=str(inh[2]["n"]), ngsdose=f2(inh[2]["r_ngsdose"]), conkord="—", ratio18S="—",

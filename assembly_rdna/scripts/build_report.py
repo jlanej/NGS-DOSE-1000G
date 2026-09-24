@@ -103,10 +103,11 @@ S += [PageBreak(), P("The comparison at a glance", h2)]
 S += [fig("fig7_at_a_glance.png", 5.9, 5.9 * 11.0 / 7.4),
       P("<b>Overview figure.</b> Every comparison in this report on one page, with the measures defined underneath. (a) Each method's "
         "45S estimate against ddPCR for the 12 ddPCR-measured lines: NGS-DOSE on the NYGC 1000 Genomes reads (filled squares) and on Google's "
-        "GIAB NovaSeq reads (open), CONKORD, the 18S depth ratio, and the HPRC assembly (5 people). (b) The same as estimate ÷ ddPCR, one point "
+        "GIAB NovaSeq reads (open), CONKORD, the 18S depth ratio, and the HPRC assembly (4 people; T2T-HG002 v1.1 shown open and excluded, "
+        "because 9 of its 10 rDNA arrays are N-gaps by design). (b) The same as estimate ÷ ddPCR, one point "
         "per person. (c) Child's 45S against its parents' mean in 36 trios, the child measured by NGS-DOSE (squares) and by its assembly "
         "(circles), both as deviations from the superpopulation mean; lines are least-squares fits. (d) The inheritance correlations with "
-        "bootstrap 95% CIs, for 45S and 5S. (e) Pearson r with ddPCR and 95% CI (Fisher z), over all 12 lines and over the 5 with an "
+        "bootstrap 95% CIs, for 45S and 5S. (e) Pearson r with ddPCR and 95% CI (Fisher z), over all 12 lines and over the 4 with an HPRC "
         "assembly. (f) Assembled copies against NGS-DOSE in the same 57 people, for 45S (filled) and 5S (open). (g) Distal-junction copies, "
         "known to be 10 per diploid genome. (h) The same three people counted from two sequencing pipelines. Figures 2 and 4–6 show each "
         "test in full.", cap)]
@@ -118,7 +119,8 @@ S += [table([["Test", "n", "NGS-DOSE", "CONKORD", "18S ratio", "Assembly", "Best
         "1 is agreement. Pearson r measures linear agreement; Spearman ρ uses ranks only, so it is not driven by HG02053, the one line "
         "far above the others. CONKORD exists only for Potapova et al.'s 12 lines. The 18S depth ratio ranks people as well as NGS-DOSE within one "
         "pipeline (inheritance), but it reads 9% high and moves by 4–25% when the same person is sequenced again elsewhere. The assembly's "
-        "r with ddPCR rests on 5 people, one of them the curated T2T HG002, and its interval spans almost the whole range.", cap)]
+        f"r with ddPCR rests on {RC['assembly']['n']} people and its interval spans almost the whole range. T2T-HG002 v1.1 is left out of every "
+        "assembly statistic: 9 of its 10 rDNA arrays are N-gaps by design, so its count is of flanking units, not of the arrays.", cap)]
 
 # ---------------- background ----------------
 S += [PageBreak(), P("1  Background: assembly methods and the rDNA", h1)]
@@ -314,9 +316,10 @@ S += [fig("fig5_truths_and_assays.png", 7.0, 7.0 * 5.4 / 7.4),
         "assembly values jittered vertically; purple marks people NGS-DOSE places a whole copy from the cohort level. (b) Short-read "
         f"45S estimates against ddPCR (Potapova et al. 2025, Table S1; bars ±1 SD) for all {da['n']} ddPCR-measured lines. Filled: the "
         f"{dn['n']} in the NYGC 1000 Genomes 30× set; open: HG002, HG003 and HG004 on Google Health's GIAB NovaSeq pipeline (section 5.5). "
-        "CONKORD values are Potapova et al.'s, from their own reads. (c) Assembled 18S genes against ddPCR for all "
-        f"{DD['assembly_18S']['n']} people with both, with NGS-DOSE for each (HG002 from the Google pipeline, open); grey lines join each "
-        "person's two values. (d) Totals summed over the ten FISH-measured arrays (Table S2) against NGS-DOSE (filled NYGC, open Google) and "
+        "CONKORD values are Potapova et al.'s, from their own reads. (c) HPRC-assembled 18S genes against ddPCR for the "
+        f"{DD['assembly_18S']['n']} people with both, with NGS-DOSE for each; grey lines join each person's two values. HG002 (open circle) "
+        "is the T2T-HG002 v1.1 assembly, whose rDNA arrays are N-gaps apart from their flanking units; it is shown for reference and "
+        "excluded from all statistics. (d) Totals summed over the ten FISH-measured arrays (Table S2) against NGS-DOSE (filled NYGC, open Google) and "
         "the assemblies; Potapova et al. scaled FISH "
         "to CONKORD totals, so these totals are CONKORD's. (e) FISH units per chromosome (both homologues) against assembled units placed "
         "on that chromosome. (f) The same as shares of each person's total.", cap)]
@@ -345,7 +348,7 @@ S += [table([["Method (n = 9 unless noted)", "Pearson r with ddPCR", "Level (med
              [f"NGS-DOSE, Google GIAB NovaSeq (n = {dg['n']}: HG002–HG004)", f"{dg['r']:.2f}", f"{dg['median_ratio']:.2f}", f"{dg['mean_abs_pct']:.1f}%", f"{dg['sd_log']:.3f}"],
              [f"NGS-DOSE, both pipelines (n = {da['n']})", f"{da['r']:.2f}", f"{da['median_ratio']:.2f}", f"{da['mean_abs_pct']:.1f}%", f"{da['sd_log']:.3f}"],
              [f"CONKORD, all {dc12['n']}", f"{dc12['r']:.2f}", f"{DD['conkord']['median_ratio']:.2f}", f"{DD['conkord']['mean_abs_pct']:.1f}%", f"{DD['conkord']['sd_log']:.3f}"],
-             [f"HPRC assembly, 18S genes (n = {DD['assembly_18S']['n']}, incl. HG002 v1.1)", f"{RC['assembly_5']['r']:.2f} ({RC['assembly_5']['lo']:.2f} to {RC['assembly_5']['hi']:.2f})", f"{DD['assembly_18S']['median_ratio']:.2f}",
+             [f"HPRC assembly, 18S genes (n = {DD['assembly_18S']['n']})", f"{RC['assembly']['r']:.2f} ({RC['assembly']['lo']:.2f} to {RC['assembly']['hi']:.2f})", f"{DD['assembly_18S']['median_ratio']:.2f}",
               f"{DD['assembly_18S']['mean_abs_pct']:.0f}%", "—"],
              [f"ddPCR replicate CV (Potapova et al.)", "", "", f"median {100*DD['ddpcr_cv_median']:.0f}%", ""]],
             [2.6, 0.95, 1.25, 1.05, 1.15]),
@@ -358,12 +361,13 @@ S += [P(
     f"{abs(100*(dn['median_ratio']-1)):.0f}% low (mean of log ratios {DD['bias_pct']['ngsdose']:+.1f}%), the same direction and size as its "
     f"distal-junction shortfall. CONKORD sits closest in level ({dc['median_ratio']:.2f}) but correlates less well, and the 18S depth ratio "
     f"is {100*(dfl['median_ratio']-1):.0f}% high. The assemblies hold about {100*DD['assembly_18S']['median_ratio']:.0f}% of the ddPCR copies. "
-    f"Only 5 people have both ddPCR and an assembly, so the assembly's correlation with ddPCR is weakly determined: r = "
-    f"{RC['assembly_5']['r']:.2f} (95% CI {RC['assembly_5']['lo']:.2f} to {RC['assembly_5']['hi']:.2f}). Most of the negative sign comes from HG002, "
-    f"whose curated T2T v1.1 assembly holds only {PCMP.loc['HG002','assembly_18S']:.0f} 18S genes while ddPCR gives it the highest total of the five ({PCMP.loc['HG002','ddpcr']:.0f}); "
-    f"without it r = {RC['assembly_4_noHG002']['r']:.2f} (n = 4, {RC['assembly_4_noHG002']['lo']:.2f} to {RC['assembly_4_noHG002']['hi']:.2f}). "
-    f"NGS-DOSE on the same 5 people gives r = {RC['ngsdose_same5']['r']:.2f} ({RC['ngsdose_same5']['lo']:.2f} to {RC['ngsdose_same5']['hi']:.2f}) "
-    f"and on the same 4, {RC['ngsdose_same4']['r']:.2f}. The inheritance test (section 5.1) is the better-powered comparison of the two. "
+    f"Only {RC['assembly']['n']} people have both ddPCR and an HPRC assembly (HG01109, HG01243, HG02055, HG02723), so the assembly's "
+    f"correlation with ddPCR is weakly determined: Pearson r = {RC['assembly']['r']:.2f} (95% CI {RC['assembly']['lo']:.2f} to "
+    f"{RC['assembly']['hi']:.2f}). NGS-DOSE on the same {RC['ngsdose_same_asm']['n']} gives {RC['ngsdose_same_asm']['r']:.2f} "
+    f"({RC['ngsdose_same_asm']['lo']:.2f} to {RC['ngsdose_same_asm']['hi']:.2f}); the inheritance test (section 5.1) is the better-powered "
+    "comparison of the two. T2T-HG002 v1.1 also has ddPCR, but it is not an assembly measurement of rDNA: the centres of 9 of its 10 arrays "
+    f"are N-gaps sized from FISH, so its {PCMP.loc['HG002','hg002_scaffold_18S']:.0f} 18S genes are the flanking units only (and one small "
+    "resolved array on paternal chr13). It is shown open in Figures 5c and the overview, and excluded from every statistic. "
     "Nine samples over a narrow range (476–713 copies) give wide intervals on each r, and the DNA for ddPCR came from different cultures "
     "than the NYGC sequencing, which adds scatter that neither method can remove.")]
 S += [P("5.4  Per array: FISH", h2)]
@@ -376,11 +380,11 @@ S += [P(
     "is ddPCR (section 5.3).")]
 S += [P(
     "<b>Per chromosome.</b> The FISH shares themselves are orthogonal to sequencing. "
-    f"For the five people with both FISH and an assembly, between "
-    f"{100*min(v for k,v in AR['placed_fraction'].items() if k!='HG002'):.0f}% and {100*max(v for k,v in AR['placed_fraction'].items() if k!='HG002'):.0f}% "
-    "of each HPRC assembly's units are on contigs assigned to an acrocentric (all of HG002's). The share each chromosome gets in the "
-    f"assembly is essentially unrelated to its FISH share (r = {AR['r_share']:.2f} over {AR['n_chrom']} chromosome totals), and so is the "
-    f"number of units (r = {AR['r_units']:.2f}; Figure 5e, f). So the "
+    f"For the {len(AR['placed_fraction'])} people with both FISH and an HPRC assembly (T2T-HG002 v1.1 excluded, as above), between "
+    f"{100*min(AR['placed_fraction'].values()):.0f}% and {100*max(AR['placed_fraction'].values()):.0f}% "
+    "of each assembly's units are on contigs assigned to an acrocentric. The share each chromosome gets in the "
+    f"assembly is essentially unrelated to its FISH share (Pearson r = {AR['r_share']:.2f} over {AR['n_chrom']} chromosome totals), and so is the "
+    f"number of units (Pearson r = {AR['r_units']:.2f}; Figure 5e, f). So the "
     "assemblies do not say how an individual's rDNA is divided among the five chromosomes. NGS-DOSE cannot say either, because it "
     "measures the total only.")]
 
@@ -453,7 +457,7 @@ S += [P("8  Limits", h1)]
 S += [bullets([
     f"The short-read comparisons rest on {T['n_people_counted']} people and {T['n_trios']} trios, none of African ancestry, because only "
     f"{n_cohort:,} of 3,202 genomes have been counted so far. The scripts recompute every test from docs/data/cohort.tsv.",
-    f"The ddPCR comparison has {da['n']} samples ({dn['n']} NYGC, {dg['n']} Google), and 5 people with both ddPCR and an assembly. ddPCR and "
+    f"The ddPCR comparison has {da['n']} samples ({dn['n']} NYGC, {dg['n']} Google), and {RC['assembly']['n']} people with both ddPCR and an HPRC assembly. ddPCR and "
     "sequencing used DNA from different cultures.",
     "The second-pipeline comparison rests on three people sequenced by both pipelines; both are NovaSeq 6000 PCR-free with bwa-mem on "
     "hs38DH, so it does not test other instruments, PCR-amplified libraries or other aligners.",

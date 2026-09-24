@@ -148,17 +148,16 @@
    ]
   },
   "assembly_18S": {
-   "n": 5,
-   "median_ratio": 0.3797709923664122,
-   "sd_log": 0.6313338684322558,
-   "mean_abs_pct": 66.39638400961869,
-   "r": -0.6798008395118004,
+   "n": 4,
+   "median_ratio": 0.39638483823053206,
+   "sd_log": 0.0616732259097504,
+   "mean_abs_pct": 60.41618118063771,
+   "r": 0.5383805051641277,
    "samples": [
     "HG02055",
     "HG01109",
     "HG01243",
-    "HG02723",
-    "HG002"
+    "HG02723"
    ]
   },
   "hall": {
@@ -289,35 +288,23 @@
     "lo": 0.7501310252749279,
     "hi": 0.9792892988672276
    },
-   "assembly_5": {
-    "n": 5,
-    "r": -0.6798008395118004,
-    "lo": -0.9764363619350881,
-    "hi": 0.5058862957813337
-   },
-   "ngsdose_same5": {
-    "n": 5,
-    "r": 0.9617234839615256,
-    "lo": 0.5244379015130247,
-    "hi": 0.9975622338534785
-   },
-   "assembly_4_noHG002": {
+   "assembly": {
     "n": 4,
     "r": 0.5383805051641277,
     "lo": -0.8759581049599966,
     "hi": 0.9881630990504959
    },
-   "ngsdose_same4": {
+   "ngsdose_same_asm": {
     "n": 4,
     "r": 0.9207622199190265,
     "lo": -0.35047741029580715,
     "hi": 0.9983643175559622
    },
-   "conkord_same5": {
-    "n": 5,
-    "r": 0.9094249836790288,
-    "lo": 0.13738590624634275,
-    "hi": 0.9940837525772909
+   "conkord_same_asm": {
+    "n": 4,
+    "r": 0.833860159897471,
+    "lo": -0.6406796256786775,
+    "hi": 0.9964114149149087
    }
   },
   "ratio18S_any": {
@@ -346,7 +333,7 @@
    "ngsdose_any": 0.9667265263069179,
    "conkord": 0.9632238939652261,
    "ratio18S_any": 0.9106844088398501,
-   "assembly_18S": -0.29999999999999993
+   "assembly_18S": 0.4
   }
  },
  "inheritance_18S_ratio": {
@@ -363,23 +350,21 @@
  },
  "arrays": {
   "samples": [
-   "HG002",
    "HG01109",
    "HG01243",
    "HG02055",
    "HG02723"
   ],
-  "n_chrom": 25,
-  "r_share": 0.21884399125469559,
-  "spearman_share": 0.26851318057771517,
+  "n_chrom": 20,
+  "r_share": 0.22086440112779518,
+  "spearman_share": 0.27754796998506703,
   "placed_fraction": {
-   "HG002": 1.0,
    "HG01109": 0.46733668341708545,
    "HG01243": 0.5308056872037915,
    "HG02055": 0.5665024630541872,
    "HG02723": 0.7136150234741784
   },
-  "r_units": 0.13864370168765525
+  "r_units": 0.18254261863241725
  },
  "fish_totals": {
   "fish_minus_conkord_max": 2.0,
@@ -394,9 +379,9 @@
    "median_ratio": 0.9562439016199251
   },
   "assembly": {
-   "n": 5,
-   "r": -0.5984908696138732,
-   "median_ratio": 0.381957773512476
+   "n": 4,
+   "r": 0.7734332109827938,
+   "median_ratio": 0.382448941202699
   }
  },
  "novaseq": {
@@ -492,41 +477,41 @@
   {
    "test": "Level vs ddPCR (median estimate \u00f7 ddPCR)",
    "truth": "ddPCR",
-   "n": "12; asm. 5",
+   "n": "12; asm. 4",
    "ngsdose": "0.95",
    "conkord": "0.99",
    "ratio18S": "1.09",
-   "assembly": "0.38",
+   "assembly": "0.40",
    "best": "CONKORD, then NGS-DOSE"
   },
   {
    "test": "Ranking vs ddPCR (Pearson r)",
    "truth": "ddPCR",
-   "n": "12; asm. 5",
+   "n": "12; asm. 4",
    "ngsdose": "0.95",
    "conkord": "0.87",
    "ratio18S": "0.93",
-   "assembly": "-0.68",
+   "assembly": "0.54",
    "best": "NGS-DOSE (CIs overlap)"
   },
   {
    "test": "Ranking vs ddPCR (Spearman \u03c1)",
    "truth": "ddPCR",
-   "n": "12; asm. 5",
+   "n": "12; asm. 4",
    "ngsdose": "0.97",
    "conkord": "0.96",
    "ratio18S": "0.91",
-   "assembly": "-0.30",
+   "assembly": "0.40",
    "best": "NGS-DOSE \u2248 CONKORD"
   },
   {
-   "test": "Ranking vs ddPCR, the 5 assembled people (Pearson r)",
+   "test": "Ranking vs ddPCR, the 4 assembled people (Pearson r)",
    "truth": "ddPCR",
-   "n": "5",
-   "ngsdose": "0.96",
-   "conkord": "0.91",
+   "n": "4",
+   "ngsdose": "0.92",
+   "conkord": "0.83",
    "ratio18S": "\u2014",
-   "assembly": "-0.68",
+   "assembly": "0.54",
    "best": "NGS-DOSE"
   },
   {
@@ -572,7 +557,7 @@
   {
    "test": "Per-chromosome share vs FISH (Pearson r)",
    "truth": "FISH shares",
-   "n": "25 chrom.",
+   "n": "20 chrom.",
    "ngsdose": "totals only",
    "conkord": "\u2014",
    "ratio18S": "\u2014",
