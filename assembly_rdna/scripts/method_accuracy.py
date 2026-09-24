@@ -143,9 +143,18 @@ arr_stats = dict(samples=sorted(pm["sample"].unique()), n_chrom=len(pm),
                  spearman_share=float(stats.spearmanr(pm.fish_share, pm.asm_share_of_placed)[0]) if len(pm) > 2 else None,
                  placed_fraction={s: float(placed.get(s, 0) / tot.get(s, np.nan)) for s in pm["sample"].unique()})
 
+ft = fish.groupby("sample").fish.sum().rename("fish_total").to_frame().join(pc[["conkord", "ddpcr", "ngsdose", "assembly_18S"]])
+ft.to_csv(f"{TAB}/potapova_fish_totals.tsv", sep="\t")
+def _cmp(a, b):
+    x = ft.dropna(subset=[a, b])
+    return dict(n=len(x), r=float(np.corrcoef(x[a], x[b])[0, 1]) if len(x) > 2 else None, median_ratio=float(np.median(x[a] / x[b])))
+fish_tot = dict(fish_minus_conkord_max=float((ft.fish_total - ft.conkord).abs().max()),
+                ngsdose=_cmp("ngsdose", "fish_total"), assembly=_cmp("assembly_18S", "fish_total"))
+pm["asm_units_placed"] = pm.assembled
+arr_stats["r_units"] = float(np.corrcoef(pm.fish, pm.assembled)[0, 1]) if len(pm) > 2 else None
 out = dict(inheritance=[{k: v for k, v in r.items() if k != "points"} for r in inh],
            assembly_hall_parents=dict(n=len(d), r=r_big, lo=float(np.percentile(bsb, 2.5)), hi=float(np.percentile(bsb, 97.5))),
-           distal_junction=dj_stats, ddpcr=dd_stats, arrays=arr_stats)
+           distal_junction=dj_stats, ddpcr=dd_stats, arrays=arr_stats, fish_totals=fish_tot)
 json.dump(out, open(f"{TAB}/method_accuracy.json", "w"), indent=1, default=float)
 
 # ---------------- figures ----------------
@@ -187,53 +196,72 @@ fig.savefig(f"{FIG}/fig4_method_accuracy.png", dpi=300)
 plt.close(fig)
 
 # Fig 5: known truths and orthogonal assays
-fig, ax = plt.subplots(2, 2, figsize=(7.2, 5.6))
-a = ax[0, 0]
+fig, axs = plt.subplots(2, 3, figsize=(7.4, 5.4))
+ax = axs.ravel()
+a = ax[0]
 jit = rng.uniform(-0.12, 0.12, len(dj))
 col = np.where(dj.ngs_step != 0, CC, CN)
-a.scatter(dj["DJ.cn"], dj.aDJ + jit, s=12, c=col, lw=0)
+a.scatter(dj["DJ.cn"], dj.aDJ + jit, s=10, c=col, lw=0)
 a.axhline(10, color=CH, lw=0.6, ls="--"); a.axvline(10, color=CH, lw=0.6, ls="--")
 for k in (-1, 1):
     a.axvline(dj_stats["cohort_DJ_median"] + k, color=CH, lw=0.5, ls=":")
-a.set_xlabel("NGS-DOSE distal-junction copies"); a.set_ylabel("assembly distal-junction copies")
-a.set_yticks([8, 9, 10, 11])
-a.set_title(f"DJ (truth 10): all {dj_stats['ngs_steps']} NGS-DOSE steps recur in\nthe assemblies; NGS-DOSE reads {dj_stats['ngsdose_mean']:.2f}, not 10", loc="left")
-a.text(0.02, 0.95, f"purple: NGS-DOSE step\n(dotted: cohort level ±1)", transform=a.transAxes, fontsize=5.8, va="top", color="#555555")
-letter(a, "a")
-a = ax[0, 1]
+a.set_xlabel("NGS-DOSE DJ copies"); a.set_ylabel("assembly DJ copies"); a.set_yticks([8, 9, 10, 11])
+a.set_title(f"Distal junction (truth 10), n={dj_stats['n']}:\nsteps agree; NGS-DOSE {dj_stats['ngsdose_mean']:.2f}", loc="left")
+a.text(0.03, 0.97, "purple: NGS-DOSE step", transform=a.transAxes, fontsize=5.5, va="top", color=CC)
+letter(a, "a", -0.3)
+a = ax[1]
 x = pc.dropna(subset=["ngsdose"])
 lo, hi = 420, 740
 a.plot([lo, hi], [lo, hi], color=CH, lw=0.8)
-a.scatter(x.ddpcr, x.ratio18S_flat, marker="o", s=14, facecolor="white", edgecolor="#e31a1c", label="18S depth ratio", zorder=3)
-a.scatter(x.ddpcr, x.conkord, marker="^", s=16, color=CC, label="CONKORD (k-mer)", zorder=3)
-a.errorbar(x.ddpcr, x.ngsdose, xerr=x.ddpcr_sd, fmt="s", ms=4, color=CN, lw=0.6, label="NGS-DOSE", zorder=4)
-a.annotate("HG02053", (713, x.loc["HG02053", "ngsdose"]), xytext=(-40, -12), textcoords="offset points", fontsize=5.5)
+a.scatter(x.ddpcr, x.ratio18S_flat, marker="o", s=12, facecolor="white", edgecolor="#e31a1c", label="18S depth ratio", zorder=3)
+a.scatter(x.ddpcr, x.conkord, marker="^", s=14, color=CC, label="CONKORD", zorder=3)
+a.errorbar(x.ddpcr, x.ngsdose, xerr=x.ddpcr_sd, fmt="s", ms=3.5, color=CN, lw=0.6, label="NGS-DOSE", zorder=4)
+a.annotate("HG02053", (713, x.loc["HG02053", "ngsdose"]), xytext=(-38, -11), textcoords="offset points", fontsize=5.5)
 a.set_xlim(lo, hi); a.set_ylim(lo, hi)
-a.set_xlabel("ddPCR, Potapova et al. 2025 (±SD)"); a.set_ylabel("short-read 45S copies")
+a.set_xlabel("ddPCR 45S copies (±SD)"); a.set_ylabel("short-read 45S copies")
 st, sc, sf = dd_stats["ngsdose"], dd_stats["conkord_same9"], dd_stats["ratio18S_flat"]
-a.set_title(f"ddPCR (n={st['n']}): r = {st['r']:.2f} NGS-DOSE, {sc['r']:.2f} CONKORD,\n"
-            f"{sf['r']:.2f} 18S ratio; NGS-DOSE {100*(st['median_ratio']-1):+.0f}%", loc="left")
-a.legend(frameon=False, loc="upper left", fontsize=5.8); letter(a, "b")
-a = ax[1, 0]
+a.set_title(f"ddPCR (all 9 in 1000G): r = {st['r']:.2f}\nNGS-DOSE, {sc['r']:.2f} CONKORD", loc="left")
+a.legend(frameon=False, loc="upper left", fontsize=5.5); letter(a, "b", -0.3)
+a = ax[2]
 xa = pc.dropna(subset=["assembly_18S"])
 a.plot([0, hi], [0, hi], color=CH, lw=0.8)
-a.errorbar(xa.ddpcr, xa.assembly_18S, xerr=xa.ddpcr_sd, fmt="o", ms=4, color=CA, lw=0.6, label="HPRC r2 assembly")
-xn = pc.loc[xa.index].dropna(subset=["ngsdose"])
-a.scatter(xn.ddpcr, xn.ngsdose, marker="s", s=14, color=CN, label="NGS-DOSE, same people", zorder=3)
-a.annotate("HG002 (T2T v1.1)", (xa.loc["HG002", "ddpcr"], xa.loc["HG002", "assembly_18S"]), xytext=(-20, 8), textcoords="offset points", fontsize=5.5)
+for s_, r_ in xa.iterrows():
+    a.plot([r_.ddpcr, r_.ddpcr], [r_.assembly_18S, r_.ngsdose if pd.notna(r_.ngsdose) else r_.assembly_18S], color="#dddddd", lw=0.8, zorder=1)
+a.errorbar(xa.ddpcr, xa.assembly_18S, xerr=xa.ddpcr_sd, fmt="o", ms=4, color=CA, lw=0.6, label=f"assembly (all {len(xa)} with ddPCR)", zorder=3)
+xn = xa.dropna(subset=["ngsdose"])
+a.scatter(xn.ddpcr, xn.ngsdose, marker="s", s=14, color=CN, label=f"NGS-DOSE, same people ({len(xn)})", zorder=3)
+a.annotate("HG002 (curated T2T v1.1;\nno 1000G short reads)", (xa.loc["HG002", "ddpcr"], xa.loc["HG002", "assembly_18S"]), xytext=(-70, 12),
+           textcoords="offset points", fontsize=5)
 a.set_xlim(0, hi); a.set_ylim(0, hi)
 sa = dd_stats["assembly_18S"]
-a.set_xlabel("ddPCR, Potapova et al. 2025"); a.set_ylabel("45S copies (diploid)")
-a.set_title(f"Assemblies hold {100*sa['median_ratio']:.0f}% of the ddPCR copies\n(n={sa['n']}, incl. curated HG002)", loc="left")
-a.legend(frameon=False, loc="upper left", fontsize=5.8); letter(a, "c")
-a = ax[1, 1]
+a.set_xlabel("ddPCR 45S copies (±SD)"); a.set_ylabel("45S copies (diploid)")
+a.set_title(f"Assemblies: {100*sa['median_ratio']:.0f}% of ddPCR\n(all {len(xa)} with ddPCR)", loc="left")
+a.legend(frameon=False, loc="upper left", fontsize=5.5); letter(a, "c", -0.3)
+a = ax[3]
+ftn = ft.dropna(subset=["ngsdose"]); fta = ft.dropna(subset=["assembly_18S"])
+a.plot([0, hi], [0, hi], color=CH, lw=0.8)
+a.scatter(ftn.fish_total, ftn.ngsdose, marker="s", s=14, color=CN, label=f"NGS-DOSE ({len(ftn)})", zorder=3)
+a.scatter(fta.fish_total, fta.assembly_18S, marker="o", s=16, color=CA, label=f"assembly ({len(fta)})", zorder=3)
+a.set_xlim(0, hi); a.set_ylim(0, hi)
+a.set_xlabel("FISH, summed over 10 arrays"); a.set_ylabel("45S copies (diploid)")
+fn = fish_tot["ngsdose"]
+a.set_title(f"FISH totals (= CONKORD):\nNGS-DOSE r = {fn['r']:.2f}", loc="left")
+a.legend(frameon=False, loc="upper left", fontsize=5.5); letter(a, "d", -0.3)
+a = ax[4]
 for s_, g in pm.groupby("sample"):
-    a.scatter(g.fish_share, g.asm_share_of_placed, s=14, label=s_)
+    a.scatter(g.fish, g.assembled, s=12, label=s_)
+m_ = max(pm.fish.max(), pm.assembled.max()) * 1.05
+a.plot([0, m_], [0, m_], color=CH, lw=0.8); a.set_xlim(0, m_); a.set_ylim(0, m_)
+a.set_xlabel("FISH units, both homologues"); a.set_ylabel("assembled units, same chromosome")
+a.set_title(f"Per chromosome, units:\nr = {arr_stats['r_units']:.2f} (n = {arr_stats['n_chrom']})", loc="left")
+a.legend(frameon=False, fontsize=5, loc="upper left"); letter(a, "e", -0.3)
+a = ax[5]
+for s_, g in pm.groupby("sample"):
+    a.scatter(g.fish_share, g.asm_share_of_placed, s=12, label=s_)
 a.plot([0, 0.5], [0, 0.5], color=CH, lw=0.8); a.set_xlim(0, 0.5); a.set_ylim(0, 0.55)
-a.set_xlabel("FISH: chromosome's share of the rDNA"); a.set_ylabel("assembly: share of placed units")
-a.set_title(f"Per chromosome, assembly vs FISH:\nr = {arr_stats['r_share']:.2f} ({arr_stats['n_chrom']} chromosomes, 5 people)", loc="left")
-a.legend(frameon=False, fontsize=5.5, loc="upper right", ncol=2); letter(a, "d")
-fig.tight_layout(h_pad=1.5, w_pad=1.0)
+a.set_xlabel("FISH share of the rDNA"); a.set_ylabel("share of placed assembled units")
+a.set_title(f"Per chromosome, shares:\nr = {arr_stats['r_share']:.2f}", loc="left"); letter(a, "f", -0.3)
+fig.tight_layout(h_pad=1.6, w_pad=0.9)
 fig.savefig(f"{FIG}/fig5_truths_and_assays.png", dpi=300)
 plt.close(fig)
 print(json.dumps({k: out[k] for k in ["ddpcr", "arrays"]}, default=float, indent=0)[:3000])

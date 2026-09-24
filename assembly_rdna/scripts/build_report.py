@@ -288,12 +288,15 @@ S += [P(
     "shared by short-read methods, such as rDNA sequence variants that change k-mer or read recovery, would favour them. The tie on 5S "
     "and the independent Hall parents argue against it, but do not exclude it.")]
 S += [P("5.2  A known truth: the distal junction", h2)]
-S += [fig("fig5_truths_and_assays.png", 7.0, 7.0 * 5.6 / 7.2),
+S += [fig("fig5_truths_and_assays.png", 7.0, 7.0 * 5.4 / 7.4),
       P(f"<b>Figure 5.</b> (a) Distal-junction copies (truth 10 per diploid genome) by NGS-DOSE and by assembly in the same {DJ['n']} people; "
         "assembly values jittered vertically; purple marks people NGS-DOSE places a whole copy from the cohort level. (b) Short-read "
-        f"45S estimates against ddPCR (Potapova et al. 2025, Table S1; horizontal bars ±1 SD) for the {dn['n']} 1000 Genomes samples "
-        "measured by ddPCR. (c) Assembled 18S genes against ddPCR for the five people with an assembly, with NGS-DOSE for the same people. "
-        "(d) Each acrocentric's share of the rDNA by FISH (Potapova et al. 2025, Table S2) against its share of the placed assembled units.", cap)]
+        f"45S estimates against ddPCR (Potapova et al. 2025, Table S1; bars ±1 SD) for all {dn['n']} ddPCR-measured lines in the 1000 Genomes "
+        f"30× set. (c) Assembled 18S genes against ddPCR for all {DD['assembly_18S']['n']} people with both, with NGS-DOSE for the "
+        f"{DD['assembly_18S']['n']-1} of them in 1000 Genomes (HG002 has no 1000 Genomes short reads); grey lines join each person's two values. "
+        "(d) Totals summed over the ten FISH-measured arrays (Table S2) against NGS-DOSE and the assemblies; Potapova et al. scaled FISH "
+        "to CONKORD totals, so these totals are CONKORD's. (e) FISH units per chromosome (both homologues) against assembled units placed "
+        "on that chromosome. (f) The same as shares of each person's total.", cap)]
 S += [P(
     f"The assemblies count distal junctions in whole copies: exactly 10 in {100*DJ['assembly_exact10']:.0f}% of these people, and 9–11 in "
     f"{100*DJ['assembly_all_9_11']:.0f}% of all {DJ['assembly_all_n']} assembled people. NGS-DOSE reads {DJ['ngsdose_mean']:.2f} ± "
@@ -331,12 +334,20 @@ S += [P(
     "Nine samples over a narrow range (476–713 copies) give wide intervals on each r, and the DNA for ddPCR came from different cultures "
     "than the NYGC sequencing, which adds scatter that neither method can remove.")]
 S += [P("5.4  Per array: FISH", h2)]
+FT = M["fish_totals"]
 S += [P(
-    "FISH measures each array's share of the total. That share is orthogonal to sequencing, but Potapova et al. scaled it by CONKORD "
-    f"totals, so only the shares are used here. For the five people with both FISH and an assembly, between "
+    f"<b>Summed over the ten arrays.</b> Each person's FISH total equals the CONKORD total to within {FT['fish_minus_conkord_max']:.0f} "
+    f"copies, because Potapova et al. scaled the fluorescence shares by CONKORD. Summed FISH is therefore not an independent total. "
+    f"Against it, NGS-DOSE gives r = {FT['ngsdose']['r']:.2f} and ratio {FT['ngsdose']['median_ratio']:.2f} (n = {FT['ngsdose']['n']}), "
+    f"and the assemblies ratio {FT['assembly']['median_ratio']:.2f} (n = {FT['assembly']['n']}; Figure 5d). The independent total "
+    "is ddPCR (section 5.3).")]
+S += [P(
+    "<b>Per chromosome.</b> The FISH shares themselves are orthogonal to sequencing. "
+    f"For the five people with both FISH and an assembly, between "
     f"{100*min(v for k,v in AR['placed_fraction'].items() if k!='HG002'):.0f}% and {100*max(v for k,v in AR['placed_fraction'].items() if k!='HG002'):.0f}% "
     "of each HPRC assembly's units are on contigs assigned to an acrocentric (all of HG002's). The share each chromosome gets in the "
-    f"assembly is essentially unrelated to its FISH share (r = {AR['r_share']:.2f} over {AR['n_chrom']} chromosome totals). So the "
+    f"assembly is essentially unrelated to its FISH share (r = {AR['r_share']:.2f} over {AR['n_chrom']} chromosome totals), and so is the "
+    f"number of units (r = {AR['r_units']:.2f}; Figure 5e, f). So the "
     "assemblies do not say how an individual's rDNA is divided among the five chromosomes. NGS-DOSE cannot say either, because it "
     "measures the total only.")]
 
