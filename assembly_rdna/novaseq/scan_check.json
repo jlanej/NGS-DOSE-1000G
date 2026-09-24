@@ -1,0 +1,4 @@
+{"sample": "HG002", "pipeline": "Google GIAB NovaSeq 6000 PCR-free 30x", "sinks": "resources/GRCh38/sinks.bed (learned on NYGC CRAMs)",
+ "scan_reads": {"rDNA45S": 2917481, "rDNA5S": 50711, "DJ": 395510},
+ "captured": {"rDNA45S": 2915296, "rDNA5S": 50693, "DJ": 394476},
+ "frac_45S": 0.99925, "frac_5S": 0.99965, "frac_DJ": 0.99739, "scan_seconds": 7317.3}

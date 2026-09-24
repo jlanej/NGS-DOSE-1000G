@@ -30,3 +30,4 @@ novaseq/scan/*.tmp.json.gz
 novaseq/fetch.log
 novaseq/scan.log
 novaseq/est/estimate.err
+novaseq/scan/*.log
