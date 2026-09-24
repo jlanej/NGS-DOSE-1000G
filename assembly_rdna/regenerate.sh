@@ -14,4 +14,5 @@ if [ -n "${FULL:-}" ]; then
   xargs -P "${JOBS:-5}" -n 4 python scripts/annotate_units.py --threads 2 < work_units/names.txt > work_units/all.jsonl
 fi
 python scripts/analyze.py
+python scripts/method_accuracy.py
 python scripts/build_report.py

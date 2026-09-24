@@ -16,3 +16,9 @@ logs/
 scripts/__pycache__/
 # committed gzipped instead
 tables/validation_outside_hits.tsv
+# Potapova fetch: engine logs and the ngsdose resource cache
+potapova/.cache/
+potapova/counts/*.log
+potapova/fetch.log
+potapova/manifest_all.tsv
+potapova/*.crai

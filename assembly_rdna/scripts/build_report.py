@@ -53,45 +53,51 @@ ceil = T["hap_parent_ceiling"]
 c13 = ref["chm13v2.0_maskedY_rCRS"]; hgp, hgm = ref["hg002v1.1.pat"], ref["hg002v1.1.mat_MT"]
 
 S = []
-S += [P("Do HPRC release-2 assemblies contain the rDNA, and is it reliably measured?", title),
-      P(f"Direct sequence tests on all {T['n_haplotypes']} HPRC/HPP release-2 haplotype assemblies, with CHM13, T2T-HG002 v1.1, "
-        f"HG06807 and GRCh38 as references, against NGS-DOSE short-read copy numbers from the 1000 Genomes 30× CRAMs "
-        f"(results as of {asof}, {n_cohort:,} genomes counted: {T['n_people_counted']} assembled people and {T['n_trios']} trios counted).", small), Spacer(1, 6)]
+M = json.load(open(f"{TAB}/method_accuracy.json"))
+inh = {(r["cls"], r["parents"]): r for r in M["inheritance"]}
+i45, i45h, i5 = inh[("45S", "NGS-DOSE")], inh[("45S", "Hall 2021")], inh[("5S", "NGS-DOSE")]
+DJ, DD, AR = M["distal_junction"], M["ddpcr"], M["arrays"]
+dn, dc, dfl = DD["ngsdose"], DD["conkord_same9"], DD["ratio18S_flat"]
+S += [P("HPRC release-2 assemblies, the rDNA, and how NGS-DOSE compares", title),
+      P(f"Direct sequence tests on all {T['n_haplotypes']} HPRC/HPP release-2 haplotype assemblies (CHM13, T2T-HG002 v1.1, HG06807 and "
+        f"GRCh38 as references), set against NGS-DOSE short-read copy numbers of the same people and their parents, the independent "
+        f"Hall et al. 2021 pipeline, and the ddPCR and FISH measurements of Potapova et al. 2025. NGS-DOSE counts as of {asof} "
+        f"({n_cohort:,} genomes; {T['n_people_counted']} assembled people and {T['n_trios']} trios), plus 7 genomes counted for this report.", small),
+      Spacer(1, 6)]
 S += [P("Summary", h1)]
 S += [bullets([
-    f"<b>Do the assemblies contain rDNA? Yes, but not the arrays.</b> Every one of the {T['n_hifiasm']} hifiasm haplotypes holds "
-    f"45S units: a median of {n18['50%']:.0f} complete 18S genes per haplotype (10th–90th percentile {n18['10%']:.0f}–{n18['90%']:.0f}). "
-    f"They are spread over a median of {ph['n_arrays']['50%']:.0f} pieces of 1–10 units. "
-    f"{100*sides.get('contig_end',0)/tot_sides:.0f}% of piece ends are contig ends, and "
-    f"{100*place.get('unplaced contig',0)/tot_units:.0f}% of units sit on contigs not assigned to any chromosome. Only "
-    f"{100*place.get('acrocentric, chromosome-length',0)/tot_units:.0f}% sit on a chromosome-length acrocentric. About one array per "
-    f"haplotype is flanked on both sides (median {T['closed_units']['50%']:.0f} units, almost all next to the distal junction); these "
-    "may be genuinely short arrays. The eight Verkko haplotypes hold far fewer units (median 15.5), with rDNA mostly left as gaps.",
-    f"<b>Is it reliably measured? For 45S, no; for 5S, yes.</b> Summed over both haplotypes, the assemblies hold "
-    f"{100*q45['50%']:.0f}% of the 45S copies NGS-DOSE measures in the same person (range {100*q45['min']:.0f}–{100*q45['max']:.0f}%). "
-    f"Across people they correlate at r = {rr(r45)}. The 5S array, by contrast, is assembled whole and gap-free in "
-    f"{100*T['frac_hap_5S_single_closed']:.0f}% of haplotypes. Its unit count matches NGS-DOSE at a ratio of {q5['50%']:.3f} (SD "
-    f"{q5['std']:.3f}), with r = {rr(r5,3)}.",
-    f"<b>The partial 45S content is not noise.</b> In {T['n_trios']} trio-phased children, the maternal haplotype's 18S count tracks the "
-    f"mother's short-read copy number (r = {hp['45S_mat~mother']['r']:.2f}) and not the father's ({hp['45S_mat~father']['r']:.2f}). The paternal "
-    f"haplotype tracks the father ({hp['45S_pat~father']['r']:.2f}) and not the mother ({hp['45S_pat~mother']['r']:.2f}). A perfect "
-    f"measurement would give about {ceil['median']:.2f}. What hifiasm keeps scales with what the haplotype carries, but at roughly half the level "
-    "and with about 20% person-to-person scatter in the assembled fraction.",
-    "<b>What this means for NGS-DOSE.</b> Assemblies cannot validate 45S copy number, but they give a strong external check of NGS-DOSE's 5S "
-    "estimate, which the trio test had left undecided. They also show that the CenSat-based figure on the cohort page (about 38% of "
-    "rDNA assembled) understates what the assemblies hold, because CenSat leaves some rDNA contigs unlabelled."])]
-
-S += [P("Verdict", h2)]
-S += [table([["Question", "Answer", "Evidence"],
-             ["Do HPRC r2 assemblies contain 45S rDNA?", "Yes, fragments, in every haplotype",
-              f"{n18['50%']:.0f} 18S copies per haplotype (hifiasm); {100*sides.get('contig_end',0)/tot_sides:.0f}% of array ends are contig ends"],
-             ["Are the 45S arrays complete?", "No, except about one short array per haplotype",
-              f"{T['arrays_closed']} of {T['arrays_n']:,} arrays flanked on both sides; median {T['closed_units']['50%']:.0f} units"],
-             ["Is assembled 45S a copy-number measurement?", "No", f"{100*q45['50%']:.0f}% of short-read copies; r = {r45['r']:.2f}"],
-             ["Is assembled 45S haplotype-specific signal?", "Yes", f"own parent r ≈ {hp['45S_mat~mother']['r']:.2f} / {hp['45S_pat~father']['r']:.2f}; other parent ≈ 0"],
-             ["Is the 5S array assembled and correct?", "Yes", f"{100*T['frac_hap_5S_single_closed']:.0f}% single gap-free arrays; ratio {q5['50%']:.2f}, r = {r5['r']:.3f}"],
-             ["Are the short arms present up to the rDNA?", "Mostly", f"distal junctions per haplotype: median {ndj['50%']:.0f} (5 expected), 82% within 4–6"]],
-            [2.1, 1.75, 3.15])]
+    f"<b>The assemblies contain rDNA, but not the arrays.</b> All {T['n_hifiasm']} hifiasm haplotypes hold 45S units (median "
+    f"{n18['50%']:.0f} 18S genes), in a median of {ph['n_arrays']['50%']:.0f} pieces of 1–10 units. {100*sides.get('contig_end',0)/tot_sides:.0f}% "
+    f"of piece ends are contig ends and {100*place.get('unplaced contig',0)/tot_units:.0f}% of units are on unplaced contigs. They hold "
+    f"{100*q45['50%']:.0f}% of the copies short reads count ({100*DD['assembly_18S']['median_ratio']:.0f}% of the ddPCR copies), and their "
+    "per-chromosome distribution does not follow FISH. The 5S array, by contrast, is assembled whole in "
+    f"{100*T['frac_hap_5S_single_closed']:.0f}% of haplotypes.",
+    f"<b>For 45S, NGS-DOSE is the more accurate method.</b> Measured against the parents, which no error in the child's measurement can "
+    f"imitate, the child's NGS-DOSE value tracks inheritance at r = {i45['r_ngsdose']:.2f} and the assembly's at {i45['r_assembly']:.2f} "
+    f"(paired difference +{i45['diff']:.2f}, 95% CI {i45['diff_lo']:.2f} to {i45['diff_hi']:.2f}; {i45['n']} trios). The result is the same "
+    f"with the parents measured by Hall et al. (+{i45h['diff']:.2f}). Against ddPCR, an orthogonal assay, NGS-DOSE correlates at "
+    f"r = {dn['r']:.2f} (n = {dn['n']}), ahead of the published 18S depth ratio ({dfl['r']:.2f}) and the CONKORD k-mer pipeline ({dc['r']:.2f}).",
+    f"<b>For 5S the two methods agree, so both are validated.</b> The assembled 5S unit count equals NGS-DOSE's estimate (ratio "
+    f"{q5['50%']:.2f} ± {q5['std']:.3f}, r = {r5['r']:.3f}), and the inheritance test finds no difference between them "
+    f"({i5['diff']:+.2f}, {i5['diff_lo']:.2f} to {i5['diff_hi']:.2f}). This also shows the inheritance test does not favour short reads "
+    "where the assembly is complete.",
+    f"<b>NGS-DOSE's weakness is absolute scale, not precision.</b> It reads about {abs(100*(dn['median_ratio']-1)):.0f}% below ddPCR "
+    f"(median ratio {dn['median_ratio']:.2f}) and {100*(1-DJ['ngsdose_mean']/10):.1f}% below the known 10 copies of the distal junction "
+    f"({DJ['ngsdose_mean']:.2f}). Both shortfalls point the same way, which suggests one shared cause. For the distal junction the "
+    "assemblies count whole copies exactly where their short arms are complete; NGS-DOSE detects single-copy steps, and all "
+    f"{DJ['ngs_steps']} of its steps recur in the assemblies in the same direction ({DJ['ngs_steps_confirmed']} of the same size)."])]
+S += [P("NGS-DOSE against the alternatives", h2)]
+S += [table([["Test", "NGS-DOSE", "Alternative", "Verdict"],
+             ["Inheritance, 45S (child vs parents' mean, r)", f"{i45['r_ngsdose']:.2f}", f"assembly {i45['r_assembly']:.2f}", f"NGS-DOSE (+{i45['diff']:.2f}, CI excludes 0)"],
+             ["Inheritance, 5S", f"{i5['r_ngsdose']:.2f}", f"assembly {i5['r_assembly']:.2f}", "tie; both measure 5S"],
+             ["ddPCR, 45S: correlation (n = 9)", f"{dn['r']:.2f}", f"CONKORD {dc['r']:.2f}; 18S ratio {dfl['r']:.2f}", "NGS-DOSE ranks people best"],
+             ["ddPCR, 45S: level", f"{dn['median_ratio']:.2f}×", f"CONKORD {dc['median_ratio']:.2f}×; 18S ratio {dfl['median_ratio']:.2f}×; assembly {DD['assembly_18S']['median_ratio']:.2f}×",
+              "CONKORD closest in level"],
+             ["Distal junction, truth 10", f"{DJ['ngsdose_mean']:.2f} ± {DJ['ngsdose_sd']:.2f}", f"assembly {DJ['assembly_mean']:.2f}; exactly 10 in {100*DJ['assembly_exact10']:.0f}%",
+              "assembly for level; NGS-DOSE for steps"],
+             ["5S against assembled 5S arrays", f"ratio {q5['50%']:.2f}, r {r5['r']:.3f}", "—", "NGS-DOSE 5S validated"],
+             ["Cross-technology replicate (pilot, n = 12)", "ICC 0.98", "18S ratio 0.19 (0.87 offset-removed)", "NGS-DOSE"]],
+            [2.05, 1.05, 2.25, 1.65])]
 
 # ---------------- background ----------------
 S += [PageBreak(), P("1  Background: assembly methods and the rDNA", h1)]
@@ -154,6 +160,9 @@ S += [bullets([
     f"flags the model arrays correctly. HG002 paternal: {hgp['n_18S']} copies in {hgp['n_arrays']} pieces, one closed array of "
     f"{hgp['units_in_closed']} copies on chr13 (published: six full units plus a partial), the rest ending at N-gaps. HG002 maternal: "
     f"{hgm['n_18S']} copies, no closed array, 10 gap ends (published: gaps).",
+    "<b>Orthogonal data.</b> Potapova et al. 2025 (Cell Genomics 5:101031), Table S1 (ddPCR and CONKORD totals for 12 LCLs) and Table S2 "
+    "(FISH per array), transcribed from the supplementary PDF. Hall et al. 2021 Supplementary Data 1 (18S, 28S, 5S per haploid genome, "
+    "from the same NYGC CRAMs by an independent pipeline).",
     f"<b>Short reads.</b> NGS-DOSE calibrated copy numbers (rDNA45S.cn, rDNA5S.cn, DJ.cn) from docs/data/cohort.tsv: {T['n_people_counted']} "
     f"hifiasm-assembled people so far, and {T['n_trios']} trio-phased children with both parents counted. Pearson r is reported with 5,000 "
     "bootstrap resamples. The perfect-measure range for a transmitted haplotype against its parent's diploid total comes from simulating "
@@ -249,43 +258,139 @@ S += [P(
     "sequence. That fits the literature: unit variants can be reconstructed, arrays cannot.")]
 
 # ---------------- interpretation ----------------
-S += [P("5  Interpretation", h1)]
+S += [PageBreak(), P("5  Which method is more accurate?", h1)]
+S += [P("Neither method can be the truth for the other, so four tests are used that do not require one: inheritance, a sequence of "
+        "known copy number, an orthogonal laboratory assay (ddPCR), and per-chromosome FISH.")]
+S += [P("5.1  Inheritance", h2)]
+S += [P(
+    "A child's rDNA dosage follows its parents'. Measurement error in the child does not, because the parents were sequenced as "
+    "different people, from different libraries and in a different release batch. So if the parents are measured once, and the "
+    "child is measured by two methods, the method whose child value tracks the parents' mean more closely carries less error. With the "
+    "same parents for both, the squared ratio of the two correlations estimates the ratio of the two methods' reliabilities. Values were "
+    "centred within superpopulation, and the two methods were bootstrapped as a pair over trios.")]
+S += [fig("fig4_method_accuracy.png", 7.0, 7.0 * 2.8 / 7.4),
+      P(f"<b>Figure 4.</b> (a, b) The same {i45['n']} children, measured by the HPRC assembly (18S genes, both haplotypes) and by NGS-DOSE, "
+        "against their parents' mean NGS-DOSE 45S copy number (centred within superpopulation). (c) Child-versus-parents correlations with "
+        "95% bootstrap intervals, for 45S and 5S, with the parents measured by NGS-DOSE or by the independent Hall et al. 2021 pipeline.", cap)]
+S += [P(
+    f"For 45S the NGS-DOSE child value tracks the parents at r = {i45['r_ngsdose']:.2f} ({i45['r_ngsdose_lo']:.2f}–{i45['r_ngsdose_hi']:.2f}), "
+    f"the assembly at {i45['r_assembly']:.2f} ({i45['r_assembly_lo']:.2f}–{i45['r_assembly_hi']:.2f}). The paired difference is "
+    f"+{i45['diff']:.2f} ({i45['diff_lo']:.2f} to {i45['diff_hi']:.2f}), and NGS-DOSE is ahead in {100*i45['p_ngsdose_better']:.0f}% of "
+    f"resamples. With the parents measured by Hall et al. instead, the difference is +{i45h['diff']:.2f} ({i45h['diff_lo']:.2f} to "
+    f"{i45h['diff_hi']:.2f}; {i45h['n']} trios). By the squared ratio, the assembly count carries about {100*i45['reliability_ratio']:.0f}% of "
+    "the between-person signal NGS-DOSE does. With Hall-measured parents the assembly-only test can use "
+    f"{M['assembly_hall_parents']['n']} trios, including African families; it gives r = {M['assembly_hall_parents']['r']:.2f} "
+    f"({M['assembly_hall_parents']['lo']:.2f}–{M['assembly_hall_parents']['hi']:.2f}).")]
+S += [P(
+    f"<b>5S is the control.</b> There the assemblies are complete, and the two methods tie ({i5['r_assembly']:.2f} against "
+    f"{i5['r_ngsdose']:.2f}; difference {i5['diff']:+.2f}, {i5['diff_lo']:.2f} to {i5['diff_hi']:.2f}). So the test has no built-in "
+    "preference for short reads, and the 45S gap reflects the assemblies' incompleteness. One bias could remain: a heritable effect "
+    "shared by short-read methods, such as rDNA sequence variants that change k-mer or read recovery, would favour them. The tie on 5S "
+    "and the independent Hall parents argue against it, but do not exclude it.")]
+S += [P("5.2  A known truth: the distal junction", h2)]
+S += [fig("fig5_truths_and_assays.png", 7.0, 7.0 * 5.6 / 7.2),
+      P(f"<b>Figure 5.</b> (a) Distal-junction copies (truth 10 per diploid genome) by NGS-DOSE and by assembly in the same {DJ['n']} people; "
+        "assembly values jittered vertically; purple marks people NGS-DOSE places a whole copy from the cohort level. (b) Short-read "
+        f"45S estimates against ddPCR (Potapova et al. 2025, Table S1; horizontal bars ±1 SD) for the {dn['n']} 1000 Genomes samples "
+        "measured by ddPCR. (c) Assembled 18S genes against ddPCR for the five people with an assembly, with NGS-DOSE for the same people. "
+        "(d) Each acrocentric's share of the rDNA by FISH (Potapova et al. 2025, Table S2) against its share of the placed assembled units.", cap)]
+S += [P(
+    f"The assemblies count distal junctions in whole copies: exactly 10 in {100*DJ['assembly_exact10']:.0f}% of these people, and 9–11 in "
+    f"{100*DJ['assembly_all_9_11']:.0f}% of all {DJ['assembly_all_n']} assembled people. NGS-DOSE reads {DJ['ngsdose_mean']:.2f} ± "
+    f"{DJ['ngsdose_sd']:.2f}, {100*(1-DJ['ngsdose_mean']/10):.1f}% below the truth, which is the method's known shortfall on this "
+    f"sequence. On whole-copy steps the two agree. NGS-DOSE places {DJ['ngs_steps']} people one copy or more from the cohort level. The "
+    f"assembly shows a step in the same direction in all {DJ['ngs_steps']}, and of the same size in {DJ['ngs_steps_confirmed']}. Of the "
+    f"{DJ['ngs_normal']} people NGS-DOSE reads at the cohort level, the assembly gives 10 for {DJ['ngs_normal_asm_10']}, 9 for "
+    f"{DJ['ngs_normal_asm_low']} and 11 for {DJ['ngs_normal_asm_high']}. Most of those discordant cases are probably short arms that failed "
+    "to assemble or were duplicated, but without the reads that cannot be confirmed. <b>Verdict:</b> the assembly gets the absolute level "
+    "right; NGS-DOSE is about 3% low but resolves single-copy changes reliably.")]
+S += [P("5.3  An orthogonal assay: ddPCR", h2)]
+S += [P(
+    "Potapova et al. (2025) measured total rDNA copy number by droplet digital PCR in 12 lymphoblastoid lines. They also report their own "
+    "short-read k-mer estimate (CONKORD), which they used to scale their FISH measurements. Nine of the lines are in the 1000 Genomes 30× "
+    "set. Two were already in the cohort run, and the other seven were counted here in fetch mode with the same engine and bundle, "
+    "then calibrated with the cohort's saved window efficiencies. This procedure reproduces the cohort's values for the two already "
+    "counted to within 0.3%.")]
+S += [table([["Method (n = 9 unless noted)", "r with ddPCR", "Level (median ratio)", "Mean |error|", "SD of log ratio"],
+             ["NGS-DOSE, calibrated", f"{dn['r']:.2f}", f"{dn['median_ratio']:.2f}", f"{dn['mean_abs_pct']:.1f}%", f"{DD['residual_sd_log']['ngsdose']:.3f}"],
+             ["CONKORD (Potapova et al.)", f"{dc['r']:.2f}", f"{dc['median_ratio']:.2f}", f"{dc['mean_abs_pct']:.1f}%", f"{DD['residual_sd_log']['conkord']:.3f}"],
+             ["18S depth ratio (published estimator, from NGS-DOSE counts)", f"{dfl['r']:.2f}", f"{dfl['median_ratio']:.2f}", f"{dfl['mean_abs_pct']:.1f}%", f"{DD['residual_sd_log']['ratio18S_flat']:.3f}"],
+             [f"HPRC assembly, 18S genes (n = {DD['assembly_18S']['n']}, incl. HG002 v1.1)", "—", f"{DD['assembly_18S']['median_ratio']:.2f}",
+              f"{DD['assembly_18S']['mean_abs_pct']:.0f}%", "—"],
+             [f"ddPCR replicate CV (Potapova et al.)", "", "", f"median {100*DD['ddpcr_cv_median']:.0f}%", ""]],
+            [2.6, 0.95, 1.25, 1.05, 1.15]),
+      P("<b>Table 3.</b> Short-read and assembly estimates against ddPCR. Without HG02053, where ddPCR (713) exceeds both k-mer "
+        f"pipelines (about 615), r is {DD['without_HG02053']['ngsdose']['r']:.2f} (NGS-DOSE), {DD['without_HG02053']['conkord']['r']:.2f} "
+        f"(CONKORD) and {DD['without_HG02053']['ratio18S_flat']['r']:.2f} (18S ratio).", cap)]
+S += [P(
+    f"NGS-DOSE ranks these people most like ddPCR does (r = {dn['r']:.2f}), and its scatter around its own offset "
+    f"({100*DD['residual_sd_log']['ngsdose']:.0f}%) is about the size of ddPCR's replicate variation. Its level is "
+    f"{abs(100*(dn['median_ratio']-1)):.0f}% low (mean of log ratios {DD['bias_pct']['ngsdose']:+.1f}%), the same direction and size as its "
+    f"distal-junction shortfall. CONKORD sits closest in level ({dc['median_ratio']:.2f}) but correlates less well, and the 18S depth ratio "
+    f"is {100*(dfl['median_ratio']-1):.0f}% high. The assemblies hold about {100*DD['assembly_18S']['median_ratio']:.0f}% of the ddPCR copies. "
+    "Nine samples over a narrow range (476–713 copies) give wide intervals on each r, and the DNA for ddPCR came from different cultures "
+    "than the NYGC sequencing, which adds scatter that neither method can remove.")]
+S += [P("5.4  Per array: FISH", h2)]
+S += [P(
+    "FISH measures each array's share of the total. That share is orthogonal to sequencing, but Potapova et al. scaled it by CONKORD "
+    f"totals, so only the shares are used here. For the five people with both FISH and an assembly, between "
+    f"{100*min(v for k,v in AR['placed_fraction'].items() if k!='HG002'):.0f}% and {100*max(v for k,v in AR['placed_fraction'].items() if k!='HG002'):.0f}% "
+    "of each HPRC assembly's units are on contigs assigned to an acrocentric (all of HG002's). The share each chromosome gets in the "
+    f"assembly is essentially unrelated to its FISH share (r = {AR['r_share']:.2f} over {AR['n_chrom']} chromosome totals). So the "
+    "assemblies do not say how an individual's rDNA is divided among the five chromosomes. NGS-DOSE cannot say either, because it "
+    "measures the total only.")]
+
+S += [P("6  NGS-DOSE: advantages and disadvantages, on this evidence", h1)]
+S += [table([["", "Evidence"],
+             ["<b>Advantages</b>", ""],
+             ["Tracks true between-person variation in 45S better than any alternative tested",
+              f"Inheritance r {i45['r_ngsdose']:.2f} vs assembly {i45['r_assembly']:.2f}; ddPCR r {dn['r']:.2f} vs CONKORD {dc['r']:.2f} and 18S ratio "
+              f"{dfl['r']:.2f}; cross-technology ICC 0.98 vs 0.19 (pilot)"],
+             ["Correct 5S copy number", f"Equals whole assembled 5S arrays: ratio {q5['50%']:.2f}, SD {100*q5['std']:.1f}%, r {r5['r']:.3f} (n = {r5['n']})"],
+             ["Single-copy resolution in a paralogous sequence", f"All {DJ['ngs_steps']} distal-junction steps recur in the assemblies ({DJ['ngs_steps_confirmed']} with the same size)"],
+             ["Whole-genome coverage of a cohort at low cost", "Every short-read genome; about 1 minute and 0.5 GB per genome in fetch mode. The assemblies cover 232 people and hold about half the 45S"],
+             ["<b>Disadvantages</b>", ""],
+             ["Absolute level a few percent low", f"{100*(dn['median_ratio']-1):+.0f}% vs ddPCR; distal junction {DJ['ngsdose_mean']:.2f} for 10; if the offset is constant, a ddPCR calibration would correct both"],
+             ["Totals only", "No per-chromosome or per-haplotype array sizes; FISH provides these (and assemblies, as shown here, do not reliably)"],
+             ["Scale depends on chemistry and batch", "Window efficiencies differ between the two 1000 Genomes release batches (review of 2026-09-23); new chemistries need re-learning"],
+             ["Fetch mode depends on the aligner", "Sinks are learned from NYGC bwa-mem CRAMs; DRAGEN alignments untested"],
+             ["Shares the cell-line limitation", "Culture changes to arrays (and S-phase effects) are measured as if they were genotype"]],
+            [2.5, 4.5])]
+
+S += [P("7  Interpretation", h1)]
 S += [bullets([
     "<b>HPRC r2 assemblies are not a truth set for 45S copy number, per array or in total.</b> They hold about half of each person's "
-    "units, broken into dozens of pieces that end at contig ends. The share is roughly proportional to the haplotype's true content, "
-    "but the scatter is too large for per-person measurement. This agrees with the literature and with CHM13 and HG002, where the rDNA "
-    "had to be modelled or left as gaps.",
-    "<b>They are a truth set for 5S</b>, and on it NGS-DOSE's short-read estimate agrees to about 3.5%. That is the first orthogonal "
-    "confirmation of an NGS-DOSE rDNA class. It suggests, but does not prove, that the fragment-GC model is well calibrated for a uniformly GC-rich (68%) unit.",
-    "<b>For the cohort page</b>, the statement that assemblies hold about a third of the rDNA should be revised to about half, measured by "
-    "gene copies. The CenSat label misses unplaced rDNA contigs and is not the right quantity to report.",
-    "<b>Useful by-products.</b> The approximately one closed short array per haplotype, typically DJ-flanked, is a candidate set for "
-    "per-array truth, but only after read-depth validation. The haplotype–parent signal shows that the assembled pieces are correctly "
-    "phased, which matters for anyone using them to study rDNA unit variants."])]
-S += [P("6  Limits", h1)]
+    "units, in pieces that end at contig ends, distributed among chromosomes in a way FISH does not support. What they hold is "
+    "haplotype-specific and scales with the true content, but carries about half the between-person signal NGS-DOSE does.",
+    "<b>They are a truth set for 5S</b>, and there NGS-DOSE agrees to about 3.5%: an orthogonal confirmation of an NGS-DOSE rDNA class.",
+    "<b>The best current picture of the absolute scale</b> is that NGS-DOSE reads about 3–5% low: the ddPCR offset and the distal-junction "
+    "offset agree. A ddPCR-anchored correction on a few dozen cohort cell lines would settle it.",
+    "<b>For the cohort page</b>, the statement that assemblies hold about a third of the rDNA should read about half, measured by gene "
+    "copies. The CenSat label misses unplaced rDNA contigs."])]
+S += [P("8  Limits", h1)]
 S += [bullets([
-    f"Short-read comparisons rest on {T['n_people_counted']} people and {T['n_trios']} trios, none of African ancestry, because only {n_cohort:,} of "
-    "3,202 genomes have been counted so far. analyze.py recomputes every test from docs/data/cohort.tsv, so rerunning it after "
-    "regenerate.sh updates the report.",
-    "No read depth or read tiling was examined, so closed arrays and extra DJ copies cannot be distinguished from collapses or false "
-    "duplications. Coverage-based flaggers are known to misbehave in rDNA.",
-    "The gene-copy count includes 18S copies that stand alone (arrays of one: 5% of hifiasm units). Some may be dispersed "
-    "18S-bearing fragments, such as the genuine 5′ETS/18S piece GRCh38 places outside the arrays, rather than array units.",
-    "Hi-C-phased haplotypes cannot be assigned to a parent, so the haplotype test uses trio-phased assemblies only. Phasing method and "
-    "hifiasm version are confounded.",
-    "All DNA is from lymphoblastoid lines, and the assemblies and the NYGC short reads come from different DNA preparations. Culture "
-    "changes to the arrays would appear as disagreement, although for 5S there is almost none."])]
-S += [P("7  Files and regeneration", h1)]
-S += [P("Everything lives in <font face='Courier'>assembly_rdna/</font>: background.md (the full cited background); data/ (index, metadata, "
-        "extracted sequence, regions; see data/README.md); scripts/ (fetch_metadata.py, extract_regions.py, tile_map.py, validate_full.py, "
-        "annotate_units.py, analyze.py, build_report.py); tables/ (haplotype_rdna.tsv, arrays_all.tsv.gz, person_vs_ngsdose.tsv, "
-        "trio_haplotypes.tsv, tests.json, validation.tsv); figures/. <font face='Courier'>bash assembly_rdna/regenerate.sh</font> "
-        "reruns the analysis and this PDF from new counts. Extraction and annotation need rerunning only if the assemblies change.", body)]
+    f"The short-read comparisons rest on {T['n_people_counted']} people and {T['n_trios']} trios, none of African ancestry, because only "
+    f"{n_cohort:,} of 3,202 genomes have been counted so far. The scripts recompute every test from docs/data/cohort.tsv.",
+    "The ddPCR comparison has 9 samples, and 5 people with both ddPCR and an assembly. ddPCR and sequencing used DNA from different cultures.",
+    "No read depth or read tiling was examined, so closed arrays and extra or missing DJ copies cannot be distinguished from collapses, "
+    "false duplications or failed short arms.",
+    "Standalone 18S copies (5% of hifiasm units) may include dispersed 18S-bearing fragments rather than array units.",
+    "Hi-C-phased haplotypes cannot be assigned to a parent; phasing method and hifiasm version are confounded.",
+    "Potapova et al.'s tables were transcribed from the supplementary PDF (checked: per-array values sum to the published totals "
+    "within 2 copies); the seven additional NGS-DOSE counts used a sinks file that differs from the cohort's only by added telomere intervals."])]
+S += [P("9  Files and regeneration", h1)]
+S += [P("Everything lives in <font face='Courier'>assembly_rdna/</font>: background.md (the full cited background); data/ (index, regions; "
+        "see data/README.md); potapova/ (Tables S1–S2 as TSV, the fetch script, counts files and estimates for the seven added genomes); "
+        "scripts/ (fetch_metadata.py, extract_regions.py, tile_map.py, validate_full.py, annotate_units.py, analyze.py, method_accuracy.py, "
+        "build_report.py); tables/ (haplotype_rdna.tsv, arrays_all.tsv.gz, person_vs_ngsdose.tsv, trio_haplotypes.tsv, tests.json, "
+        "method_accuracy.json, potapova_comparison.tsv, potapova_arrays.tsv, validation.tsv); figures/. "
+        "<font face='Courier'>bash assembly_rdna/regenerate.sh</font> reruns the analysis and this PDF from new counts.", body)]
 S += [P("References", h2)]
 refs = ["Antipov D et al. (2025) Verkko2. Genome Res 35:1583. doi:10.1101/gr.280383.124",
         "Cechova M et al. (2025) Complete genomes of a multi-generational pedigree. bioRxiv. doi:10.64898/2025.12.14.693655",
         "Cheng H et al. (2021) hifiasm. Nat Methods 18:170; (2022) Nat Biotechnol 40:1332; (2024) Nat Methods 21:967. doi:10.1038/s41592-024-02269-8",
         "Guarracino A et al. (2023) Recombination between heterologous human acrocentric chromosomes. Nature 617:335. doi:10.1038/s41586-023-05976-y",
+        "Hall AN, Turner TN, Queitsch C (2021) Thousands of high-quality sequencing samples fail to show meaningful correlation between 5S and 45S ribosomal DNA arrays in humans. Sci Rep 11:449. doi:10.1038/s41598-020-80049-y",
         "Hansen NF et al. (2026) A complete diploid human genome benchmark. Cell 189:4857. doi:10.1016/j.cell.2026.06.016",
         "Jain M et al. (2018) Nanopore sequencing with ultra-long reads. Nat Biotechnol 36:338. doi:10.1038/nbt.4060",
         "Kim J-H et al. (2018) Chromosome 21 rDNA by TAR cloning. Nucleic Acids Res 46:6712. doi:10.1093/nar/gky442",
@@ -306,6 +411,6 @@ def on_page(c, d):
     c.drawString(0.75 * inch, 0.5 * inch, f"HPRC r2 assemblies and rDNA · NGS-DOSE counts as of {asof}")
     c.drawRightString(7.75 * inch, 0.5 * inch, str(d.page))
 doc = SimpleDocTemplate(OUT, pagesize=letter, leftMargin=0.75 * inch, rightMargin=0.75 * inch, topMargin=0.7 * inch,
-                        bottomMargin=0.75 * inch, title="HPRC r2 assemblies and rDNA")
+                        bottomMargin=0.75 * inch, title="HPRC r2 assemblies, rDNA and NGS-DOSE")
 doc.build(S, onFirstPage=on_page, onLaterPages=on_page)
 print(OUT)
