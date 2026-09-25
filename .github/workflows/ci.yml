@@ -1,0 +1,61 @@
+name: CI
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["counts_scan/**", "counts_fetch/**", "hprc_censat/**", "docs/**", "assembly_rdna/**", "review/**"]
+  pull_request:
+    paths-ignore: ["counts_scan/**", "counts_fetch/**", "hprc_censat/**", "docs/**", "assembly_rdna/**", "review/**"]
+  workflow_dispatch:
+
+jobs:
+  # the report package, the pilot's regression tests and the page built from a slice of the cohort's own counts,
+  # on the method installed from its repository (the bundle comes with that checkout)
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: jlanej/NGS-DOSE
+          path: NGS-DOSE
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e NGS-DOSE matplotlib pytest ruff
+      - run: ruff check report pipeline pilot tests
+      - run: pytest -v
+        env:
+          NGSDOSE_RESOURCES: ${{ github.workspace }}/NGS-DOSE/resources/GRCh38
+
+  # the way a cluster runs it: the published image under Apptainer and nothing else. A CRAM is staged with the
+  # image's aria2c (MD5 checked) from a stand-in for the public bucket - the method's real-read fixture under
+  # CRAM-style names, over HTTP - then scanned, fetched and removed; the estimate is made with the image's bundle.
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: jlanej/NGS-DOSE
+          path: NGS-DOSE
+      - uses: eWaterCycle/setup-apptainer@v2
+        with:
+          apptainer-version: 1.3.6
+      - name: Container-only flow
+        run: |
+          set -euo pipefail
+          export SIF="$RUNNER_TEMP/ngs-dose.sif" WORK_DIR="$RUNNER_TEMP/work"
+          apptainer pull "$SIF" docker://ghcr.io/jlanej/ngs-dose:latest
+          apptainer exec "$SIF" aria2c --version | head -1
+          mkdir -p "$RUNNER_TEMP/bucket" "$WORK_DIR/reference" "$WORK_DIR/crams"
+          cp NGS-DOSE/tests/data/NA12878.subsample.bam "$RUNNER_TEMP/bucket/MINI.final.cram"
+          cp NGS-DOSE/tests/data/NA12878.subsample.bam.csi "$RUNNER_TEMP/bucket/MINI.final.cram.crai"
+          (cd "$RUNNER_TEMP/bucket" && exec python3 -m http.server 8765 >/dev/null 2>&1) &
+          sleep 2
+          printf 'MINI\thttp://127.0.0.1:8765/MINI.final.cram\t%s\n' "$(md5sum "$RUNNER_TEMP/bucket/MINI.final.cram" | cut -d' ' -f1)" > "$WORK_DIR/manifest.tsv"
+          cd pipeline
+          RUN_LOCAL=1 THREADS=2 bash 01_stage_and_dose.sh
+          test -s "$WORK_DIR/counts_scan/MINI.json.gz" && test -s "$WORK_DIR/counts_fetch/MINI.json.gz"
+          test -z "$(ls "$WORK_DIR/crams")"
+          bash -c 'source ./config.sh && ngsdose_py ngsdose estimate "$WORK_DIR/counts_scan/MINI.json.gz" -t -' | cut -f1-3
+          bash 03_compare_modes.sh | tail -12
