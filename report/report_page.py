@@ -1033,7 +1033,7 @@ The array is on chromosome 1 (1q42); {pairings("rDNA5S.cn")}</p>""")
                 wide = sorted((t for t in plain if cvt(t) >= 0.1), key=cvt)
                 errs = [lost(t) for t in plain]
                 scaled = [t for t in sats if t["column"] not in linked and t in moved]
-                pmax = max((t["perm_p"] for t in sats if t["column"] not in linked and t.get("perm_p") is not None), default=None)
+                pmax = max((t["perm_p"] for t in sats if t["column"] not in linked and t.get("perm_p") is not None and math.isfinite(t["perm_p"])), default=None)
                 short = lambda col: nm(col).replace(" array", "")
                 names = lambda ts: ", ".join(short(t["column"]) for t in ts[:-1]) + (" and " if len(ts) > 1 else "") + short(ts[-1]["column"])
                 span = lambda ts, f, nd=0: f"{fmt(min(map(f, ts)), nd, pct=True)} to {fmt(max(map(f, ts)), nd, pct=True)}"
