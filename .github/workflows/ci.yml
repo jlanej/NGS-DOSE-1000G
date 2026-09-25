@@ -23,9 +23,12 @@ jobs:
           python-version: "3.12"
       - run: pip install -e NGS-DOSE matplotlib pytest ruff
       - run: ruff check report pipeline pilot tests
-      - run: pytest -v
+      - name: pytest
         env:
           NGSDOSE_RESOURCES: ${{ github.workspace }}/NGS-DOSE/resources/GRCh38
+        run: |
+          set -o pipefail
+          pytest -v tests 2>&1 | tee pytest.log || { echo "::error title=pytest::$(tail -c 1500 pytest.log | tr '\n' ' ')"; exit 1; }
 
   # the way a cluster runs it: the published image under Apptainer and nothing else. A CRAM is staged with the
   # image's aria2c (MD5 checked) from a stand-in for the public bucket - the method's real-read fixture under
