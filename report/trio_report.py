@@ -419,7 +419,7 @@ def main():
     a = ap.parse_args()
     d, tr, trios, fc, hp_rows = load(a)
     doc = Doc(a.out, a.png_dir)
-    doc.text_page("NGS-DOSE on the 1000 Genomes 30× cohort: a trio-focused assessment", summary_blocks(d, tr, fc), subtitle=f"as of {d['meta']['as_of']}, from the tables ngsdose report writes; nothing is typed in")
+    doc.text_page("NGS-DOSE on the 1000 Genomes 30× cohort: a trio-focused assessment", summary_blocks(d, tr, fc), subtitle=f"as of {d['meta']['as_of']}, from the tables python -m report writes; nothing is typed in")
     if tr:
         heatmap_page(doc, tr, fc)
         scatter_pages(doc, tr, trios)
