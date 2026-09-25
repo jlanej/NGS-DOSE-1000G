@@ -90,7 +90,7 @@ def test_the_coverage_qc_comparison(report):
 def test_a_man_with_two_x_chromosomes_is_set_apart():
     """A man whose reads show two X chromosomes and a Y (47,XXY) is not a failure of the X model: the men's
     figures are those of men with one X, and he is listed on his own."""
-    from ngsdose.report import known_truth
+    from report.report import known_truth
     row = lambda s, sex, x, y: {"sample": s, "sex_inferred": sex, "truth.auto": 2.0, "truth.chrX": x, "truth.chrY": y, "DJ.cn": 10.0}
     rows = [row(f"M{i}", "M", 0.99 + 0.005 * (i % 3), 1.0) for i in range(20)] + [row(f"F{i}", "F", 1.95, 0.0) for i in range(20)]
     rows.append(row("XXY", "M", 1.97, 0.97))
