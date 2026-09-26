@@ -48,8 +48,11 @@ def test_every_section_is_built_from_real_data(page):
     out, n = page
     d = json.loads((out / "report.json").read_text())
     assert d["meta"]["n"] == n and d["meta"]["n_both"] == n
+    assert d["meta"]["unreadable"] == [] and d["meta"]["fingerprint"]["bundle_sha256"]
     tr = d["trios"]
-    assert tr["n_complete"] >= 20 and all("R_lo" in t for t in tr["table"]) and tr["compare"]
+    # counted against the pedigree's own rows: HG02567, a father named only on his child's row, was not sequenced
+    assert tr["n_total"] == 602 and d["fetch_check"]["trios"]["n_total"] == 602 and d.get("trios_adjusted", {}).get("n_total", 602) == 602
+    assert tr["n_complete"] >= 20 and all("R_lo" in t for t in tr["table"]) and tr["compare"] and tr["constant"] == []
     R = {t["column"]: t for t in tr["table"]}
     assert R["rDNA45S.cn"]["R"] > 0.5 and R["truth.auto"]["R"] < 0.5 and R["rDNA45S.cn"].get("perm_p") is not None
     assert tr.get("by_sex") and tr.get("batches", {}).get("n") == tr["n_complete"]
@@ -57,7 +60,18 @@ def test_every_section_is_built_from_real_data(page):
     assert fc["n"] == n and fc["agreement"]["rDNA45S.cn"]["r"] > 0.99 and {t["column"] for t in fc["trios"]["table"]} >= {"rDNA45S.cn", "truth.auto"}
     assert "sweep" in d["pcs"] and d["hall"]["n"] >= 3 and d["ngspca_qc"]["n"] == n and d["replicates"]["n"] == 12
     assert d["ddpcr"]["n"] >= 9 and d["ddpcr"]["ngsdose"]["r"] > 0.9
+    dn = d["ddpcr"]["ngsdose"]
+    assert dn["n"] >= 9 and dn["bias_lo_pct"] < dn["bias_pct"] < dn["bias_hi_pct"]
+    assert 0.9 < d["hall"]["dup_denominator_ratio"] < 1.1 and d["biology"]["chrEBV_cv"] > d["biology"]["chrM_cv"] > 0
     assert d["known_truth"]["auto"]["n"] == n and 1.98 < d["known_truth"]["auto"]["mean"] < 2.02
+    # what a targeted fetch does for each class, and the sinks behind it, from the data
+    paths = {r["class"]: r for r in d["fetch_paths"]["rows"]}
+    assert paths["rDNA45S"]["path"] == "fetch-direct" and paths["rDNA45S"]["capture_min"] > 0.99 and paths["rDNA45S"]["n_fetch"] == n
+    assert paths["HSat2"]["path"] == "scan-only" and paths["HSat2"]["n_fetch"] == 0 and paths["HSat2"]["capture_n"] == 0
+    assert all(r["fetch_calibrated"] == "none yet" for r in paths.values()) and 0.97 < paths["DJ"]["fetch_over_scan_median"] < 1.03
+    sk = d["meta"]["sinks"]
+    assert [f["sha256"] for f in sk["fetch"]] == d["meta"]["sinks_sha"] and all(f["source"] for f in sk["fetch"])
+    assert paths["TEL"]["capture_sinks_sha256"] == sk["bundle"]["sha8"] and sk["bundle"]["classes"]["TEL"]["intervals"] > 0
     html = (out / "index.html").read_text()
     visible = html.split('<script id="report-data"')[0]
     for must in ('id="chart-heat"', 'id="chart-ddpcr"', 'id="chart-trio"', "Hall, Turner", "python -m report"):

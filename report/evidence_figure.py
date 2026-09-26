@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The evidence figure: eight panels, each one thing a skeptic would ask for, drawn from the
-cohort page's data and the pilot's tables. Everything is read from files that `python -m report`
-and `evaluate_pilot.py` write; nothing is typed in.
+cohort page's data and the pilot's tables. The plotted values and their statistics are read from
+files that `python -m report` and `evaluate_pilot.py` write; the captions are fixed text.
 
     python -m report.evidence_figure --report docs/report.json --pilot pilot -o docs/evidence.png
 """
@@ -26,6 +26,17 @@ def num(row, col):
         return float(v)
     except (TypeError, ValueError):
         return float("nan")
+
+
+def step_bins(steps) -> np.ndarray:
+    """Histogram edges 0.1 copy wide, centred on the tenths, reaching past the lowest and highest step so that no genome is left out."""
+    lo, hi = (float(np.floor(np.min(steps))), float(np.ceil(np.max(steps)))) if len(steps) else (-2.0, 1.0)
+    return np.arange(min(lo, -2.0) - 0.35, max(hi, 1.0) + 0.35 + 1e-9, 0.1)
+
+
+def step_counts(near: dict) -> list[tuple[int, int]]:
+    """The whole-copy steps with the genomes within 0.3 of each, in order; a step no genome reaches is left out, except 0."""
+    return sorted((int(k), int(v)) for k, v in (near or {}).items() if v or int(k) == 0)
 
 
 def main():
@@ -71,15 +82,18 @@ def main():
     B = ax[1]
     dj = d["known_truth"]["DJ_steps"]
     steps = np.array([s["DJ.step"] for s in S if s.get("DJ.step") is not None])
-    B.hist(steps, bins=np.arange(-2.35, 1.75, 0.1), color=BLUE, edgecolor="white", linewidth=0.5)
-    for k in (-2, -1, 0, 1):
+    B.hist(steps, bins=step_bins(steps), color=BLUE, edgecolor="white", linewidth=0.5)
+    near = step_counts(dj.get("near"))
+    for k, _ in near:
         B.axvline(k, color=GRID, lw=1, zorder=0)
     B.set_yscale("log")
     B.set_xlabel("distal-junction copies relative to the cohort's level")
     B.set_ylabel("samples (log)")
     B.set_title("b  A ten-copy paralog steps in whole copies")
-    tot = dj["transmitted"] + dj["not_transmitted"]
-    B.text(0.02, 0.96, f"−2: {dj['near'].get('-2', 0)}   −1: {dj['near'].get('-1', 0)}   0: {dj['near'].get('0', 0)}   +1: {dj['near'].get('1', 0)}\nparent→child transmitted {dj['transmitted']} of {tot}; de novo {len(dj['de_novo'])}",
+    tot = dj.get("n_pairs", dj["transmitted"] + dj["not_transmitted"])
+    unc = dj.get("unclassified") or 0
+    B.text(0.02, 0.96, "   ".join(f"{'0' if k == 0 else ('+' if k > 0 else '−') + str(abs(k))}: {v}" for k, v in near)
+           + f"\nparent→child transmitted {dj['transmitted']} of {tot}" + (f" ({unc} unclassified)" if unc else "") + f"; de novo {len(dj['de_novo'])}",
            transform=B.transAxes, fontsize=8, va="top", bbox=dict(facecolor="white", edgecolor="none", alpha=0.85, pad=2))
     B.set_ylim(0.8, B.get_ylim()[1] * 4)
 
@@ -95,8 +109,8 @@ def main():
         b, a0 = np.polyfit(mid, ch, 1)
         C.plot([lo, hi], [a0 + b * lo, a0 + b * hi], color=INK, lw=1.5, alpha=0.7)
         t = next((t for t in d["trios"]["table"] if t["column"] == d["trios"]["scatter_column"]), None)
-        if t:
-            ci = f" ({t['R_lo']:.2f}–{t['R_hi']:.2f})" if "R_lo" in t else ""
+        if t and t.get("R") is not None and t.get("slope") is not None:
+            ci = f" ({t['R_lo']:.2f}–{t['R_hi']:.2f})" if t.get("R_lo") is not None and t.get("R_hi") is not None else ""
             C.text(0.03, 0.96, f"{len(sc)} trios: slope {t['slope']:.2f} ± {t['slope_se']:.2f}\nreliability {min(t['R'], 1):.2f}{ci}", transform=C.transAxes, fontsize=8, va="top", bbox=dict(facecolor="white", edgecolor="none", alpha=0.85, pad=2))
     C.set_xlabel("midparent 45S copies")
     C.set_ylabel("child 45S copies")
@@ -112,7 +126,7 @@ def main():
     D.scatter(x1, y1, s=22, color=BLUE, edgecolor="white", linewidth=0.8, label=f"NGS-DOSE, anchors held out\n{np.exp(np.mean(np.log(y1 / x1))) - 1:+.0%}, pair SD {np.std(np.log(y1 / x1), ddof=1):.1%}")
     D.legend(fontsize=7, frameon=False, loc="upper left")
     D.set_xlabel("45S copies, NovaSeq 2×150 (2019)")
-    D.set_ylabel("45S copies, HiSeq 2×100 / 2×126 (2012–15)")
+    D.set_ylabel("45S copies, HiSeq 2×101 / 2×126 (2012–15)")
     D.set_title("d  Same person, two technologies")
 
     # e. what the GC model removes --------------------------------------------------------------
@@ -136,7 +150,9 @@ def main():
         lo, hi = 0.9 * min(xs.min(), ys.min()), 1.05 * max(xs.max(), ys.max())
         F.plot([lo, hi], [lo, hi], color=GRID, lw=1, zorder=0)
         F.scatter(xs, ys, s=9, color=BLUE, alpha=0.6, linewidths=0)
-        F.text(0.03, 0.96, f"{h['n']:,} shared samples: r = {h['flat']['r']:.3f}\ntheirs / ours {h['flat_ratio']:.3f}; {h['dup_corrected_ratio']:.3f} after their duplicate exclusion", transform=F.transAxes, fontsize=8, va="top", bbox=dict(facecolor="white", edgecolor="none", alpha=0.85, pad=2))
+        den = h.get("dup_denominator_ratio")
+        F.text(0.03, 0.96, f"{h['n']:,} shared samples: r = {h['flat']['r']:.3f}\ntheirs / ours {h['flat_ratio']:.3f}"
+               + (f"; {den:.3f} with duplicates out of our denominator\n(their chr1 depth equals ours without them)" if den is not None else f"; {h['dup_corrected_ratio']:.3f} after their duplicate exclusion"), transform=F.transAxes, fontsize=8, va="top", bbox=dict(facecolor="white", edgecolor="none", alpha=0.85, pad=2))
     F.set_xlabel("18S depth ratio (published method)\nfrom NGS-DOSE's counts, / 2")
     F.set_ylabel("Hall et al. 2021, 18S")
     F.set_title("f  Another pipeline, the same CRAMs")
@@ -164,7 +180,7 @@ def main():
         H.hist(r45, bins=30, color=BLUE, edgecolor="white", linewidth=0.5)
         H.set_ylim(0, H.get_ylim()[1] * 1.35)
         H.axvline(1, color=GRID, lw=1, zorder=0)
-        H.text(0.03, 0.96, f"{len(r45):,} samples counted both ways\nmedian {np.median(r45):.4f}, range {r45.min():.4f}–{r45.max():.4f}\n0.5 GB read instead of 15 GB", transform=H.transAxes, fontsize=8, va="top", bbox=dict(facecolor="white", edgecolor="none", alpha=0.85, pad=2))
+        H.text(0.03, 0.96, f"{len(r45):,} samples counted both ways\nmedian {np.median(r45):.4f}, range {r45.min():.4f}–{r45.max():.4f}\nabout 0.5 GB of 15 GB (pipeline estimate)", transform=H.transAxes, fontsize=8, va="top", bbox=dict(facecolor="white", edgecolor="none", alpha=0.85, pad=2))
     H.set_xlabel("45S copies: targeted fetch / whole-file scan")
     H.set_ylabel("samples")
     H.set_title("h  Fetch equals scan")
