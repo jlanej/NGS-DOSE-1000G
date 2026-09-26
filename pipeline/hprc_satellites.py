@@ -10,10 +10,11 @@ assembly-based truth for the compositional classes of the experimental satellite
 
 Caveats worth keeping next to the numbers: an assembly is not a truth for an array it failed to
 span - such arrays are annotated together with their gap ("GAP,HSat2"), are tallied separately,
-and a sample that has any in a class is left out of that class's comparison; and the panel's
-k-mers come from CHM13, so a class whose sequence differs between people, or too few of whose
-reads carry the four k-mers a read needs, is under-recovered in proportion (the recall of each
-class on CHM13 itself is in resources/experimental/README.md).
+and a sample with more than 2% (MAX_GAPPED) of a class's annotated sequence in gap-containing
+arrays is left out of that class's comparison; and the panel's k-mers come from CHM13, so a class
+whose sequence differs between people, or too few of whose reads carry the four k-mers a read
+needs, is under-recovered in proportion (the recall of each class on CHM13 itself is in the
+NGS-DOSE repository's resources/experimental/README.md).
 """
 import argparse
 import csv
@@ -26,7 +27,7 @@ from ngsdose.hprc import CLASS_OF, CLASSES, MAX_GAPPED, assembly_mass, compare, 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--estimates", required=True, help="table from `ngsdose estimate` or `ngsdose cohort` on scan-mode counts")
-    ap.add_argument("--censat", required=True, help="directory of <sample>_<hap>_hprc_r2_v1*.cenSat.bed files")
+    ap.add_argument("--censat", required=True, help="directory of <sample>_<hap>_hprc_r2_v1*.cenSat.bed or .cenSat.bed.gz files")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
     with open(a.estimates) as fh:

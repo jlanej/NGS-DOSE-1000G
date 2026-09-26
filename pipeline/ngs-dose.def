@@ -1,14 +1,19 @@
 # FALLBACK build of the NGS-DOSE image for forks, offline sites, or before a release has been
 # published: provisioning normally pulls the CI-published image, which needs no privileges,
-#     apptainer pull ngs-dose.sif docker://ghcr.io/jlanej/ngs-dose:latest
-# This definition mirrors the repository's Dockerfile (which CI builds and smoke-tests; this file
+#     apptainer pull ngs-dose.sif docker://ghcr.io/jlanej/ngs-dose:sha-<commit>
+# This definition mirrors NGS-DOSE's Dockerfile (which NGS-DOSE's CI builds and smoke-tests; this file
 # itself has not been built by CI). Run it from the root of a checkout of NGS-DOSE (the method), where
-# `--fakeroot` is allowed:
-#     apptainer build --fakeroot ngs-dose.sif /path/to/NGS-DOSE-1000G/pipeline/ngs-dose.def
+# `--fakeroot` is allowed (Apptainer 1.2 or later, for --build-arg):
+#     apptainer build --fakeroot --build-arg NGSDOSE_BUILD=$(git rev-parse HEAD) ngs-dose.sif /path/to/NGS-DOSE-1000G/pipeline/ngs-dose.def
+# Counts written by this image record that commit as engine_build. Without --build-arg they record
+# 'dev', as a local cargo build does.
 
 Bootstrap: docker
 From: rust:1-bookworm
 Stage: build
+
+%arguments
+    NGSDOSE_BUILD=dev
 
 %files
     Cargo.toml /src/Cargo.toml
@@ -19,7 +24,7 @@ Stage: build
     # clang/libclang: rust-htslib generates its htslib bindings with bindgen at build time
     apt-get update && apt-get install -y --no-install-recommends \
         clang libclang-dev pkg-config cmake zlib1g-dev libbz2-dev liblzma-dev libcurl4-openssl-dev libssl-dev
-    cd /src && cargo build --release --locked
+    cd /src && NGSDOSE_BUILD="{{ NGSDOSE_BUILD }}" cargo build --release --locked
 
 
 Bootstrap: docker

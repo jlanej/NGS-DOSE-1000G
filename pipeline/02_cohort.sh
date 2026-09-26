@@ -9,6 +9,8 @@ set -euo pipefail
 source "${SLURM_SUBMIT_DIR:-$(dirname "${BASH_SOURCE[0]}")}/config.sh"
 OUT="$WORK_DIR/cohort_$MODE"; mkdir -p "$OUT"
 
+# estimates of counts files that have since been removed must not reach the cohort: start afresh
+rm -f "$EST_DIR"/*.estimate.json.gz
 ngsdose_py ngsdose estimate "$COUNTS_DIR"/*.json.gz -r "$BUNDLE" -o "$EST_DIR" -t "$OUT/single_sample.tsv" -j "${SLURM_CPUS_PER_TASK:-8}"
 # How many PCs to regress out, separately for the two PC sets, because they are different matrices
 # with different spectra: N_PC for NGS-PCA's coverage PCs, N_CTRL_PC for the internal control-region

@@ -8,17 +8,24 @@
 # Needs scan-mode counts for the HPRC samples (manifest.hprc.tsv, written by 00_setup.sh). A cohort
 # scanned whole (01b_dose_sample.sh) has them; to scan only those 200, straight from the bucket:
 #   N=$(wc -l < $WORK_DIR/manifest.hprc.tsv)
-#   MODE=scan MANIFEST=$WORK_DIR/manifest.hprc.tsv sbatch --array=0-$(( (N - 1) / 10 ))%10 01_count.sh
+#   MODE=scan MANIFEST=$WORK_DIR/manifest.hprc.tsv sbatch --array=0-$(( (N - 1) / ${SAMPLES_PER_TASK:-10} ))%10 01_count.sh
 set -euo pipefail
 source "${SLURM_SUBMIT_DIR:-$(dirname "${BASH_SOURCE[0]}")}/config.sh"
 MODE=scan; COUNTS_DIR="$WORK_DIR/counts_scan"
 CENSAT="$WORK_DIR/hprc_censat"; mkdir -p "$CENSAT"
 
-# CenSat annotations: two small BED files per sample (open access, HPRC S3 bucket)
+# CenSat annotations: two small plain-text BED files per sample (open access, HPRC S3 bucket). Each goes
+# to .part and takes its name only when the transfer completed and every data line has the four fields
+# a record needs (an error page has none; a cut file used to be kept and read as a smaller array mass).
+# A key that fails is left out with a warning, as regenerate.sh does, and tried again on the next run; the
+# comparison works sample by sample on the files present.
+missing=0
 while read -r key; do
   f="$CENSAT/$(basename "$key")"
-  [ -s "$f" ] || curl -sSL --retry 5 -o "$f" "https://s3-us-west-2.amazonaws.com/human-pangenomics/$key"
+  [ -s "$f" ] || download "https://s3-us-west-2.amazonaws.com/human-pangenomics/$key" "$f" bed4 </dev/null \
+    || { echo "WARNING: HPRC annotation not fetched (download failed or not a BED): $key" >&2; missing=$((missing + 1)); }
 done < "$REPO/meta/hprc_r2_censat.keys.txt"
+[ "$missing" = 0 ] || echo "WARNING: $missing CenSat file(s) not fetched (above); run again to retry them" >&2
 
 counts=()
 while IFS=$'\t' read -r sample _; do
