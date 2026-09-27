@@ -13,8 +13,10 @@ ngsdose_py ngsdose sinks "$WORK_DIR"/counts_scan/*.json.gz -o "$OUT/sinks.relear
 # ... and, where a sample was counted in both modes (01b_dose_sample.sh does both), what the
 # targeted fetch costs in the estimate itself, sample by sample
 if ls "$WORK_DIR"/counts_fetch/*.json.gz >/dev/null 2>&1; then
+  estimate_sinks_args || exit 1                           # a fetch plan's sinks BED, for its sub-options (config.sh)
   for m in scan fetch; do
-    ngsdose_py ngsdose estimate "$WORK_DIR"/counts_$m/*.json.gz -r "$BUNDLE" -j "${SLURM_CPUS_PER_TASK:-8}" -t "$OUT/single_sample.$m.tsv"
+    ngsdose_py ngsdose estimate "$WORK_DIR"/counts_$m/*.json.gz -r "$BUNDLE" -j "${SLURM_CPUS_PER_TASK:-8}" -t "$OUT/single_sample.$m.tsv" \
+      ${ESTIMATE_SINKS_ARGS[@]+"${ESTIMATE_SINKS_ARGS[@]}"}
   done
   ngsdose_py python3 "$EX_DIR/compare_modes.py" --scan "$OUT/single_sample.scan.tsv" --fetch "$OUT/single_sample.fetch.tsv" --out "$OUT/fetch_over_scan.tsv"
 fi

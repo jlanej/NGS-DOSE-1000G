@@ -4,12 +4,19 @@ they run inside whichever image the cohort uses, which may predate anything in t
 
     check_counts.py fetch-panels SINKS_BED PANEL...   every class of the panels has an interval in the sinks BED
     check_counts.py engine-build COUNTS               print the engine commit the counts file was written by
-    check_counts.py same-reads SCAN FETCH [SINKS]     the fetch saw the scan's control and region reads, read for read;
+    check_counts.py same-reads SCAN FETCH [SINKS [CONTROLS]]
+                                                      the fetch saw the scan's control and region reads, read for read;
                                                       with the sinks BED the fetch used, also every class read the scan
                                                       placed inside those sinks (and no more reads than the scan has,
-                                                      unless the scan loaded panels the fetch did not: then a note)
+                                                      unless the scan loaded panels the fetch did not: then a note).
+                                                      With the controls FASTA the fetch was to use (a fetch plan's
+                                                      controls.txt), the fetch must have used it; when it is not the
+                                                      scan's (controls.lite200), the fetch's regions must all be regions
+                                                      of the scan, and are compared one by one, with ctrl_reads against
+                                                      the scan's reads in the fetch's control regions
 
-Exit status 0: passed; 1: failed, with the reason on stderr; 2: a file could not be read.
+Exit status 0: passed; 1: failed, with the reason on stderr; 2: a file could not be read, or the two were made with
+region sets that cannot be compared (a fetch region the scan lacks).
 """
 import bisect
 import gzip
@@ -52,6 +59,38 @@ def counts(path):
 
 def reads(c):
     return c["ctrl_reads"], sorted((r["name"], r["obs"]) for r in c["regions"])
+
+
+def sha256_of(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for b in iter(lambda: fh.read(1 << 20), b""):
+            h.update(b)
+    return h.hexdigest()
+
+
+class Uncomparable(ValueError):
+    """The two files cannot be compared (exit status 2), as opposed to disagreeing (1)."""
+
+
+def subset_reads(scan, fetch):
+    """The scan's control and region reads restricted to the regions the fetch holds, for a fetch made with a subset
+    of the scan's control regions (a fetch plan's controls.lite200): (ctrl_reads, sorted (name, obs)). ctrl_reads is
+    the sum of obs over the regions of role control, as the engine counts it. A fetch region that the scan lacks, or
+    holds with another role, means the two were made with different region sets, not a subset: Uncomparable."""
+    by = {r["name"]: r for r in scan["regions"]}
+    missing = [r["name"] for r in fetch["regions"] if r["name"] not in by]
+    if missing:
+        raise Uncomparable(f"the fetch holds {len(missing)} region(s) the scan does not (e.g. {missing[0]}): its controls "
+                           f"({fetch.get('controls')}) are not a subset of the scan's ({scan.get('controls')})")
+    role = [r["name"] for r in fetch["regions"] if r.get("role", "control") != by[r["name"]].get("role", "control")]
+    if role:
+        raise Uncomparable(f"{len(role)} region(s) have another role in the fetch than in the scan (e.g. {role[0]})")
+    if not any(r.get("role", "control") == "control" for r in fetch["regions"]):
+        raise Uncomparable("the fetch holds no control region")
+    names = {r["name"] for r in fetch["regions"]}
+    ctrl = sum(r["obs"] for n, r in by.items() if n in names and r.get("role", "control") == "control")
+    return ctrl, sorted((n, r["obs"]) for n, r in by.items() if n in names)
 
 
 def read_sinks(path):
@@ -136,10 +175,24 @@ def main(argv):
         if cmd == "engine-build" and len(args) == 1:
             print(counts(args[0]).get("engine_build", ""))
             return 0
-        if cmd == "same-reads" and len(args) in (2, 3):
+        if cmd == "same-reads" and len(args) in (2, 3, 4):
             scan, fetch = counts(args[0]), counts(args[1])
             (sc, sr), (fc, fr) = reads(scan), reads(fetch)
-            bad = class_reads(scan, fetch, args[2]) if len(args) == 3 else []
+            if len(args) == 4:
+                want = sha256_of(args[3])
+                if fetch.get("controls_sha256") != want:
+                    print(f"fetch and scan disagree:\n  the fetch was made with the controls {fetch.get('controls')} "
+                          f"(sha256 {str(fetch.get('controls_sha256'))[:12]}), not with {args[3]} (sha256 {want[:12]})", file=sys.stderr)
+                    return 1
+                if fetch.get("controls_sha256") != scan.get("controls_sha256"):
+                    try:
+                        sc, sr = subset_reads(scan, fetch)
+                    except Uncomparable as e:
+                        print(f"check_counts.py same-reads: {e}", file=sys.stderr)
+                        return 2
+                    print(f"note: the fetch counted {len(fr)} of the scan's {len(scan['regions'])} regions (controls "
+                          f"{fetch.get('controls')}, the scan's {scan.get('controls')}); compared on those", file=sys.stderr)
+            bad = class_reads(scan, fetch, args[2]) if len(args) >= 3 else []
             if (sc, sr) == (fc, fr) and not bad:
                 return 0
             s, f = dict(sr), dict(fr)

@@ -15,9 +15,16 @@
 # only while the CRAM is here to count it again: without the CRAM (a requeue after
 # the tidy, a second job) a bad fetch is moved aside to <file>.rejected, so that the
 # stager stages the CRAM again, and a file of another build is left where it is.
-# Before any counting: the index must be whole (gzip -t), and FETCH_PANELS is
-# checked against the bundle's sinks (config.sh). One job per sample at a time: a second one
-# waits for the first (flock on $WORK_DIR/dispatched/<sample>.lock, where flock exists).
+# Before any counting: the index must be whole (gzip -t), FETCH_PANELS is
+# checked against the bundle's sinks, and the CANDIDATE_PANELS against the panels
+# beside them (config.sh). With FETCH_CLASSES, FETCH_PRESET or FETCH_BUDGET_MB set,
+# the fetch reads what the cohort's fetch plan says (config.sh) instead of the
+# bundle's sinks: its sinks, panels, flags and controls. It is then compared with
+# the scan through the plan's sinks, and must have used the plan's controls; with
+# a lighter controls file (controls.lite200) only the regions it holds are compared,
+# each against the scan's count of the same region. One job
+# per sample at a time: a second one waits for the first (flock on
+# $WORK_DIR/dispatched/<sample>.lock, where flock exists).
 #
 # Same calling convention as NGS-PCA's 01b_mosdepth_sample.sh, so whatever stages
 # CRAMs for that pipeline (its aria2 download manager, its stage watcher, a Globus
@@ -41,7 +48,10 @@ echo "== NGS-DOSE: $SAMPLE (manifest line $LINE_NUM), started $(date)"
 
 tidy() { [ "${KEEP_CRAMS:-0}" = 1 ] && return 0; [ -e "$CRAM" ] && echo "   removed $CRAM"; rm -f "$CRAM" "$CRAI"; }
 valid() { [ -s "$1" ] && gzip -t "$1" 2>/dev/null; }          # a counts file that exists and is whole
-same_reads() { ngsdose_py python3 "$EX_DIR/check_counts.py" same-reads "$SCAN_OUT" "$FETCH_OUT" "$BUNDLE/sinks.bed"; }
+same_reads() {  # with a fetch plan, the fetch must also have used the plan's controls (a subset of the scan's regions)
+  if [ -z "$FETCH_PLAN" ]; then ngsdose_py python3 "$EX_DIR/check_counts.py" same-reads "$SCAN_OUT" "$FETCH_OUT" "$FETCH_SINKS_BED"
+  else ngsdose_py python3 "$EX_DIR/check_counts.py" same-reads "$SCAN_OUT" "$FETCH_OUT" "$FETCH_SINKS_BED" "$FETCH_CONTROLS"; fi
+}
 agree() {  # the fetch saw exactly the scan's control and region reads; a fetch that did not is removed
   local rc=0
   same_reads || rc=$?
@@ -88,8 +98,13 @@ if ! valid "$SCAN_OUT"; then
   ngsdose_engine count "${scan[@]}" -o "$SCAN_OUT"
   own_build "$SCAN_OUT" || exit 1
 fi
-fetch=("${common[@]}" -m fetch --sinks "$BUNDLE/sinks.bed")
+if [ -z "$FETCH_PLAN" ]; then
+  fetch=("${common[@]}" -m fetch --sinks "$BUNDLE/sinks.bed")
+else                                                     # a fetch plan (config.sh): its controls, sinks, panels and flags
+  fetch=(-i "$CRAM" --index "$CRAI" -T "$REF_FASTA" -c "$FETCH_CONTROLS" -s "$SAMPLE" -@ "${SLURM_CPUS_PER_TASK:-$THREADS}" -m fetch --sinks "$FETCH_SINKS_BED")
+fi
 for x in ${FETCH_PANELS:-}; do fetch+=(-p "$x"); done
+for x in ${FETCH_FLAGS:-}; do fetch+=("$x"); done
 if ! valid "$FETCH_OUT"; then
   ngsdose_engine count "${fetch[@]}" -o "$FETCH_OUT"
   own_build "$FETCH_OUT" || exit 1

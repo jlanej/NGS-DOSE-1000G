@@ -29,7 +29,11 @@ if [ "${SLURM_ARRAY_TASK_MIN:-}" = 0 ] && [ "${SLURM_ARRAY_TASK_COUNT:-}" = "$((
   echo "ERROR: --array=0-$SLURM_ARRAY_TASK_MAX at SAMPLES_PER_TASK=$SAMPLES_PER_TASK covers $(( (SLURM_ARRAY_TASK_MAX + 1) * SAMPLES_PER_TASK )) of the manifest's $N lines; submit --array=0-$(( (N - 1) / SAMPLES_PER_TASK ))" >&2
   exit 1
 fi
-[ "$MODE" = scan ] || check_fetch_panels || exit 1
+if [ "$MODE" = scan ]; then check_candidate_panels || exit 1; else check_fetch_panels || exit 1; fi
+# the bundle panel, which a fetch plan (config.sh) loads only when it names it; the controls, which a fetch takes from
+# the plan (FETCH_CONTROLS: the bundle's controls.fa.gz without one)
+BASE_PANEL=(-p "$BUNDLE/panel.k31.tsv.gz"); [ "$MODE" = scan ] || [ -z "$FETCH_PLAN" ] || BASE_PANEL=()
+CONTROLS="$BUNDLE/controls.fa.gz"; [ "$MODE" = scan ] || CONTROLS="$FETCH_CONTROLS"
 # a stalled HTTPS connection can hang forever: bound every sample where `timeout` exists (GNU coreutils)
 TMO=(); command -v timeout >/dev/null 2>&1 && TMO=(timeout "$SAMPLE_TIMEOUT")
 run() { if [ -n "$SIF" ]; then "${TMO[@]}" apptainer exec --bind "$APPTAINER_BINDS" "$SIF" ngs-dose "$@"; else "${TMO[@]}" "$NGSDOSE_BIN" "$@"; fi; }
@@ -38,13 +42,14 @@ fail=0
 while IFS=$'\t' read -r sample cram _; do
   out="$COUNTS_DIR/$sample.json.gz"
   [ -s "$out" ] && continue
-  args=(-i "$cram" -T "$REF_FASTA" -c "$BUNDLE/controls.fa.gz" -p "$BUNDLE/panel.k31.tsv.gz" -@ "$THREADS" -s "$sample" -o "$out.tmp.gz")
+  args=(-i "$cram" -T "$REF_FASTA" -c "$CONTROLS" ${BASE_PANEL[@]+"${BASE_PANEL[@]}"} -@ "$THREADS" -s "$sample" -o "$out.tmp.gz")
   if [ "$MODE" = scan ]; then
     for x in $EXTRA_PANELS; do have_file "$x" || { echo "ERROR: extra panel $x not found" >&2; exit 1; }; args+=(-p "$x"); done
     args+=(-m scan)
   else
-    args+=(-m fetch --sinks "$BUNDLE/sinks.bed")
+    args+=(-m fetch --sinks "$FETCH_SINKS_BED")            # the bundle's sinks, or a fetch plan's (config.sh)
     for x in ${FETCH_PANELS:-}; do have_file "$x" || { echo "ERROR: fetch panel $x not found" >&2; exit 1; }; args+=(-p "$x"); done
+    for x in ${FETCH_FLAGS:-}; do args+=("$x"); done
     case "$cram" in
       *://*) crai="$WORK_DIR/crai/$sample.crai"
              crai_ok "$crai" || download "$cram.crai" "$crai" gzip || { echo "FAILED $sample (index download)" >&2; fail=1; continue; }
