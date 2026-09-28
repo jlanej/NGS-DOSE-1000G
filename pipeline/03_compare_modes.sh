@@ -5,10 +5,13 @@
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/config.sh"
 OUT="$WORK_DIR/sinks_check"; mkdir -p "$OUT"
-ngsdose_py ngsdose sinks "$WORK_DIR"/counts_scan/*.json.gz --evaluate "$BUNDLE/sinks.bed" > "$OUT/capture_per_sample.tsv"
+# SINKS_ALLOW_CUT=1 accepts scans of a file cut along a fetch plan (the CI's stand-in CRAM is one), which
+# `ngsdose sinks` otherwise refuses: such a scan cannot teach where reads land. Never set it for a cohort.
+CUT=(); if [ "${SINKS_ALLOW_CUT:-0}" = 1 ]; then CUT=(--allow-cut); fi
+ngsdose_py ngsdose sinks "$WORK_DIR"/counts_scan/*.json.gz --evaluate "$BUNDLE/sinks.bed" ${CUT[@]+"${CUT[@]}"} > "$OUT/capture_per_sample.tsv"
 awk -F'\t' 'NR>1 && ($2=="rDNA45S" || $2=="rDNA5S" || $2=="DJ" || $2=="TEL") {n[$2]++; s[$2]+=$5; if (!($2 in m) || $5<m[$2]) m[$2]=$5} END{for (c in n) printf "%s\tsamples=%d\tmean_capture=%.5f\tmin_capture=%.5f\n", c, n[c], s[c]/n[c], m[c]}' "$OUT/capture_per_sample.tsv"
 # sinks re-learned from the whole cohort, for comparison with the shipped table
-ngsdose_py ngsdose sinks "$WORK_DIR"/counts_scan/*.json.gz -o "$OUT/sinks.relearned.bed"
+ngsdose_py ngsdose sinks "$WORK_DIR"/counts_scan/*.json.gz -o "$OUT/sinks.relearned.bed" ${CUT[@]+"${CUT[@]}"}
 
 # ... and, where a sample was counted in both modes (01b_dose_sample.sh does both), what the
 # targeted fetch costs in the estimate itself, sample by sample

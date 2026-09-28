@@ -61,4 +61,4 @@ jobs:
           test -s "$WORK_DIR/counts_scan/MINI.json.gz" && test -s "$WORK_DIR/counts_fetch/MINI.json.gz"
           test -z "$(ls "$WORK_DIR/crams")"
           bash -c 'source ./config.sh && ngsdose_py ngsdose estimate "$WORK_DIR/counts_scan/MINI.json.gz" -t -' | cut -f1-3
-          bash 03_compare_modes.sh | tail -12
+          SINKS_ALLOW_CUT=1 bash 03_compare_modes.sh | tail -12      # the stand-in is a cut along the fetch plan (the method's fixture)

@@ -195,7 +195,8 @@ download() {  # url dest [check, as for file_ok]
       fi
       if [ "$rc" = 0 ] || [ "$aria" = 1 ]; then rm -f "$part"; fi      # whole but wrong: not worth resuming
     fi
-    if [ "$aria" = 0 ] && [ "$rc" = 22 ]; then rm -f "$part"; fi       # an HTTP error, e.g. a range past the end of a whole file
+    if [ "$aria" = 0 ] && { [ "$rc" = 22 ] || [ "$rc" = 33 ]; }; then rm -f "$part"; fi   # an HTTP error (e.g. a range past the end of a
+                                                                        # whole file) or a server that cannot resume: start again from zero
     echo "  download attempt $try failed: $(basename "$dest")" >&2
     [ "$try" = 4 ] || sleep $(( try * 30 ))
   done
