@@ -96,11 +96,14 @@ def fingerprint(bundle_dir) -> dict:
         if (pkg / name).exists():
             code.update(name.encode() + b"\0" + (pkg / name).read_bytes() + b"\0")
     res = resources.Bundle(bundle_dir)
+    # os.path.isfile, not Path.is_file: a descriptive value longer than a file name can be makes Path.is_file raise
+    # (File name too long) before Python 3.14, where os.path.isfile answers False
+    names_file = lambda x: isinstance(x, str) and os.path.isfile(res.dir / x)
     files, values = {}, {}
     for k, v in sorted(res.meta.items()):
-        if isinstance(v, str) and (res.dir / v).is_file():
+        if names_file(v):
             files[k] = _sha256(res.dir / v)
-        elif isinstance(v, dict) and v and all(isinstance(x, str) and (res.dir / x).is_file() for x in v.values()):
+        elif isinstance(v, dict) and v and all(names_file(x) for x in v.values()):
             files.update({f"{k}.{n}": _sha256(res.dir / x) for n, x in sorted(v.items())})
         elif isinstance(v, (int, float)) or (isinstance(v, dict) and all(isinstance(x, (int, float)) for x in v.values())):
             values[k] = v
