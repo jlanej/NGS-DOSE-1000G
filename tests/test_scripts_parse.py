@@ -1,5 +1,5 @@
 """Every shell script in the pipeline and the pilot parses; and the pipeline's guards hold, run with stub
-sbatch / squeue / curl / sleep on PATH: a refused sbatch leaves no dispatch mark, the stager ends (rather than
+sbatch / squeue / curl / aria2c / sleep on PATH: a refused sbatch leaves no dispatch mark, the stager ends (rather than
 waits for ever) when a failed job has kept the only CRAM the disk has room for, but neither it nor 01a takes a
 job for ended while squeue does not answer, a cut download never takes its final name, a fetch that does not
 match its scan is caught, counts are not removed when there is no CRAM to make them again from, and the default
@@ -140,6 +140,9 @@ echo $((q - 1)) > "$STUB/quota"; n=$(( $(cat "$STUB/next" 2>/dev/null || echo 10
 cat "$STUB/alive" 2>/dev/null; exit 0
 """,                                                                     # lists the jobs in $STUB/alive
     "sleep": "#!/usr/bin/env bash\nexit 0\n",
+    # no aria2c, so that downloads go through the stub curl: GitHub's Ubuntu runners have a real aria2c, which
+    # config.sh's download() would otherwise prefer, and which cannot reach the stub's made-up URLs
+    "aria2c": "#!/usr/bin/env bash\nexit 127\n",
     "curl": """#!/usr/bin/env bash
 [ "$1" = --help ] && exit 0
 out=""; url=""; while [ $# -gt 0 ]; do case "$1" in -o) out=$2; shift ;; -*) ;; *) url=$1 ;; esac; shift; done
