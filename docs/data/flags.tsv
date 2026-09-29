@@ -1,5 +1,5 @@
 sample	flags
-HG00138	DJ -0.97 copies
+HG00138	DJ -1.02 copies
 HG00139	chrY 0.79 (mosaic Y loss?)
 HG00142	aneuploid: chr11,chr13
 HG00149	aneuploid: chr12
@@ -10,113 +10,307 @@ HG00187	chrY 0.84 (mosaic Y loss?)
 HG00189	aneuploid: chr9
 HG00244	chrY 0.81 (mosaic Y loss?)
 HG00246	chrY 0.31 (mosaic Y loss?)
-HG00331	DJ +1.23 copies
+HG00331	DJ +1.21 copies
 HG00361	chrX 1.14 (mosaic X loss?)
 HG00376	chrX 1.84 (mosaic X loss?)
-HG00383	DJ +0.91 copies
-HG00384	chrX 1.77 (mosaic X loss?); DJ +0.96 copies
+HG00383	DJ +0.88 copies
+HG00384	chrX 1.77 (mosaic X loss?); DJ +0.93 copies
 HG00501	aneuploid: chr12
-HG00531	DJ -1.10 copies
-HG00543	DJ -0.99 copies
-HG00554	DJ -0.91 copies
-HG00619	DJ -1.02 copies
-HG00621	DJ -0.92 copies
+HG00524	DJ -0.78 copies
+HG00531	DJ -1.16 copies
+HG00543	DJ -1.04 copies
+HG00554	DJ -0.95 copies
+HG00619	DJ -1.07 copies
+HG00621	DJ -0.96 copies
 HG00623	aneuploid: chr12
-HG00651	DJ -1.93 copies
-HG00652	DJ -1.98 copies
-HG00656	DJ -1.04 copies
-HG00658	DJ -0.97 copies
+HG00651	DJ -1.98 copies
+HG00652	DJ -2.02 copies
+HG00656	DJ -1.08 copies
+HG00658	DJ -1.03 copies
 HG00732	chrX 1.61 (mosaic X loss?)
-HG00740	DJ -1.06 copies
+HG00740	DJ -1.11 copies
 HG00864	chrX 1.74 (mosaic X loss?)
-HG01047	DJ -1.08 copies
+HG01047	DJ -1.12 copies
 HG01053	chrX 1.48 (mosaic X loss?)
 HG01066	chrY 0.84 (mosaic Y loss?)
 HG01073	chrX 1.82 (mosaic X loss?)
-HG01083	DJ -0.83 copies
-HG01085	DJ -1.02 copies
-HG01088	DJ +1.30 copies
-HG01089	chrX 1.81 (mosaic X loss?); DJ +1.12 copies
-HG01107	DJ +0.86 copies
-HG01113	DJ +1.04 copies
-HG01136	DJ +0.88 copies
+HG01083	DJ -0.88 copies
+HG01085	DJ -1.06 copies
+HG01088	DJ +1.24 copies
+HG01089	chrX 1.81 (mosaic X loss?); DJ +1.07 copies
+HG01107	DJ +0.83 copies
+HG01113	DJ +1.01 copies
+HG01136	DJ +0.83 copies
 HG01137	aneuploid: chr12; chrX 1.50 (mosaic X loss?)
 HG01140	chrX 1.79 (mosaic X loss?)
 HG01168	aneuploid: chr12
-HG01171	DJ +1.05 copies
-HG01172	DJ +1.17 copies
-HG01173	DJ -1.04 copies
-HG01204	DJ -1.99 copies
+HG01171	DJ +1.00 copies
+HG01172	DJ +1.12 copies
+HG01173	DJ -1.09 copies
+HG01204	DJ -2.04 copies
 HG01205	chrX 1.84 (mosaic X loss?)
-HG01206	DJ -1.98 copies
-HG01248	DJ +0.79 copies
-HG01271	DJ +0.78 copies
+HG01206	DJ -2.03 copies
+HG01248	DJ +0.75 copies
 HG01303	aneuploid: chr5,chr12; held-out autosomal 2.067
-HG01305	DJ +1.21 copies
+HG01305	DJ +1.16 copies
 HG01349	chrX 1.84 (mosaic X loss?)
 HG01357	aneuploid: chr12
 HG01366	chrX 1.28 (mosaic X loss?)
-HG01405	DJ +0.88 copies
+HG01405	DJ +0.84 copies
 HG01414	aneuploid: chr12
-HG01437	DJ -0.92 copies
-HG01440	DJ -1.20 copies
-HG01495	DJ +1.43 copies
+HG01437	DJ -0.96 copies
+HG01440	DJ -1.25 copies
+HG01495	DJ +1.39 copies
 HG01506	aneuploid: chr11
-HG01517	DJ +0.76 copies
-HG01523	DJ +0.89 copies
+HG01523	DJ +0.84 copies
 HG01532	chrY 0.74 (mosaic Y loss?)
 HG01602	aneuploid: chr9
-HG01607	DJ +1.47 copies
-HG01625	DJ +0.84 copies
-HG01671	DJ +0.76 copies
+HG01607	DJ +1.43 copies
+HG01625	DJ +0.78 copies
 HG01683	chrX 1.97 with a Y
-HG01684	DJ +0.80 copies
+HG01684	DJ +0.76 copies
 HG01702	aneuploid: chr12
 HG01704	aneuploid: chr12
-HG01765	DJ +0.82 copies
-HG01771	DJ +1.16 copies
-HG01772	DJ +1.61 copies
-HG01786	DJ +0.89 copies
-HG01790	DJ +1.05 copies
+HG01765	DJ +0.80 copies
+HG01771	DJ +1.10 copies
+HG01772	DJ +1.56 copies
+HG01786	DJ +0.85 copies
+HG01790	DJ +1.01 copies
 HG01806	chrX 1.75 (mosaic X loss?)
-HG01844	DJ -1.09 copies
-HG01883	DJ -1.00 copies
+HG01844	DJ -1.14 copies
+HG01883	DJ -1.04 copies
 HG01888	aneuploid: chr9
-HG01889	DJ -1.07 copies
-HG01891	DJ -1.05 copies
-HG01917	DJ +0.94 copies
-HG01920	DJ +1.22 copies
-HG01938	DJ -0.98 copies
-HG01942	DJ +1.23 copies
-HG01943	DJ +1.22 copies
-HG01959	DJ +0.78 copies
-HG01961	DJ +1.36 copies
-HG01967	DJ +0.75 copies
+HG01889	DJ -1.11 copies
+HG01891	DJ -1.10 copies
+HG01917	DJ +0.90 copies
+HG01920	DJ +1.17 copies
+HG01938	DJ -1.04 copies
+HG01942	DJ +1.15 copies
+HG01943	DJ +1.18 copies
+HG01961	DJ +1.31 copies
 HG01968	chrX 1.79 (mosaic X loss?)
-HG01983	aneuploid: chr12; DJ -0.81 copies
-HG01984	DJ -0.86 copies
-HG01986	DJ +0.93 copies
-HG02051	DJ +0.81 copies
-HG02052	DJ +0.83 copies
+HG01983	aneuploid: chr12; DJ -0.85 copies
+HG01984	DJ -0.90 copies
+HG01986	DJ +0.91 copies
+HG02051	DJ +0.78 copies
+HG02052	DJ +0.78 copies
 HG02053	chrY 0.54 (mosaic Y loss?)
-HG02073	DJ -0.98 copies
+HG02073	DJ -1.02 copies
 HG02077	aneuploid: chr12
 HG02144	chrX 1.71 (mosaic X loss?)
 HG02145	chrY 0.76 (mosaic Y loss?)
-HG02164	DJ +1.13 copies
-HG02187	DJ -0.83 copies
-HG02215	DJ +0.81 copies
+HG02164	DJ +1.09 copies
+HG02187	DJ -0.89 copies
+HG02215	DJ +0.75 copies
 HG02220	chrX 1.84 (mosaic X loss?)
-HG02253	DJ -0.80 copies
-HG02256	DJ -1.15 copies
-HG02278	DJ +1.94 copies
-HG02279	DJ +2.00 copies
+HG02253	DJ -0.85 copies
+HG02256	DJ -1.20 copies
+HG02278	DJ +1.90 copies
+HG02279	DJ +1.98 copies
 HG02300	sex: pedigree M, reads F
 HG02322	aneuploid: chr12
-HG02334	DJ -1.26 copies
-HG02408	DJ -1.04 copies
+HG02334	DJ -1.31 copies
+HG02408	DJ -1.06 copies
 HG02409	aneuploid: chr9
-HG02465	DJ -0.90 copies
-HG02485	aneuploid: chr12; DJ -1.01 copies
-HG02508	DJ -0.96 copies
-HG02511	DJ +0.77 copies
+HG02465	DJ -0.94 copies
+HG02485	aneuploid: chr12; DJ -1.06 copies
+HG02508	DJ -1.00 copies
+HG02603	aneuploid: chr12
+HG02610	DJ -0.87 copies
+HG02623	DJ -1.13 copies
+HG02625	DJ -0.80 copies
+HG02634	aneuploid: chr11
+HG02649	DJ -0.85 copies
+HG02650	DJ -1.07 copies
+HG02651	aneuploid: chr12
+HG02652	aneuploid: chr12; chrX 1.74 (mosaic X loss?)
+HG02660	DJ -0.93 copies
+HG02688	DJ -1.84 copies
+HG02689	DJ -1.00 copies
+HG02694	chrX 1.80 (mosaic X loss?)
+HG02696	DJ -1.02 copies
+HG02733	DJ -1.05 copies
+HG02756	DJ -0.96 copies
+HG02759	DJ -1.13 copies
+HG02772	DJ -0.99 copies
+HG02773	DJ -0.97 copies
+HG02785	chrX 1.83 (mosaic X loss?)
+HG02791	aneuploid: chr21
+HG02805	aneuploid: chr9
+HG02837	chrX 1.84 (mosaic X loss?)
+HG02869	DJ -0.92 copies
+HG02895	DJ -1.07 copies
+HG02941	DJ -1.00 copies
+HG02944	DJ +0.78 copies
+HG02971	DJ +0.83 copies
+HG03016	chrX 1.73 (mosaic X loss?)
+HG03019	chrX 1.27 (mosaic X loss?)
+HG03022	DJ -1.08 copies
+HG03055	chrX 1.56 (mosaic X loss?)
+HG03079	chrX 1.82 (mosaic X loss?)
+HG03082	DJ -1.07 copies
+HG03091	DJ -0.85 copies
+HG03118	aneuploid: chr12
+HG03132	chrX 1.83 (mosaic X loss?)
+HG03157	DJ -0.91 copies
+HG03197	aneuploid: chr9
+HG03224	DJ -1.02 copies
+HG03250	chrX 1.06 (mosaic X loss?)
+HG03296	DJ +0.88 copies
+HG03352	chrY 0.76 (mosaic Y loss?)
+HG03363	aneuploid: chr11
+HG03391	DJ -0.92 copies
+HG03401	chrX 1.66 (mosaic X loss?)
+HG03432	DJ -1.20 copies
+HG03439	DJ +1.17 copies
+HG03455	aneuploid: chr12
+HG03499	DJ -0.92 copies
+HG03511	chrX 1.00 (mosaic X loss?)
+HG03517	chrX 1.82 (mosaic X loss?)
+HG03521	DJ -0.83 copies
+HG03522	DJ -0.94 copies
+HG03593	DJ +2.79 copies
+HG03611	DJ -0.79 copies
+HG03615	chrY 0.67 (mosaic Y loss?)
+HG03634	chrX 1.75 (mosaic X loss?)
+HG03644	DJ -1.07 copies
+HG03682	DJ +1.11 copies
+HG03685	DJ -1.11 copies
+HG03699	DJ -0.92 copies
+HG03701	DJ -0.98 copies
+HG03717	DJ -0.90 copies
+HG03731	DJ +1.57 copies
+HG03733	DJ +0.81 copies
+HG03736	DJ -0.95 copies
+HG03796	aneuploid: chr12
+HG03854	DJ -0.98 copies
+HG03862	DJ -0.97 copies
+HG03869	aneuploid: chr10
+HG03899	DJ +0.79 copies
+HG03925	DJ +1.02 copies
+HG03928	aneuploid: chr12
+HG03940	aneuploid: chr12
+HG03941	DJ +0.85 copies
+HG03942	DJ +0.87 copies
+HG03945	DJ -0.91 copies
+HG04014	DJ -1.21 copies
+HG04042	DJ +0.96 copies
+HG04060	DJ -0.88 copies
+HG04070	DJ +1.18 copies
+HG04093	DJ -0.92 copies
+HG04150	DJ +0.99 copies
+HG04151	DJ +1.08 copies
+HG04198	aneuploid: chr12
+HG04202	chrX 1.37 (mosaic X loss?); DJ -0.84 copies
+HG04227	aneuploid: chr12
+NA06997	DJ -0.81 copies
+NA07045	DJ -0.95 copies
+NA07348	chrX 1.20 (mosaic X loss?)
+NA07435	aneuploid: chr12
+NA10836	DJ +0.80 copies
+NA10843	aneuploid: chr5,chr9,chr10,chr12,chr15
+NA10854	aneuploid: chr9; chrX 1.09 (mosaic X loss?)
+NA10859	chrX 1.74 (mosaic X loss?); DJ +0.78 copies
+NA11881	DJ +1.22 copies
+NA11891	aneuploid: chr15; DJ -1.33 copies
+NA11930	DJ -0.96 copies
+NA11933	chrX 1.74 (mosaic X loss?)
+NA12058	aneuploid: chr15
+NA12145	chrX 1.79 (mosaic X loss?)
+NA12156	aneuploid: chr9
+NA12236	aneuploid: chr14
+NA12248	aneuploid: chr9,chr12,chr14
+NA12274	aneuploid: chr11; DJ +0.93 copies
+NA12287	DJ +1.04 copies
+NA12341	aneuploid: chr14
+NA12399	DJ +1.79 copies
+NA12739	aneuploid: chr12
+NA12801	DJ -1.82 copies
+NA12812	DJ -1.04 copies
+NA12813	DJ -0.83 copies
+NA12865	chrX 1.52 (mosaic X loss?)
+NA12875	aneuploid: chr2
+NA18486	aneuploid: chr9
+NA18501	DJ -0.85 copies
+NA18520	chrX 1.74 (mosaic X loss?)
+NA18522	aneuploid: chr12
+NA18532	DJ -0.97 copies
+NA18546	DJ -0.96 copies
+NA18635	DJ -0.96 copies
+NA18745	DJ +0.87 copies
+NA18864	chrX 1.49 (mosaic X loss?)
+NA18868	DJ -1.97 copies
+NA18878	DJ -0.80 copies
+NA18951	DJ +0.99 copies
+NA18954	DJ +1.52 copies
+NA18963	chrX 1.61 (mosaic X loss?)
+NA18978	chrX 1.50 (mosaic X loss?)
+NA19004	DJ +0.86 copies
+NA19054	chrX 1.36 (mosaic X loss?)
+NA19078	DJ -0.97 copies
+NA19080	DJ +1.40 copies
+NA19150	DJ +0.78 copies
+NA19176	chrX 1.01 (mosaic X loss?)
+NA19208	aneuploid: chr9
+NA19226	sex: pedigree M, reads F; chrX 0.99 (mosaic X loss?)
+NA19332	chrX 1.01 (mosaic X loss?)
+NA19346	DJ -1.03 copies
+NA19355	DJ -0.90 copies
+NA19377	chrX 1.82 (mosaic X loss?)
+NA19378	aneuploid: chr12; DJ -0.94 copies
+NA19390	DJ -1.20 copies
+NA19395	chrX 1.13 (mosaic X loss?)
+NA19467	DJ -0.91 copies
+NA19652	aneuploid: chr12
+NA19660	DJ +3.93 copies
+NA19661	DJ +0.84 copies
+NA19662	DJ +4.05 copies
+NA19671	aneuploid: chr15
+NA19680	aneuploid: chr11
+NA19728	DJ -0.96 copies
+NA19730	DJ -0.85 copies
+NA19761	DJ -0.91 copies
+NA19763	DJ -0.84 copies
+NA19770	DJ +1.11 copies
+NA19775	chrX 1.81 (mosaic X loss?)
+NA19787	DJ -0.92 copies
+NA19789	DJ -0.86 copies
+NA19917	DJ -1.10 copies
+NA19918	DJ -1.17 copies
+NA19982	DJ -1.13 copies
+NA20274	DJ -0.87 copies
+NA20289	chrX 1.81 (mosaic X loss?); DJ -0.96 copies
+NA20348	aneuploid: chr12
+NA20359	DJ +0.93 copies
+NA20506	chrX 1.07 (mosaic X loss?)
+NA20509	aneuploid: chr5
+NA20517	aneuploid: chr9
+NA20518	DJ -1.09 copies
+NA20530	chrX 1.11 (mosaic X loss?)
+NA20533	aneuploid: chr13; chrX 1.17 (mosaic X loss?)
+NA20535	chrX 1.75 (mosaic X loss?)
+NA20540	chrX 1.82 (mosaic X loss?)
+NA20582	DJ -0.76 copies
+NA20754	chrY 0.39 (mosaic Y loss?); DJ +0.83 copies
+NA20757	DJ +1.83 copies
+NA20759	aneuploid: chr12
+NA20769	chrX 1.73 (mosaic X loss?)
+NA20770	DJ -0.90 copies
+NA20778	DJ +1.11 copies
+NA20786	DJ +0.80 copies
+NA20790	chrX 1.59 (mosaic X loss?)
+NA20819	DJ -0.90 copies
+NA20826	DJ +0.79 copies
+NA20832	chrX 1.50 (mosaic X loss?)
+NA20864	DJ -0.86 copies
+NA20867	DJ +2.49 copies
+NA20891	DJ -1.08 copies
+NA20892	chrX 1.79 (mosaic X loss?)
+NA20899	DJ -1.06 copies
+NA20900	DJ -1.18 copies
+NA20911	DJ -1.03 copies
+NA21112	DJ -1.04 copies
+NA21113	DJ -0.93 copies
+NA21118	aneuploid: chr5
+NA21142	chrX 1.78 (mosaic X loss?)
+NA21143	aneuploid: chr9,chr12,chr14

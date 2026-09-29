@@ -5,8 +5,9 @@ multi-copy sequence from short-read genomes — on the expanded 1000 Genomes coh
 602 trios; NYGC 30× CRAMs, GRCh38), and everything about that run: the pipeline that drives the
 cohort through the method, the pilot, the page and the assessments built from the counts, and the
 studies that hold the estimates against assemblies, ddPCR and an independent review. NGS-DOSE
-itself stays generic; this repository is where the 1000 Genomes work lives. Published as the run
-proceeds, partial results included.
+itself stays generic; this repository is where the 1000 Genomes work lives. The run is complete:
+all 3,202 genomes are counted in both modes, and the page, the tables and the write-up carry the
+final numbers (602 of the 603 pedigree trios; the last names a parent the release never sequenced).
 
 **The page: [jlanej.github.io/NGS-DOSE-1000G](https://jlanej.github.io/NGS-DOSE-1000G/)** —
 what is measured and why, and the evidence that it works, recomputed from the files here.
@@ -15,7 +16,7 @@ what is measured and why, and the evidence that it works, recomputed from the fi
 
 **[docs/trio_report.pdf](docs/trio_report.pdf)** is the same case as a document, focused on the trios;
 **[docs/EVIDENCE.md](docs/EVIDENCE.md)** is the write-up — each finding with its number, what it rules out,
-and what is not yet shown — as a dated snapshot (735 genomes, 2026-09-23); the page carries the current numbers.
+and what is not yet shown, on the complete cohort.
 
 | path | what |
 | --- | --- |

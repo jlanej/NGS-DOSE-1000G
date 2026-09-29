@@ -1,0 +1,7 @@
+[report] 3202 counts files in counts_scan: 3202 cached, 0 new
+[report] 3202 counts files in counts_fetch: 3202 cached, 0 new
+[cohort] control-region PCs: Marchenko-Pastur edge: 22 components clear the noise bulk (n = 800 x p = 3,202; edge 2.594 fitted on the leading 120 of 800 singular values; noise SD ~0.0306; edge 1.20x as broad as equal-variance noise would make it); 44 written (ctrlPC1..), variance explained: 0.065 0.024 0.017 0.014 0.013 0.011 0.009 0.007 0.006 0.005 0.005 0.004
+[report] PC sweep: 0..44 control PCs, 602 trios; picks: truth.auto=3, truth.chrX=6, truth.chrY=2, DJ.cn=13, rDNA45S.cn=0, rDNA45S.cn_single=0, rDNA45S.18S.flat=0, rDNA5S.cn=0
+[report] 3202 samples -> docs/index.html
+wrote docs/evidence.png
+wrote docs/trio_report.pdf (7 pages)

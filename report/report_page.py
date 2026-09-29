@@ -91,6 +91,92 @@ def step_name(k: int) -> str:
     return "0" if k == 0 else ("+" if k > 0 else "−") + str(abs(k))
 
 
+def _complete(m: dict) -> bool:
+    """Whether every genome of the cohort has been counted: the wording of a run in progress then gives way."""
+    return (m.get("total") or 0) > 0 and (m.get("n") or 0) >= m["total"]
+
+
+def _run_sentence(m: dict, n: int, tr: dict) -> str:
+    if _complete(m):
+        rest = tr["n_total"] - tr["n_complete"]
+        trios = (f"all {tr['n_complete']:,} trios of the pedigree that the release sequenced are complete" if rest <= 0 else
+                 f"{tr['n_complete']:,} of the pedigree's {tr['n_total']:,} trios are complete, the other {rest} naming a parent the release never sequenced")
+        return f"Counting ran on the public CRAMs: all {n:,} genomes were counted, {m['n_both']:,} in both modes; {trios}."
+    return (f"Counting runs on the public CRAMs; {n:,} genomes have been counted so far, {m['n_both']:,} in both modes, with "
+            f"{tr['n_complete']:,} of {tr['n_total']:,} trios complete.")
+
+
+def _sexlinked_by_shuffle(d: dict) -> bool:
+    """A father-to-son against father-to-daughter contrast counts as sex linkage only when the shuffle test of the four pairings
+    agrees (p <= 0.01): a contrast of three standard errors among two dozen metrics arises by chance, and the shuffle test, which
+    needs no normality, is the page's own yardstick for the pairings."""
+    p = (d.get("heterogeneity") or {}).get("p")
+    return p is None or p <= 0.01
+
+
+def _mismatch_reasons(mismatch: list, data: dict) -> str:
+    """Why each sex mismatch is what it is, from the X and Y the reads show: two X's and no Y under a man's record is another
+    person's DNA; one X and no Y is a man's line that has lost its Y in culture; a Y under a woman's record is another person's DNA."""
+    rows = {r.get("sample"): r for r in data.get("samples") or []}
+    out = []
+    for s in mismatch:
+        r = rows.get(s) or {}
+        try:
+            x, y = float(r.get("truth.chrX")), float(r.get("truth.chrY"))
+        except (TypeError, ValueError):
+            out.append(esc(s)); continue
+        if r.get("sex") == "M" and y < 0.1 and x >= 1.5:
+            why = "two X chromosomes and no Y: a woman's DNA under a man's record, a swapped sample"
+        elif r.get("sex") == "M" and y < 0.1:
+            why = f"one X ({fmt(x, 2)}) and no Y: a man's line that has lost its Y in culture"
+        elif r.get("sex") == "F" and y >= 0.1:
+            why = f"a Y ({fmt(y, 2)} copies) with {fmt(x, 2)} X: a man's DNA under a woman's record, a swapped sample"
+        else:
+            why = f"X {fmt(x, 2)}, Y {fmt(y, 2)}"
+        out.append(f"{esc(s)} ({why})")
+    return ", ".join(out)
+
+
+def _dj_binomial(dj: dict) -> str:
+    """The two-sided binomial p of the transmitted share against one half, when there are pairs enough to say."""
+    n = dj.get("transmitted", 0) + dj.get("not_transmitted", 0)      # the pairs that can be read either way
+    k = dj.get("transmitted", 0)
+    if not n or n < 10:
+        return ""
+    lo = min(k, n - k)
+    p = min(1.0, 2 * sum(math.comb(n, i) for i in range(0, lo + 1)) / 2 ** n)
+    return f"; two-sided binomial p = {fmt(p, 2)} against one half over the {n} pairs read either way"
+
+
+def _population_sentence(rd: dict, m: dict) -> str:
+    adj = rd.get("by_superpop_adjusted")
+    if not adj or not _complete(m):
+        return "Whether differences between populations survive adjustment for technical structure is a question for the complete cohort."
+    raw = {g["group"]: g for g in rd["by_superpop"]}
+    both = [g for g in adj if g["group"] in raw and g.get("median") is not None]
+    if len(both) < 2:
+        return "Whether differences between populations survive adjustment for technical structure is a question for the complete cohort."
+    spread = lambda gs: (max(g["median"] for g in gs) - min(g["median"] for g in gs)) / min(g["median"] for g in gs)
+    return ("After regressing out NGS-PCA's coverage PCs (3.9) the medians are "
+            + "; ".join(f"{esc(g['group'])} {fmt(g['median'], 0)} (unadjusted {fmt(raw[g['group']]['median'], 0)})" for g in both)
+            + f": the spread between populations falls from {fmt(spread([raw[g['group']] for g in both]), 0, pct=True)} to "
+            f"{fmt(spread(both), 0, pct=True)}. Those PCs are built from genome-wide coverage and carry ancestry along with technique, so "
+            "the adjusted differences are a floor and the unadjusted ones a ceiling on what is genomic.")
+
+
+def _cohort_limitation(m: dict, n: int, total: int, tr: dict) -> str:
+    if _complete(m):
+        rest = tr["n_total"] - tr["n_complete"]
+        trios = (f"all {tr['n_complete']:,} trios of the pedigree that the release sequenced are complete" if rest <= 0 else
+                 f"{tr['n_complete']:,} of the pedigree's {tr['n_total']:,} trios are complete (the other {rest} name a parent the release never sequenced)")
+        return (f"<li><strong>Complete cohort.</strong> All {n:,} genomes are counted, and {trios}. The differences between "
+                "populations in section 4 are read against coverage PCs that carry ancestry too, so what is genomic in them lies between the "
+                "adjusted and the unadjusted figures.</li>")
+    return (f"<li><strong>Partial cohort.</strong> {n:,} of {total:,}: population comparisons and the number of complete trios depend on which genomes have landed.</li>")
+
+
+
+
 def dj_pairs(dj: dict) -> str:
     """'X of N' carrier-parent–child pairs transmitted, with the pairs neither hypothesis fits named as unclassified."""
     n = dj.get("n_pairs", dj.get("transmitted", 0) + dj.get("not_transmitted", 0))
@@ -239,13 +325,13 @@ def page(data: dict, rows: list[dict]) -> str:
                 + (f" and {len(bad) - 12:,} more" if len(bad) > 12 else "") + "; <code>report.json</code> meta.unreadable says why.") if bad else ""
     P.h(f'''<header class="mast"><h1>{esc(m["title"])}</h1>
 <p class="sub">Ribosomal DNA copy number from short-read whole-genome sequencing: the method and its validation on the 1000 Genomes
-30× cohort, updated as the run proceeds.</p>
+30× cohort{"" if _complete(m) else ", updated as the run proceeds"}.</p>
 <div class="hero"><div class="n">{n:,}</div><div class="of">of {total:,} genomes {"scanned" if m["primary_mode"] == "scan" else "counted"}
 &middot; {m["n_fetch"]:,} also fetched &middot; {tr["n_complete"]:,} of {tr["n_total"]:,} trios complete</div></div>
 <div class="progress"><div style="width:{100 * n / max(total, 1):.1f}%"></div></div>
 <div class="stamp">As of {esc(m["as_of"])}. Every number and figure on this page is recomputed from the counts files in this repository by
 <code>python -m report</code> in this repository, on ngsdose {esc(m["generator"].split()[-1])}; the method's constants, and the few figures taken from a paper,
-the pipeline's notes or a test run outside this page, are fixed text and say where they come from. Partial results are published as they stand.{left_out}</div></header>''')
+the pipeline's notes or a test run outside this page, are fixed text and say where they come from. {"The run is complete: every genome of the cohort is counted." if _complete(m) else "Partial results are published as they stand."}{left_out}</div></header>''')
 
     # ---------------------------------------------------------------- summary
     P.section("summary", "Summary")
@@ -426,8 +512,7 @@ Each comparison excludes a different failure. The results are presented in that 
     P.h(f'''<dl class="methods">
 <dt>Samples</dt><dd>The expanded 1000 Genomes cohort: {total:,} individuals in 26 populations, including {tr["n_total"]:,} trios, sequenced by the New York
 Genome Center to about 30× (Illumina NovaSeq, 2×150 bp, PCR-free) and aligned to GRCh38 with decoy and HLA contigs (Byrska-Bishop et al.,
-<em>Cell</em> 2022). All DNA is from lymphoblastoid cell lines. Counting runs on the public CRAMs; {n:,} genomes have been counted so far,
-{m["n_both"]:,} in both modes, with {tr["n_complete"]:,} of {tr["n_total"]:,} trios complete.</dd>
+<em>Cell</em> 2022). All DNA is from lymphoblastoid cell lines. {_run_sentence(m, n, tr)}</dd>
 <dt>Class assignment</dt><dd>Every 31-mer of every read is tested against a panel of class-diagnostic k-mers: k-mers of the class's unit
 sequence (45S, KY962518.1; 5S, X12811.1; distal junction, 400 kb of CHM13 chr21) that occur nowhere in GRCh38 or T2T-CHM13 outside the
 class's own loci. A read with at least four panel k-mers is assigned to the class and placed on the unit by its hits; its alignment position
@@ -563,7 +648,7 @@ controls {", ".join(esc(x) for x in m["controls_sha"]) or "–"}{(", sinks " + "
                     f"the same reads (median ratio {fmt(e2['ratio'], 2)}, r = {fmt(e2['r'], 3)}). Grey diagonal: equality; lines: least-squares fits."
                     + (" Within this one chemistry the three agree on who carries more rDNA and differ in level; across technologies only NGS-DOSE's "
                        "holds its level (3.4)." if min(e1["r"], e2["r"]) > 0.95 else ""))
-    P.h("<h3>The run so far</h3>")
+    P.h("<h3>The run</h3>" if _complete(m) else "<h3>The run so far</h3>")
     P.tiles([("Genomes scanned", f"{m['n_scan']:,}", f"of {total:,}"), ("Fetched as well", f"{m['n_fetch']:,}", "targeted mode, same files"),
              ("Complete trios", f"{tr['n_complete']:,}", f"of {tr['n_total']:,}"),
              ("Median depth", fmt(qc["depth"].get("median"), 1) + "×", f"{fmt(qc['depth'].get('q10'), 1)}–{fmt(qc['depth'].get('q90'), 1)} (10–90%)"),
@@ -576,12 +661,11 @@ controls {", ".join(esc(x) for x in m["controls_sha"]) or "–"}{(", sinks " + "
         sp = m["by_superpop"]
         cats = [c for c in SUPERPOPS if c in sp]
         P.chart("progress", dict(type="meters", categories=[f"{c} · {SUPERPOP_NAMES[c]}" for c in cats], values=[sp[c]["done"] for c in cats], totals=[sp[c]["total"] for c in cats]),
-                "Genomes counted so far, by super-population",
-                f"The 1000 Genomes 30× cohort (New York Genome Center; NovaSeq 2×150, PCR-free; aligned to GRCh38) by super-population: the dark bar "
-                f"is the genomes counted so far, the pale track all of them. {n:,} of {total:,} genomes counted; {tr['n_complete']:,} of {tr['n_total']:,} "
+                "Genomes by super-population" if _complete(m) else "Genomes counted so far, by super-population",
+                f"The 1000 Genomes 30× cohort (New York Genome Center; NovaSeq 2×150, PCR-free; aligned to GRCh38) by super-population{': every genome is counted' if _complete(m) else ': the dark bar is the genomes counted so far, the pale track all of them'}. {n:,} of {total:,} genomes counted; {tr['n_complete']:,} of {tr['n_total']:,} "
                 f"trios complete.")
     if data["flags"]:
-        P.h(f'<p class="small">{len(data["flags"])} sample(s) carry a flag (aneuploid chromosome, held-out autosomal sequence more than 0.06 copies off 2, sex mismatch, mosaic loss of an X or Y, two X chromosomes with a Y, a distal-junction step, low depth, a poorly determined GC curve, a truncated input, another engine build); they are marked in the <a href="#samples">sample table</a> and listed in <code>data/flags.tsv</code>. A flag marks something to examine, not a verdict.</p>')
+        P.h(f'<p class="small">{len(data["flags"])} sample(s) carry a flag (aneuploid chromosome, held-out autosomal sequence more than 0.06 copies off 2, sex mismatch, mosaic loss of an X or Y, two X chromosomes with a Y, a distal-junction step, low depth, a poorly determined GC curve, a truncated input, an engine of another version); they are marked in the <a href="#samples">sample table</a> and listed in <code>data/flags.tsv</code>. A flag marks something to examine, not a verdict.</p>')
     P.end()
 
     # ---------------------------------------------------------------- 3.1 known truth
@@ -625,7 +709,7 @@ chrY reads <strong>{pm(sx["men_intact_Y"])}</strong> in men with an intact Y and
     nq_sex_same = bool(sx.get("mismatch")) and all(_byrow.get(x, {}).get("ngspca.sex") and _byrow[x].get("ngspca.sex") == _byrow[x].get("sex_inferred") for x in sx["mismatch"])
     if sx["n_pedigree"]:
         P.h(f'<p>Sex inferred from the reads (a Y above 0.1 copies) agrees with the pedigree in {sx["n_inferred"] - len(sx["mismatch"]):,} of {sx["n_inferred"]:,} samples'
-            + (f'; it does not in <strong>{", ".join(esc(x) for x in sx["mismatch"][:20])}{" and " + str(len(sx["mismatch"]) - 20) + " more" if len(sx["mismatch"]) > 20 else ""}</strong> (a swapped sample, or a line that has lost its Y)' + ("; NGS-PCA\'s coverage ratios read " + ("it" if len(sx["mismatch"]) == 1 else "them") + " the same way, so the discrepancy is in the sample or its record, not in this measurement." if nq_sex_same else ".") if sx["mismatch"] else ".") + "</p>")
+            + (f'; it does not in <strong>{_mismatch_reasons(sx["mismatch"][:20], data)}{" and " + str(len(sx["mismatch"]) - 20) + " more" if len(sx["mismatch"]) > 20 else ""}</strong>' + ("; NGS-PCA\'s coverage ratios read " + ("it" if len(sx["mismatch"]) == 1 else "them") + " the same way, so the discrepancy is in the sample or its record, not in this measurement." if nq_sex_same else ".") if sx["mismatch"] else ".") + "</p>")
     outl = [(s_, f) for s_, f in data["flags"] if "chrX" in f or "chrY" in f or "autosomal" in f]
     if outl:
         P.h(f'<details><summary>{len(outl)} sample(s) off the expected value</summary>')
@@ -667,7 +751,7 @@ the main mode has a robust SD of {fmt(dj["spread"], 2)} copies and {dj["between"
                        + ("; ".join(f"{esc(u['parent'])} ({u['parent_step']:+.2f}) and {esc(u['child'])} ({u['child_step']:+.2f})" for u in unc)
                           + (" fits" if len(unc) == 1 else " fit") + " neither and " + ("is" if len(unc) == 1 else "are") + " left unclassified.")) if unc else ""
             P.h(f'''<p>Where a carrier parent and a child were both counted, the step was transmitted in <strong>{dj_pairs(dj)}</strong>
-(the expectation for a heterozygous variant is one half){"; " + ", ".join(esc(x) + (f" ({step_of[x]:+.2f} copies)" if x in step_of else "") for x in dj["de_novo"]) + " carr" + ("ies" if len(dj["de_novo"]) == 1 else "y") + " a step that neither counted parent has: a new structural variant, or a change in part of the cell line" if dj["de_novo"] else "; no child carries a step that neither parent has"}.{unc_txt}
+(the expectation for a heterozygous variant is one half{_dj_binomial(dj)}){"; " + ", ".join(esc(x) + (f" ({step_of[x]:+.2f} copies)" if x in step_of else "") for x in dj["de_novo"]) + " carr" + ("ies" if len(dj["de_novo"]) == 1 else "y") + " a step that neither counted parent has: a new structural variant, or a change in part of the cell line" if dj["de_novo"] else "; no child carries a step that neither parent has"}.{unc_txt}
 The distal junction is measured by the same k-mer path as the rDNA.{" A change of one copy in ten, seen in a parent and again in the child, shows that the path resolves multi-copy acrocentric sequence to a single copy." if dj["transmitted"] else ""}</p>''')
     else:
         P.h("<p>Appears once the distal junction has been measured.</p>")
@@ -971,8 +1055,10 @@ are the test{", and they are small" if small else ""}. Ranking rests on the comp
             contrast = lambda col: (bs[col].get("father_contrast") or {}).get("z", 0) or 0
             # sex linkage is a property of genomic sequence: only the rDNA and the satellite arrays are read that way
             genomic = lambda col: bs[col]["group"] in ("rDNA", "satellites")
-            ylinked = [col for col in bs if genomic(col) and contrast(col) > 3]
-            xlinked = [col for col in bs if genomic(col) and contrast(col) < -3]
+            # a contrast beyond three standard errors counts only when the shuffle test of the four pairings agrees
+            ylinked = [col for col in bs if genomic(col) and contrast(col) > 3 and _sexlinked_by_shuffle(bs[col])]
+            xlinked = [col for col in bs if genomic(col) and contrast(col) < -3 and _sexlinked_by_shuffle(bs[col])]
+            unconfirmed = [col for col in bs if genomic(col) and abs(contrast(col)) > 3 and not _sexlinked_by_shuffle(bs[col])]
             other_far = [col for col in bs if not genomic(col) and abs(contrast(col)) > 3]
             hint = [col for col in bs if 2 < abs(contrast(col)) <= 3]
             lab = lambda col: bs[col]["label"]
@@ -1005,6 +1091,11 @@ trios{f" and a correlation is uncertain by about ±{fmt(half, 2)} (95%)" if half
             why_not = {"truth": "sequence of known copy number, which varies between people only by the rare whole-copy steps of a few families (3.2), so a "
                                 "handful of carrier parents who happen to have sons or daughters decides it",
                        "culture": "a property of the cell line or the library, not of the nuclear genome"}
+            for c in unconfirmed:
+                hp_ = (bs[c].get("heterogeneity") or {}).get("p")
+                notes.append(f"{sentence_case(lab(c))}: father–son r = {fmt(bs[c]['father_son']['r'], 2)}, father–daughter r = {fmt(bs[c]['father_daughter']['r'], 2)} "
+                             f"({fmt(contrast(c), 1)} standard errors on Fisher's scale), but the four pairings differ no more than chance makes them when "
+                             f"the children's sexes are shuffled among the families (p = {fmt(hp_, 2)}), so it is not read as sex-linked.")
             for c in other_far:
                 notes.append(f"{sentence_case(lab(c))}: father–son r = {fmt(bs[c]['father_son']['r'], 2)}, father–daughter r = {fmt(bs[c]['father_daughter']['r'], 2)} "
                              f"({fmt(contrast(c), 1)} standard errors), which is no sign of the sex chromosomes: it is {why_not.get(bs[c]['group'], 'not genomic sequence')}.")
@@ -1048,7 +1139,8 @@ trios{f" and a correlation is uncertain by about ±{fmt(half, 2)} (95%)" if half
             byc = {t["column"]: t for t in tab}
             bsx = (tr.get("by_sex") or {}).get("table") or {}
             zf = lambda col: ((bsx.get(col) or {}).get("father_contrast") or {}).get("z", 0) or 0
-            linked = {col: ("Y" if zf(col) > 0 else "X") for col, d in bsx.items() if d["group"] in ("rDNA", "satellites") and abs(zf(col)) > 3}
+            linked = {col: ("Y" if zf(col) > 0 else "X") for col, d in bsx.items()
+                      if d["group"] in ("rDNA", "satellites") and abs(zf(col)) > 3 and _sexlinked_by_shuffle(d)}
             ylinked = [c for c in linked if linked[c] == "Y" and c in byc]
             cvt = lambda t: t["parent_sd"] / t["parent_mean"] if t.get("parent_mean") else float("nan")
             sg = lambda x, nd=2: fmt(x, nd).replace("-", "−")
@@ -1346,7 +1438,7 @@ ratio {fmt(df.get("median_ratio"), 3)}× (r = {fmt(df.get("r"), 2)}). The level 
         P.chart("ddpcr", dict(type="scatter", points=pts, legend=["NGS-DOSE, calibrated 45S", "18S depth ratio (published estimator)"], xlabel="ddPCR, 45S copies per diploid genome", ylabel="estimate from the genome", identity=True),
                 "45S copy number against ddPCR", "Diagonal: agreement. Every line's values: data/ddpcr.tsv.")
     if hall.get("n", 0) >= 3:
-        P.h(f'''<p>On the {hall["n"]:,} genomes shared so far with Hall, Turner &amp; Queitsch (2021), their 18S value against a comparable 18S depth ratio
+        P.h(f'''<p>On the {hall["n"]:,} genomes shared{"" if _complete(m) else " so far"} with Hall, Turner &amp; Queitsch (2021), their 18S value against a comparable 18S depth ratio
 computed from NGS-DOSE's counts (the callable 50-bp bins of the 1,869-bp 18S of KY962518.1, fragment ends, no GC model), halved to their per-haploid scale:
 r = <strong>{fmt(hall["flat"].get("r"), 3)}</strong>, their values {fmt(hall["flat_ratio"], 3)}× ours. Their published chromosome-1 depths equal our
 duplicate-excluded control depth ({h_chr1}), although their Methods describe re-alignment from FASTQ without duplicate marking, so their
@@ -1413,7 +1505,7 @@ depth (r = {fmt(nq["mtdna_ratio_vs_depth"].get("r"), 2)}).</p>''')
         and_ = lambda xs: ", ".join(xs[:-1]) + (" and " if len(xs) > 1 else "") + xs[-1]
         relative = [cls for cls in st if SAT_FAMILY.get(cls, ("", 1.0))[1] < 0.8]
         P.h(f'''<p>The satellite arrays are measured by the same k-mer machinery as the rDNA, and unlike the rDNA they have a truth:
-{hp["n_samples"]} of the genomes counted so far belong to people with an HPRC release-2 assembly, built from long reads for both haplotypes,
+{hp["n_samples"]} of the genomes{"" if _complete(m) else " counted so far"} belong to people with an HPRC release-2 assembly, built from long reads for both haplotypes,
 whose CenSat annotation gives the length of every satellite array. Summed over the two haplotypes, that is the person's array mass for each
 family, in megabases. NGS-DOSE estimates the same mass from the short reads, from the reads that carry the family's k-mers. The rDNA itself
 cannot be compared this way: the assemblies do not close its arrays (<a href="#why">section 1</a>).</p>
@@ -1598,12 +1690,12 @@ calibration do the work, and the PCs are insurance.</p>''')
     P.h("</div>")
     if superpop_order:
         P.chart("pop", dict(type="strip", col=col45, by="superpop", order=superpop_order, labels=SUPERPOP_NAMES, ylabel="45S copies"), "45S rDNA copy number by super-population",
-                "Each dot is one genome of the 1000 Genomes 30× cohort (NGS-DOSE, 45S copies per diploid genome); the bar is the median. Counted so far: "
-                + "; ".join(f"{esc(g['group'])} {g['n']:,}" + (f" of {m['by_superpop'][g['group']]['total']:,}" if g["group"] in (m.get("by_superpop") or {}) else "")
+                "Each dot is one genome of the 1000 Genomes 30× cohort (NGS-DOSE, 45S copies per diploid genome); the bar is the median. " + ("Genomes: " if _complete(m) else "Counted so far: ")
+                + "; ".join(f"{esc(g['group'])} {g['n']:,}" + (f" of {m['by_superpop'][g['group']]['total']:,}" if not _complete(m) and g["group"] in (m.get("by_superpop") or {}) else "")
                             for g in rd["by_superpop"])
                 + (" (" + " and ".join(c for c in SUPERPOPS if c in (m.get("by_superpop") or {}) and c not in {g["group"] for g in rd["by_superpop"]}) + " not yet)"
                    if any(c in (m.get("by_superpop") or {}) and c not in {g["group"] for g in rd["by_superpop"]} for c in SUPERPOPS) else "")
-                + ". Whether differences between populations survive adjustment for technical structure is a question for the complete cohort.")
+                + ". " + _population_sentence(rd, m))
         if len(rd["by_pop"]) > 1:
             P.h("<details><summary>By population</summary>")
             P.table([[g["group"], g["n"], fmt(g["median"], 0), fmt(g.get("q10"), 0) + "–" + fmt(g.get("q90"), 0)] for g in rd["by_pop"]], ["population", "n", "median 45S", "10–90%"], numeric={1, 2, 3})
@@ -1752,8 +1844,7 @@ chemistries. A biobank pipeline needs whole-file scans of a subset of its own fi
 (<a href="#paths">3.3</a>).</li>
 <li><strong>The satellite panels</strong> were built from one genome (CHM13). Four of the ten families are relative measures; {hsat2_limit}
 The telomere class is a relative measure of (TTAGGG)n content, not a telomere length.</li>
-<li><strong>Partial cohort.</strong> {n:,} of {total:,}: population comparisons and the number of complete trios depend on which genomes have
-landed.</li>
+{_cohort_limitation(m, n, total, tr)}
 </ul>''')
     P.end()
 
@@ -1840,7 +1931,7 @@ complete trios.</p>""")
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(m["title"])}</title>
-<meta name="description" content="rDNA copy number from short-read genomes: the method and its validation on the 1000 Genomes cohort, recomputed as the run proceeds.">
+<meta name="description" content="rDNA copy number from short-read genomes: the method and its validation on the 1000 Genomes cohort, {"recomputed from the counts files" if _complete(m) else "recomputed as the run proceeds"}.">
 <style>{css}</style></head>
 <body><main>{body[:body.index("<section")]}{nav}{body[body.index("<section"):]}
 <footer>Generated {esc(m["as_of"])} by {esc(m["generator"])}. NGS-DOSE was developed by Claude (Anthropic) with @jlanej; the data are 1000 Genomes open-access.</footer>

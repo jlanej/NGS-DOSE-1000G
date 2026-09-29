@@ -279,3 +279,37 @@ def test_a_column_with_too_few_usable_values_is_left_unadjusted(tmp_path):
     ng = out["ngspca"]
     assert ng["n_pc"] == n_pc and {d["column"] for d in ng["skipped"]} == {"chrEBV.copies", "chrM.copies"}
     assert all(r.get("chrEBV.copies.adj_ngspca") is None for r in rows) and all(r["truth.auto.adj_ngspca"] is not None for r in rows)
+
+
+def test_a_complete_run_changes_the_wording_and_two_builds_of_one_version_are_one_engine():
+    """When every genome is counted the page stops saying 'so far'; a second build of the same engine version, whose counts
+    NGS-DOSE's tests hold byte-identical to the first's, is not a flag on half the cohort."""
+    from report.report import flags_for
+    from report.report_page import _complete, _dj_binomial, _run_sentence, _sexlinked_by_shuffle
+    assert _complete(dict(n=3202, total=3202)) and not _complete(dict(n=1259, total=3202)) and not _complete(dict(n=0, total=0))
+    tr = dict(n_complete=602, n_total=603)
+    s = _run_sentence(dict(n=3202, total=3202, n_both=3202), 3202, tr)
+    assert s.startswith("Counting ran") and "602 of the pedigree's 603 trios" in s and "never sequenced" in s and "so far" not in s
+    assert "so far" in _run_sentence(dict(n=1259, total=3202, n_both=1259), 1259, tr)
+    s = _run_sentence(dict(n=3202, total=3202, n_both=3202), 3202, dict(n_complete=602, n_total=602))
+    assert "all 602 trios of the pedigree that the release sequenced are complete" in s and "602 of the" not in s
+    row = dict(engine="0.1.0+7772e32", sex="M", sex_inferred="M")
+    assert flags_for(row, "0.1.0+fae1124") == []
+    assert flags_for(dict(row, engine="0.1.1+abc1234"), "0.1.0+fae1124") == ["engine 0.1.1+abc1234"]
+    # a contrast of three standard errors counts as sex linkage only when the shuffle test of the pairings agrees
+    assert _sexlinked_by_shuffle(dict(heterogeneity=dict(p=0.001))) and _sexlinked_by_shuffle({})
+    assert not _sexlinked_by_shuffle(dict(heterogeneity=dict(p=0.137)))
+    # the binomial reads the pairs that can be read either way, not the unclassified ones
+    assert "over the 72 pairs" in _dj_binomial(dict(transmitted=27, not_transmitted=45, unclassified=6, n_pairs=78))
+    assert _dj_binomial(dict(transmitted=3, not_transmitted=4)) == ""
+
+
+def test_the_sex_mismatch_reasons_follow_the_x_and_y_the_reads_show():
+    from report.report_page import _mismatch_reasons
+    data = dict(samples=[dict(sample="A", sex="M", **{"truth.chrX": 1.94, "truth.chrY": 0.002}),
+                         dict(sample="B", sex="M", **{"truth.chrX": 0.99, "truth.chrY": 0.002}),
+                         dict(sample="C", sex="F", **{"truth.chrX": 0.98, "truth.chrY": 0.97})])
+    s = _mismatch_reasons(["A", "B", "C"], data)
+    assert "A (two X chromosomes and no Y" in s and "swapped" in s
+    assert "B (one X (0.99) and no Y: a man's line that has lost its Y" in s
+    assert "C (a Y (0.97 copies) with 0.98 X: a man's DNA under a woman's record" in s
