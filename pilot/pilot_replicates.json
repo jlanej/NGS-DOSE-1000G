@@ -24,7 +24,7 @@
   "sd": 0.13385561332641252,
   "r": 0.8306713987453929
  },
- "anchor windows, fragment-GC model (single-sample headline)": {
+ "moderate-GC (40-60%) windows, fragment-GC model (headline rule before anchors.json; `--gc-rule-anchors`)": {
   "bias": -0.15881563454410622,
   "sd": 0.04647337424700277,
   "r": 0.9707480304971674

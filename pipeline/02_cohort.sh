@@ -9,7 +9,11 @@ set -euo pipefail
 source "${SLURM_SUBMIT_DIR:-$(dirname "${BASH_SOURCE[0]}")}/config.sh"
 OUT="$WORK_DIR/cohort_$MODE"; mkdir -p "$OUT"
 
-ngsdose_py ngsdose estimate "$COUNTS_DIR"/*.json.gz -r "$BUNDLE" -o "$EST_DIR" -t "$OUT/single_sample.tsv" -j "${SLURM_CPUS_PER_TASK:-8}"
+# estimates of counts files that have since been removed must not reach the cohort: start afresh
+rm -f "$EST_DIR"/*.estimate.json.gz
+estimate_sinks_args || exit 1                             # a fetch plan's sinks BED, for its sub-options (config.sh)
+ngsdose_py ngsdose estimate "$COUNTS_DIR"/*.json.gz -r "$BUNDLE" -o "$EST_DIR" -t "$OUT/single_sample.tsv" -j "${SLURM_CPUS_PER_TASK:-8}" \
+  ${ESTIMATE_SINKS_ARGS[@]+"${ESTIMATE_SINKS_ARGS[@]}"}
 # How many PCs to regress out, separately for the two PC sets, because they are different matrices
 # with different spectra: N_PC for NGS-PCA's coverage PCs, N_CTRL_PC for the internal control-region
 # PCs. "mp" (the default) = the components that clear the Marchenko-Pastur edge of the noise bulk.

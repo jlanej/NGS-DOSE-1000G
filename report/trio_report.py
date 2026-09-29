@@ -3,7 +3,10 @@
 the methods in brief, a heatmap of transmission statistics for every metric (what is claimed to be
 inherited, what must be, what cannot be), a child-against-midparent scatter for each metric, the
 same test run on the fetch counts alone, and the satellite arrays against long-read assemblies.
-Everything is read from what `python -m report` writes; nothing is typed in.
+The results (sample counts, estimates, correlations, reliabilities, intervals, batch tallies) are
+read from what `python -m report` writes. The method description and its constants (31-mers, 800
+control regions, 250-bp windows, 1,000 permutations, the 80/60/40 truth-region counts and the
+expected copy numbers) are fixed text.
 
     python -m report.trio_report --report docs/report.json --data docs/data -o docs/trio_report.pdf [--png-dir DIR]
 """
@@ -14,6 +17,11 @@ import textwrap
 from pathlib import Path
 
 import numpy as np
+
+try:
+    from ngsdose.hprc import MAX_GAPPED
+except ImportError:                                        # the PDF can be made from report.json alone
+    MAX_GAPPED = 0.02
 
 BLUE, ORANGE, AQUA, INK, MUTED, GRID = "#2a78d6", "#eb6834", "#1baf7a", "#0b0b0b", "#898781", "#e1e0d9"
 GROUP_COLOR = {"rDNA": BLUE, "satellites": AQUA, "truth": MUTED, "culture": ORANGE}
@@ -110,7 +118,7 @@ def summary_blocks(d, tr, fc):
     m, kt, md, t = d["meta"], d["known_truth"], d["modes"], d["trios"]
     a, sx, DJ = kt["auto"], kt["sex"], kt["DJ"]
     by = {r["column"]: r for r in tr}
-    g = lambda col, k: num(by[col][k]) if col in by else float("nan")
+    g = lambda col, k: num(by[col].get(k)) if col in by else float("nan")
     ok = lambda col: col in by and np.isfinite(g(col, "R_lo"))
     sat_R = [min(num(r["R"]), 1) for r in tr if r["group"] == "satellites" and not r["column"].startswith(("HSat1B", "TEL")) and np.isfinite(num(r["R"]))]
     tel_R = next((num(r["R"]) for r in tr if r["column"] == "TEL.mass_Mb" and np.isfinite(num(r["R"]))), None)
@@ -121,13 +129,15 @@ def summary_blocks(d, tr, fc):
          "be measured from ordinary short-read whole-genome sequencing? An assay of rDNA copy number (ddPCR) exists for only a dozen of these lines, so the "
          "answer has to come mostly from things that are known: sequence of known copy number in every genome, Mendelian transmission in trios, the same "
          "genome counted two ways, long-read assemblies of the same people for the satellite arrays that the same machinery measures, and the assay where it exists.")
-    meth = ("Reads are assigned to a class (45S rDNA, 5S rDNA, the distal junction, ten satellite families, the telomeric repeat) by 31-mers "
-            "that occur in the class and nowhere else in GRCh38 or CHM13; where the aligner put a read is not used. Fragment 5′ ends are counted "
+    meth = ("Reads are assigned to a class (45S rDNA, 5S rDNA, the distal junction, ten satellite families, the telomeric repeat) by 31-mers: "
+            "for 45S, 5S and the distal junction, k-mers found nowhere else in GRCh38 or CHM13; for the satellite families, k-mers found in no "
+            "other family and nowhere in CHM13 outside annotated satellite; for the telomeric repeat, the six canonical (TTAGGG)n 31-mers, "
+            "unfiltered. Where the aligner put a read is not used. Fragment 5′ ends are counted "
             "on the unit and in 800 single-copy control regions. A per-library Poisson spline of fragment-end density on fragment GC content, fitted "
             "on the controls, gives the expected count of any sequence; copy number is 2 × observed / expected per 250-bp window, and the windows of "
             "the 45S unit are calibrated across the cohort with the scale set by anchor windows on which three Illumina chemistries agreed. "
             "Two counting modes: scan reads the whole CRAM, fetch retrieves only the controls and the intervals where the aligner places class "
-            "reads. Cohort: the 1000 Genomes 30× CRAMs (NYGC, NovaSeq 2×150, GRCh38), all lymphoblastoid cell lines.\n\n"
+            "reads (learned from whole-file scans of this pipeline's alignments; a pipeline aligned otherwise needs its own). Cohort: the 1000 Genomes 30× CRAMs (NYGC, NovaSeq 2×150, GRCh38), all lymphoblastoid cell lines.\n\n"
             "Three 45S estimators travel through every table, two of them NGS-DOSE's. '45S, NGS-DOSE calibrated': the cohort model log C(i,w) = c(i) + a(w) + e(i,w) over every "
             "retained 250-bp window w of the unit, fitted by median polish across samples i with the window efficiencies a(w) pinned to a median of "
             "zero over the anchor windows; the estimate is exp(c(i)). '45S, NGS-DOSE single-sample': 2 × observed / expected fragment ends over the "
@@ -159,6 +169,12 @@ def summary_blocks(d, tr, fc):
                    + (f"; the telomeric repeat, which changes with age and in culture, {f(tel_R)}." if tel_R is not None else "."))
     if cul_R or tru_R:
         res.append(f"Negative controls: culture and library {f(min(cul_R))} to {f(max(cul_R))}; known copy numbers {f(min(tru_R))} to {f(max(tru_R))}." if cul_R and tru_R else "")
+    const = t.get("constant") or []
+    if const:
+        by: dict[str, list[str]] = {}
+        for c in const:
+            by.setdefault(c.get("reason") or "the parents do not vary", []).append(c.get("label") or c["column"])
+        res.append("Not tested: " + "; ".join(f"{', '.join(v)} ({k})" for k, v in by.items()) + ".")
     if "rDNA45S.cn" in fR and np.isfinite(fR["rDNA45S.cn"]):
         res.append(f"Fetch counts alone: 45S reliability {f(min(fR['rDNA45S.cn'], 1))}; fetch/scan agreement of the 45S estimate across genomes r {f(next((num(r['r']) for r in fc if r['metric'] == 'rDNA45S.cn'), float('nan')), 4)}.")
     if md.get("n_both"):
@@ -172,8 +188,10 @@ def summary_blocks(d, tr, fc):
             # genomic metrics whose children spread differently from their parents: the batch's scale, which moves R and not R rescaled
             moved = [r for r in tr if r["group"] in ("rDNA", "satellites") and np.isfinite(num(r.get("sd_ratio_lo")))
                      and (num(r["sd_ratio_lo"]) > 1 or num(r["sd_ratio_hi"]) < 1)]
+            sh = bt.get("shared", 0)
             res.append(f"Parents and children were sequenced apart: {kn} of {bt['n']} children in release batch {lab(kb)}, {pn} of {2 * bt['n']} parents in "
-                       f"{lab(pb)}. No batch is shared within a family, but one that reads a generation on another scale moves R with it"
+                       f"{lab(pb)}. In {bt['n'] - sh} of {bt['n']} families the child was sequenced in a different batch from both parents ({sh} share one), "
+                       "and a batch that reads a generation on another scale moves R with it"
                        + (": " + "; ".join(f"{r['label']} spreads {num(r['sd_ratio']):.2f}× as much in the children as in their parents and reads R "
                                            f"{num(r['R']):.2f}, or {num(r['R_rescaled']):.2f} with the children on their parents' scale" for r in moved) if moved else "")
                        + ".")
@@ -185,15 +203,21 @@ def summary_blocks(d, tr, fc):
     if hp:
         st = hp["stats"]
         close = [(c, s_) for c, s_ in st.items() if s_.get("n", 0) >= 4 and s_.get("n_gapped", 0) <= s_["n"] / 4 and s_.get("sd_log_robust") is not None and s_["sd_log_robust"] <= 0.10]
-        spread = [(c, s_) for c, s_ in close if s_.get("cv_assembly", 0) >= 0.10]
-        res.append(f"Assemblies: {hp['n_samples']} of these genomes have an HPRC release-2 assembly. For {len(close)} of {len(st)} satellite families a person's "
-                   f"estimate and their assembly agree to within a robust SD of {100 * min(s_['sd_log_robust'] for _, s_ in close):.0f}–{100 * max(s_['sd_log_robust'] for _, s_ in close):.0f}% "
-                   f"({', '.join(c for c, _ in close)}); across people the estimates track the assemblies at r "
-                   f"{min(s_['pearson'] for _, s_ in spread):.2f}–{max(s_['pearson'] for _, s_ in spread):.2f} where people differ by 10% or more "
-                   f"({', '.join(c for c, _ in spread)}), and r is bounded by how little they differ where the assembly's between-person CV is a few percent.")
+        spread = [(c, s_) for c, s_ in close if (s_.get("cv_assembly") or 0) >= 0.10 and s_.get("pearson") is not None]
+        if close:
+            res.append(f"Assemblies: {hp['n_samples']} of these genomes have an HPRC release-2 assembly. For {len(close)} of {len(st)} satellite families a person's "
+                       f"estimate and their assembly agree to within a robust SD of {100 * min(s_['sd_log_robust'] for _, s_ in close):.0f}–{100 * max(s_['sd_log_robust'] for _, s_ in close):.0f}% "
+                       f"({', '.join(c for c, _ in close)})"
+                       + (f"; across people the estimates track the assemblies at r {min(s_['pearson'] for _, s_ in spread):.2f}–{max(s_['pearson'] for _, s_ in spread):.2f} "
+                          f"where people differ by 10% or more ({', '.join(c for c, _ in spread)})" if spread else
+                          "; in these families people differ by less than 10% (the assembly's between-person CV), too little for r to mean much")
+                       + ", and r is bounded by how little people differ where the assembly's between-person CV is a few percent.")
+        else:
+            res.append(f"Assemblies: {hp['n_samples']} of these genomes have an HPRC release-2 assembly; no satellite family yet has four or more cleanly "
+                       "assembled people whose estimates agree with their assemblies to within 10%, so none can be judged yet.")
     caveat = ("What this does not show: an absolute calibration of rDNA copy number beyond the dozen lines with a ddPCR value (elsewhere the scale rests on unit windows "
-              "on which three chemistries agree); anything about DNA that is not from a lymphoblastoid cell line or a chemistry other than NovaSeq "
-              "2×150; and, because people differ in 45S copy number far more than any competent estimator errs, the trios show that the measured "
+              "on which three chemistries agree); anything about DNA that is not from a lymphoblastoid cell line, a chemistry other than NovaSeq "
+              "2×150, or an alignment pipeline other than NYGC's, on which the targeted fetch's sinks were learned; and, because people differ in 45S copy number far more than any competent estimator errs, the trios show that the measured "
               "variation is inherited, not which rDNA estimator is best — that ranking rests on the same people sequenced on two technologies "
               "(the pilot), where the calibrated estimate reproduced and the depth ratio did not.")
     return [("The question", q), ("What is measured", meth), ("How it is tested", test), ("Results", " ".join(x for x in res if x)), ("Limits", caveat)]
@@ -341,9 +365,11 @@ def assembly_page(doc, d, hp_rows):
         if k % 4 == 0:
             ax.set_ylabel("NGS-DOSE, Mb", fontsize=6.5)
         ax.set_xlabel("assembly, Mb", fontsize=6.5)
+    unsized_txt = ", ".join(f"{cls} {s_['n_unsized_gap']} of {s_['n']}" for cls, s_ in st.items() if s_.get("n_unsized_gap"))
     fig.text(0.07, 0.15, wrap(f"{hp['n_samples']} of the genomes have HPRC release-2 assemblies; the CenSat annotation of both haplotypes gives the size of every satellite array, "
-                              "the same kind of sequence the k-mer machinery measures. A genome is compared in a class only when the arrays its assembly did not close "
-                              "are immaterial. Grey diagonal: equality. The relative measures (β-satellite, CER, ACRO, SST1, SATR) sit below it by a constant factor, their k-mer "
+                              "the same kind of sequence the k-mer machinery measures. A genome is left out of a class when the gaps its annotation marks (a GAP record "
+                              f"labelled with the family, or a standalone GAP next to the array) amount to more than {100 * MAX_GAPPED:g}% of the class; 100-bp placeholder gaps of "
+                              "unknown size are counted but leave no one out" + (f" (people compared with one: {unsized_txt})" if unsized_txt else "") + ". Grey diagonal: equality. The relative measures (β-satellite, CER, ACRO, SST1, SATR) sit below it by a constant factor, their k-mer "
                               "recall. Each title gives the median estimate-to-assembly ratio, the robust SD of the log ratio (how far one person's two values disagree) and "
                               "the correlation across people, which is bounded by how little people differ: where the assembly's between-person CV is a few percent "
                               "(α-satellite HORs, SATR) r is low although each person agrees to within that SD. Assemblies collapse the rDNA itself and are no truth for it.", 120),
@@ -351,12 +377,17 @@ def assembly_page(doc, d, hp_rows):
     doc.close(fig)
 
 
-def truth_page(doc, d):
+def truth_rows(d):
+    """The known-truth table: what, expected, measured, n."""
     kt, md = d["known_truth"], d["modes"]
     a, X, Y, DJ, sx = kt["auto"], kt["chrX"], kt["chrY"], kt["DJ"], kt["sex"]
+    # men with one X, as on the page: a man whose reads show two X chromosomes and a Y is listed on his own
+    xxy = sx.get("men_extra_x") or []
+    men1x = sx.get("men_one_x") or X["M"]
     rows = [["held-out autosomal sequence (80 regions)", "2", f"{f(a.get('mean'), 3)} ± {f(a.get('sd'), 3)}", f"{a.get('n', 0):,}"],
-            ["chrX in men (60 regions)", "1", f"{f(X['M'].get('mean'), 3)} ± {f(X['M'].get('sd'), 3)}", f"{X['M'].get('n', 0):,}"],
-            ["chrX in women with an intact culture", "2", f"{f(sx.get('women_intact', {}).get('mean'), 3)} ± {f(sx.get('women_intact', {}).get('sd'), 3)}", f"{sx.get('women_intact', {}).get('n', 0):,}"],
+            [f"chrX in men{' with one X' if xxy else ''} (60 regions)", "1", f"{f(men1x.get('mean'), 3)} ± {f(men1x.get('sd'), 3)}", f"{men1x.get('n', 0):,}"]]
+    rows += [[f"chrX / chrY, {e['sample']} (a man with two X and a Y)", "2 / 1", f"{f(e['chrX'], 2)} / {f(e['chrY'], 2)}", "1"] for e in xxy]
+    rows += [["chrX in women with an intact culture", "2", f"{f(sx.get('women_intact', {}).get('mean'), 3)} ± {f(sx.get('women_intact', {}).get('sd'), 3)}", f"{sx.get('women_intact', {}).get('n', 0):,}"],
             ["chrY in men with an intact Y (40 regions)", "1", f"{f(sx.get('men_intact_Y', {}).get('mean'), 3)} ± {f(sx.get('men_intact_Y', {}).get('sd'), 3)}", f"{sx.get('men_intact_Y', {}).get('n', 0):,}"],
             ["chrY in women", "0", f"at most {f(Y['F'].get('max'), 4)}", f"{Y['F'].get('n', 0):,}"],
             ["distal junction (one per acrocentric short arm)", "10", f"{f(DJ.get('mean'), 2)} ± {f(DJ.get('sd'), 2)}", f"{DJ.get('n', 0):,}"],
@@ -364,6 +395,13 @@ def truth_page(doc, d):
     for col, dd in md.get("columns", {}).items():
         if dd.get("n"):
             rows.append([f"fetch / scan, {dd['label']}", "1", f"{f(dd['median'], 4)} ({f(dd['min'], 4)}–{f(dd['max'], 4)})", f"{dd['n']:,}"])
+    return rows
+
+
+def truth_page(doc, d):
+    kt = d["known_truth"]
+    X, DJ = kt["chrX"], kt["DJ"]
+    rows = truth_rows(d)
     fig = doc.page("Sequence of known copy number, fetch against scan, and ddPCR")
     axt = fig.add_axes([0.07, 0.50, 0.89, 0.40]); axt.axis("off")
     tb = axt.table(cellText=rows, colLabels=["what", "expected", "measured", "n"], loc="upper center", cellLoc="left", colWidths=[0.42, 0.10, 0.34, 0.10])
@@ -373,17 +411,27 @@ def truth_page(doc, d):
         if i == 0:
             c.set_text_props(fontweight="bold")
     dj = kt.get("DJ_steps") or {}
-    txt = ("Every genome carries sequence whose copy number is not in question, measured by exactly the code that measures the rDNA: held-out autosomal "
-           "regions, the X and Y, and the distal junction, a 400-kb sequence present once on each of the ten acrocentric short arms — multi-copy, paralogous "
-           "and acrocentric, the kind of sequence the rDNA is. Women read the X and every genome reads the distal junction a few percent below expectation; "
-           "both are late-replicating sequence, which DNA from a growing culture under-represents.")
+    sph = (d.get("biology") or {}).get("DJ_vs_chrX_female") or {}
+    txt = ("Every genome carries sequence whose copy number is not in question, measured under the same fragment-GC model as the rDNA: held-out "
+           "autosomal regions and the X and Y, counted by their alignment position, and the distal junction, a 400-kb sequence present once on each of "
+           "the ten acrocentric short arms — multi-copy, paralogous and acrocentric, the kind of sequence the rDNA is — counted by the same k-mer path "
+           "as the rDNA."
+           + (" Women read the X, and the distal junction reads, a few percent below expectation on average. Both are late-replicating sequence"
+              + (f", but in women the two deficits show no detectable correlation (r = {f(sph['r'])}, {f(sph.get('r_lo'))} to {f(sph.get('r_hi'))}), which "
+                 "weakens a shared S-phase explanation without ruling out a small one." if sph.get("r_lo") is not None and sph["r_lo"] <= 0 <= sph["r_hi"] else
+                 f"; in women the two deficits correlate at r = {f(sph.get('r'))}." if sph.get("r") is not None else ".")
+              if (X["F"].get("median") or 2) < 1.98 and (DJ.get("median") or 10) < 10 else ""))
     if dj.get("carriers") is not None:
-        nr = lambda k: dj["near"].get(k, dj["near"].get(str(k), 0))
-        tot = dj["transmitted"] + dj["not_transmitted"]
-        txt += (f"\n\nRelative to the cohort's level the distal junction sits at whole numbers: {nr(-2)} genomes at −2, {nr(-1)} at −1, {nr(0):,} at 0, {nr(1)} at +1 "
+        steps = sorted((int(k), int(v)) for k, v in (dj.get("near") or {}).items() if v or int(k) == 0)
+        name = lambda k: "0" if k == 0 else ("+" if k > 0 else "−") + str(abs(k))
+        listed = [f"{v:,}" + ((" genome" if v == 1 else " genomes") if i == 0 else "") + f" at {name(k)}" for i, (k, v) in enumerate(steps)]
+        n_pairs = dj.get("n_pairs", dj["transmitted"] + dj["not_transmitted"])
+        unc = dj.get("unclassified") or 0
+        txt += (f"\n\nRelative to the cohort's level the distal junction sits at whole numbers: {', '.join(listed[:-1])}{' and ' if len(listed) > 1 else ''}{listed[-1] if listed else ''} "
                 f"(robust SD {f(dj['spread'])} copies). A step is a structural variant of an acrocentric short arm; where a carrier parent and a child were both counted it was "
-                f"transmitted in {dj['transmitted']} of {tot}, and {len(dj['de_novo'])} child(ren) carry a step neither counted parent has.")
-    fig.text(0.07, 0.44, wrap(txt, 120), fontsize=8.2, va="top", linespacing=1.35)
+                f"transmitted in {dj['transmitted']} of {n_pairs}" + (f" pairs, of which {unc} fit{'s' if unc == 1 else ''} neither transmission nor its absence and {'is' if unc == 1 else 'are'} left unclassified" if unc else "")
+                + f", and {len(dj['de_novo'])} child(ren) carry a step neither counted parent has.")
+    fig.text(0.07, 0.49, wrap(txt, 120), fontsize=8.2, va="top", linespacing=1.35)
     dd = d.get("ddpcr") or {}
     if dd.get("points"):
         ax = fig.add_axes([0.10, 0.06, 0.34, 0.24])
@@ -419,7 +467,8 @@ def main():
     a = ap.parse_args()
     d, tr, trios, fc, hp_rows = load(a)
     doc = Doc(a.out, a.png_dir)
-    doc.text_page("NGS-DOSE on the 1000 Genomes 30× cohort: a trio-focused assessment", summary_blocks(d, tr, fc), subtitle=f"as of {d['meta']['as_of']}, from the tables python -m report writes; nothing is typed in")
+    doc.text_page("NGS-DOSE on the 1000 Genomes 30× cohort: a trio-focused assessment", summary_blocks(d, tr, fc),
+                  subtitle=f"as of {d['meta']['as_of']}; results from the tables python -m report writes, method text fixed")
     if tr:
         heatmap_page(doc, tr, fc)
         scatter_pages(doc, tr, trios)

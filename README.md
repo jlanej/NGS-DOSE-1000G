@@ -15,12 +15,12 @@ what is measured and why, and the evidence that it works, recomputed from the fi
 
 **[docs/trio_report.pdf](docs/trio_report.pdf)** is the same case as a document, focused on the trios;
 **[docs/EVIDENCE.md](docs/EVIDENCE.md)** is the write-up — each finding with its number, what it rules out,
-and what is not yet shown.
+and what is not yet shown — as a dated snapshot (735 genomes, 2026-09-23); the page carries the current numbers.
 
 | path | what |
 | --- | --- |
 | `counts_scan/<sample>.json.gz` | whole-file scan of one CRAM: fragment-end counts per class and unit position, control-region counts, GC tables, where class reads were aligned and what else sits in those bins (~240 kB) |
-| `counts_fetch/<sample>.json.gz` | the targeted fetch of the same CRAM: what a biobank-scale run would return (~70 kB) |
+| `counts_fetch/<sample>.json.gz` | the targeted fetch of the same CRAM (~70 kB): the control and truth regions, chrM, chrEBV and the 80 sink intervals of the 45S, the 5S and the distal junction (the sinks file before the telomere was added, sha256 9dd52ba1…; no telomere or satellite panel, no unmapped bin; every fetch so far is from engine build fae1124; with a newer image, whose bundle has the telomere's sinks, the pipeline's default `FETCH_PANELS` fetches the telomere too, see [pipeline/README.md](pipeline/README.md)). This is what a biobank-scale run returns for these classes on a pipeline whose sinks are known. The sinks here were learned from NYGC bwa-mem CRAMs, so a biobank on another pipeline (DRAGEN: UK Biobank, All of Us) must first learn its own from whole-file scans of a subset of its CRAMs |
 | `docs/` | the page (`index.html`), every number behind it (`report.json`), every table (`data/*.tsv`), the figure, the PDF and the write-up; served by GitHub Pages |
 | `report/` | the page generator (`python -m report`), the evidence figure and the trio PDF, on top of the `ngsdose` library |
 | `pipeline/` | the cohort run for a SLURM cluster or a plain loop, container-only ([README](pipeline/README.md)) |

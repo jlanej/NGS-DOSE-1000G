@@ -26,7 +26,7 @@ samtools/htslib 1.24, minimap2 2.31-r1302, pysam 0.24.1, pandas 3.0.6, numpy 2.5
 | `regions/<name>.acro.tsv` | every acrocentric-assigned contig: level (chromosome / random), chain strand, short-arm end, orientation source, taken or skipped, segment |
 | `seq/<name>.fa.gz` (+ `.fai`, `.gzi`) | bgzipped extracted sequence; record names `contig:start-end` = samtools region strings, **1-based inclusive** (`name = contig:{bed_start+1}-{bed_end}`); verified: record set and lengths equal the BED |
 | `seq/<name>.done.json` | per-assembly extraction record (also collected in `../tables/extraction.tsv`) |
-| `validation/` | tile hits of the 8 whole assemblies (`*.full.hits.tsv.gz`, `*.full.hits.annotated.tsv.gz`) and of their extracted sequence (`*.extracted.*`), with `summary.json` |
+| `validation/` | tile hits of the 8 whole assemblies (`*.full.*`) and of the extracted sequence (`*.extracted.*`) of those 8 plus GRCh38, CHM13 and HG06807 pat/mat, each with `summary.json` |
 | `full/` | whole-assembly FASTAs for validation (removed after validation) |
 
 ## Extraction parameters (extract_regions.py)
@@ -43,7 +43,9 @@ samtools/htslib 1.24, minimap2 2.31-r1302, pysam 0.24.1, pandas 3.0.6, numpy 2.5
   >= 50 kb (scan hits in `regions/<name>.unplaced_scan.*`). This screen was added after validation
   pass 1 showed whole-rDNA chrUn contigs with no CenSat label at all; it added 505 contigs in 282
   assemblies (427 via 45S tiles, 54.1 Mb of 45S-tile bp; 77 via DJ runs; 1 via 5S). Without CenSat
-  (GRCh38, HG06807) all unassigned contigs are screened (45S tiles).
+  (GRCh38, HG06807), all unassigned contigs are screened (45S tiles) if they total <= 100 Mb; above that
+  the screen is skipped and noted. Here GRCh38 had 127 unassigned contigs (4.49 Mb, 1 with 45S),
+  HG06807_mat had 1 (16.6 kb, no hit) and HG06807_pat had none.
 * **5S_locus**: GRCh38 flanks chr1:228,400,000-228,600,000 and 228,650,000-228,850,000 lifted through the
   GRCh38 chain (chain with most aligned bp in each flank); region = span between the two lifted
   flanks + 300 kb each side. If the flanks land on different contigs, each flank's inner edge
@@ -59,7 +61,7 @@ samtools/htslib 1.24, minimap2 2.31-r1302, pysam 0.24.1, pandas 3.0.6, numpy 2.5
   ~26 min. Pass 2 (`--force`, with the unplaced tile screen): 466/466 verified, 281 assemblies whose
   region set changed were re-fetched, 1238 s. Estimated bgzf bytes needed for the final extraction
   of all 466: 9.56 GB (sum of `est_bytes_fetched` in `../tables/extraction.tsv`; pass 1 alone 9.36 GB);
-  40.0 Gb of sequence, 7.5 GB on disk in `seq/`.
+  40.0 Gb of sequence, 7.9 GB (7.4 GiB) on disk in `seq/`.
 * validate_full.py: 8 whole assemblies (7.02 GB downloaded in 27 min, 4 concurrent), each tile-mapped in
   ~100 s (9 threads). Whole FASTAs deleted afterwards (moved to Trash).
 

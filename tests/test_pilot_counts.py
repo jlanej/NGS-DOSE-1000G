@@ -50,9 +50,11 @@ def test_known_truth_in_every_sample(ny):
 
 
 def test_both_libraries_were_counted_with_the_shipped_bundle_and_carry_the_culture_covariates(ny):
-    """The committed counts are the bundle's own (same panel, controls and sinks hashes as the
-    files in resources/), every input was complete, and mitochondrial and EBV dosage - different
-    cultures of a line differ severalfold in both - are present for every sample."""
+    """The committed counts are the bundle's own (same panel and controls hashes as the files in
+    resources/, and a sinks hash that is either the current file's or an earlier version listed in
+    bundle.json sinks_history; all 24 committed files carry the pre-TEL version, 9dd52ba1...), every
+    input was complete, and mitochondrial and EBV dosage - different cultures of a line differ
+    severalfold in both - are present for every sample."""
     import hashlib
     sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
     want_panel, want_controls, want_sinks = [sha(BUNDLE.panel)], sha(BUNDLE.controls), sha(BUNDLE.sinks)
@@ -128,3 +130,31 @@ def test_cli_roundtrip(tmp_path):
     rows = list(csv.DictReader(open(tmp_path / "cohort.tsv"), delimiter="\t"))
     assert len(rows) == 6 and all(float(r["rDNA45S.cn"]) > 100 for r in rows)
     assert (tmp_path / "eff.json").stat().st_size > 1000
+
+
+
+def _evaluate_copy(root, drop=None, hall=None):
+    """evaluate_pilot.py run on a copy of the pilot directory under `root`; `drop` leaves one counts file out,
+    `hall` replaces the text of the Hall table."""
+    import shutil
+    d = root / "pilot"
+    d.mkdir(parents=True)
+    shutil.copy(PILOT / "evaluate_pilot.py", d)
+    for sub in ("counts_nygc", "counts_replicates"):
+        (d / sub).mkdir()
+        for f in (PILOT / sub).glob("*.json.gz"):
+            if f"{sub}/{f.name}" != drop:
+                (d / sub / f.name).symlink_to(f)
+    (d / "hall2021_MOESM1.txt").write_text(hall if hall is not None else (PILOT / "hall2021_MOESM1.txt").read_text())
+    p = subprocess.run([sys.executable, str(d / "evaluate_pilot.py")], capture_output=True, text=True, cwd=root)
+    return p, d
+
+
+@pytest.mark.skipif(len(reps) < 12 or len(nygc) < 12, reason="pilot counts not present")
+def test_evaluation_refuses_a_missing_sample_or_an_error_page_and_writes_nothing(tmp_path):
+    p, d = _evaluate_copy(tmp_path / "missing", drop="counts_replicates/HG00732.json.gz")
+    assert p.returncode != 0 and "counts_replicates/HG00732.json.gz" in p.stderr, p.stderr
+    assert not any(d.glob("pilot_*")), sorted(x.name for x in d.glob("pilot_*"))
+    p, d = _evaluate_copy(tmp_path / "html", hall="<html><body>403 Forbidden</body></html>\n")
+    assert p.returncode != 0 and "hall2021_MOESM1.txt" in p.stderr and "Sample" in p.stderr, p.stderr
+    assert not any(d.glob("pilot_*")), sorted(x.name for x in d.glob("pilot_*"))

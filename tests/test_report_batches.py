@@ -1,6 +1,7 @@
 """The sequencing batch of each generation of the complete trios (`report.trio_batches`, from NGS-PCA's release
-batch): the 1000 Genomes 30x release sequenced its 698 related genomes after the original 2,504, which puts the
-children in one batch and their parents in the other."""
+batch): the 1000 Genomes 30x release sequenced its 698 related genomes, most of them trio children, after the original
+2,504, which puts nearly all children in the later batch and most parents in the earlier one. Some parents were
+sequenced with the children (F2 here); `shared` counts the families where the child's batch is also a parent's."""
 from ngsdose.trios import Trio
 
 from report.report import trio_batches

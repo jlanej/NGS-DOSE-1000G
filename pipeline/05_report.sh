@@ -6,7 +6,9 @@
 #SBATCH --output=logs/report_%j.out
 # The cohort page, from whatever counts exist so far: known truths in every sample, fetch against
 # scan, transmission through the trios, the cell-line covariates, satellites against assemblies.
-# Re-run at any time; a sample whose counts have not changed is not estimated again.
+# Re-run at any time; a sample's estimate is kept in $REPORT_CACHE (default $WORK_DIR/report_cache) and
+# re-estimated only when its counts file (size, modification time), the ngsdose version or estimate code,
+# or the bundle's files change; the log says how many cached estimates were invalidated and why.
 #   sbatch 05_report.sh                      -> $WORK_DIR/report/index.html (+ report.json, data/)
 #   REPORT_OUT=/path/to/NGS-DOSE-1000G/docs bash 05_report.sh   -> straight into the results repository's Pages folder
 set -euo pipefail

@@ -1,9 +1,12 @@
 """The report page: prose and layout around the numbers `report.build` computed.
 
-Every number in the text comes from `data`; nothing is typed in. Sections that have nothing to
-show yet say so and say what would make them appear, so that the page can be published at any
-stage of a cohort run. The order is that of a paper: summary, rationale, methods, the validation
-results in the order a sceptic would ask for them, the descriptive results, limitations, data.
+Every result in the text comes from `data`, and a qualitative sentence is written only when the
+comparison it makes holds in `data`. The method's constants, and the few figures that come from
+elsewhere (a paper, the pipeline's notes, a test run outside the report), are fixed text and say
+where they come from. Sections that have nothing to show yet say so and say what would make them
+appear, so that the page can be published at any stage of a cohort run. The order is that of a
+paper: summary, rationale, methods, the validation results in the order a sceptic would ask for
+them, the descriptive results, limitations, data.
 """
 from __future__ import annotations
 
@@ -12,7 +15,13 @@ import json
 import math
 import re
 
+from ngsdose import hprc as _hprc
 from ngsdose.hprc import MAX_GAPPED
+try:
+    from ngsdose.estimate import MIN_CHROM_REGIONS
+except ImportError:          # an ngsdose from before the per-chromosome test
+    MIN_CHROM_REGIONS = 5
+PLACEHOLDER_GAP = getattr(_hprc, "PLACEHOLDER_GAP", 100)
 from .report import ASSETS, fmt
 from ngsdose.tables import num as num_
 
@@ -66,6 +75,42 @@ def ci(d: dict, nd=2) -> str:
     return f"{fmt(d['r'], nd)} ({fmt(d.get('r_lo'), nd)} to {fmt(d.get('r_hi'), nd)})"
 
 
+def cap1(x):
+    """A reliability as shown in the tables: capped at 1 (None stays None)."""
+    return None if x is None else min(x, 1.0)
+
+
+def dj_near(dj: dict) -> list[tuple[int, int]]:
+    """The distal junction's whole-copy steps, in order, with the genomes within 0.3 of each: every step
+    `report.dj_steps` counted, those with no genome left out except the main mode."""
+    near = dj.get("near") or {}
+    return sorted((int(k), int(v)) for k, v in near.items() if v or int(k) == 0)
+
+
+def step_name(k: int) -> str:
+    return "0" if k == 0 else ("+" if k > 0 else "−") + str(abs(k))
+
+
+def dj_pairs(dj: dict) -> str:
+    """'X of N' carrier-parent–child pairs transmitted, with the pairs neither hypothesis fits named as unclassified."""
+    n = dj.get("n_pairs", dj.get("transmitted", 0) + dj.get("not_transmitted", 0))
+    u = dj.get("unclassified") or 0
+    return f"{dj.get('transmitted', 0)} of {n}" + (f" ({u} unclassified)" if u else "")
+
+
+def not_tested(items: list[dict], what: str) -> str:
+    """One sentence naming the metrics a test could not be run on, and why."""
+    if not items:
+        return ""
+    by: dict[str, list[str]] = {}
+    for c in items:
+        by.setdefault(c.get("reason", "no variance"), []).append(esc(c.get("label") or c["column"]))
+    return (f"Not tested {what}: " + "; ".join(f"{', '.join(v)} ({k})" for k, v in by.items()) + ".")
+
+
+NUMBER_WORD = {0: "no", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine"}
+
+
 class Page:
     def __init__(self, data):
         self.d = data
@@ -96,7 +141,7 @@ class Page:
             self.n_fig += 1
             number = str(self.n_fig)
         m = self.d["meta"]
-        src = f'{esc(m["title"])} · {esc(m["as_of"])} · github.com/jlanej/NGS-DOSE'
+        src = f'{esc(m["title"])} · {esc(m["as_of"])} · github.com/jlanej/NGS-DOSE-1000G'
         self.h(f'<figure id="fig-{id_}"><div class="title">Figure {number}. {esc(title)}</div><div class="chart" id="chart-{id_}"></div>'
                f'<figcaption>{caption}<span class="src">{src}</span></figcaption></figure>')
 
@@ -127,9 +172,12 @@ def page(data: dict, rows: list[dict]) -> str:
     superpop_order = [s for s in SUPERPOPS if any(r.get("superpop") == s for r in rows)]
     a, X, Y, DJ, sx = kt["auto"], kt["chrX"], kt["chrY"], kt["DJ"], kt["sex"]
     dj = kt.get("DJ_steps") or {}
-    near = dj.get("near") or {}
-    nr = lambda k: near.get(k, near.get(str(k), 0))
-    n_off = nr(-2) + nr(-1) + nr(1) + nr(2)
+    steps_ = dj_near(dj)
+    n_off = sum(v for k, v in steps_ if k != 0)
+    # the steps as prose: '4 genomes at −2, 32 at −1, 1,030 at 0, 36 at +1 and 2 at +2' (strong: the carriers)
+    step_txt = lambda strong=True, zero=True: (lambda xs: ", ".join(xs[:-1]) + (" and " if len(xs) > 1 else "") + xs[-1] if xs else "none")(
+        [(f"<strong>{v:,}</strong>" if strong and k else f"{v:,}") + ((" genome" if v == 1 else " genomes") if i == 0 else "") + f" at {step_name(k)}"
+         for i, (k, v) in enumerate([(k, v) for k, v in steps_ if zero or k])])
     t45 = next((t for t in tr["table"] if t["column"] == "rDNA45S.cn"), None) or next((t for t in tr["table"] if t["column"].startswith("rDNA45S")), None)
     t5 = next((t for t in tr["table"] if t["column"] == "rDNA5S.cn"), None)
     have_ci = tr["n_complete"] >= 20
@@ -153,8 +201,42 @@ def page(data: dict, rows: list[dict]) -> str:
                            + (f", X {fmt(ngx[d['sample']], 2)} by NGS-PCA's coverage ratio" if math.isfinite(ngx.get(d["sample"], float("nan"))) else "") for d in xxy)
                + "), as a 47,XXY karyotype would; " + ("he is" if len(xxy) == 1 else "they are") + " left out of the men's mean and SD.") if xxy else ""
     eng = ", ".join(f"{esc(k)} ({v:,})" for k, v in sorted(m["engines"].items(), key=lambda kv: -kv[1]))
+    # Hall et al.'s offset. Their published chromosome-1 depths equal this cohort's duplicate-excluded control depth, although their
+    # Methods describe re-alignment from FASTQ without duplicate marking: an observation, not their stated method. The correction that
+    # matches it divides our ratio by the unflagged share of control reads. report.py may carry the check (chr1_depth_ratio); until
+    # then it is the one computed from their Supplementary Data 1 against the page of 2026-09-24 (954 genomes), stated as such.
+    h_flat, h_den = hall.get("flat_ratio"), hall.get("dup_denominator_ratio")
+    h_chr1 = (f"ratio {fmt(hall['chr1_depth_ratio'], 3)}, SD {fmt(hall.get('chr1_depth_ratio_sd'), 3)}, over {hall['n']:,} genomes"
+              if hall.get("chr1_depth_ratio") is not None else
+              "ratio 0.999, SD 0.010, over the 954 genomes shared on 2026-09-24, a check made outside this page")
+    h_share = (1 - abs(math.log(h_den)) / abs(math.log(h_flat))) if h_flat and h_den and h_flat != 1 else None
+    h_verdict = ("" if h_share is None else "; that correction accounts for "
+                 + ("most of the offset" if h_share >= 0.5 else "part of the offset" if h_share > 0 else "none of the offset"))
+    # the sinks behind the fetches, from the sinks files the counts record
+    sk = m.get("sinks") or {}
+    skb, skf = sk.get("bundle") or {}, sk.get("fetch") or []
+    and_list = lambda xs: ", ".join(xs[:-1]) + (" and " if len(xs) > 1 else "") + xs[-1] if xs else ""
+    mb = lambda bp: f"{bp / 1e6:.1f} Mb" if bp is not None else "–"
+    sink_txt = "; ".join(f"{f_['intervals']:,} intervals ({mb(f_['bp'])}) for {and_list(f_['classes'])} in {f_['n']:,} fetches (sinks SHA-256 {esc(f_['sha256'])}, {esc(f_['source'])})"
+                         if f_.get("source") else f"{f_['n']:,} fetches with sinks SHA-256 {esc(f_['sha256'])}, which is not the bundle's sinks file or a subset of it"
+                         for f_ in skf)
+    # the chromosomes with too few control regions for the per-chromosome test (chr22 in the GRCh38 bundle)
+    untestable = sorted({c.strip() for r in rows for c in (r.get("untestable_chromosomes") if isinstance(r.get("untestable_chromosomes"), (list, tuple))
+                                                           else str(r.get("untestable_chromosomes") or "").split(","))
+                         if c.strip() and c.strip() not in ("NA", "nan")}, key=lambda c: (len(c), c))
+    new_cls = sorted(set(skb.get("classes") or {}) - {c for f_ in skf for c in f_.get("classes", [])}) if skf else []
+    bundle_txt = (f"The bundle's sinks file now (SHA-256 {esc(skb.get('sha8'))}) has {skb['intervals']:,} intervals ({mb(skb['bp'])})"
+                  + (", adding " + and_list([f"{skb['classes'][c]['intervals']} intervals for {c}" for c in new_cls]) + " that no fetch here used" if new_cls else "")
+                  + ".") if skb.get("intervals") and any(f_.get("sha256") != skb.get("sha8") for f_ in skf) else ""
+    fpaths = (data.get("fetch_paths") or {}).get("rows") or []
+    unm = [r for r in fpaths if r.get("n_fetch")]
+    n_unmapped = max((r.get("unmapped_fetched") or 0 for r in unm), default=0)
 
     # ---------------------------------------------------------------- masthead
+    bad = m.get("unreadable") or []
+    left_out = (f" {len(bad):,} counts file{'s' if len(bad) != 1 else ''} left out (unreadable, or not estimable): "
+                + esc(", ".join(f"{str(b.get('counts', '?')).rsplit('/', 1)[-1]} ({b.get('mode', '?')})" for b in bad[:12]))
+                + (f" and {len(bad) - 12:,} more" if len(bad) > 12 else "") + "; <code>report.json</code> meta.unreadable says why.") if bad else ""
     P.h(f'''<header class="mast"><h1>{esc(m["title"])}</h1>
 <p class="sub">Ribosomal DNA copy number from short-read whole-genome sequencing: the method and its validation on the 1000 Genomes
 30× cohort, updated as the run proceeds.</p>
@@ -162,7 +244,8 @@ def page(data: dict, rows: list[dict]) -> str:
 &middot; {m["n_fetch"]:,} also fetched &middot; {tr["n_complete"]:,} of {tr["n_total"]:,} trios complete</div></div>
 <div class="progress"><div style="width:{100 * n / max(total, 1):.1f}%"></div></div>
 <div class="stamp">As of {esc(m["as_of"])}. Every number and figure on this page is recomputed from the counts files in this repository by
-<code>python -m report</code> in this repository, on ngsdose {esc(m["generator"].split()[-1])}; nothing is typed in. Partial results are published as they stand.</div></header>''')
+<code>python -m report</code> in this repository, on ngsdose {esc(m["generator"].split()[-1])}; the method's constants, and the few figures taken from a paper,
+the pipeline's notes or a test run outside this page, are fixed text and say where they come from. Partial results are published as they stand.{left_out}</div></header>''')
 
     # ---------------------------------------------------------------- summary
     P.section("summary", "Summary")
@@ -186,61 +269,71 @@ def page(data: dict, rows: list[dict]) -> str:
     if DJ.get("n"):
         t = f'The distal junction, present once on each acrocentric short arm, reads {pm(DJ)} (expected 10)'
         if dj.get("carriers") is not None and n_off:
-            tot = dj["transmitted"] + dj["not_transmitted"]
+            tot = dj.get("n_pairs", dj["transmitted"] + dj["not_transmitted"])
             t += (f'; departures from the cohort\'s level are whole copies ({n_off} carriers)'
-                  + (f', transmitted in {dj["transmitted"]} of {tot} carrier-parent–child pairs and de novo in {len(dj["de_novo"])}' if tot else ""))
+                  + (f', transmitted in {dj_pairs(dj)} carrier-parent–child pairs and de novo in {len(dj["de_novo"])}' if tot else ""))
         r_.append(t + ".")
     if md["n_both"]:
         r_.append(f'The targeted fetch returns {fmt(modes45.get("median"), 4)} of the whole-file scan\'s 45S estimate ({md["n_both"]:,} genomes; range {fmt(modes45.get("min"), 4)}–{fmt(modes45.get("max"), 4)}).')
     fc = data.get("fetch_check") or {}
     fR = {t["column"]: t for t in (fc.get("trios") or {}).get("table", [])}
-    if fc and t45 and "rDNA45S.cn" in fR and "R_lo" in fR["rDNA45S.cn"]:
-        r_.append(f'Run on the fetch counts alone, the cohort layer and the trio test give the same answer: 45S reliability {fmt(min(fR["rDNA45S.cn"]["R"], 1.0), 2)} ({fmt(fR["rDNA45S.cn"]["R_lo"], 2)}–{fmt(fR["rDNA45S.cn"]["R_hi"], 2)}) against {fmt(min(t45["R"], 1.0), 2)} from the scans.')
+    if fc and t45 and "rDNA45S.cn" in fR and fR["rDNA45S.cn"].get("R_lo") is not None:
+        f45 = fR["rDNA45S.cn"]
+        same = f45["R_lo"] <= t45["R"] <= f45["R_hi"]
+        r_.append(f'Run on the fetch counts alone, the cohort layer and the trio test {"give the same answer: " if same else "give "}45S reliability {fmt(cap1(f45["R"]), 2)} ({fmt(f45["R_lo"], 2)}–{fmt(f45["R_hi"], 2)}) against {fmt(cap1(t45["R"]), 2)} from the scans.')
     r_.append("</p><p>")
-    if t45 and have_ci:
+    if t45 and have_ci and t45.get("R_lo") is not None:
         neg = {t["column"]: t for t in tr["table"]}
-        negs = ", ".join(f"{lab} {fmt(neg[c]['R'], 2)}" for c, lab in (("truth.auto", "held-out autosomal sequence"), ("chrM.copies", "mitochondrial content")) if c in neg)
-        r_.append(f'In {t45["n_trios"]} trios the calibrated 45S estimate has a transmission reliability of {fmt(min(t45["R"], 1.0), 2)} ({fmt(t45["R_lo"], 2)}–{fmt(t45["R_hi"], 2)})'
-                  + (f'; traits that are not transmitted read near zero ({negs})' if negs else "") + ".")
+        nc = [(neg[c], lab) for c, lab in (("truth.auto", "held-out autosomal sequence"), ("chrM.copies", "mitochondrial content")) if c in neg]
+        negs = ", ".join(f"{lab} {fmt(t['R'], 2)}" for t, lab in nc)
+        zero = all(t.get("R_lo") is not None and t["R_lo"] <= 0 <= t["R_hi"] for t, _ in nc)
+        r_.append(f'In {t45["n_trios"]} trios the calibrated 45S estimate has a transmission reliability of {fmt(cap1(t45["R"]), 2)} ({fmt(t45["R_lo"], 2)}–{fmt(t45["R_hi"], 2)})'
+                  + (f'; traits that are not transmitted read {"near zero " if zero else ""}({negs})' if negs else "") + ".")
     if rc and rf:
         r_.append(f'In {rep["n"]} individuals sequenced on two technologies, the test–retest intraclass correlation is {fmt(rc["icc"], 2)} for NGS-DOSE\'s calibrated estimate '
                   f'and {fmt(rf["icc"], 2)} for the 18S depth ratio of published studies, computed from the same reads for comparison ({fmt(rfc["icc"], 2)} after removing its offset between technologies).')
     if gcb.get("flat_vs_gc", {}).get("n", 0) >= 10:
-        r_.append(f'Within one chemistry the published depth ratio follows each library\'s GC bias (r = {fmt(gcb["flat_vs_gc"]["r"], 2)}); under NGS-DOSE\'s fragment-GC model it does not (r = {fmt(gcb["modelled_vs_gc"]["r"], 2)}).')
+        fr_, mr_ = gcb["flat_vs_gc"]["r"], gcb["modelled_vs_gc"]["r"]
+        r_.append(f'Within one chemistry the published depth ratio follows each library\'s GC bias (r = {fmt(fr_, 2)}); under NGS-DOSE\'s fragment-GC model it '
+                  + ("does not" if abs(mr_) < 0.1 else "does much less" if abs(mr_) < abs(fr_) / 2 else "does too") + f' (r = {fmt(mr_, 2)}).')
     dd = data.get("ddpcr") or {}
     dd_ok = dd.get("n", 0) >= 3 and dd.get("ngsdose", {}).get("r") is not None
     if dd_ok:
         r_.append(f'Against ddPCR (Potapova et al. 2025) on {dd["n"]} lymphoblastoid lines, NGS-DOSE reads {fmt(dd["ngsdose"]["median_ratio"], 2)}× the assay (r = {fmt(dd["ngsdose"]["r"], 2)}); CONKORD, the authors\' k-mer estimate from their own reads, {fmt(dd["conkord"].get("median_ratio"), 2)}× (r = {fmt(dd["conkord"].get("r"), 2)}); the 18S depth ratio {fmt(dd["flat"].get("median_ratio"), 2)}× (r = {fmt(dd["flat"].get("r"), 2)}).')
     if hall.get("n", 0) >= 3:
-        r_.append(f'Against the published estimates of Hall et al. (2021) for the same files, r = {fmt(hall["flat"].get("r"), 3)} on {hall["n"]:,} shared samples; their exclusion of duplicate-flagged reads accounts for the offset.')
+        r_.append(f'Against the published estimates of Hall et al. (2021) for the same files, r = {fmt(hall["flat"].get("r"), 3)} on {hall["n"]:,} shared samples; their values are {fmt(h_flat, 3)}× ours'
+                  + (f', and {fmt(h_den, 3)}× once our denominator leaves out duplicate-flagged reads: their published chromosome-1 depths equal '
+                     f'our duplicate-excluded depth, so their denominator behaves as if duplicates were excluded{h_verdict}' if h_den else "") + ".")
     if qc_ok:
         r_.append(f'NGS-PCA\'s coverage-based mitochondrial copy number for the same files agrees with ours at r = {fmt(nq["mtdna"]["r"], 3)} (theirs {fmt(nq["mtdna"]["ratio"]["median"], 2)}× ours, the duplicate flag again), its chrX ratio at r = {fmt(nq["chrX"]["r"], 4)}.')
     if tracking:
-        r_.append(f'{len(tracking)} of {len(hpst)} satellite families track HPRC assemblies of {(sat.get("hprc") or {}).get("n_samples", 0)} of these individuals with r ≥ 0.95.')
+        r_.append(f'{len(tracking)} of {len(hpst)} satellite families {"tracks" if len(tracking) == 1 else "track"} HPRC assemblies of {(sat.get("hprc") or {}).get("n_samples", 0)} of these individuals with r ≥ 0.95.')
     s.append(" ".join(r_) + "</p>")
-    s.append("<p>What is not shown: the absolute scale of the rDNA rests on unit windows on which three Illumina chemistries agree, not on an assay; "
-             + ("5S transmission is undecided at this number of trios; " if t5 and have_ci and t5["R_lo"] < 0.5 else "")
-             + "every sample is a lymphoblastoid cell line sequenced with one chemistry and one pipeline.</p></div>")
+    s.append("<p>What is not shown: "
+             + (f'the absolute scale of the rDNA is checked against an assay in only {dd["n"]} lines (ddPCR, {fmt(dd["ngsdose"]["median_ratio"], 2)}×); beyond them it rests on unit windows on which three Illumina chemistries agree; '
+                if dd_ok else "the absolute scale of the rDNA rests on unit windows on which three Illumina chemistries agree, not on an assay; ")
+             + ("5S transmission is undecided at this number of trios; " if t5 and have_ci and t5.get("R_lo") is not None and t5["R_lo"] < 0.5 else "")
+             + "every genome of the cohort is from a lymphoblastoid cell line, sequenced with one chemistry and aligned by one pipeline, on which the targeted fetch's sinks were learned.</p></div>")
     P.h("".join(s))
     case = [("Known copy numbers, every genome", f'{fmt(a.get("mean"), 3)} ± {fmt(a.get("sd"), 3)}', f"held-out autosomal sequence, expected 2, n = {a.get('n', 0):,}", "#truth")]
     if women_ok:
         case.append(("Sex from the reads", f'{sx["n_inferred"] - len(sx["mismatch"]):,} of {sx["n_inferred"]:,}',
                      f"chrX {fmt(men1x.get('max', sx['chrX_men_max']), 2)} at most in men{one_x}, {fmt(sx['women_intact']['min'], 2)} at least in women", "#truth"))
     if dj.get("carriers") is not None:
-        tot = dj["transmitted"] + dj["not_transmitted"]
-        case.append(("A ten-copy paralog", f'{fmt(DJ.get("median"), 2)} ± {fmt(dj.get("spread"), 2)}', f"distal junction, median and robust SD; {n_off} people one or two copies off, steps transmitted {dj['transmitted']} of {tot}", "#djsteps"))
+        case.append(("A ten-copy paralog", f'{fmt(DJ.get("median"), 2)} ± {fmt(dj.get("spread"), 2)}', f"distal junction, median and robust SD; {n_off} {'person' if n_off == 1 else 'people'} off by whole copies, steps transmitted {dj_pairs(dj)}", "#djsteps"))
     if md["n_both"]:
         case.append(("Fetch = scan", fmt(modes45.get("median"), 4), f"45S, {md['n_both']:,} genomes both ways, range {fmt(modes45.get('min'), 4)}–{fmt(modes45.get('max'), 4)}", "#modes"))
     if rc and rf:
         case.append(("Two technologies", f'ICC {fmt(rc["icc"], 2)} vs {fmt(rf["icc"], 2)}', f"NGS-DOSE vs the published 18S depth ratio, {rep['n']} people sequenced twice", "#replicates"))
-    if t45 and "R_lo" in t45:
-        case.append(("Inherited", fmt(min(t45["R"], 1.0), 2), f"45S transmission reliability ({fmt(t45['R_lo'], 2)}–{fmt(t45['R_hi'], 2)}), {t45['n_trios']} trios", "#trios"))
+    if t45 and t45.get("R_lo") is not None:
+        case.append(("Inherited", fmt(cap1(t45["R"]), 2), f"45S transmission reliability ({fmt(t45['R_lo'], 2)}–{fmt(t45['R_hi'], 2)}), {t45['n_trios']} trios", "#trios"))
     if gcb.get("flat_vs_gc", {}).get("n"):
         case.append(("What the GC model removes", f'r {fmt(gcb["flat_vs_gc"].get("r"), 2)} → {fmt(gcb["modelled_vs_gc"].get("r"), 2)}', "how much the 18S estimate follows the library's GC bias: published depth ratio → NGS-DOSE's GC model", "#gcmodel"))
     if dd_ok:
         case.append(("Against ddPCR", f'{fmt(dd["ngsdose"]["median_ratio"], 2)}× (r {fmt(dd["ngsdose"]["r"], 2)})', f"Potapova et al. 2025, {dd['n']} cell lines; the 18S depth ratio {fmt(dd['flat'].get('median_ratio'), 2)}×", "#published"))
     if hall.get("n", 0) >= 3:
-        case.append(("Another pipeline, same files", f'r = {fmt(hall["flat"].get("r"), 3)}', f"Hall et al. 2021, {hall['n']:,} shared samples; offset explained by the duplicate flag", "#published"))
+        case.append(("Another pipeline, same files", f'r = {fmt(hall["flat"].get("r"), 3)}', f"Hall et al. 2021, {hall['n']:,} shared samples; offset {fmt(h_flat, 3)}×"
+                     + (f", {fmt(h_den, 3)}× with duplicates out of our denominator, whose depth their chr1 values equal" if h_den else ""), "#published"))
     if qc_ok:
         case.append(("Coverage QC, same files", f'r = {fmt(nq["mtdna"]["r"], 3)}', f"mitochondrial copies per cell vs NGS-PCA (mosdepth), {nq['n']:,} genomes; chrX r = {fmt(nq['chrX']['r'], 4)}", "#published"))
     if tracking:
@@ -295,8 +388,8 @@ estimate and a trait has p ≈ {p01 / 10 ** e10:.0f} × 10<sup>{str(e10).replace
 the person, becomes a finding wherever the library also tracks the trait. Standard analysis does not give the number, and read-depth ratios,
 long reads and laboratory assays each fall short on scale or on the library (below). What is needed is a measurement that finds every rDNA
 read wherever the aligner put it (<a href="#modes">3.3</a>), predicts each library's count of GC-rich sequence from single-copy sequence in the same genome (<a href="#gcmodel">3.5</a>), holds its scale
-across chemistries (<a href="#replicates">3.4</a>), does not depend on the duplicate flag (<a href="#published">3.7</a>), reads a small part of
-each file (<a href="#modes">3.3</a>), and shows in every genome that it reads known copy numbers correctly (<a href="#truth">3.1</a>,
+across chemistries (<a href="#replicates">3.4</a>), does not depend on the duplicate flag (<a href="#published">3.7</a>), can read a small part of
+each file once the places a pipeline puts the reads have been learned from whole-file scans of some of its files (<a href="#modes">3.3</a>), and shows in every genome that it reads known copy numbers correctly (<a href="#truth">3.1</a>,
 <a href="#djsteps">3.2</a>). NGS-DOSE is one way to meet these, and the tests on this page apply to any other. The 18S depth ratio of
 published studies is not NGS-DOSE's estimate: it is computed from the same reads and carried beside it throughout as the comparator{better}.</p>
 <dl class="methods">
@@ -316,12 +409,13 @@ each array in fifteen genomes ({doi("Potapova et al., <em>Cell Genomics</em> 202
 <dt>Molecular assays</dt><dd>Droplet digital PCR is precise (CHM13: 409 ± 9 copies; Nurk et al. 2022) and pulsed-field gels size single
 arrays (Stults et al. 2008), but each needs the DNA and a laboratory assay per person: in a biobank, every participant's stored DNA.</dd>
 </dl>
-<p class="small">The case is strongest for the rDNA. Long-read assemblies close most satellite arrays and are their truth here (<a href="#assemblies">3.8</a>),
+<p class="small">The case is strongest for the rDNA. Long-read assemblies span most satellite arrays and, short of the gaps they mark, are their truth here (<a href="#assemblies">3.8</a>),
 so for the satellites it is one of scale alone; telomeric content already has short-read estimators
 ({doi("Ding et al., <em>Nucleic Acids Res</em> 2014", "10.1093/nar/gku181")}), and the class measured here is a relative one.</p>""")
     P.h('''<h3>How the measurement is judged</h3>
 <p>Whether the measurement is correct cannot be settled by comparison with an assay, because none exists for these samples. It can be
-settled by comparison with what is known: (i) sequence of known copy number in every sample, measured by the same code;
+settled by comparison with what is known: (i) sequence of known copy number in every sample, measured under the same fragment-GC model
+(single-copy regions by their alignment position, the distal junction by the same k-mer path as the rDNA);
 (ii) Mendelian transmission in the cohort's ''' + f"{tr['n_total']:,}" + ''' trios; (iii) the same individuals sequenced on different technologies;
 (iv) an independent estimate from the same files; (v) long-read assemblies, for the satellite arrays measured by the same k-mer method.
 Each comparison excludes a different failure. The results are presented in that order.</p>''')
@@ -337,13 +431,29 @@ Genome Center to about 30× (Illumina NovaSeq, 2×150 bp, PCR-free) and aligned 
 <dt>Class assignment</dt><dd>Every 31-mer of every read is tested against a panel of class-diagnostic k-mers: k-mers of the class's unit
 sequence (45S, KY962518.1; 5S, X12811.1; distal junction, 400 kb of CHM13 chr21) that occur nowhere in GRCh38 or T2T-CHM13 outside the
 class's own loci. A read with at least four panel k-mers is assigned to the class and placed on the unit by its hits; its alignment position
-is not used. Experimental panels built from the CHM13 CenSat annotation add ten satellite families and the telomeric repeat.</dd>
+is not used. Experimental panels built from the CHM13 CenSat annotation add ten satellite families and the telomeric repeat. Their k-mers occur
+at least ten times in the family's CHM13 arrays, in no other family, and nowhere in CHM13 outside CenSat-annotated satellite (GRCh38 is not
+used as background); the six TTAGGG 31-mers of the telomeric repeat are not filtered. A read with at least four hits goes to the family with
+the most, unless the runner-up has more than a fifth as many, in which case it is left unassigned.</dd>
 <dt>Counting</dt><dd>Fragment 5′ ends are counted: per 50-bp bin and strand of the unit for class reads, and per position in 800 single-copy
-control regions (10.1 Mb) for the library model. <em>Scan</em> mode reads the whole CRAM; <em>fetch</em> mode retrieves only the control
-regions and 80 sink intervals (3.3 Mb) where the NYGC pipeline places class reads, learned from whole-file scans of two genomes.</dd>
+control regions (10.1 Mb) for the library model. <em>Scan</em> mode reads the whole CRAM, the reads that align nowhere included. <em>Fetch</em>
+mode retrieves only the control, known-truth and dosage regions (each padded by 600 bp) and the sink intervals where the aligner places class
+reads, learned from whole-file scans of NYGC alignments{(": " + sink_txt) if sink_txt else ""}. {bundle_txt}
+{(("No fetch here read" if not n_unmapped else f"{n_unmapped:,} of the fetches here read") + " the reads that align nowhere, which a fetch reaches only when asked to (<code>ngs-dose count --unmapped</code>).") if unm else ""}</dd>
 <dt>Library model</dt><dd>A Poisson spline of fragment-end density on fragment GC content is fitted per sample on the control regions. The
-expected count of any sequence follows from its fragment-GC composition; the copy number of each 250-bp window of a unit is
-2 × observed / expected (<a href="#fig-m_gc">figure</a>).</dd>
+denominator is then made robust. A control region is dropped when its log observed/expected ratio departs from the sample's median by more
+than 0.30 (about +35% or −26%; a CNV) and by more than five standard errors, with the Poisson errors inflated for overdispersion. Each
+chromosome is tested on its own control regions, trimmed of outliers against its own median (so a full trisomy or monosomy stays testable).
+It is dropped when its pooled ratio departs from the genome level, taken without the chromosomes already flagged, by more than 4% and five
+standard errors (aneuploidy of the cell line, or a large arm-level gain, reported as <code>flagged_chromosomes</code> and flagged "aneuploid").
+A chromosome with fewer than {MIN_CHROM_REGIONS} regions{f" ({and_list(untestable)})" if untestable else ""} is reported as untestable
+(<code>untestable_chromosomes</code>). The curve is then
+rescaled by the relative change in pooled observed/expected, exactly 1 when nothing is dropped, and the rescaled curve serves every class,
+the truth and dosage regions and the 18S depth ratio's control rate. The expected count of any sequence follows from its fragment-GC
+composition; the copy number of each 250-bp window of a unit is 2 × observed / expected, both summed only over 50-bp bins (per strand) in
+which a read starting at every position would carry at least 20 panel k-mers (a read is assigned to the class with four) and whose fragment
+GC lies within the fitted curve's support. A window less than half of whose bin-strands pass gets no copy number. The 18S depth ratio counts
+fragment ends and positions over the same passing bins, using those that lie wholly inside the 18S gene (<a href="#fig-m_gc">figure</a>).</dd>
 <dt>Calibration</dt><dd>Windows of the 45S unit drop out beyond what the GC curve predicts, by amounts that depend on the sequencing
 chemistry. Per-window efficiencies are learned across the cohort by median polish; the absolute scale is set by anchor windows on which
 three Illumina chemistries agreed in the pilot. Beside it the page carries NGS-DOSE's single-sample variant, from the anchor windows
@@ -356,11 +466,14 @@ is exp(c<sub>i</sub>), so every window contributes precision and the anchors set
 (<code>rDNA45S.cn_single</code>): 2 × observed / expected fragment ends summed over the anchor windows alone, under the sample's own
 fragment-GC model, with no information from any other sample. <em>45S, 18S depth ratio (published)</em> (<code>rDNA45S.18S.flat</code>): 2 × fragment
 ends in the 18S gene / (positions × the control regions' mean rate), with no GC model and no calibration: the read-depth ratio of published
-studies, computed from the same reads as the comparator (<a href="#fig-m_est">figure</a>). The 5S and distal-junction estimates are calibrated the same way as the 45S; the satellite masses are diploid megabases from the
-class's read count under the GC model.</dd>
+studies, computed from the same reads as the comparator (<a href="#fig-m_est">figure</a>). The 5S and distal-junction estimates use the same median polish.
+Neither has chemistry-validated anchors: the distal junction's scale is pinned on its windows of 40–60% fragment GC, and the 5S unit (64–69% GC
+throughout) has none, so its scale rests on the fragment-GC model alone, over all nine windows. The satellite masses are diploid megabases from the
+class's read count under a second GC curve, fitted on the control regions at read length, each read binned by its own GC.</dd>
 <dt>Known-truth controls</dt><dd>80 held-out autosomal regions (two copies), 60 chrX regions (one in men, two in women) and 40 X-degenerate
 chrY regions (one, none), measured by the alignment-position path; and the distal junction, present once on each of the ten acrocentric
-short arms, measured by the k-mer path with its class restricted to k-mers that occur exactly once in each of the five CHM13 junctions.
+short arms, measured by the k-mer path with its class restricted to k-mers that occur five times in CHM13, all inside the five distal
+junctions (once in chr21's).
 Mitochondrial genomes and EBV episomes per cell are measured as covariates of the culture.</dd>
 <dt>Transmission</dt><dd>For each metric, values on the natural scale with the population mean subtracted; then, over the complete trios,
 the Pearson correlations of child with father, mother and midparent, the spousal (father–mother) correlation ρ, and the least-squares slope b
@@ -368,15 +481,25 @@ of child on midparent. Reliability R = b − ρ(1 − b) estimates the share of 
 (σ²<sub>T</sub> + σ²<sub>e</sub>)): 1 for a perfectly measured heritable trait, 0 for pure error. 95% intervals by family bootstrap at 20
 trios or more; a one-sided p-value for the slope from 1,000 permutations of children among families; paired bootstrap for differences
 between estimators. Held-out autosomal sequence (no true variance) and mitochondrial and EBV content (not in the nuclear genome) are the
-negative controls.</dd>
+negative controls. Because nearly every child was sequenced in a later release batch than its parents, R is also given with each child's
+value first put on the parents' spread: s = SD of the children / SD of the fathers and mothers pooled, and R<sub>rescaled</sub> =
+(b/s)(1 + ρ) − ρ. A batch that reads the children on a different scale does not move this value; a larger spread from new variation in the
+children lowers it instead. By the sex of parent and child: values are centred within population and sex; for each of father–son,
+father–daughter, mother–son and mother–daughter, the slope of child on parent and the Pearson r. The father–son against father–daughter
+contrast is taken on Fisher's z. Whether the four correlations differ at all is tested by Cochran's Q on Fisher's z (each pairing weighted by
+its number of pairs less 3), referred to 1,000 shuffles of the children's sexes among families with each family's parents swapping roles at
+random. A metric whose parents do not vary has no slope and is listed as not tested.</dd>
 <dt>Technical structure</dt><dd>Principal components of the control regions' residual depth after the GC model. The number retained is
 chosen at the Marchenko–Pastur edge of the noise bulk and checked by a cross-validated sweep against the known truths and the trios.
 NGS-PCA's genome-wide coverage PCs are applied where available.</dd>
 <dt>External comparisons</dt><dd>The pilot's twelve genomes have an independent older library of the same cell line (HGSVC, HiSeq 2500
-2×126, 2015; Illumina Platinum, HiSeq 2000 2×100, 2012–13), compared with anchor windows chosen with the family held out. Hall, Turner
-&amp; Queitsch (<em>Sci Rep</em> 2021) published 18S copy number for 2,419 of these CRAMs as read depth relative to chromosome 1 with
-duplicate-flagged reads excluded. HPRC release-2 assemblies of cohort samples give the size of every satellite array (CenSat annotation,
-both haplotypes); a class is compared only where arrays containing gaps are immaterial. NGS-PCA's per-sample QC for the same cohort
+2×126, 2015; Illumina Platinum, HiSeq 2000 2×101, 2012–13), compared with anchor windows chosen with the family held out. Hall, Turner
+&amp; Queitsch (<em>Sci Rep</em> 2021) published 18S copy number for 2,419 of these CRAMs: mean samtools depth over a 145-bp segment of the
+18S (U13369.1:3841–3985), after re-aligning each sample's reads from FASTQ to the rDNA unit and chromosome 1, divided by their chromosome-1
+depth. HPRC release-2 assemblies of cohort samples give the size of every satellite array (CenSat annotation,
+both haplotypes); a person is left out of a family's comparison when the gaps the annotation marks in or next to its arrays amount to
+more than {fmt(MAX_GAPPED, 0, pct=True)} of it, while {PLACEHOLDER_GAP}-bp placeholder gaps of unknown size are counted but leave no one out
+(<a href="#assemblies">3.8</a>). NGS-PCA's per-sample QC for the same cohort
 (mosdepth, 1-kb bins, duplicate-flagged reads excluded) gives mitochondrial copies per cell, the X and Y coverage ratios and the autosomal
 depth by a coverage route.</dd>
 <dt>Provenance</dt><dd>Engine builds: {eng}. Resource bundle {esc(m.get("bundle"))}; panel {", ".join(esc(x) for x in m["panel_sha"]) or "–"},
@@ -447,7 +570,8 @@ controls {", ".join(esc(x) for x in m["controls_sha"]) or "–"}{(", sinks " + "
              ("Insert size", fmt(qc["insert"].get("median"), 0) + " bp", "median of medians"),
              ("Duplicate-flagged", fmt(qc["dup"].get("median"), 1, pct=True), "of control reads, median"),
              ("Scan time", fmt(qc["elapsed"].get("median") / 60 if qc["elapsed"].get("n") else None, 1) + " min", "per genome, median" if qc["elapsed"].get("n") else "no scans yet"),
-             ("Fetch time", fmt(qc["elapsed_fetch"].get("median") / 60 if qc["elapsed_fetch"].get("n") else None, 1) + " min", "per genome, median" if qc["elapsed_fetch"].get("n") else "no fetches yet")])
+             ("Fetch time", fmt(qc["elapsed_fetch"].get("median") / 60 if qc["elapsed_fetch"].get("n") else None, 1) + " min",
+              "per genome, median, from a staged local copy" if qc["elapsed_fetch"].get("n") else "no fetches yet")])
     if m.get("by_superpop"):
         sp = m["by_superpop"]
         cats = [c for c in SUPERPOPS if c in sp]
@@ -457,7 +581,7 @@ controls {", ".join(esc(x) for x in m["controls_sha"]) or "–"}{(", sinks " + "
                 f"is the genomes counted so far, the pale track all of them. {n:,} of {total:,} genomes counted; {tr['n_complete']:,} of {tr['n_total']:,} "
                 f"trios complete.")
     if data["flags"]:
-        P.h(f'<p class="small">{len(data["flags"])} sample(s) carry a flag (aneuploid chromosome, sex mismatch, mosaic loss of an X or Y, a distal-junction step, low depth, another engine build); they are marked in the <a href="#samples">sample table</a> and listed in <code>data/flags.tsv</code>. A flag marks something to examine, not a verdict.</p>')
+        P.h(f'<p class="small">{len(data["flags"])} sample(s) carry a flag (aneuploid chromosome, held-out autosomal sequence more than 0.06 copies off 2, sex mismatch, mosaic loss of an X or Y, two X chromosomes with a Y, a distal-junction step, low depth, a poorly determined GC curve, a truncated input, another engine build); they are marked in the <a href="#samples">sample table</a> and listed in <code>data/flags.tsv</code>. A flag marks something to examine, not a verdict.</p>')
     P.end()
 
     # ---------------------------------------------------------------- 3.1 known truth
@@ -469,7 +593,14 @@ chrX reads <strong>{pm(men1x)}</strong> in {men1x.get("n", 0):,} men{one_x}'''
 chrY reads <strong>{pm(sx["men_intact_Y"])}</strong> in men with an intact Y and {fmt(Y["F"].get("mean"), 4)} in women (maximum {fmt(Y["F"].get("max"), 4)}); {sx["n_mosaic_Y"]} men read below 0.85.{xxy_txt}''' if women_ok
            else f''' and {pm(X["F"])} in {X["F"].get("n", 0):,} women; chrY {pm(Y["M"])} in men and {pm(Y["F"], 4)} in women.''')
         + f''' The distal junction reads <strong>{pm(DJ)}</strong>{" (cohort-calibrated)" if kt["DJ_col"] == "DJ.cn" else ""}.'''
-        + (" Women read the X and every genome reads the distal junction a few percent below expectation; both are late-replicating sequence, which DNA from a growing culture under-represents (section 4)." if X["F"].get("median", 2) < 1.98 else "") + "</p>")
+        + ((" Women read the X, and the distal junction reads, a few percent below expectation on average"
+            + (f" (median {fmt(DJ['median'], 2)} against 10 for the junction)" if DJ.get("median") is not None else "")
+            + ". Both are late-replicating sequence"
+            + (f", but in women the two deficits show no detectable correlation (r = {ci(bio['DJ_vs_chrX_female'])}, section 4), which weakens a shared S-phase explanation without ruling out a small one: the junction's inherited spread between people could hide it."
+               if (bio.get("DJ_vs_chrX_female") or {}).get("n", 0) >= 3 and bio["DJ_vs_chrX_female"].get("r_lo") is not None
+               and bio["DJ_vs_chrX_female"]["r_lo"] <= 0 <= bio["DJ_vs_chrX_female"]["r_hi"] else
+               f"; in women the two deficits correlate at r = {ci(bio['DJ_vs_chrX_female'])} (section 4)." if (bio.get("DJ_vs_chrX_female") or {}).get("n", 0) >= 3 else "."))
+           if X["F"].get("median", 2) < 1.98 and DJ.get("median", 10) < 10 else "") + "</p>")
     P.h('<div class="grid2">')
     cohort_ = "genomes of the 1000 Genomes 30× cohort"
     P.chart("auto", dict(type="hist", col="truth.auto", xlabel="copies", ref=[dict(x=2, label="expected 2")], xfmt=3), "Known copy number: held-out autosomal sequence (expected 2)",
@@ -487,7 +618,7 @@ chrY reads <strong>{pm(sx["men_intact_Y"])}</strong> in men with an intact Y and
                f"of their cell line." if women_ok else f"Men {pm(Y['M'])}; women {pm(Y['F'], 4)}."))
     P.chart("dj", dict(type="hist", col=kt["DJ_col"], xlabel="copies", ref=[dict(x=10, label="expected 10")], xfmt=2), "Known copy number: the distal junction (expected 10)",
             f"A 400-kb sequence present once on each of the ten acrocentric short arms, beside the rDNA arrays, measured by the same k-mer path as "
-            f"the rDNA{' and calibrated the same way' if kt['DJ_col'] == 'DJ.cn' else ''}, in each of {DJ.get('n', 0):,} {cohort_}. Bars count genomes; "
+            f"the rDNA{' and calibrated by the same median polish' if kt['DJ_col'] == 'DJ.cn' else ''}, in each of {DJ.get('n', 0):,} {cohort_}. Bars count genomes; "
             f"the line marks 10. Mean ± SD {pm(DJ)}; genomes a whole copy away carry a structural variant of a short arm (section 3.2).")
     P.h("</div>")
     _byrow = {r["sample"]: r for r in rows}
@@ -508,15 +639,15 @@ chrY reads <strong>{pm(sx["men_intact_Y"])}</strong> in men with an intact Y and
         P.h(f'''<p>Ten distal junctions is the norm; a rearranged acrocentric short arm leaves nine, and a Robertsonian translocation, which fuses two
 acrocentrics and loses both short arms, leaves eight. Copy number relative to the cohort's level ({fmt(dj["median"], 2)}) should therefore sit
 near a whole number, and a step, being a structural variant, should be transmitted to half of a carrier's children and arise de novo in almost
-none. Within ±0.3 of a step: <strong>{nr(-2)}</strong> genomes at −2, <strong>{nr(-1)}</strong> at −1, {nr(0):,} at 0, <strong>{nr(1)}</strong> at +1;
+none. Within ±0.3 of a step: {step_txt()};
 the main mode has a robust SD of {fmt(dj["spread"], 2)} copies and {dj["between"]} genomes sit between steps.</p>''')
-        tot_ = dj.get("transmitted", 0) + dj.get("not_transmitted", 0)
-        P.chart("djstep", dict(type="hist", col="DJ.step", xlabel="distal-junction copies relative to the cohort's level", ref=[dict(x=k, label=str(k)) for k in (-2, -1, 0, 1)], xfmt=1, bins=40),
+        tot_ = dj.get("n_pairs", dj.get("transmitted", 0) + dj.get("not_transmitted", 0))
+        P.chart("djstep", dict(type="hist", col="DJ.step", xlabel="distal-junction copies relative to the cohort's level", ref=[dict(x=k, label=str(k)) for k, _ in steps_], xfmt=1, bins=40),
                 "The distal junction changes in whole copies",
                 f"Distal-junction copy number in each of {DJ.get('n', 0):,} genomes of the 1000 Genomes 30× cohort, relative to the cohort's level "
                 f"({fmt(dj['median'], 2)} copies); lines at whole copies. A rearranged acrocentric short arm leaves one copy fewer, a Robertsonian "
-                f"translocation two. Within ±0.3 of a step: {nr(-2)} genomes at −2, {nr(-1)} at −1, {nr(1)} at +1"
-                + (f"; where a carrier parent and a child were both counted, the step was passed on in {dj['transmitted']} of {tot_}." if tot_ else "."))
+                f"translocation two. Within ±0.3 of a step: {step_txt(strong=False, zero=False)}"
+                + (f"; where a carrier parent and a child were both counted, the step was passed on in {dj_pairs(dj)}." if tot_ else "."))
         if dj["carriers"]:
             rows_c = []
             for c in dj["carriers"]:
@@ -529,12 +660,15 @@ the main mode has a robust SD of {fmt(dj["spread"], 2)} copies and {dj["between"
                 P.h("<p>A lost short arm takes its satellite arrays with it. Satellite families of the acrocentric short arms in the two-copy carriers, as a fraction of the cohort's median; the pan-centromeric α-satellite (aSatHOR), which every chromosome carries, is the control:</p>")
                 P.table([[c["sample"], f"{c['step']:+.2f}"] + [fmt(c["arm_content"].get(cls), 2) for cls in arm] for c in two]
                         + [["cohort SD", ""] + [fmt(dj["arm_ref"][cls]["sd_rel"], 2) for cls in arm]], ["sample", "DJ step"] + arm, numeric=set(range(1, len(arm) + 2)))
-            tot = dj["transmitted"] + dj["not_transmitted"]
             step_of = {c["sample"]: c["step"] for c in dj["carriers"]}
-            P.h(f'''<p>Where a carrier parent and a child were both counted, the step was transmitted in <strong>{dj["transmitted"]} of {tot}</strong>
-(the expectation for a heterozygous variant is one half){"; " + ", ".join(esc(x) + (f" ({step_of[x]:+.2f} copies)" if x in step_of else "") for x in dj["de_novo"]) + " carr" + ("ies" if len(dj["de_novo"]) == 1 else "y") + " a step that neither counted parent has: a new structural variant, or a change in part of the cell line" if dj["de_novo"] else "; no child carries a step that neither parent has"}.
-The distal junction is measured by the same k-mer path as the rDNA. A change of one copy in ten, seen in a parent and again in the child,
-shows that the path resolves multi-copy acrocentric sequence to a single copy.</p>''')
+            unc = dj.get("unclassified_pairs") or []
+            unc_txt = (" A pair is counted as transmitted when the child's step is nearer the parent's than zero and within half a copy of it, as not "
+                       "transmitted when it is nearer zero and within half a copy of zero; "
+                       + ("; ".join(f"{esc(u['parent'])} ({u['parent_step']:+.2f}) and {esc(u['child'])} ({u['child_step']:+.2f})" for u in unc)
+                          + (" fits" if len(unc) == 1 else " fit") + " neither and " + ("is" if len(unc) == 1 else "are") + " left unclassified.")) if unc else ""
+            P.h(f'''<p>Where a carrier parent and a child were both counted, the step was transmitted in <strong>{dj_pairs(dj)}</strong>
+(the expectation for a heterozygous variant is one half){"; " + ", ".join(esc(x) + (f" ({step_of[x]:+.2f} copies)" if x in step_of else "") for x in dj["de_novo"]) + " carr" + ("ies" if len(dj["de_novo"]) == 1 else "y") + " a step that neither counted parent has: a new structural variant, or a change in part of the cell line" if dj["de_novo"] else "; no child carries a step that neither parent has"}.{unc_txt}
+The distal junction is measured by the same k-mer path as the rDNA.{" A change of one copy in ten, seen in a parent and again in the child, shows that the path resolves multi-copy acrocentric sequence to a single copy." if dj["transmitted"] else ""}</p>''')
     else:
         P.h("<p>Appears once the distal junction has been measured.</p>")
     P.end()
@@ -542,33 +676,42 @@ shows that the path resolves multi-copy acrocentric sequence to a single copy.</
     # ---------------------------------------------------------------- 3.3 modes
     P.section("modes", "3.3 The targeted fetch against the whole-file scan", "Fetch vs scan")
     if md["n_both"]:
-        P.h(f'''<p>Fetch mode reads about 0.5 GB of a 15-GB CRAM. For the {md["n_both"]:,} genomes counted both ways it returns
-<strong>{fmt(modes45.get("median"), 4)}</strong> of the scan's 45S estimate (range {fmt(modes45.get("min"), 4)}–{fmt(modes45.get("max"), 4)}). The
+        ef = qc["elapsed_fetch"]
+        rs = md.get("records_share") or {}
+        whole = modes45.get("n") and modes45["min"] >= 0.99 and modes45["max"] <= 1.01
+        P.h(f'''<p>For the {md["n_both"]:,} genomes counted both ways the targeted fetch returns
+<strong>{fmt(modes45.get("median"), 4)}</strong> of the scan's 45S estimate (range {fmt(modes45.get("min"), 4)}–{fmt(modes45.get("max"), 4)}).
+{f'It decodes a median {fmt(rs["median"], 2, pct=True)} of the records the scan reads ({fmt(rs["min"], 2, pct=True)}–{fmt(rs["max"], 2, pct=True)}). ' if rs.get("n") else ""}The
+fetches here read a staged local copy of each CRAM{f", in a median {fmt(ef['median'], 1)} s" if ef.get("n") else ""}; by the pipeline's estimate
+(<code>pipeline/README.md</code>), not measured here, a fetch from the public bucket transfers about 0.5 GB of a 15-GB CRAM in about a minute. The
 known-truth and dosage columns are made from the same reads in both modes and agree exactly; the classes differ by what the sinks miss.</p>''')
         P.table([[d["label"], d["n"], fmt(d["median"], 4), fmt(d["min"], 4), fmt(d["max"], 4), fmt(d.get("sd_log", 0), 5)] for col, d in md["columns"].items() if d.get("n")],
                 ["estimate", "n", "median fetch / scan", "min", "max", "SD of log ratio"], numeric={1, 2, 3, 4, 5})
         P.chart("fetch45", dict(type="hist", col="fetch_ratio.rDNA45S", xlabel="fetch / scan, 45S copies", ref=[dict(x=1, label="1")], xfmt=4),
-                "One minute of the file gives the whole-file answer: 45S, targeted fetch against whole-file scan",
+                ("A small part of the file gives the whole-file answer: " if whole else "") + "45S, targeted fetch against whole-file scan",
                 f"For each of {md['n_both']:,} genomes of the 1000 Genomes 30× cohort counted both ways from the same CRAM: the 45S estimate from the "
-                f"targeted fetch (the control regions and the intervals where the aligner places rDNA reads, about 0.5 GB of a 15-GB file) divided by "
-                f"the estimate from reading the whole file. Bars count genomes; the line marks 1. Median {fmt(modes45.get('median'), 4)}, range "
+                f"targeted fetch (the control, known-truth and dosage regions and the intervals where the aligner places rDNA reads"
+                + (f"; a median {fmt(rs['median'], 2, pct=True)} of the file's records" if rs.get("n") else "")
+                + f") divided by the estimate from reading the whole file. Bars count genomes; the line marks 1. Median {fmt(modes45.get('median'), 4)}, range "
                 f"{fmt(modes45.get('min'), 4)}–{fmt(modes45.get('max'), 4)}.")
     else:
         P.h("<p>No genome has been counted in both modes yet; this section fills in when the per-sample jobs, which do both, land.</p>")
     if fc and fc.get("agreement"):
         S_ = {t["column"]: t for t in tr["table"]}
         cls_rows = [(col, d) for col, d in fc["agreement"].items() if not d.get("identical")]
+        rci = lambda t: fmt(cap1(t["R"]), 2) + (f' ({fmt(t["R_lo"], 2)}–{fmt(t["R_hi"], 2)})' if t.get("R_lo") is not None else "")
         P.h(f"""<h3>Does the fetch carry the same information?</h3>
 <p>The cohort layer (window calibration, control-region PCs) and the trio test were run a second time on the fetch counts of the
 {fc["n"]:,} genomes alone, without reference to the scans. Columns made from the same reads in both modes (the known truths, the
 dosage regions, the library's properties) come out identical and are not listed; the classes differ by what the sinks miss and by a
 calibration learned twice.</p>""")
         P.table([[d["label"], d["n"], f'{fmt(d["ratio_median"], 4)} ({fmt(d["q10"], 4)}–{fmt(d["q90"], 4)})', fmt(d.get("r"), 4),
-                  (fmt(min(S_[col]["R"], 1.0), 2) + (f' ({fmt(S_[col]["R_lo"], 2)}–{fmt(S_[col]["R_hi"], 2)})' if "R_lo" in S_[col] else "")) if col in S_ else "–",
-                  (fmt(min(fR[col]["R"], 1.0), 2) + (f' ({fmt(fR[col]["R_lo"], 2)}–{fmt(fR[col]["R_hi"], 2)})' if "R_lo" in fR[col] else "")) if col in fR else "–"]
+                  rci(S_[col]) if col in S_ else "–", rci(fR[col]) if col in fR else "–"]
                  for col, d in cls_rows],
                 ["metric", "genomes", "fetch / scan, median (10–90%)", "r across genomes", "reliability from scan (95% CI)", "reliability from fetch (95% CI)"], numeric={1, 2, 3, 4, 5})
-        P.h('<p class="small">The full comparison, every column: <code>data/fetch_check.tsv</code>.</p>')
+        nt = " ".join(x for x in (not_tested(fc.get("constant") or [], "for agreement"),
+                                  not_tested((fc.get("trios") or {}).get("constant") or [], "for transmission in the fetch counts")) if x)
+        P.h(f'<p class="small">{nt + " " if nt else ""}The full comparison, every column: <code>data/fetch_check.tsv</code>.</p>')
         # every genome's estimate both ways, one figure per fetchable class
         what = {"rDNA45S.cn": ("45S rDNA copy number", "copies", "45S rDNA"), "rDNA5S.cn": ("5S rDNA copy number", "copies", "5S rDNA"),
                 "DJ.cn": ("Distal-junction copy number", "copies", "distal-junction"), "TEL.mass_Mb": ("Telomeric-repeat mass", "Mb", "telomeric")}
@@ -577,19 +720,59 @@ calibration learned twice.</p>""")
             P.h('<div class="grid2">')
             for col, pts in fpts.items():
                 d, (name, unit, reads) = fc["agreement"][col], what[col]
-                rel = (f"; reliability in {S_[col]['n_trios']} trios {fmt(min(S_[col]['R'], 1.0), 2)} from the scan and {fmt(min(fR[col]['R'], 1.0), 2)} from the fetch"
-                       + (" (capped at 1)" if max(S_[col]["R"], fR[col]["R"]) > 1 else "") if col in S_ and col in fR else "")
+                rel = (f"; reliability in {S_[col]['n_trios']} trios {fmt(cap1(S_[col]['R']), 2)} from the scan and {fmt(cap1(fR[col]['R']), 2)} from the fetch"
+                       + (" (capped at 1)" if max(S_[col]["R"] or 0, fR[col]["R"] or 0) > 1 else "") if col in S_ and col in fR else "")
                 r_txt = "r > 0.99999" if d.get("r", 0) >= 0.999995 else f"r = {fmt(d.get('r'), 5)}"
                 P.chart(f"fs_{col.split('.')[0]}", dict(type="scatter", points=[dict(x=x, y=y, label=s) for s, x, y in pts], xlabel=f"whole-file scan, {unit}",
                                                         ylabel=f"targeted fetch, {unit}", identity=True),
                         f"{name}, NGS-DOSE: targeted fetch against whole-file scan, per genome",
                         f"Each dot is one of {d['n']:,} genomes of the 1000 Genomes 30× cohort, counted twice from the same CRAM: by reading the whole "
-                        f"file (x) and by the targeted fetch (y), which reads only the control regions and the intervals where the aligner places "
-                        f"{reads} reads, about 0.5 GB of a 15-GB file. The whole NGS-DOSE pipeline was run separately on each set of counts. Diagonal: "
+                        f"file (x) and by the targeted fetch (y), which reads only the control, known-truth and dosage regions and the intervals where the "
+                        f"aligner places {reads} reads. The whole NGS-DOSE pipeline was run separately on each set of counts. Diagonal: "
                         f"agreement. {r_txt}; fetch / scan median {fmt(d['ratio_median'], 4)} (10–90% {fmt(d['q10'], 4)}–{fmt(d['q90'], 4)}){rel}.")
             P.h("</div>")
+    # what a targeted fetch can do for each class, from the counts: its sinks, its capture in the scans, and fetch against scan
     cap = md["capture"]
-    if any(c.get("n") for c in cap.values()):
+    if fpaths:
+        fp_sha = (data.get("fetch_paths") or {}).get("capture_sinks_sha256")
+        P.h(f"""<h3 id="paths">Which classes a targeted fetch measures</h3>
+<p>A fetch reads a class only through its sink intervals, the places the aligner puts its reads. For each class counted here: whether the
+bundle has sinks for it and a fetch here used them (<em>fetch-direct</em>), has sinks that no fetch here used yet, or has none, so that only a
+whole-file scan measures it (<em>scan-only</em>); its capture, the share of its reads in each whole-file scan that lie inside its intervals of
+the bundle's sinks file{f" (SHA-256 {esc(fp_sha)})" if fp_sha else ""}; and fetch against scan for the genomes counted both ways. No class is
+<em>fetch-calibrated</em> yet: nothing corrects a fetch for the share of reads its sinks miss, so a class is fetched only where its sinks hold
+nearly all of it.</p>""")
+        bel = lambda cls: (lambda b: ", ".join(b[:10]) + (" …" if len(b) > 10 else "") if b else "none")((cap.get(cls) or {}).get("below_99") or [])
+        P.table([[r["class"], r["path"], f"{r['sinks_intervals']:,} ({mb(r['sinks_bp'])})" if r.get("sinks_intervals") else "–", f"{r['n_scan']:,}", f"{r['n_fetch']:,}",
+                  fmt(r.get("capture_median"), 5) if r.get("capture_n") else "–", fmt(r.get("capture_min"), 5) if r.get("capture_n") else "–",
+                  bel(r["class"]) if r.get("capture_n") else "–",
+                  f"{fmt(r['fetch_over_scan_median'], 4)} ({fmt(r['fetch_over_scan_min'], 4)})" if r.get("fetch_over_scan_n") else "–"] for r in fpaths],
+                ["class", "path", "sinks in the bundle (intervals)", "scanned", "fetched", "median capture", "minimum", "below 99%", "fetch / scan, median (minimum)"],
+                numeric={2, 3, 4, 5, 6, 8}, wrap=True, cls="compact")
+        unused = [r["class"] for r in fpaths if r["path"] == "fetch-direct, not yet used"]
+        scan_only = [r["class"] for r in fpaths if r["path"] == "scan-only"]
+        notes = []
+        if unused:
+            notes.append(f"{and_list(unused)} {'has' if len(unused) == 1 else 'have'} sinks in the bundle that no fetch here used, so {'its' if len(unused) == 1 else 'their'} capture "
+                         "is measured against intervals no fetch here read.")
+        if scan_only and any(c in SAT_FAMILY for c in scan_only):
+            notes.append("The satellite families have no sinks in the bundle, so here only a whole-file scan measures them. In these NYGC alignments their reads "
+                         "nonetheless land in a stable set of intervals: in a test run outside this page, sinks learned from 30 of these scans held at least "
+                         "99.8% of the reads of HSat1A, HSat2, HSat3, α-satellite HORs, β-satellite, ACRO, SST1, CER and SATR in every one of 200 other "
+                         "genomes (99.85% in two of three random draws; 60 Mb of intervals for the α-satellite HORs, 0.2–3.5 Mb for each of the others), and at least 96.6% of HSat1B, part of "
+                         "which is left unmapped in the 698-genome batch. Once such sinks are in the bundle, a targeted fetch could reach these families too; "
+                         "no satellite fetch has yet been compared with its scan.")
+        notes.append("Sinks belong to an aligner and a reference: these were learned on NYGC's bwa-mem alignments to GRCh38 with decoy and HLA contigs. "
+                     "In a check outside this page, one genome (HG00096) re-aligned by DRAGEN 3.7.6, of the 3.7 family that UK Biobank and All of "
+                     "Us are thought to use (3.7.8; not checked against their headers), kept 99.96% of its 45S and 5S reads and 98.9% of its "
+                     "distal-junction reads inside these sinks; aligned by DRAGEN 4 to an alt-masked reference, "
+                     "most of its 45S and distal-junction reads, and 64–90% of its HSat1A, HSat1B, β-satellite, ACRO and telomeric reads (almost none "
+                     "of its HSat2 or α-satellite HOR reads), were left unmapped instead, where only a scan, or a fetch that reads the unmapped "
+                     "reads, finds them. A cohort aligned otherwise needs whole-file scans of a subset of its own files to learn its sinks and "
+                     "measure their capture.")
+        P.h('<p class="small">' + " ".join(notes) + " A genome below 99% would mean its aligner put class reads where the sinks do not reach; the sinks are "
+            "re-learned from all scans at the end of the run. Every class's row: <code>data/fetch_paths.tsv</code>.</p>")
+    elif any(c.get("n") for c in cap.values()):
         P.h("<p>Share of each class's reads that fell inside the sink intervals, in every whole-file scan of this run:</p>")
         P.table([[cls, c["n"], fmt(c["median"], 5), fmt(c["min"], 5), ", ".join(c["below_99"][:10]) + (" …" if len(c["below_99"]) > 10 else "") or "none"] for cls, c in cap.items() if c.get("n")],
                 ["class", "scans", "median capture", "minimum", "below 99%"], numeric={1, 2, 3})
@@ -619,11 +802,11 @@ for comparison, the 18S depth ratio of published studies computed from the same 
                 "intraclass correlation": rc["icc"] > rf["icc"], "within-person CV": rc["within_cv"] < rf["within_cv"]}
         P.chart("replicates", dict(type="scatter", points=[dict(x=p["x"], y=p["y"], label=p["sample"], si=p["si"]) for p in rep["points"]],
                                    legend=["NGS-DOSE (this method)", "18S depth ratio (published method, for comparison)"], xlabel="45S copies, NovaSeq 2×150 (2019)",
-                                   ylabel="45S copies, HiSeq 2×100 / 2×126 (2012–15)", identity=True),
+                                   ylabel="45S copies, HiSeq 2×101 / 2×126 (2012–15)", identity=True),
                 "The same people on two sequencing technologies: NGS-DOSE reproduces, the published 18S ratio does not" if all(wins.values())
                 else "The same people on two sequencing technologies: NGS-DOSE and the published 18S ratio",
                 f"Each of {rep['n']} people of the 1000 Genomes cohort (four parent–child trios) was sequenced twice from the same cell line: by the New York Genome Center on "
-                f"NovaSeq 2×150 in 2019 (x) and on HiSeq 2000 or 2500 (2×100 or 2×126) in 2012–15 (y). Each person appears twice. Blue: NGS-DOSE's "
+                f"NovaSeq 2×150 in 2019 (x) and on HiSeq 2000 or 2500 (2×101 or 2×126) in 2012–15 (y). Each person appears twice. Blue: NGS-DOSE's "
                 f"calibrated 45S estimate, with its anchor windows chosen with the person's family held out, so the level is not fitted to them. Orange: "
                 f"the 18S read-depth ratio of published studies (no GC model, no calibration), computed from the same reads for comparison; it is not "
                 f"NGS-DOSE's estimate. On the diagonal both sequencing runs give the same answer. NGS-DOSE: offset {spct(rc['offset'])}, pair SD "
@@ -685,9 +868,9 @@ number that answers "what share of the measured variance is real". Inference res
 p-value (children shuffled among families) says whether a slope of that size arises by chance.</p>""")
         ts = next((t for t in tr["table"] if t["column"] == tr["scatter_column"]), None)
         trio_stats = (f" Computed on values centred within population: midparent slope b = {fmt(ts['slope'], 2)} ± {fmt(ts['slope_se'], 2)}, spousal correlation "
-                      f"ρ = {fmt(ts['spousal_r'], 2)}, reliability R = b − ρ(1 − b) = {fmt(min(ts['R'], 1.0), 2)}"
-                      + (" (" + "; ".join((["capped at 1"] if ts["R"] > 1 else []) + ([f"95% CI {fmt(ts['R_lo'], 2)} to {fmt(ts['R_hi'], 2)}"] if "R_lo" in ts else [])) + ")"
-                         if ts["R"] > 1 or "R_lo" in ts else "")
+                      f"ρ = {fmt(ts['spousal_r'], 2)}, reliability R = b − ρ(1 − b) = {fmt(cap1(ts['R']), 2)}"
+                      + (" (" + "; ".join((["capped at 1"] if (ts["R"] or 0) > 1 else []) + ([f"95% CI {fmt(ts['R_lo'], 2)} to {fmt(ts['R_hi'], 2)}"] if ts.get("R_lo") is not None else [])) + ")"
+                         if (ts["R"] or 0) > 1 or ts.get("R_lo") is not None else "")
                       + ": the share of the measured differences between people that is inherited, 1 for a perfectly measured heritable trait and 0 for pure "
                         "measurement error.") if ts else ""
         P.chart("trio", dict(type="scatter", points=[dict(x=p["mid"], y=p["c"], label=p["child"], extra=[f"father {fmt(p['f'], 0)}, mother {fmt(p['m'], 0)}", p["pop"]]) for p in tr["scatter"]],
@@ -711,11 +894,11 @@ p-value (children shuffled among families) says whether a slope of that size ari
                 v = [t.get(k) for k, _ in stats]
                 pp = t.get("perm_p")
                 x = [f"n = {t['n_trios']}"] * 4 + [f"± {fmt(t['slope_se'], 2)} (SE)" + (f"; permutation p {'< 0.001' if pp < 0.001 else fmt(pp, 3)}" if pp is not None else ""),
-                                                   (f"{fmt(t['R_lo'], 2)} to {fmt(t['R_hi'], 2)} (95%)" if "R_lo" in t else "")]
+                                                   (f"{fmt(t['R_lo'], 2)} to {fmt(t['R_hi'], 2)} (95%)" if t.get("R_lo") is not None else "")]
                 if fR:
                     f_ = fR.get(col)
                     v.append(f_["R"] if f_ else None)
-                    x.append((f"{fmt(f_['R_lo'], 2)} to {fmt(f_['R_hi'], 2)} (95%)" if f_ and "R_lo" in f_ else "") + (f"; n = {f_['n_trios']}" if f_ else ""))
+                    x.append((f"{fmt(f_['R_lo'], 2)} to {fmt(f_['R_hi'], 2)} (95%)" if f_ and f_.get("R_lo") is not None else "") + (f"; n = {f_['n_trios']}" if f_ else ""))
                 hm_vals.append(v); hm_extra.append(x)
         cols_hm = [l for _, l in stats] + (["R, fetch"] if fR else [])
         titles += ["reliability R from the fetch counts alone"] if fR else []
@@ -738,11 +921,11 @@ none. HSat1B lives mostly on Yq and passes from father to son only, so its midpa
                   "and the interval.")
         rows_t = []
         for t in tr["table"]:
-            r_ci = f" ({fmt(t['R_lo'], 2)} to {fmt(t['R_hi'], 2)})" if "R_lo" in t else ""
-            err = ("≤ " + fmt(t["error_cv_max"], 1, pct=True)) if "error_cv_max" in t else fmt(t["error_cv"], 1, pct=True)
+            r_ci = f" ({fmt(t['R_lo'], 2)} to {fmt(t['R_hi'], 2)})" if t.get("R_lo") is not None else ""
+            err = ("≤ " + fmt(t["error_cv_max"], 1, pct=True)) if t.get("error_cv_max") is not None else fmt(t.get("error_cv"), 1, pct=True)
             pp = t.get("perm_p")
-            rows_t.append([t["label"], t.get("group", ""), t["n_trios"], fmt(t["r_mid"], 3), fmt(t["slope"], 3) + " ± " + fmt(t["slope_se"], 3), fmt(t["spousal_r"], 3), fmt(min(t["R"], 1.0), 3) + r_ci,
-                           ("< 0.001" if pp is not None and pp < 0.001 else fmt(pp, 3)), fmt(min(t["R_single"], 1.0), 3), err])
+            rows_t.append([t["label"], t.get("group", ""), t["n_trios"], fmt(t["r_mid"], 3), fmt(t["slope"], 3) + " ± " + fmt(t["slope_se"], 3), fmt(t["spousal_r"], 3), fmt(cap1(t["R"]), 3) + r_ci,
+                           ("< 0.001" if pp is not None and pp < 0.001 else fmt(pp, 3)), fmt(cap1(t.get("R_single")), 3), err])
         heads = ["metric", "trios", "child–midparent r (Pearson)", "midparent slope b", "spousal r", "reliability R (95% CI)", "permutation p", "single-parent R", "error CV the interval allows"]
         main_rows = [r for r in rows_t if r[1] in ("rDNA", "truth", "culture")]
         P.table([r[:1] + r[2:] for r in main_rows], heads, numeric={1, 2, 3, 4, 5, 6, 7, 8})
@@ -750,14 +933,19 @@ none. HSat1B lives mostly on Yq and passes from father to son only, so its midpa
             P.h("<details><summary>The same for the satellite arrays (the full table is <code>data/transmission.tsv</code>)</summary>")
             P.table([r[:1] + r[2:] for r in rows_t if r[1] == "satellites"], heads, numeric={1, 2, 3, 4, 5, 6, 7, 8})
             P.h("</details>")
-        P.h('<p class="small">Reliability is capped at 1; a slope above 1 is noise around 1, and the interval says how much. A spousal correlation far from zero means members of a family share something other than DNA (a batch), and every reliability in the table is inflated by about as much. The negative-control rows should read near zero.</p>')
-        if t45 and have_ci:
+        nt = not_tested(tr.get("constant") or [], "(no slope)")
+        P.h('<p class="small">Reliability is capped at 1; a slope above 1 is noise around 1, and the interval says how much. A spousal correlation far from zero means members of a family share something other than DNA (a batch), and every reliability in the table is inflated by about as much. The negative-control rows should read near zero.'
+            + (" " + nt if nt else "") + "</p>")
+        if t45 and have_ci and t45.get("R_lo") is not None:
             cv = bio.get("cn45_cv")
-            P.h(f'''<p>The 45S reliability is <strong>{fmt(min(t45["R"], 1.0), 2)}</strong> ({fmt(t45["R_lo"], 2)} to {fmt(t45["R_hi"], 2)}); the interval allows a
-measurement error of at most {fmt(t45.get("error_cv_max"), 1, pct=True)} of a person's value. The variation measured is therefore inherited. Because
-people differ in 45S copy number by a CV of {fmt(cv, 0, pct=True) if cv else "about 20%"} and every estimator errs by a few percent, every estimator
-has a reliability near 1 within one cohort and one pipeline, and the trios cannot rank them: the paired differences below are the test, and they
-are small. Ranking rests on the comparison across technologies (3.4).</p>''')
+            est_t = [t for t in tr["table"] if t.get("group") == "rDNA" and t["column"].startswith("rDNA45S")]
+            near1 = bool(est_t) and all(t.get("R_lo") is not None and t["R_lo"] >= 0.8 for t in est_t)
+            small = bool(tr["compare"]) and all(c["lo"] <= 0 <= c["hi"] and abs(c["delta"]) < 0.1 for c in tr["compare"])
+            P.h(f'''<p>The 45S reliability is <strong>{fmt(cap1(t45["R"]), 2)}</strong> ({fmt(t45["R_lo"], 2)} to {fmt(t45["R_hi"], 2)}); the interval allows a
+measurement error of at most {fmt(t45.get("error_cv_max"), 1, pct=True)} of a person's value.{" The variation measured is therefore inherited." if t45["R_lo"] >= 0.5 else ""}'''
+                + (f''' Because people differ in 45S copy number by a CV of {fmt(cv, 0, pct=True) if cv else "about 20%"} and every estimator errs by a few percent,
+every estimator of the 45S has a reliability near 1 within one cohort and one pipeline, and the trios cannot rank them: the paired differences below
+are the test{", and they are small" if small else ""}. Ranking rests on the comparison across technologies (3.4).''' if near1 else "") + "</p>")
         if tr["compare"]:
             P.h("<p>Paired family bootstrap of each estimator's reliability minus that of the published 18S depth ratio:</p>")
             P.table([[c["label"], fmt(c["delta"], 3), f"{fmt(c['lo'], 3)} to {fmt(c['hi'], 3)}", fmt(c["p_better"], 3)] for c in tr["compare"]],
@@ -778,7 +966,7 @@ are small. Ranking rests on the comparison across technologies (3.4).</p>''')
                     hs_vals.append([d[k]["r"] if k in d else None for k, _ in pair_cols])
                     hs_extra.append([(f"{d[k]['n']} pairs; 95% CI {fmt(d[k]['r_lo'], 2)} to {fmt(d[k]['r_hi'], 2)}; slope {fmt(d[k]['slope'], 2)} ± {fmt(d[k]['slope_se'], 2)}"
                                       if k in d else "") for k, _ in pair_cols])
-            half = sorted((d[k]["r_hi"] - d[k]["r_lo"]) / 2 for d in bs.values() for k, _ in pair_cols if k in d)
+            half = sorted((d[k]["r_hi"] - d[k]["r_lo"]) / 2 for d in bs.values() for k, _ in pair_cols if k in d and d[k].get("r_lo") is not None and d[k].get("r_hi") is not None)
             half = half[len(half) // 2] if half else None
             contrast = lambda col: (bs[col].get("father_contrast") or {}).get("z", 0) or 0
             # sex linkage is a property of genomic sequence: only the rDNA and the satellite arrays are read that way
@@ -798,7 +986,7 @@ one. Correlations, not slopes, are compared here: a slope also carries the ratio
 men and women for a sex-linked quantity. Values are centred within population and sex, so that the difference between men and women is not
 read as transmission. {nb['n_sons']} of the trios have a son and {nb['n_daughters']} a daughter, so each pairing rests on about half the
 trios{f" and a correlation is uncertain by about ±{fmt(half, 2)} (95%)" if half else ""}.</p>""")
-            P.chart("heat_sex", dict(type="heatmap", rows=hs_rows, groups=hs_groups, cols=[l for _, l in pair_cols], col_titles=[f"slope of child on parent, {l}" for _, l in pair_cols],
+            P.chart("heat_sex", dict(type="heatmap", rows=hs_rows, groups=hs_groups, cols=[l for _, l in pair_cols], col_titles=[f"child–parent correlation (Pearson r), {l}" for _, l in pair_cols],
                                      values=hs_vals, extra=hs_extra, lo=0, hi=1, nd=2),
                     f"Transmission by the sex of parent and child: {nb['n_sons']} sons, {nb['n_daughters']} daughters",
                     "Rows: every metric of the trio test above, grouped as there. Columns: the Pearson correlation of child with parent for each pairing "
@@ -829,6 +1017,9 @@ trios{f" and a correlation is uncertain by about ±{fmt(half, 2)} (95%)" if half
                              f"would put about {few} (the held-out autosomal sequence, which has nothing to inherit, is a guide): " + "; ".join(
                     f"{lab(c)}, r {neg(bs[c]['father_son']['r'], 2)} against {neg(bs[c]['father_daughter']['r'], 2)} (z = {neg(contrast(c), 1)})" for c in hint) + ".")
             notes.append(("No other metric's" if ylinked or xlinked or other_far else "No metric's") + " father–son and father–daughter correlations differ by more than three standard errors.")
+            nt = not_tested(nb.get("constant") or [], "by sex")
+            if nt:
+                notes.append(nt)
             P.h("<p>" + " ".join(notes) + "</p>")
             pts_all = tr.get("points") or {}
             flagged = [c for c in ylinked + xlinked if c in pts_all]
@@ -847,10 +1038,14 @@ trios{f" and a correlation is uncertain by about ±{fmt(half, 2)} (95%)" if half
                             f"daughters (r = {fmt(d['father_daughter']['r'], 2)}).")
                 P.h("</div>")
         # ---- class by class: every metric's transmission in the same terms, and what this design can and cannot tell apart
-        if have_ci and tr["table"] and "sd_ratio_lo" in tr["table"][0]:
+        # the metrics with every interval (a bootstrap can leave one without, as a metric whose parents do not vary has no slope)
+        need = ("R", "R_lo", "R_hi", "R_rescaled", "R_rescaled_lo", "R_rescaled_hi", "sd_ratio", "sd_ratio_lo", "sd_ratio_hi", "mean_ratio",
+                "mean_ratio_lo", "mean_ratio_hi", "parent_sd", "parent_mean")
+        tab = [t for t in tr["table"] if all(t.get(k) is not None for k in need)]
+        if have_ci and tab:
             from .report import TRIO_GROUPS
             from ngsdose.trios import PAIRS
-            byc = {t["column"]: t for t in tr["table"]}
+            byc = {t["column"]: t for t in tab}
             bsx = (tr.get("by_sex") or {}).get("table") or {}
             zf = lambda col: ((bsx.get(col) or {}).get("father_contrast") or {}).get("z", 0) or 0
             linked = {col: ("Y" if zf(col) > 0 else "X") for col, d in bsx.items() if d["group"] in ("rDNA", "satellites") and abs(zf(col)) > 3}
@@ -875,7 +1070,7 @@ trios{f" and a correlation is uncertain by about ±{fmt(half, 2)} (95%)" if half
             apart = bool(bt) and kb != pb and kn >= 0.9 * bt["n"] and pn >= 0.9 * 2 * bt["n"]
             blab = lambda b: f"{int(b):,}" if str(b).isdigit() else esc(str(b))
             # the children's spread against their parents', where the interval excludes 1; largest departure first
-            moved = sorted((t for t in tr["table"] if t["sd_ratio_lo"] > 1 or t["sd_ratio_hi"] < 1), key=lambda t: -abs(math.log(t["sd_ratio"])))
+            moved = sorted((t for t in tab if t["sd_ratio_lo"] > 1 or t["sd_ratio_hi"] < 1), key=lambda t: -abs(math.log(t["sd_ratio"])))
             # the four sex pairings: the metrics that differ beyond chance, the sex-linked ones aside and the three 45S estimators (one set of reads) counted once
             tested = [c for c in bsx if c not in linked and het(c)]
             uneven = [c for c in tested if het(c)["p"] < 0.05]
@@ -975,7 +1170,7 @@ They part where the children's spread departs furthest from their parents': """
                     "parent–child trios, corrected for the spousal correlation ρ, with its 95% family-bootstrap interval: 1 for a perfectly measured "
                     "heritable quantity, 0 for one the children do not inherit. Open ring: the same with each child's value first rescaled to the "
                     "parents' spread"
-                    + (", because every child was sequenced in a later batch than its parents and a batch can read on a slightly different scale" if apart else "")
+                    + (", because the children were sequenced in a later batch than nearly all their parents and a batch can read on a slightly different scale" if apart else "")
                     + ". Values above 1 are noise around 1, or a larger scale in the children's measurements. Lines at 0 and 1; values centred within "
                     "population."
                     + (" " + "; ".join(f"The {name.get(c, c)} lies mostly on the Y chromosome and passes from father to son (r = {pr(c, 'father_son')}), "
@@ -984,15 +1179,19 @@ They part where the children's spread departs furthest from their parents': """
             P.table(rows_c, ["metric", "CV", "R", "R, rescaled", "not inherited", "children's spread", "children's level", "sex pairings: p"],
                     numeric={1, 2, 3, 4, 5, 6, 7}, wrap=True, cls="compact")
             nperm = next((het(c)["n_perm"] for c in bsx if het(c)), None)
+            # where the textbook reference and the shuffles part most: a pairing test that chi-square calls significant and the shuffles do not
+            parted = sorted((c for c in bsx if het(c).get("p_normal") is not None and het(c)["p_normal"] < 0.05 and het(c).get("p") is not None and het(c)["p"] >= 0.05),
+                            key=lambda c: het(c)["p_normal"] / het(c)["p"])
+            pn_ = lambda c: "&lt; 0.001" if het(c)["p_normal"] < 0.001 else fmt(het(c)["p_normal"], 3)
             P.h('<p class="small">CV: how much people differ, the parents\' standard deviation over their mean. R: from the midparent slope, and rescaled: with the '
                 "children's values first put on their parents' spread (both with their 95% intervals in the figure). Not inherited: CV × √(1 − R) at the "
                 "lower of the two, as a percentage of a person's value, and in brackets the most the intervals allow. Children's spread: their standard "
                 "deviation over their parents'; children's level: their mean over their parents'; both on values centred within population, with 95% "
                 "family-bootstrap intervals. Sex pairings: how often the four child–parent correlations (father–son, father–daughter, mother–son, "
-                f"mother–daughter) differ as much as these when the children's sexes are shuffled among the families and each family's parents swap roles{f' ({nperm:,} shuffles)' if nperm else ''}. The "
-                "textbook test, which assumes normal values, is far too small for skewed ones"
-                + (f" (the distal junction's four pairings: {'&lt; 0.001' if het('DJ.cn')['p_normal'] < 0.001 else fmt(het('DJ.cn')['p_normal'], 3)} by it, "
-                   f"{hp('DJ.cn')} by the shuffles)" if het("DJ.cn") else "")
+                f"mother–daughter) differ as much as these when the children's sexes are shuffled among the families and each family's parents swap roles{f' ({nperm:,} shuffles)' if nperm else ''}"
+                + (". The textbook test, which assumes normal values, gives too small a p for skewed ones: " + "; ".join(
+                    f"the four pairings of {brief(c)}, {pn_(c)} by it and {hp(c)} by the shuffles" for c in parted[:2]) if parted else
+                   ", rather than by the textbook test, which assumes normal values")
                 + ".</p>")
             # ---- the rDNA
             rep = (data.get("replicates") or {}).get("table") or {}
@@ -1038,13 +1237,21 @@ The array is on chromosome 1 (1q42); {pairings("rDNA5S.cn")}</p>""")
                 names = lambda ts: ", ".join(short(t["column"]) for t in ts[:-1]) + (" and " if len(ts) > 1 else "") + short(ts[-1]["column"])
                 span = lambda ts, f, nd=0: f"{fmt(min(map(f, ts)), nd, pct=True)} to {fmt(max(map(f, ts)), nd, pct=True)}"
                 sat_uneven = [c for c in uneven if byc.get(c, {}).get("group") == "satellites"]
+                # the claims about spread and R are made only as far as the numbers bear them out
+                others = [t for t in plain if t not in low]
+                low_lowest = len(low) > 1 and bool(others) and max(t["R"] for t in low) < min(t["R"] for t in others)
+                even = bool(errs) and min(errs) > 0 and max(errs) / min(errs) <= 1.5
                 P.h("<p><strong>Satellite arrays.</strong> "
                     + (f"Every class is inherited (permutation p ≤ {fmt(pmax, 3)}). " if pmax is not None and pmax < 0.05 else "")
                     + (f"In every class whose children spread as their parents do, the part of a person's value that is not inherited lies between "
-                       f"{fmt(min(errs), 0, pct=True)} and {fmt(max(errs), 0, pct=True)}, and how much of R that costs depends on how much people differ. " if errs else "")
-                    + (f"The classes that vary least between people ({names(low)}, CV {span(low, cvt, 1)}) read the lowest R "
-                       f"({', '.join(sg(t['R']) for t in low[:-1])} and {sg(low[-1]['R'])}): the same few percent is a larger share of a smaller spread. " if len(low) > 1 else "")
-                    + (f"Those that vary most ({names(wide)}, CV {span(wide, cvt)}) read {sg(min(t['R'] for t in wide))} to {sg(max(t['R'] for t in wide))}. " if len(wide) > 1 else "")
+                       f"{fmt(min(errs), 0, pct=True)} and {fmt(max(errs), 0, pct=True)}"
+                       + (", and how much of R that costs depends on how much people differ" if even and low_lowest else "") + ". " if errs else "")
+                    + ((f"The classes that vary least between people ({names(low)}, CV {span(low, cvt, 1)}) read the lowest R "
+                        f"({', '.join(sg(t['R']) for t in low[:-1])} and {sg(low[-1]['R'])})" + (": the same few percent is a larger share of a smaller spread. " if even else ". ")
+                        + (f"Those that vary most ({names(wide)}, CV {span(wide, cvt)}) read {sg(min(t['R'] for t in wide))} to {sg(max(t['R'] for t in wide))}. " if len(wide) > 1 else ""))
+                       if low_lowest else
+                       ("R does not follow the spread between people: " + "; ".join(f"{short(t['column'])} CV {fmt(cvt(t), 1, pct=True)}, R {sg(t['R'])}" for t in sorted(plain, key=cvt)) + ". ")
+                       if len(plain) > 1 else "")
                     + (f"{'Two classes are' if len(scaled) == 2 else 'One class is' if len(scaled) == 1 else f'{len(scaled)} classes are'} read on a different scale in "
                        "the children (above): " + "; ".join(f"{short(t['column'])} spreads {fmt(t['sd_ratio'], 2)}× as much in the children as in their parents "
                                                            f"({iv(t, 'sd_ratio')}), and its R reads {sg(t['R'])} from the slope but {sg(t['R_rescaled'])} on the "
@@ -1056,7 +1263,7 @@ The array is on chromosome 1 (1q42); {pairings("rDNA5S.cn")}</p>""")
                     + "</p>")
             t = byc.get("TEL.mass_Mb")
             if t:
-                genomic = [x for x in tr["table"] if x["group"] in ("rDNA", "satellites") and x["column"] not in linked]
+                genomic = [x for x in tab if x["group"] in ("rDNA", "satellites") and x["column"] not in linked]
                 P.h(f"""<p><strong>Telomeric repeat.</strong> {"The least inherited genomic quantity" if t["R"] <= min(x["R"] for x in genomic) else "Weakly inherited"}:
 R = {sg(t["R"])} ({iv(t, "R")}), at {"the largest" if cvt(t) >= max(cvt(x) for x in genomic) else "a large"} spread between people (CV {fmt(cvt(t), 0, pct=True)}),
 so {fmt(lost(t), 0, pct=True)} of a person's value is not inherited. Telomeres shorten with age and change in culture; the children, younger than
@@ -1074,24 +1281,46 @@ their parents{" and sequenced in the later batch" if apart else ""}, read {level
             if cul:
                 above = [t for t in cul if t["R_lo"] > 0]
                 below = [t for t in cul if t["R_hi"] < 0]
+                # how far an interval lies from zero, in standard errors of R (the 95% interval spans 3.92 of them)
+                z_of = lambda t: t["R"] / ((t["R_hi"] - t["R_lo"]) / 3.92) if t["R_hi"] > t["R_lo"] else float("inf")
+                far = [t for t in below if abs(z_of(t)) > 3]
+                k = len(above) + len(below)
+                chance = not far and k == 1
+                far_txt = " ".join(
+                    f"The {nm(t['column'])}'s R lies {abs(z_of(t)):.0f} standard errors below zero, which chance does not give"
+                    + (f"; its spousal correlation is {sg(t['spousal_r'])} ({iv(t, 'spousal')})" if t.get("spousal_lo") is not None else "")
+                    + (f": the parents share a sequencing batch ({blab(pb)}) that their children ({blab(kb)}) do not, so this is the batch, not inheritance."
+                       if apart and t.get("spousal_lo") is not None and t["spousal_lo"] > 0 else ".") for t in far)
+                # a one-sided permutation p: a slope larger than shuffling children among families (which keeps the batch) gives
+                shared = [t for t in cul if t.get("perm_p") is not None and t["perm_p"] < 0.05 and t not in above]
+                spread_cul = max((abs(math.log(t["sd_ratio"])) for t in cul if t["sd_ratio"] > 0), default=0)
+                spread_gen = max((abs(math.log(t["sd_ratio"])) for t in tab if t["group"] in ("rDNA", "satellites") and t["sd_ratio"] > 0), default=0)
                 P.h("<p><strong>Culture and library.</strong> "
-                    + ("No property of the culture or the library is inherited" if not above else "Only " + " and ".join(nm(t["column"]) for t in above) + " read above zero")
+                    + ("No property of the culture or the library has an R interval wholly above zero" if not above
+                       else "Only " + " and ".join(f"{nm(t['column'])} ({iv(t, 'R')})" for t in above) + (" has" if len(above) == 1 else " have") + " an R interval wholly above zero")
                     + f": R runs from {sg(min(t['R'] for t in cul))} to {sg(max(t['R'] for t in cul))}"
                     + (", and every interval includes zero." if not above and not below else
-                       ", and every interval but " + " and ".join(f"that of {nm(t['column'])} ({iv(t, 'R')})" for t in above + below) + " includes zero"
+                       (", and every other interval" if above and not below else
+                        ", and every interval but " + " and ".join(f"that of {nm(t['column'])} ({iv(t, 'R')})" for t in below)) + " includes zero"
                        + ("; an interval wholly below zero is not inheritance" if below else "")
-                       + f", and one such interval among {len(tr['table'])} metrics is what chance gives at 95%.")
-                    + " These are also the metrics whose spread differs most between the generations"
+                       + (f", and one such interval among {len(cul)} metrics can arise by chance at 95%." if chance else "."))
+                    + (" " + far_txt if far_txt else "")
+                    + (" But an interval that includes zero is not a zero: shuffling children among families, which keeps the batch, does not reproduce the "
+                       "midparent slopes of " + and_list([f"{nm(t['column'])} (p = {fmt(t['perm_p'], 3)})" for t in shared])
+                       + ". A child's cell line and library resemble its own parents' in " + ("this respect" if len(shared) == 1 else "these respects")
+                       + ", and the heritable-genome rows above may carry some of that family-shared, non-genomic signal." if shared else "")
+                    + (" These are also the metrics whose spread differs most between the generations" if spread_cul > spread_gen else " Their spread differs between the generations too")
                     + (f" (the children's sequencing depth varies {fmt(byc['depth']['sd_ratio'], 2)}× as much as their parents')" if "depth" in byc else "")
-                    + ": properties of the batch, not of the family.</p>")
+                    + (": that part is a property of the batch, not of the family." if apart else ".") + "</p>")
         P.h('<p class="small">A printable assessment built from these tables, with a child-against-midparent scatter for every metric, the fetch check and the assembly comparison: <a href="trio_report.pdf">trio_report.pdf</a>. Every trio\'s values: <code>data/trios.tsv</code>; the split by the sex of parent and child: <code>data/transmission_by_sex.tsv</code>'
             + ('; every metric\'s child against midparent: <a href="#supp">supplementary figures</a>' if (tr.get("points") or {}) and tr["n_complete"] >= 10 else "") + ".</p>")
         if data.get("trios_adjusted", {}).get("table"):
             ta = data["trios_adjusted"]
             P.h(f'<details><summary>The same, after regressing out {pcs["adjusted"]["k"]} control-region PCs</summary>')
-            P.table([[t["label"], t["n_trios"], fmt(t["slope"], 3), fmt(t["spousal_r"], 3), fmt(t["R"], 3) + (f" ({fmt(t['R_lo'], 2)} to {fmt(t['R_hi'], 2)})" if "R_lo" in t else "")] for t in ta["table"]],
+            P.table([[t["label"], t["n_trios"], fmt(t["slope"], 3), fmt(t["spousal_r"], 3), fmt(t["R"], 3) + (f" ({fmt(t['R_lo'], 2)} to {fmt(t['R_hi'], 2)})" if t.get("R_lo") is not None else "")] for t in ta["table"]],
                     ["estimator", "trios", "midparent slope", "spousal r", "reliability (95% CI)"], numeric={1, 2, 3, 4})
-            P.h("</details>")
+            nt = not_tested(ta.get("constant") or [], "(no slope)")
+            P.h((f'<p class="small">{nt}</p>' if nt else "") + "</details>")
     else:
         P.h(f'<p>{tr["n_complete"]} complete trio(s) among the genomes counted so far (the cohort has {tr["n_total"]:,}); the analysis appears at three, its confidence intervals at twenty.</p>')
     P.end()
@@ -1103,12 +1332,12 @@ their parents{" and sequenced in the later batch" if apart else ""}, read {level
         P.h(f"""<h3>An orthogonal assay: ddPCR</h3>
 <p>Potapova et al. (<em>Cell Genomics</em> 2025) measured 45S copy number by droplet digital PCR in lymphoblastoid lines, {dd["n"]} of them
 1000 Genomes or Genome in a Bottle lines with a NovaSeq genome ({dd["n_here"]} counted in this run; the rest fetched from the same CRAMs and
-calibrated with this cohort's saved efficiencies, or counted from a second NovaSeq pipeline, by the results repository's
+calibrated with this cohort's saved efficiencies, or counted from a second NovaSeq pipeline, by this repository's
 <code>assembly_rdna</code> study). The assay's own precision: median CV {fmt(dd.get("ddpcr_cv_median"), 1, pct=True)} between replicates.
 NGS-DOSE reads <strong>{fmt(dn["median_ratio"], 3)}×</strong> the assay (mean absolute difference {fmt(dn["mean_abs_pct"], 1)}%), r = {ci(dn)},
 Spearman {fmt(dn.get("spearman"), 2)}; the authors' own k-mer estimate, CONKORD, {fmt(dc.get("median_ratio"), 3)}× (r = {fmt(dc.get("r"), 2)}); the 18S depth
 ratio {fmt(df.get("median_ratio"), 3)}× (r = {fmt(df.get("r"), 2)}). The level is the first external check of the anchor windows: NGS-DOSE sits
-{fmt(abs(dn["bias_pct"]), 1)}% {"below" if dn["bias_pct"] < 0 else "above"} the assay, within what a dozen lines can resolve.</p>""")
+{fmt(abs(dn["bias_pct"]), 1)}% {"below" if dn["bias_pct"] < 0 else "above"} the assay{f' (95% CI {fmt(dn["bias_lo_pct"], 1)} to {fmt(dn["bias_hi_pct"], 1)}% over {dn["n"]} lines)' if dn.get("bias_lo_pct") is not None else ""}{("" if dn.get("bias_lo_pct") is None else ": a small offset in absolute scale that these lines resolve" if dn["bias_lo_pct"] * dn["bias_hi_pct"] > 0 else ": the interval includes zero, so these lines do not resolve an offset")}.</p>""")
         P.table([[lab, x.get("n", 0), fmt(x.get("median_ratio"), 3), fmt(x.get("mean_abs_pct"), 1), fmt(x.get("r"), 3), fmt(x.get("spearman"), 3)]
                  for lab, x in (("NGS-DOSE, calibrated 45S", dn), ("CONKORD (Potapova et al., their reads)", dc), ("18S depth ratio (published estimator)", df))],
                 ["estimate", "lines", "median estimate / ddPCR", "mean |difference| %", "Pearson r", "Spearman"], numeric={1, 2, 3, 4, 5})
@@ -1117,23 +1346,31 @@ ratio {fmt(df.get("median_ratio"), 3)}× (r = {fmt(df.get("r"), 2)}). The level 
         P.chart("ddpcr", dict(type="scatter", points=pts, legend=["NGS-DOSE, calibrated 45S", "18S depth ratio (published estimator)"], xlabel="ddPCR, 45S copies per diploid genome", ylabel="estimate from the genome", identity=True),
                 "45S copy number against ddPCR", "Diagonal: agreement. Every line's values: data/ddpcr.tsv.")
     if hall.get("n", 0) >= 3:
-        P.h(f'''<p>On the {hall["n"]:,} genomes shared so far with Hall, Turner &amp; Queitsch (2021), their 18S value against the same 18S depth ratio computed
-from NGS-DOSE's counts (no GC model), halved to their per-haploid scale: r = <strong>{fmt(hall["flat"].get("r"), 3)}</strong>, their values {fmt(hall["flat_ratio"], 3)}× ours. Re-applying
-their exclusion of duplicate-flagged reads to our counts brings the ratio to {fmt(hall["dup_corrected_ratio"], 3)} (SD {fmt(hall["dup_corrected_ratio_sd"], 3)}):
-the offset is the duplicate flag, which marks fewer reads inside the collapsed rDNA than outside it (section 4). Against the calibrated
-estimate ({esc(hall["calibrated_column"])}/2): r = {fmt(hall["calibrated"].get("r"), 3)}, ratio {fmt(hall["calibrated_ratio"], 3)}.</p>''')
+        P.h(f'''<p>On the {hall["n"]:,} genomes shared so far with Hall, Turner &amp; Queitsch (2021), their 18S value against a comparable 18S depth ratio
+computed from NGS-DOSE's counts (the callable 50-bp bins of the 1,869-bp 18S of KY962518.1, fragment ends, no GC model), halved to their per-haploid scale:
+r = <strong>{fmt(hall["flat"].get("r"), 3)}</strong>, their values {fmt(hall["flat_ratio"], 3)}× ours. Their published chromosome-1 depths equal our
+duplicate-excluded control depth ({h_chr1}), although their Methods describe re-alignment from FASTQ without duplicate marking, so their
+denominator behaves as if duplicates were excluded; nothing in the Methods suggests that their 18S numerator excludes them. This is an
+inference from the numbers, not their stated method.'''
+            + (f''' Dividing our ratio by the unflagged share of control reads, which leaves duplicates out of the denominator only, brings the ratio to
+{fmt(h_den, 3)} (SD {fmt(hall.get("dup_denominator_ratio_sd"), 3)}){h_verdict}; leaving them out of both sides gives {fmt(hall["dup_corrected_ratio"], 3)}
+(SD {fmt(hall["dup_corrected_ratio_sd"], 3)}), since the flag marks fewer reads inside the collapsed rDNA than outside it (section 4).''' if h_den else
+               f''' Leaving duplicate-flagged reads out of our counts brings the ratio to {fmt(hall["dup_corrected_ratio"], 3)} (SD {fmt(hall["dup_corrected_ratio_sd"], 3)}).''')
+            + f''' Against the calibrated estimate ({esc(hall["calibrated_column"])}/2): r = {fmt(hall["calibrated"].get("r"), 3)}, ratio {fmt(hall["calibrated_ratio"], 3)}.</p>''')
         g65m = (gcb.get("gc65") or {}).get("median")
         P.chart("hall", dict(type="scatter", points=[dict(x=p["cal"], y=p["theirs"], label=p["sample"]) for p in hall["points"]], xlabel="NGS-DOSE, calibrated 45S / 2", ylabel="Hall et al. 2021, 18S", identity=True, fit=True),
                 "The same files, measured independently: NGS-DOSE against Hall et al. (2021)",
                 f"Each dot is one of {hall['n']:,} genomes whose rDNA copy number Hall, Turner &amp; Queitsch (Sci Rep 2021) published from the same "
-                f"1000 Genomes CRAMs. x: NGS-DOSE's calibrated 45S estimate, halved to their per-haploid scale; y: their 18S copy number, read depth "
-                f"relative to chromosome 1 with duplicate-flagged reads excluded. Diagonal: equality; line: least-squares fit. r = "
+                f"1000 Genomes CRAMs. x: NGS-DOSE's calibrated 45S estimate, halved to their per-haploid scale; y: their 18S copy number, mean samtools "
+                f"depth over a 145-bp segment of the 18S (U13369.1:3841–3985, reads re-aligned from FASTQ to the rDNA unit) divided by their "
+                f"chromosome-1 depth, which equals our duplicate-excluded control depth. Diagonal: equality; line: least-squares fit. r = "
                 f"{fmt(hall['calibrated'].get('r'), 3)}; their values run {fmt(hall['calibrated_ratio'], 2)}× NGS-DOSE's, because their depth ratio has "
-                f"no GC model or calibration{f' (these libraries sequence 65%-GC fragments at {fmt(g65m, 2)}× their mean rate, and the rDNA is GC-rich)' if g65m else ''} and "
-                f"drops duplicate-flagged reads. The same 18S ratio computed from NGS-DOSE's counts matches theirs at r = {fmt(hall['flat'].get('r'), 3)}, "
-                f"{fmt(hall['flat_ratio'], 2)}×, and {fmt(hall['dup_corrected_ratio'], 2)}× once their duplicate exclusion is applied.")
+                f"no GC model or calibration{f' (these libraries sequence 65%-GC fragments at {fmt(g65m, 2)}× their mean rate, and the rDNA is GC-rich)' if g65m else ''}. "
+                f"A comparable 18S ratio computed from NGS-DOSE's counts matches theirs at r = {fmt(hall['flat'].get('r'), 3)}, {fmt(hall['flat_ratio'], 2)}×"
+                + (f", and {fmt(h_den, 2)}× once duplicate-flagged reads are left out of its denominator, the depth their chromosome-1 values equal."
+                   if h_den else "."))
     else:
-        P.h("<p>Appears when genomes in Hall et al.'s table (their Supplementary Data 1, the 2,504 unrelated samples) have been counted.</p>")
+        P.h("<p>Appears when genomes in Hall et al.'s table (their Supplementary Data 1, 2,419 of the 2,504 unrelated samples) have been counted.</p>")
     if qc_ok:
         mt, xx, yy, dp = nq["mtdna"], nq["chrX"], nq["chrY_men"], nq["depth"]
         mos = ""
@@ -1186,10 +1423,15 @@ family's reads it can assign in CHM13, the genome it was built from{(": " + and_
 What tests the method is how closely each person sits on their family's line.</p>''')
         P.h(f'''<dl class="methods">
 <dt>genomes</dt><dd>People compared in the family: counted here, with an HPRC release-2 assembly, and not left out.</dd>
-<dt>left out (gaps)</dt><dd>An assembly does not always finish an array. Where it stops, the annotation marks a gap of unknown length
-labelled with the family (for example GAP,HSat2), and the assembly's mass for that family is then only a lower bound. A person is left out of
-a family's comparison when such gaps amount to more than {fmt(MAX_GAPPED, 0, pct=True)} of the family's annotated mass in their assembly. An
-array the assembler collapsed or lost without leaving a gap cannot be seen this way.</dd>
+<dt>left out (gaps)</dt><dd>An assembly does not always finish an array, and the annotation marks the break in one of two ways: a
+record labelled with the family (for example GAP,HSat2) that spans the array, or a standalone GAP record next to or between the array's
+records, which is given to the family whose records it touches (split between two families when it touches both). Either way the
+assembly's mass for that family is then only a lower bound. A person is left out of a family's comparison when such gaps amount to more
+than {fmt(MAX_GAPPED, 0, pct=True)} of the family's annotated mass in their assembly.</dd>
+<dt>placeholder gaps</dt><dd>Of the people compared, those whose assembly has a standalone gap of exactly {PLACEHOLDER_GAP} bp next to the
+family's array. Such a gap is a placeholder: the assembly does not know how much sequence it stands for, so its span says nothing about what is
+missing. These gaps are counted but leave no one out; where many people have one, part of their arrays may be missing from the assembly
+behind it, which would make the assembly read low. An array the assembler collapsed or lost without leaving any gap cannot be seen at all.</dd>
 <dt>median estimate / assembly</dt><dd>The typical ratio of NGS-DOSE's mass to the assembly's: near 1 for a family the panel sees fully,
 lower for a relative one.</dd>
 <dt>SD of log ratio, robust SD</dt><dd>How far individual people scatter around that ratio, roughly the per-person disagreement as a
@@ -1198,12 +1440,13 @@ fraction (0.05 is about 5%). The robust version, 1.4826 × the median absolute d
 to reproduce.</dd>
 <dt>Pearson r, Spearman</dt><dd>How well the order and spacing of people is reproduced (Spearman: the order only). r can be high only
 where people differ by much more than the two measurements disagree. <strong>r ≥ 0.95</strong> is the mark the summary uses to say that a
-family <em>tracks</em> the assemblies: a round threshold set when six people could be compared, not a statistical test.{(" By it, " + and_(good) + " track the assemblies.") if good else " No family reaches it yet."}</dd>
+family <em>tracks</em> the assemblies: a round threshold set when six people could be compared, not a statistical test (r is printed to four
+decimals, so that a family just short of it does not show as 0.95).{(" By it, " + and_(good) + (" tracks" if len(good) == 1 else " track") + " the assemblies.") if good else " No family reaches it yet."}</dd>
 </dl>''')
-        P.table([[cls, s_["n"], s_.get("n_gapped", 0), fmt(s_.get("ratio_median"), 2), fmt(s_.get("sd_log"), 3), fmt(s_.get("sd_log_robust"), 3), fmt(s_.get("cv_assembly"), 1, pct=True),
-                  fmt(s_.get("pearson"), 2), fmt(s_.get("spearman"), 2)] for cls, s_ in st.items() if s_.get("n")],
-                ["class", "genomes", "left out (gaps)", "median estimate / assembly", "SD of log ratio", "robust SD of log ratio", "between-person CV, assembly",
-                 "Pearson r", "Spearman"], numeric={1, 2, 3, 4, 5, 6, 7, 8})
+        P.table([[cls, s_["n"], s_.get("n_gapped", 0), s_["n_unsized_gap"] if s_.get("n_unsized_gap") is not None else "–", fmt(s_.get("ratio_median"), 2), fmt(s_.get("sd_log"), 3), fmt(s_.get("sd_log_robust"), 3), fmt(s_.get("cv_assembly"), 1, pct=True),
+                  fmt(s_.get("pearson"), 4), fmt(s_.get("spearman"), 2)] for cls, s_ in st.items() if s_.get("n")],
+                ["class", "genomes", "left out (gaps)", "placeholder gaps", "median estimate / assembly", "SD of log ratio", "robust SD of log ratio",
+                 "between-person CV, assembly", "Pearson r", "Spearman"], numeric={1, 2, 3, 4, 5, 6, 7, 8, 9})
         # what r can say depends on how much people differ against how far the two measurements disagree per genome; and the outliers' direction
         judged = {cls: s_ for cls, s_ in st.items() if s_.get("n", 0) >= 10 and s_.get("sd_log_robust") and s_.get("cv_assembly") is not None}
         narrow = [cls for cls, s_ in judged.items() if s_["sd_log_robust"] <= 0.08 and s_["sd_log_robust"] <= s_["cv_assembly"] < 2 * s_["sd_log_robust"]
@@ -1221,10 +1464,16 @@ family <em>tracks</em> the assemblies: a round threshold set when six people cou
         if untestable:
             notes.append(f"For {and_(untestable)} the two measurements disagree per genome by more than people differ, so this comparison cannot test "
                          f"{'that panel' if len(untestable) == 1 else 'those panels'}.")
+        # families where most compared assemblies carry a placeholder gap: their assembly mass may miss sequence of unknown size
+        placeholder = [cls for cls, s_ in st.items() if s_.get("n") and (s_.get("n_unsized_gap") or 0) > s_["n"] / 2]
+        if placeholder:
+            notes.append("Placeholder gaps are common next to " + and_([f"{cls} arrays ({st[cls]['n_unsized_gap']} of {st[cls]['n']} compared assemblies)" for cls in placeholder])
+                         + ": those assemblies may miss sequence of unknown size, so the comparison rests on assembly masses that are not all complete.")
         if n_far:
             notes.append(f"Of the {n_far} comparisons more than three robust SDs from their family's median (in {and_(far_in)}), {n_short} are genomes "
-                         "whose assembly holds less than the reads show" + (", the direction expected where part of an array is missing from an assembly "
-                                                                             "without a marked gap." if n_short > n_far / 2 else "."))
+                         "whose assembly holds less than the reads show" + (", the direction expected where the assembly lacks part of an array, behind a "
+                                                                             f"{PLACEHOLDER_GAP}-bp placeholder gap of unknown size or with no gap marked at all."
+                                                                             if n_short > n_far / 2 else "."))
         if notes:
             P.h('<p class="small">' + " ".join(notes) + "</p>")
         # one clean scatter per family: equality, the family's median ratio, and the people far from it
@@ -1248,14 +1497,16 @@ family <em>tracks</em> the assemblies: a round threshold set when six people cou
             px, py = (max(xv) - min(xv) or 1) * 0.06, (max(yv) - min(yv) or 1) * 0.08
             eq_shown = max(min(xv) - px, min(yv) - py) < min(max(xv) + px, max(yv) + py)
             cap = (f"Each dot is one of {s_['n']} people of the 1000 Genomes 30× cohort with an HPRC release-2 assembly"
-                   + (f" ({s_['n_gapped']} more left out: their assembly leaves part of the array as a gap)" if s_.get("n_gapped") else "")
+                   + (f" ({s_['n_gapped']} more left out: their assembly leaves more than {fmt(MAX_GAPPED, 0, pct=True)} of the array in marked gaps)" if s_.get("n_gapped") else "")
+                   + (f"; {s_['n_unsized_gap']} of the {s_['n']} {'has' if s_['n_unsized_gap'] == 1 else 'have'} a {PLACEHOLDER_GAP}-bp placeholder gap of unknown size next to the array, which leaves no one out"
+                      if s_.get("n_unsized_gap") else "")
                    + f": x the {cls} array mass in the assembly (both haplotypes), y NGS-DOSE's estimate from the short reads. "
                    + ("Solid grey line: equality. " if eq_shown else "")
                    + f"Dashed line: the median ratio, {fmt(k, 2)}"
                    + (f" (the panel's recall for this family in CHM13 is {fmt(recall, 0, pct=True)})" if recall < 0.95 else "")
                    + ("" if eq_shown else "; equality lies off the plot")
                    + f". People differ by {fmt(s_.get('cv_assembly'), 1, pct=True)} (CV of the assembly mass); per person the two measurements agree to "
-                     f"{fmt(rsd, 1, pct=True)} (robust SD of the log ratio); Pearson r = {fmt(s_.get('pearson'), 2)}."
+                     f"{fmt(rsd, 1, pct=True)} (robust SD of the log ratio); Pearson r = {fmt(s_.get('pearson'), 4)}."
                    + ((f" Orange: {n_out} {'person' if n_out == 1 else 'people'} more than three robust SDs from the median ratio"
                        + (", all with less in the assembly than in the reads." if n_out_short == n_out else ".")) if n_out else "")
                    + SAT_NOTE.get(cls, ""))
@@ -1365,10 +1616,17 @@ calibration do the work, and the PCs are insurance.</p>''')
                 f"least-squares fit. Pearson r = {ci(cx)}, Spearman {fmt(cx.get('spearman'), 2)}. Gibbons et al. (2015) reported the two arrays' copy numbers "
                 f"to be correlated; Hall et al. (2021) did not see it in these genomes. Here both are measured the same way, with no shared denominator.")
     P.h("<h3>The cell line</h3>")
+    # how much the culture's contents vary between people, against the 45S: the words follow the numbers
+    cv_of = lambda c: bio.get(f"{c}_cv") if bio.get(f"{c}_cv") is not None else (bio[c]["sd"] / bio[c]["mean"] if bio[c].get("sd") is not None and bio[c].get("mean") else None)
+    than = lambda x, y: ("far more than" if x >= 2 * y else "more than" if x > 1.1 * y else "about as much as" if x >= 0.95 * y
+                         else "slightly less than" if x >= 0.8 * y else "less than")
+    c45_, cM_, cE_ = bio.get("cn45_cv"), cv_of("chrM"), cv_of("chrEBV")
+    spread_txt = (f" Between people, EBV load varies {than(cE_, c45_)} the 45S copy number (CV {fmt(cE_, 0, pct=True)} against {fmt(c45_, 0, pct=True)}) and "
+                  f"mitochondrial content {than(cM_, c45_)} it (CV {fmt(cM_, 0, pct=True)}).") if c45_ and cM_ is not None and cE_ is not None else ""
     P.h(f'''<p>Every genome was sequenced from a lymphoblastoid cell line, whose state leaves marks on coverage. Mitochondrial genomes per cell: median
 <strong>{fmt(bio["chrM"].get("median"), 0)}</strong> (10–90%: {fmt(bio["chrM"].get("q10"), 0)}–{fmt(bio["chrM"].get("q90"), 0)}); EBV episomes per cell: median
-<strong>{fmt(bio["chrEBV"].get("median"), 1)}</strong> ({fmt(bio["chrEBV"].get("q10"), 1)}–{fmt(bio["chrEBV"].get("q90"), 1)}). Both vary far more between people
-than the rDNA does and neither is inherited through the nuclear genome, which is why they serve as negative controls in 3.6.</p>''')
+<strong>{fmt(bio["chrEBV"].get("median"), 1)}</strong> ({fmt(bio["chrEBV"].get("q10"), 1)}–{fmt(bio["chrEBV"].get("q90"), 1)}).{spread_txt} Neither is inherited
+through the nuclear genome, which is why they serve as negative controls in 3.6.</p>''')
     P.h('<div class="grid2">')
     P.chart("chrM", dict(type="hist", col="chrM.copies", xlabel="mitochondrial genomes per cell", xfmt=0), "Mitochondrial genomes per cell",
             f"Mitochondrial genomes per cell in each of {bio['chrM'].get('n', 0):,} genomes of the 1000 Genomes 30× cohort (lymphoblastoid cell lines), "
@@ -1388,12 +1646,18 @@ than the rDNA does and neither is inherited through the nuclear genome, which is
                 f"genome (y), both NGS-DOSE; log scales; line: least-squares fit. r = {ci(cm)}, on the log scale. Gibbons et al. (2014) reported rDNA copy "
                 f"number to be coupled with mitochondrial DNA abundance in lymphoblastoid lines.")
     if sph.get("n", 0) >= 3:
-        P.chart("sphase", dict(type="scatter", x="truth.chrX", y=kt["DJ_col"], where=dict(sex_inferred="F"), xlabel="chrX copies (women)", ylabel="distal junction copies", fit=False, xref=2, yref=10),
+        # the women biology() correlates: those whose culture has kept both X chromosomes (a mosaic loss is not an S-phase effect)
+        sph_pts = [dict(x=num_(r, "truth.chrX"), y=num_(r, kt["DJ_col"]), label=r["sample"]) for r in rows
+                   if r.get("sex_inferred") == "F" and 1.85 <= num_(r, "truth.chrX") <= 2.15 and math.isfinite(num_(r, kt["DJ_col"]))]
+        P.chart("sphase", dict(type="scatter", points=sph_pts, xlabel="chrX copies (women)", ylabel="distal junction copies", fit=False, xref=2, yref=10),
                 "Two late-replicating controls, in women",
                 f"Each dot is one of {sph['n']:,} women of the 1000 Genomes 30× cohort whose cell line has kept both X chromosomes (chrX 1.85–2.15): chrX "
                 f"copies (x; expected 2) and distal-junction copies (y; expected 10), both NGS-DOSE; lines at the expected values. r = {ci(sph)}. The "
                 f"inactive X and the acrocentric short arms replicate late; a culture with more cells in S phase should under-represent both together. "
-                f"An r near zero says the two deficits are not one thing.")
+                + ("An interval that includes zero weakens a shared S-phase explanation without ruling out a small shared effect, which the junction's "
+                   "inherited spread between people could hide." if sph.get("r_lo") is not None and sph["r_lo"] <= 0 <= sph["r_hi"] else
+                   "An interval above zero is what a shared effect predicts." if sph.get("r_lo") is not None and sph["r_lo"] > 0 else
+                   "A negative correlation is the opposite of what a shared S-phase effect predicts." if sph.get("r_lo") is not None else ""))
     P.h("</div>")
     du = bio["dup"]
     P.chart("dup", dict(type="scatter", x="ctrl_dup_frac", y="rDNA45S.dup_flag_frac", xlabel="duplicate-flagged, control reads", ylabel="duplicate-flagged, 45S reads", identity=True, xfmt=3),
@@ -1407,8 +1671,11 @@ than the rDNA does and neither is inherited through the nuclear genome, which is
                ". A pipeline that drops flagged reads reads the rDNA by a different amount in every genome; NGS-DOSE counts all primary reads."))
     if sat["classes"]:
         P.h("<h3>Satellite arrays and the telomeric repeat</h3>")
-        P.h('''<p>Satellite arrays are dispersed over the alignment, so only a whole-file scan measures them. Diploid mass per family; what each
-panel can see was measured on the genome it was built from (four families are relative measures, under-read by their k-mer recall).</p>''')
+        tel_path = next((r["path"] for r in fpaths if r["class"] == "TEL"), None)
+        P.h(f'''<p>Satellite reads are compositional: they are assigned by k-mers wherever the aligner put them, and this run measured them by
+whole-file scan (<a href="#paths">3.3</a> gives what a targeted fetch can do for each class{"; the telomeric repeat has sinks in the bundle" if tel_path and tel_path.startswith("fetch-direct") else ""}).
+Diploid mass per family; what each panel can see was measured on the genome it was built from (four families are relative measures, under-read
+by their k-mer recall).</p>''')
         rows_s = [[cls, d["n"], fmt(d["median"], 1), fmt(d.get("q10"), 1) + "–" + fmt(d.get("q90"), 1), fmt(d["by_sex"]["M"].get("median"), 1), fmt(d["by_sex"]["F"].get("median"), 1)] for cls, d in sat["classes"].items()]
         P.table(rows_s, ["class", "n", "median Mb (diploid)", "10–90%", "men", "women"], numeric={1, 2, 3, 4, 5})
         P.h('<div class="grid2">')
@@ -1435,39 +1702,54 @@ panel can see was measured on the genome it was built from (four families are re
     t2 = next((t for t in tr["table"] if t["column"] == "HSat2.mass_Mb"), {})
     # inherited as faithfully as the other classes, on the parents' scale (3.6): heritable, whatever the assemblies say
     t2_ok = t2.get("R_rescaled_lo") is not None and t2["R_rescaled_lo"] > 0.8
-    hsat2_limit = ((f"HSat2 agrees poorly with the {h2['n']} assemblies that close its arrays (r = {fmt(h2.get('pearson'), 2)}, SD of the log ratio "
+    hsat2_limit = ((f"HSat2 agrees poorly with the {h2['n']} assemblies with at most {fmt(MAX_GAPPED, 0, pct=True)} of its arrays in marked gaps (r = {fmt(h2.get('pearson'), 2)}, SD of the log ratio "
                     f"{fmt(h2.get('sd_log'), 2)}), though it is inherited as faithfully as the other classes (R = {fmt(t2['R_rescaled'], 2)}, "
                     f"{fmt(t2['R_rescaled_lo'], 2)} to {fmt(t2['R_rescaled_hi'], 2)}, with the children on their parents' scale; 3.6): what it measures "
                     "is heritable, but the assemblies do not yet confirm that it is the mass of HSat2."
                     if t2_ok else
-                    f"HSat2, compared in the {h2['n']} assemblies that close its arrays, gives r = {fmt(h2.get('pearson'), 2)} (SD of the log ratio "
+                    f"HSat2, compared in the {h2['n']} assemblies with at most {fmt(MAX_GAPPED, 0, pct=True)} of its arrays in marked gaps, gives r = {fmt(h2.get('pearson'), 2)} (SD of the log ratio "
                     f"{fmt(h2.get('sd_log'), 2)}) and is not yet a usable measure.")
                    if h2.get("n", 0) >= 10 and (h2.get("pearson") or 0) < 0.8 else
-                   f"HSat2, compared in the {h2['n']} assemblies that close its arrays, gives r = {fmt(h2.get('pearson'), 2)} (SD of the log ratio "
+                   f"HSat2, compared in the {h2['n']} assemblies with at most {fmt(MAX_GAPPED, 0, pct=True)} of its arrays in marked gaps, gives r = {fmt(h2.get('pearson'), 2)} (SD of the log ratio "
                    f"{fmt(h2.get('sd_log'), 2)})." if h2.get("n", 0) >= 10
-                   else "HSat2 is unjudged until assemblies without gaps in it have been compared.")
+                   else f"HSat2 is unjudged until ten assemblies with at most {fmt(MAX_GAPPED, 0, pct=True)} of its arrays in marked gaps have been compared.")
     bt = tr.get("batches") or {}
     kid_b = max((bt.get("child") or {}).items(), key=lambda kv: kv[1], default=(None, 0))
     par_b = max((bt.get("parent") or {}).items(), key=lambda kv: kv[1], default=(None, 0))
     apart = bool(bt) and kid_b[0] != par_b[0] and kid_b[1] >= 0.9 * bt["n"] and par_b[1] >= 0.9 * 2 * bt["n"]
-    trio_limit = ("<strong>Generation and batch go together in the trios.</strong> Every child was sequenced in a later batch than its parents "
-                  "(3.6), so no batch is shared within a family to imitate inheritance, but a difference in the children's level or spread cannot be "
-                  "told from the batch's; R and R with the children on their parents' scale bracket the reliability."
+    kn_, pn_ = kid_b[1], par_b[1]
+    trio_limit = (f"<strong>Generation and batch go together in the trios.</strong> {'All' if kn_ == bt.get('n') else f'{kn_:,} of the'} {bt.get('n', 0):,} children "
+                  f"were sequenced in a later batch than {pn_:,} of their {2 * bt.get('n', 0):,} parents (3.6); only {bt.get('shared', 0):,} "
+                  f"{'family has' if bt.get('shared') == 1 else 'families have'} a parent in the child's batch, so a batch shared within a family, which could "
+                  "imitate inheritance, is all but absent. But a difference in the children's level or spread cannot be told from the batch's; R and R with "
+                  "the children on their parents' scale bracket the reliability."
                   if apart else
                   "<strong>Trios bound reliability from above</strong> where members of a family were prepared together; the spousal correlation is the check.")
+    op = {}
+    for q in (dd.get("points") or []):
+        if q.get("pipeline") and not q["pipeline"].startswith("NYGC"):
+            op[q["pipeline"]] = op.get(q["pipeline"], 0) + 1
+    other_pipe = ("; and " + "; ".join(f"{v} line{'s' if v > 1 else ''} of the ddPCR comparison, counted from another NovaSeq pipeline ({esc(k)}; 3.7)" for k, v in op.items())) if op else ""
     P.section("limitations", "5. Limitations", "Limitations")
     P.h(f'''<ul>
 <li>{(f'<strong>Absolute scale on a dozen lines.</strong> The one assay, ddPCR on {dd["n"]} lines, reads NGS-DOSE {fmt(dd["ngsdose"]["median_ratio"], 2)}× its value, '
       f'{fmt(abs(dd["ngsdose"]["bias_pct"]), 1)}% {"low" if dd["ngsdose"]["bias_pct"] < 0 else "high"}; beyond those lines the level rests on unit windows on which three Illumina chemistries agree. '
       'The known truths test the model and the k-mer path, not the absolute scale of the rDNA.') if dd_ok else
       '<strong>No absolute calibration.</strong> No orthogonal assay of rDNA copy number exists for these samples. The absolute level rests on unit windows on which three Illumina chemistries agree; the known truths test the model and the k-mer path, not the absolute scale of the rDNA.'}</li>
-<li><strong>Cell-line DNA.</strong> Every sample is a lymphoblastoid line; its replication state, EBV load and mitochondrial content are measured
-but not removed. Blood-derived genomes will not carry the first of these.</li>
+<li><strong>Cell-line DNA.</strong> Every sample is a lymphoblastoid line; its EBV load and mitochondrial content are measured but not removed,
+and it shows deficits in late-replicating sequence (the X in women, the distal junction) whose cause is not established (<a href="#rdna">section 4</a>).
+Whether blood-derived genomes show them is untested here.</li>
 <li>{trio_limit}
 Because the rDNA varies far more between people than any estimator errs, trios show that the measured variation is real, not which estimator
 measures it best.</li>
-<li><strong>One chemistry, one pipeline.</strong> The cohort is NovaSeq 2×150 aligned by one pipeline; the cross-technology evidence is twelve
-genomes. DRAGEN alignments and other chemistries are untested.</li>
+<li><strong>One cohort pipeline.</strong> The cohort is NovaSeq 2×150 aligned by one pipeline (NYGC, bwa-mem 0.7.15). The evidence beyond it is small:
+the twelve pilot genomes, sequenced again on HiSeq 2000/2500 and aligned by another pipeline (3.4){other_pipe}.
+The fetch-mode sinks were learned on NYGC alignments. One genome (HG00096) was fetched from three DRAGEN re-analyses, a check made outside
+this page. Under DRAGEN 3.7.6, of the 3.7 family that UK Biobank and All of Us are thought to use (3.7.8; not checked against their headers),
+the NYGC sinks held 99.96% of its 45S and 5S reads and 98.9% of its distal-junction reads. Under DRAGEN 4.x with an alt-masked reference most 45S and distal-junction reads were left unmapped, and a fetch that
+also reads the unmapped reads (<code>--unmapped</code>) recovered them. Beyond that one genome DRAGEN is untested, as are non-Illumina
+chemistries. A biobank pipeline needs whole-file scans of a subset of its own files to learn its sinks and measure their capture
+(<a href="#paths">3.3</a>).</li>
 <li><strong>The satellite panels</strong> were built from one genome (CHM13). Four of the ten families are relative measures; {hsat2_limit}
 The telomere class is a relative measure of (TTAGGG)n content, not a telomere length.</li>
 <li><strong>Partial cohort.</strong> {n:,} of {total:,}: population comparisons and the number of complete trios depend on which genomes have
@@ -1479,11 +1761,16 @@ landed.</li>
     P.section("reproduce", "6. Data and reproducibility", "Data")
     P.h(f'''<p>The counts files under <code>counts_scan/</code> and <code>counts_fetch/</code> are the primary data: about 240 kB per whole-file scan and
 70 kB per fetch, no reads, no genotypes. Everything above is computed from them:</p>
-<pre>pip install git+https://github.com/jlanej/NGS-DOSE     # the method; this repository holds the page
-python -m report --scan counts_scan/ --fetch counts_fetch/ -p pedigree.txt --hall hall2021_MOESM1.txt --pilot pilot/ --qc ngspca_sample_qc.tsv -o docs/</pre>
+<pre>pip install git+https://github.com/jlanej/NGS-DOSE matplotlib   # the method; this repository holds the page
+export NGSDOSE_RESOURCES=/path/to/NGS-DOSE/resources/GRCh38      # unless ngsdose is installed editable from a checkout
+bash regenerate.sh   # fetches the pedigree and HPRC CenSat files, then runs:
+python -m report --scan counts_scan --fetch counts_fetch -p meta/20130606_g1k_3202_samples_ped_population.txt --hall meta/hall2021_MOESM1.txt \\
+    --pilot pilot --pcs meta/ngspca/svd.pcs.txt --censat hprc_censat --qc meta/ngspca_sample_qc.tsv \\
+    --ddpcr assembly_rdna/tables/potapova_comparison.tsv --cache cache -o docs
+# and builds docs/evidence.png and docs/trio_report.pdf (python -m report.evidence_figure, python -m report.trio_report)</pre>
 <p>Tables behind every figure: <code>data/cohort.tsv</code> (one row per genome, every column), <code>data/modes.tsv</code>,
 <code>data/transmission.tsv</code>, <code>data/transmission_by_sex.tsv</code> and <code>data/trios.tsv</code> (every trio's values), <code>data/fetch_check.tsv</code>, <code>data/pcsweep.tsv</code>,
-<code>data/satellites_hprc.tsv</code>,{" <code>data/rdna_hprc.tsv</code>," if rd.get("assemblies") else ""} <code>data/flags.tsv</code>; the numbers
+<code>data/satellites_hprc.tsv</code>,{" <code>data/rdna_hprc.tsv</code>," if rd.get("assemblies") else ""} <code>data/fetch_paths.tsv</code> (each class's path), <code>data/flags.tsv</code>; the numbers
 in the prose, <code>report.json</code>; the ddPCR lines, <code>data/ddpcr.tsv</code>; the trio assessment as a document, <code>trio_report.pdf</code>. The counts were made by <code>ngs-dose count</code> ({eng}) from the 1000 Genomes 30× CRAMs
 (Byrska-Bishop et al., <em>Cell</em> 2022; AWS Open Data) with the {esc(m.get("bundle"))} resource bundle. Method, design document and
 audit: <a href="https://github.com/jlanej/NGS-DOSE">github.com/jlanej/NGS-DOSE</a>.</p>''')
@@ -1534,9 +1821,9 @@ complete trios.</p>""")
                 cap = (f"Each dot is one of {len(pts)} complete parent–child trios of the 1000 Genomes 30× cohort: x the mean of the two parents' {label}, "
                        f"y the child's, in {unit}; sons blue, daughters orange, each with its least-squares line; grey diagonal: child equals midparent. "
                        f"Midparent slope {fmt(t['slope'], 2)} ± {fmt(t['slope_se'], 2)}, spousal r = {fmt(t['spousal_r'], 2)}, reliability "
-                       f"R = {fmt(min(t['R'], 1.0), 2)}"
-                       + (" (" + "; ".join((["capped at 1"] if t["R"] > 1 else []) + ([f"95% CI {fmt(t['R_lo'], 2)} to {fmt(t['R_hi'], 2)}"] if "R_lo" in t else [])) + ")"
-                          if t["R"] > 1 or "R_lo" in t else "") + "."
+                       f"R = {fmt(cap1(t['R']), 2)}"
+                       + (" (" + "; ".join((["capped at 1"] if (t["R"] or 0) > 1 else []) + ([f"95% CI {fmt(t['R_lo'], 2)} to {fmt(t['R_hi'], 2)}"] if t.get("R_lo") is not None else [])) + ")"
+                          if (t["R"] or 0) > 1 or t.get("R_lo") is not None else "") + "."
                        + (f" Correlation of child with parent by sex (values centred within population and sex): {split}." if split else "") + note.get(key, ""))
                 P.chart(f"trio_{re.sub(r'[^A-Za-z0-9]', '_', col)}", dict(type="scatter", points=pts, legend=["son", "daughter"], xlabel=f"midparent, {unit}",
                                                                           ylabel=f"child, {unit}", identity=True, fit=True, fit_labels=["sons", "daughters"]),

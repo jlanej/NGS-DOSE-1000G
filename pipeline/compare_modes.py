@@ -5,14 +5,17 @@ the whole-file scan of the same CRAM.
     compare_modes.py --scan single_sample.scan.tsv --fetch single_sample.fetch.tsv --out modes.tsv
 
 Both tables come from `ngsdose estimate`. The known-truth and dosage columns are made from the
-same reads in both modes and must be identical; the classes differ by whatever the sinks miss.
+same reads in both modes and must be identical; the classes differ by whatever the sinks miss. A
+sample whose known-truth or dosage ratio is not 1 is listed at the end: its fetch lost reads (a cut
+index, for one) and should be counted again.
 """
 import argparse
 import csv
 
 import numpy as np
 
-COLUMNS = ("rDNA45S.cn_single", "rDNA45S.cn_all", "rDNA5S.cn_single", "DJ.cn_single", "truth.auto", "truth.chrX", "chrM.copies", "chrEBV.copies")
+COLUMNS = ("rDNA45S.cn_single", "rDNA45S.cn_all", "rDNA5S.cn_single", "DJ.cn_single", "TEL.mass_Mb", "truth.auto", "truth.chrX", "chrM.copies", "chrEBV.copies")
+IDENTICAL = ("truth.auto", "truth.chrX", "chrM.copies", "chrEBV.copies")
 
 
 def table(path):
@@ -53,6 +56,10 @@ def main():
         sd = float(np.std(np.log(v[ok]), ddof=1)) if ok.sum() > 1 else 0.0
         print(f"{c:22s} {int(ok.sum()):5d} {np.median(v[ok]):9.5f} {v[ok].min():9.5f} {v[ok].max():9.5f} {sd:16.6f}   "
               + ", ".join(f"{s} {x:.4f}" for x, s in worst))
+    off = [r["sample"] for r in rows if any(np.isfinite(r[c]) and abs(r[c] - 1) > 1e-6 for c in IDENTICAL)]
+    if off:
+        print(f"{len(off)} sample(s) whose fetch differs from the scan on reads both modes share ({', '.join(IDENTICAL)}); count their fetch again: "
+              + " ".join(off))
 
 
 if __name__ == "__main__":
