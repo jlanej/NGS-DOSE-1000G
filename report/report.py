@@ -384,7 +384,9 @@ def flags_for(row: dict, majority_engine: str | None) -> list[str]:
     step = row.get("DJ.step")
     if step is not None and abs(step) >= 0.75:
         f.append(f"DJ {step:+.2f} copies")
-    if majority_engine and row.get("engine") and row["engine"] != majority_engine:
+    # builds of one engine version count alike (NGS-DOSE's CI asserts byte-identical counts across them); only an engine
+    # of another version is worth a look
+    if majority_engine and row.get("engine") and str(row["engine"]).split("+")[0] != str(majority_engine).split("+")[0]:
         f.append(f"engine {row['engine']}")
     if num(row, "gc_curve_max_se") > 0.5:
         f.append("GC curve poorly determined")
@@ -1266,6 +1268,11 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
     data["fetch_paths"] = fetch_paths(S, data["meta"]["sinks"])
     data["ddpcr"] = ddpcr_comparison(rows, a.ddpcr)
     data["pcs"] = pc_analysis(rows, info, trio_list, population, a.pcs, log)
+    # the population medians again after NGS-PCA's coverage PCs are regressed out (pc_analysis writes the column): what the
+    # differences between populations look like once the technical structure those PCs hold is taken out, ancestry included
+    col45 = "rDNA45S.cn" if data["rdna"]["rDNA45S.cn"]["n"] else "rDNA45S.cn_single"
+    if any(np.isfinite(num(r, f"{col45}.adj_ngspca")) for r in rows):
+        data["rdna"]["by_superpop_adjusted"] = by_group(rows, f"{col45}.adj_ngspca", "superpop")
     if data["pcs"].get("adjusted") and data["trios"]["n_complete"] >= 3:
         adj_cols = [(f"{c}.adj", f"{l}, adjusted") for c, l in ESTIMATORS + NEGATIVE_CONTROLS if any(np.isfinite(num(r, f"{c}.adj")) for r in rows)]
         data["trios_adjusted"] = trio_analysis(rows, trio_list, population, adj_cols, sequenced)

@@ -1,0 +1,15 @@
+class	modes	n_scan	n_fetch	path	fetch_calibrated	sinks_intervals	sinks_bp	fetch_sinks_sha256	unmapped_fetched	capture_n	capture_median	capture_min	capture_sinks_sha256	fetch_over_scan_column	fetch_over_scan_n	fetch_over_scan_median	fetch_over_scan_min
+rDNA45S	scan,fetch	3202	3202	fetch-direct	none yet	19	498000	0dc960a3,9dd52ba1	0	3202	0.999492	0.998505	0dc960a3	rDNA45S.cn_single	3202	0.9996338947401678	0.9988354054136266
+rDNA5S	scan,fetch	3202	3202	fetch-direct	none yet	2	64000	0dc960a3,9dd52ba1	0	3202	0.999839	0.9991	0dc960a3	rDNA5S.cn_single	3202	0.9998726812373293	0.999170781701295
+DJ	scan,fetch	3202	3202	fetch-direct	none yet	59	2780000	0dc960a3,9dd52ba1	0	3202	0.997572	0.996367	0dc960a3	DJ.cn_single	3202	0.9977213524803275	0.9965042155048324
+HSat1A	scan	3202	0	scan-only	none yet	NA	NA	NA	0	0	NA	NA	NA	NA	0	NA	NA
+HSat1B	scan	3202	0	scan-only	none yet	NA	NA	NA	0	0	NA	NA	NA	NA	0	NA	NA
+HSat2	scan	3202	0	scan-only	none yet	NA	NA	NA	0	0	NA	NA	NA	NA	0	NA	NA
+HSat3	scan	3202	0	scan-only	none yet	NA	NA	NA	0	0	NA	NA	NA	NA	0	NA	NA
+bSat	scan	3202	0	scan-only	none yet	NA	NA	NA	0	0	NA	NA	NA	NA	0	NA	NA
+aSatHOR	scan	3202	0	scan-only	none yet	NA	NA	NA	0	0	NA	NA	NA	NA	0	NA	NA
+SATR	scan	3202	0	scan-only	none yet	NA	NA	NA	0	0	NA	NA	NA	NA	0	NA	NA
+ACRO	scan	3202	0	scan-only	none yet	NA	NA	NA	0	0	NA	NA	NA	NA	0	NA	NA
+SST1	scan	3202	0	scan-only	none yet	NA	NA	NA	0	0	NA	NA	NA	NA	0	NA	NA
+CER	scan	3202	0	scan-only	none yet	NA	NA	NA	0	0	NA	NA	NA	NA	0	NA	NA
+TEL	scan,fetch	3202	1454	fetch-direct	none yet	63	809895	0dc960a3	0	3202	0.998604	0.993931	0dc960a3	TEL.mass_Mb	1454	0.9988441978115636	0.9951083158630328
