@@ -1,5 +1,5 @@
 sample	flags
-HG00138	DJ -0.97 copies
+HG00138	DJ -1.02 copies
 HG00139	chrY 0.79 (mosaic Y loss?)
 HG00142	aneuploid: chr11,chr13
 HG00149	aneuploid: chr12
@@ -10,113 +10,1615 @@ HG00187	chrY 0.84 (mosaic Y loss?)
 HG00189	aneuploid: chr9
 HG00244	chrY 0.81 (mosaic Y loss?)
 HG00246	chrY 0.31 (mosaic Y loss?)
-HG00331	DJ +1.23 copies
+HG00331	DJ +1.21 copies
 HG00361	chrX 1.14 (mosaic X loss?)
 HG00376	chrX 1.84 (mosaic X loss?)
-HG00383	DJ +0.91 copies
-HG00384	chrX 1.77 (mosaic X loss?); DJ +0.96 copies
+HG00383	DJ +0.88 copies
+HG00384	chrX 1.77 (mosaic X loss?); DJ +0.93 copies
 HG00501	aneuploid: chr12
-HG00531	DJ -1.10 copies
-HG00543	DJ -0.99 copies
-HG00554	DJ -0.91 copies
-HG00619	DJ -1.02 copies
-HG00621	DJ -0.92 copies
+HG00524	DJ -0.78 copies
+HG00531	DJ -1.16 copies
+HG00543	DJ -1.04 copies
+HG00554	DJ -0.95 copies
+HG00619	DJ -1.07 copies
+HG00621	DJ -0.96 copies
 HG00623	aneuploid: chr12
-HG00651	DJ -1.93 copies
-HG00652	DJ -1.98 copies
-HG00656	DJ -1.04 copies
-HG00658	DJ -0.97 copies
+HG00651	DJ -1.98 copies
+HG00652	DJ -2.02 copies
+HG00656	DJ -1.08 copies
+HG00658	DJ -1.03 copies
 HG00732	chrX 1.61 (mosaic X loss?)
-HG00740	DJ -1.06 copies
+HG00740	DJ -1.11 copies
 HG00864	chrX 1.74 (mosaic X loss?)
-HG01047	DJ -1.08 copies
+HG01047	DJ -1.12 copies
 HG01053	chrX 1.48 (mosaic X loss?)
 HG01066	chrY 0.84 (mosaic Y loss?)
 HG01073	chrX 1.82 (mosaic X loss?)
-HG01083	DJ -0.83 copies
-HG01085	DJ -1.02 copies
-HG01088	DJ +1.30 copies
-HG01089	chrX 1.81 (mosaic X loss?); DJ +1.12 copies
-HG01107	DJ +0.86 copies
-HG01113	DJ +1.04 copies
-HG01136	DJ +0.88 copies
+HG01083	DJ -0.88 copies
+HG01085	DJ -1.06 copies
+HG01088	DJ +1.24 copies
+HG01089	chrX 1.81 (mosaic X loss?); DJ +1.07 copies
+HG01107	DJ +0.83 copies
+HG01113	DJ +1.01 copies
+HG01136	DJ +0.83 copies
 HG01137	aneuploid: chr12; chrX 1.50 (mosaic X loss?)
 HG01140	chrX 1.79 (mosaic X loss?)
 HG01168	aneuploid: chr12
-HG01171	DJ +1.05 copies
-HG01172	DJ +1.17 copies
-HG01173	DJ -1.04 copies
-HG01204	DJ -1.99 copies
+HG01171	DJ +1.00 copies
+HG01172	DJ +1.12 copies
+HG01173	DJ -1.09 copies
+HG01204	DJ -2.04 copies
 HG01205	chrX 1.84 (mosaic X loss?)
-HG01206	DJ -1.98 copies
-HG01248	DJ +0.79 copies
-HG01271	DJ +0.78 copies
+HG01206	DJ -2.03 copies
+HG01248	DJ +0.75 copies
 HG01303	aneuploid: chr5,chr12; held-out autosomal 2.067
-HG01305	DJ +1.21 copies
+HG01305	DJ +1.16 copies
 HG01349	chrX 1.84 (mosaic X loss?)
 HG01357	aneuploid: chr12
 HG01366	chrX 1.28 (mosaic X loss?)
-HG01405	DJ +0.88 copies
+HG01405	DJ +0.84 copies
 HG01414	aneuploid: chr12
-HG01437	DJ -0.92 copies
-HG01440	DJ -1.20 copies
-HG01495	DJ +1.43 copies
+HG01437	DJ -0.96 copies
+HG01440	DJ -1.25 copies
+HG01495	DJ +1.39 copies
 HG01506	aneuploid: chr11
-HG01517	DJ +0.76 copies
-HG01523	DJ +0.89 copies
+HG01523	DJ +0.84 copies
 HG01532	chrY 0.74 (mosaic Y loss?)
 HG01602	aneuploid: chr9
-HG01607	DJ +1.47 copies
-HG01625	DJ +0.84 copies
-HG01671	DJ +0.76 copies
+HG01607	DJ +1.43 copies
+HG01625	DJ +0.78 copies
 HG01683	chrX 1.97 with a Y
-HG01684	DJ +0.80 copies
+HG01684	DJ +0.76 copies
 HG01702	aneuploid: chr12
 HG01704	aneuploid: chr12
-HG01765	DJ +0.82 copies
-HG01771	DJ +1.16 copies
-HG01772	DJ +1.61 copies
-HG01786	DJ +0.89 copies
-HG01790	DJ +1.05 copies
+HG01765	DJ +0.80 copies
+HG01771	DJ +1.10 copies
+HG01772	DJ +1.56 copies
+HG01786	DJ +0.85 copies
+HG01790	DJ +1.01 copies
 HG01806	chrX 1.75 (mosaic X loss?)
-HG01844	DJ -1.09 copies
-HG01883	DJ -1.00 copies
+HG01844	DJ -1.14 copies
+HG01883	DJ -1.04 copies
 HG01888	aneuploid: chr9
-HG01889	DJ -1.07 copies
-HG01891	DJ -1.05 copies
-HG01917	DJ +0.94 copies
-HG01920	DJ +1.22 copies
-HG01938	DJ -0.98 copies
-HG01942	DJ +1.23 copies
-HG01943	DJ +1.22 copies
-HG01959	DJ +0.78 copies
-HG01961	DJ +1.36 copies
-HG01967	DJ +0.75 copies
+HG01889	DJ -1.11 copies
+HG01891	DJ -1.10 copies
+HG01917	DJ +0.90 copies
+HG01920	DJ +1.17 copies
+HG01938	DJ -1.04 copies
+HG01942	DJ +1.15 copies
+HG01943	DJ +1.18 copies
+HG01961	DJ +1.31 copies
 HG01968	chrX 1.79 (mosaic X loss?)
-HG01983	aneuploid: chr12; DJ -0.81 copies
-HG01984	DJ -0.86 copies
-HG01986	DJ +0.93 copies
-HG02051	DJ +0.81 copies
-HG02052	DJ +0.83 copies
+HG01983	aneuploid: chr12; DJ -0.85 copies
+HG01984	DJ -0.90 copies
+HG01986	DJ +0.91 copies
+HG02051	DJ +0.78 copies
+HG02052	DJ +0.78 copies
 HG02053	chrY 0.54 (mosaic Y loss?)
-HG02073	DJ -0.98 copies
+HG02073	DJ -1.02 copies
 HG02077	aneuploid: chr12
 HG02144	chrX 1.71 (mosaic X loss?)
 HG02145	chrY 0.76 (mosaic Y loss?)
-HG02164	DJ +1.13 copies
-HG02187	DJ -0.83 copies
-HG02215	DJ +0.81 copies
+HG02164	DJ +1.09 copies
+HG02187	DJ -0.89 copies
+HG02215	DJ +0.75 copies
 HG02220	chrX 1.84 (mosaic X loss?)
-HG02253	DJ -0.80 copies
-HG02256	DJ -1.15 copies
-HG02278	DJ +1.94 copies
-HG02279	DJ +2.00 copies
+HG02253	DJ -0.85 copies
+HG02256	DJ -1.20 copies
+HG02278	DJ +1.90 copies
+HG02279	DJ +1.98 copies
 HG02300	sex: pedigree M, reads F
 HG02322	aneuploid: chr12
-HG02334	DJ -1.26 copies
-HG02408	DJ -1.04 copies
+HG02334	DJ -1.31 copies
+HG02408	DJ -1.06 copies
 HG02409	aneuploid: chr9
-HG02465	DJ -0.90 copies
-HG02485	aneuploid: chr12; DJ -1.01 copies
-HG02508	DJ -0.96 copies
-HG02511	DJ +0.77 copies
+HG02465	DJ -0.94 copies
+HG02485	aneuploid: chr12; DJ -1.06 copies
+HG02508	DJ -1.00 copies
+HG02603	aneuploid: chr12
+HG02610	DJ -0.87 copies
+HG02623	DJ -1.13 copies
+HG02625	DJ -0.80 copies
+HG02634	aneuploid: chr11
+HG02649	DJ -0.85 copies
+HG02650	DJ -1.07 copies
+HG02651	aneuploid: chr12
+HG02652	aneuploid: chr12; chrX 1.74 (mosaic X loss?)
+HG02660	DJ -0.93 copies
+HG02688	DJ -1.84 copies
+HG02689	DJ -1.00 copies
+HG02694	chrX 1.80 (mosaic X loss?)
+HG02696	DJ -1.02 copies
+HG02733	DJ -1.05 copies
+HG02756	DJ -0.96 copies
+HG02759	DJ -1.13 copies
+HG02772	DJ -0.99 copies
+HG02773	DJ -0.97 copies
+HG02785	chrX 1.83 (mosaic X loss?)
+HG02791	aneuploid: chr21
+HG02805	aneuploid: chr9
+HG02837	chrX 1.84 (mosaic X loss?)
+HG02869	DJ -0.92 copies
+HG02895	DJ -1.07 copies
+HG02941	DJ -1.00 copies
+HG02944	DJ +0.78 copies
+HG02971	DJ +0.83 copies
+HG03016	chrX 1.73 (mosaic X loss?)
+HG03019	chrX 1.27 (mosaic X loss?)
+HG03022	DJ -1.08 copies
+HG03055	chrX 1.56 (mosaic X loss?)
+HG03079	chrX 1.82 (mosaic X loss?)
+HG03082	DJ -1.07 copies
+HG03091	DJ -0.85 copies
+HG03118	aneuploid: chr12
+HG03132	chrX 1.83 (mosaic X loss?)
+HG03157	DJ -0.91 copies
+HG03197	aneuploid: chr9
+HG03224	DJ -1.02 copies
+HG03250	chrX 1.06 (mosaic X loss?)
+HG03296	DJ +0.88 copies
+HG03352	chrY 0.76 (mosaic Y loss?)
+HG03363	aneuploid: chr11
+HG03391	DJ -0.92 copies
+HG03401	chrX 1.66 (mosaic X loss?)
+HG03432	DJ -1.20 copies
+HG03439	DJ +1.17 copies
+HG03455	aneuploid: chr12
+HG03499	DJ -0.92 copies
+HG03511	chrX 1.00 (mosaic X loss?)
+HG03517	chrX 1.82 (mosaic X loss?)
+HG03521	DJ -0.83 copies
+HG03522	DJ -0.94 copies; engine 0.1.0+7772e32
+HG03539	engine 0.1.0+7772e32
+HG03548	engine 0.1.0+7772e32
+HG03556	engine 0.1.0+7772e32
+HG03557	engine 0.1.0+7772e32
+HG03559	engine 0.1.0+7772e32
+HG03563	engine 0.1.0+7772e32
+HG03565	engine 0.1.0+7772e32
+HG03567	engine 0.1.0+7772e32
+HG03571	engine 0.1.0+7772e32
+HG03572	engine 0.1.0+7772e32
+HG03574	engine 0.1.0+7772e32
+HG03575	engine 0.1.0+7772e32
+HG03576	engine 0.1.0+7772e32
+HG03577	engine 0.1.0+7772e32
+HG03578	engine 0.1.0+7772e32
+HG03579	engine 0.1.0+7772e32
+HG03582	engine 0.1.0+7772e32
+HG03583	engine 0.1.0+7772e32
+HG03584	engine 0.1.0+7772e32
+HG03585	engine 0.1.0+7772e32
+HG03589	engine 0.1.0+7772e32
+HG03593	DJ +2.79 copies; engine 0.1.0+7772e32
+HG03594	engine 0.1.0+7772e32
+HG03595	engine 0.1.0+7772e32
+HG03596	engine 0.1.0+7772e32
+HG03598	engine 0.1.0+7772e32
+HG03600	engine 0.1.0+7772e32
+HG03603	engine 0.1.0+7772e32
+HG03604	engine 0.1.0+7772e32
+HG03605	engine 0.1.0+7772e32
+HG03606	engine 0.1.0+7772e32
+HG03607	engine 0.1.0+7772e32
+HG03611	DJ -0.79 copies; engine 0.1.0+7772e32
+HG03615	chrY 0.67 (mosaic Y loss?); engine 0.1.0+7772e32
+HG03616	engine 0.1.0+7772e32
+HG03617	engine 0.1.0+7772e32
+HG03618	engine 0.1.0+7772e32
+HG03619	engine 0.1.0+7772e32
+HG03620	engine 0.1.0+7772e32
+HG03624	engine 0.1.0+7772e32
+HG03625	engine 0.1.0+7772e32
+HG03626	engine 0.1.0+7772e32
+HG03629	engine 0.1.0+7772e32
+HG03631	engine 0.1.0+7772e32
+HG03633	engine 0.1.0+7772e32
+HG03634	chrX 1.75 (mosaic X loss?); engine 0.1.0+7772e32
+HG03635	engine 0.1.0+7772e32
+HG03636	engine 0.1.0+7772e32
+HG03639	engine 0.1.0+7772e32
+HG03640	engine 0.1.0+7772e32
+HG03641	engine 0.1.0+7772e32
+HG03642	engine 0.1.0+7772e32
+HG03643	engine 0.1.0+7772e32
+HG03644	DJ -1.07 copies; engine 0.1.0+7772e32
+HG03645	engine 0.1.0+7772e32
+HG03646	engine 0.1.0+7772e32
+HG03649	engine 0.1.0+7772e32
+HG03650	engine 0.1.0+7772e32
+HG03651	engine 0.1.0+7772e32
+HG03652	engine 0.1.0+7772e32
+HG03653	engine 0.1.0+7772e32
+HG03654	engine 0.1.0+7772e32
+HG03660	engine 0.1.0+7772e32
+HG03663	engine 0.1.0+7772e32
+HG03667	engine 0.1.0+7772e32
+HG03668	engine 0.1.0+7772e32
+HG03669	engine 0.1.0+7772e32
+HG03672	engine 0.1.0+7772e32
+HG03673	engine 0.1.0+7772e32
+HG03679	engine 0.1.0+7772e32
+HG03680	engine 0.1.0+7772e32
+HG03681	engine 0.1.0+7772e32
+HG03682	DJ +1.11 copies; engine 0.1.0+7772e32
+HG03683	engine 0.1.0+7772e32
+HG03684	engine 0.1.0+7772e32
+HG03685	DJ -1.11 copies; engine 0.1.0+7772e32
+HG03686	engine 0.1.0+7772e32
+HG03687	engine 0.1.0+7772e32
+HG03688	engine 0.1.0+7772e32
+HG03689	engine 0.1.0+7772e32
+HG03690	engine 0.1.0+7772e32
+HG03691	engine 0.1.0+7772e32
+HG03692	engine 0.1.0+7772e32
+HG03693	engine 0.1.0+7772e32
+HG03694	engine 0.1.0+7772e32
+HG03695	engine 0.1.0+7772e32
+HG03696	engine 0.1.0+7772e32
+HG03697	engine 0.1.0+7772e32
+HG03698	engine 0.1.0+7772e32
+HG03699	DJ -0.92 copies; engine 0.1.0+7772e32
+HG03700	engine 0.1.0+7772e32
+HG03701	DJ -0.98 copies; engine 0.1.0+7772e32
+HG03702	engine 0.1.0+7772e32
+HG03703	engine 0.1.0+7772e32
+HG03704	engine 0.1.0+7772e32
+HG03705	engine 0.1.0+7772e32
+HG03706	engine 0.1.0+7772e32
+HG03707	engine 0.1.0+7772e32
+HG03708	engine 0.1.0+7772e32
+HG03709	engine 0.1.0+7772e32
+HG03710	engine 0.1.0+7772e32
+HG03711	engine 0.1.0+7772e32
+HG03713	engine 0.1.0+7772e32
+HG03714	engine 0.1.0+7772e32
+HG03716	engine 0.1.0+7772e32
+HG03717	DJ -0.90 copies; engine 0.1.0+7772e32
+HG03718	engine 0.1.0+7772e32
+HG03719	engine 0.1.0+7772e32
+HG03720	engine 0.1.0+7772e32
+HG03721	engine 0.1.0+7772e32
+HG03722	engine 0.1.0+7772e32
+HG03725	engine 0.1.0+7772e32
+HG03727	engine 0.1.0+7772e32
+HG03729	engine 0.1.0+7772e32
+HG03730	engine 0.1.0+7772e32
+HG03731	DJ +1.57 copies; engine 0.1.0+7772e32
+HG03732	engine 0.1.0+7772e32
+HG03733	DJ +0.81 copies; engine 0.1.0+7772e32
+HG03736	DJ -0.95 copies; engine 0.1.0+7772e32
+HG03738	engine 0.1.0+7772e32
+HG03740	engine 0.1.0+7772e32
+HG03741	engine 0.1.0+7772e32
+HG03742	engine 0.1.0+7772e32
+HG03743	engine 0.1.0+7772e32
+HG03744	engine 0.1.0+7772e32
+HG03745	engine 0.1.0+7772e32
+HG03746	engine 0.1.0+7772e32
+HG03750	engine 0.1.0+7772e32
+HG03752	engine 0.1.0+7772e32
+HG03753	engine 0.1.0+7772e32
+HG03754	engine 0.1.0+7772e32
+HG03755	engine 0.1.0+7772e32
+HG03756	engine 0.1.0+7772e32
+HG03757	engine 0.1.0+7772e32
+HG03760	engine 0.1.0+7772e32
+HG03761	engine 0.1.0+7772e32
+HG03762	engine 0.1.0+7772e32
+HG03763	engine 0.1.0+7772e32
+HG03765	engine 0.1.0+7772e32
+HG03767	engine 0.1.0+7772e32
+HG03770	engine 0.1.0+7772e32
+HG03771	engine 0.1.0+7772e32
+HG03772	engine 0.1.0+7772e32
+HG03773	engine 0.1.0+7772e32
+HG03774	engine 0.1.0+7772e32
+HG03775	engine 0.1.0+7772e32
+HG03777	engine 0.1.0+7772e32
+HG03778	engine 0.1.0+7772e32
+HG03779	engine 0.1.0+7772e32
+HG03780	engine 0.1.0+7772e32
+HG03781	engine 0.1.0+7772e32
+HG03782	engine 0.1.0+7772e32
+HG03784	engine 0.1.0+7772e32
+HG03785	engine 0.1.0+7772e32
+HG03786	engine 0.1.0+7772e32
+HG03787	engine 0.1.0+7772e32
+HG03788	engine 0.1.0+7772e32
+HG03789	engine 0.1.0+7772e32
+HG03790	engine 0.1.0+7772e32
+HG03792	engine 0.1.0+7772e32
+HG03793	engine 0.1.0+7772e32
+HG03794	engine 0.1.0+7772e32
+HG03795	engine 0.1.0+7772e32
+HG03796	aneuploid: chr12; engine 0.1.0+7772e32
+HG03797	engine 0.1.0+7772e32
+HG03798	engine 0.1.0+7772e32
+HG03799	engine 0.1.0+7772e32
+HG03800	engine 0.1.0+7772e32
+HG03801	engine 0.1.0+7772e32
+HG03802	engine 0.1.0+7772e32
+HG03803	engine 0.1.0+7772e32
+HG03804	engine 0.1.0+7772e32
+HG03805	engine 0.1.0+7772e32
+HG03806	engine 0.1.0+7772e32
+HG03807	engine 0.1.0+7772e32
+HG03808	engine 0.1.0+7772e32
+HG03809	engine 0.1.0+7772e32
+HG03812	engine 0.1.0+7772e32
+HG03814	engine 0.1.0+7772e32
+HG03815	engine 0.1.0+7772e32
+HG03816	engine 0.1.0+7772e32
+HG03817	engine 0.1.0+7772e32
+HG03821	engine 0.1.0+7772e32
+HG03823	engine 0.1.0+7772e32
+HG03824	engine 0.1.0+7772e32
+HG03825	engine 0.1.0+7772e32
+HG03826	engine 0.1.0+7772e32
+HG03829	engine 0.1.0+7772e32
+HG03830	engine 0.1.0+7772e32
+HG03831	engine 0.1.0+7772e32
+HG03832	engine 0.1.0+7772e32
+HG03833	engine 0.1.0+7772e32
+HG03834	engine 0.1.0+7772e32
+HG03836	engine 0.1.0+7772e32
+HG03837	engine 0.1.0+7772e32
+HG03838	engine 0.1.0+7772e32
+HG03844	engine 0.1.0+7772e32
+HG03846	engine 0.1.0+7772e32
+HG03848	engine 0.1.0+7772e32
+HG03849	engine 0.1.0+7772e32
+HG03850	engine 0.1.0+7772e32
+HG03851	engine 0.1.0+7772e32
+HG03854	DJ -0.98 copies; engine 0.1.0+7772e32
+HG03856	engine 0.1.0+7772e32
+HG03857	engine 0.1.0+7772e32
+HG03858	engine 0.1.0+7772e32
+HG03861	engine 0.1.0+7772e32
+HG03862	DJ -0.97 copies; engine 0.1.0+7772e32
+HG03863	engine 0.1.0+7772e32
+HG03864	engine 0.1.0+7772e32
+HG03866	engine 0.1.0+7772e32
+HG03867	engine 0.1.0+7772e32
+HG03868	engine 0.1.0+7772e32
+HG03869	aneuploid: chr10; engine 0.1.0+7772e32
+HG03870	engine 0.1.0+7772e32
+HG03871	engine 0.1.0+7772e32
+HG03872	engine 0.1.0+7772e32
+HG03873	engine 0.1.0+7772e32
+HG03874	engine 0.1.0+7772e32
+HG03875	engine 0.1.0+7772e32
+HG03882	engine 0.1.0+7772e32
+HG03884	engine 0.1.0+7772e32
+HG03885	engine 0.1.0+7772e32
+HG03886	engine 0.1.0+7772e32
+HG03887	engine 0.1.0+7772e32
+HG03888	engine 0.1.0+7772e32
+HG03890	engine 0.1.0+7772e32
+HG03894	engine 0.1.0+7772e32
+HG03895	engine 0.1.0+7772e32
+HG03896	engine 0.1.0+7772e32
+HG03897	engine 0.1.0+7772e32
+HG03898	engine 0.1.0+7772e32
+HG03899	DJ +0.79 copies; engine 0.1.0+7772e32
+HG03900	engine 0.1.0+7772e32
+HG03902	engine 0.1.0+7772e32
+HG03904	engine 0.1.0+7772e32
+HG03905	engine 0.1.0+7772e32
+HG03906	engine 0.1.0+7772e32
+HG03907	engine 0.1.0+7772e32
+HG03908	engine 0.1.0+7772e32
+HG03909	engine 0.1.0+7772e32
+HG03910	engine 0.1.0+7772e32
+HG03911	engine 0.1.0+7772e32
+HG03913	engine 0.1.0+7772e32
+HG03914	engine 0.1.0+7772e32
+HG03915	engine 0.1.0+7772e32
+HG03916	engine 0.1.0+7772e32
+HG03917	engine 0.1.0+7772e32
+HG03919	engine 0.1.0+7772e32
+HG03920	engine 0.1.0+7772e32
+HG03922	engine 0.1.0+7772e32
+HG03925	DJ +1.02 copies; engine 0.1.0+7772e32
+HG03926	engine 0.1.0+7772e32
+HG03927	engine 0.1.0+7772e32
+HG03928	aneuploid: chr12; engine 0.1.0+7772e32
+HG03929	engine 0.1.0+7772e32
+HG03930	engine 0.1.0+7772e32
+HG03931	engine 0.1.0+7772e32
+HG03934	engine 0.1.0+7772e32
+HG03937	engine 0.1.0+7772e32
+HG03940	aneuploid: chr12; engine 0.1.0+7772e32
+HG03941	DJ +0.85 copies; engine 0.1.0+7772e32
+HG03942	DJ +0.87 copies; engine 0.1.0+7772e32
+HG03943	engine 0.1.0+7772e32
+HG03944	engine 0.1.0+7772e32
+HG03945	DJ -0.91 copies; engine 0.1.0+7772e32
+HG03947	engine 0.1.0+7772e32
+HG03949	engine 0.1.0+7772e32
+HG03950	engine 0.1.0+7772e32
+HG03951	engine 0.1.0+7772e32
+HG03953	engine 0.1.0+7772e32
+HG03955	engine 0.1.0+7772e32
+HG03960	engine 0.1.0+7772e32
+HG03963	engine 0.1.0+7772e32
+HG03965	engine 0.1.0+7772e32
+HG03967	engine 0.1.0+7772e32
+HG03968	engine 0.1.0+7772e32
+HG03969	engine 0.1.0+7772e32
+HG03971	engine 0.1.0+7772e32
+HG03973	engine 0.1.0+7772e32
+HG03974	engine 0.1.0+7772e32
+HG03976	engine 0.1.0+7772e32
+HG03977	engine 0.1.0+7772e32
+HG03978	engine 0.1.0+7772e32
+HG03985	engine 0.1.0+7772e32
+HG03986	engine 0.1.0+7772e32
+HG03989	engine 0.1.0+7772e32
+HG03990	engine 0.1.0+7772e32
+HG03991	engine 0.1.0+7772e32
+HG03992	engine 0.1.0+7772e32
+HG03995	engine 0.1.0+7772e32
+HG03998	engine 0.1.0+7772e32
+HG03999	engine 0.1.0+7772e32
+HG04001	engine 0.1.0+7772e32
+HG04002	engine 0.1.0+7772e32
+HG04003	engine 0.1.0+7772e32
+HG04006	engine 0.1.0+7772e32
+HG04014	DJ -1.21 copies; engine 0.1.0+7772e32
+HG04015	engine 0.1.0+7772e32
+HG04017	engine 0.1.0+7772e32
+HG04018	engine 0.1.0+7772e32
+HG04019	engine 0.1.0+7772e32
+HG04020	engine 0.1.0+7772e32
+HG04022	engine 0.1.0+7772e32
+HG04023	engine 0.1.0+7772e32
+HG04025	engine 0.1.0+7772e32
+HG04026	engine 0.1.0+7772e32
+HG04029	engine 0.1.0+7772e32
+HG04033	engine 0.1.0+7772e32
+HG04035	engine 0.1.0+7772e32
+HG04036	engine 0.1.0+7772e32
+HG04038	engine 0.1.0+7772e32
+HG04039	engine 0.1.0+7772e32
+HG04042	DJ +0.96 copies; engine 0.1.0+7772e32
+HG04047	engine 0.1.0+7772e32
+HG04054	engine 0.1.0+7772e32
+HG04056	engine 0.1.0+7772e32
+HG04059	engine 0.1.0+7772e32
+HG04060	DJ -0.88 copies; engine 0.1.0+7772e32
+HG04061	engine 0.1.0+7772e32
+HG04062	engine 0.1.0+7772e32
+HG04063	engine 0.1.0+7772e32
+HG04070	DJ +1.18 copies; engine 0.1.0+7772e32
+HG04075	engine 0.1.0+7772e32
+HG04076	engine 0.1.0+7772e32
+HG04080	engine 0.1.0+7772e32
+HG04090	engine 0.1.0+7772e32
+HG04093	DJ -0.92 copies; engine 0.1.0+7772e32
+HG04094	engine 0.1.0+7772e32
+HG04096	engine 0.1.0+7772e32
+HG04098	engine 0.1.0+7772e32
+HG04099	engine 0.1.0+7772e32
+HG04100	engine 0.1.0+7772e32
+HG04106	engine 0.1.0+7772e32
+HG04107	engine 0.1.0+7772e32
+HG04115	engine 0.1.0+7772e32
+HG04118	engine 0.1.0+7772e32
+HG04122	engine 0.1.0+7772e32
+HG04127	engine 0.1.0+7772e32
+HG04131	engine 0.1.0+7772e32
+HG04132	engine 0.1.0+7772e32
+HG04133	engine 0.1.0+7772e32
+HG04134	engine 0.1.0+7772e32
+HG04135	engine 0.1.0+7772e32
+HG04136	engine 0.1.0+7772e32
+HG04140	engine 0.1.0+7772e32
+HG04141	engine 0.1.0+7772e32
+HG04142	engine 0.1.0+7772e32
+HG04144	engine 0.1.0+7772e32
+HG04146	engine 0.1.0+7772e32
+HG04147	engine 0.1.0+7772e32
+HG04148	engine 0.1.0+7772e32
+HG04149	engine 0.1.0+7772e32
+HG04150	DJ +0.99 copies; engine 0.1.0+7772e32
+HG04151	DJ +1.08 copies; engine 0.1.0+7772e32
+HG04152	engine 0.1.0+7772e32
+HG04153	engine 0.1.0+7772e32
+HG04155	engine 0.1.0+7772e32
+HG04156	engine 0.1.0+7772e32
+HG04157	engine 0.1.0+7772e32
+HG04158	engine 0.1.0+7772e32
+HG04159	engine 0.1.0+7772e32
+HG04160	engine 0.1.0+7772e32
+HG04161	engine 0.1.0+7772e32
+HG04162	engine 0.1.0+7772e32
+HG04164	engine 0.1.0+7772e32
+HG04171	engine 0.1.0+7772e32
+HG04173	engine 0.1.0+7772e32
+HG04174	engine 0.1.0+7772e32
+HG04175	engine 0.1.0+7772e32
+HG04176	engine 0.1.0+7772e32
+HG04177	engine 0.1.0+7772e32
+HG04180	engine 0.1.0+7772e32
+HG04182	engine 0.1.0+7772e32
+HG04183	engine 0.1.0+7772e32
+HG04184	engine 0.1.0+7772e32
+HG04185	engine 0.1.0+7772e32
+HG04186	engine 0.1.0+7772e32
+HG04187	engine 0.1.0+7772e32
+HG04188	engine 0.1.0+7772e32
+HG04189	engine 0.1.0+7772e32
+HG04191	engine 0.1.0+7772e32
+HG04192	engine 0.1.0+7772e32
+HG04193	engine 0.1.0+7772e32
+HG04194	engine 0.1.0+7772e32
+HG04195	engine 0.1.0+7772e32
+HG04198	aneuploid: chr12; engine 0.1.0+7772e32
+HG04199	engine 0.1.0+7772e32
+HG04200	engine 0.1.0+7772e32
+HG04202	chrX 1.37 (mosaic X loss?); DJ -0.84 copies; engine 0.1.0+7772e32
+HG04204	engine 0.1.0+7772e32
+HG04206	engine 0.1.0+7772e32
+HG04209	engine 0.1.0+7772e32
+HG04210	engine 0.1.0+7772e32
+HG04211	engine 0.1.0+7772e32
+HG04212	engine 0.1.0+7772e32
+HG04214	engine 0.1.0+7772e32
+HG04215	engine 0.1.0+7772e32
+HG04216	engine 0.1.0+7772e32
+HG04217	engine 0.1.0+7772e32
+HG04219	engine 0.1.0+7772e32
+HG04222	engine 0.1.0+7772e32
+HG04225	engine 0.1.0+7772e32
+HG04227	aneuploid: chr12; engine 0.1.0+7772e32
+HG04228	engine 0.1.0+7772e32
+HG04229	engine 0.1.0+7772e32
+HG04235	engine 0.1.0+7772e32
+HG04238	engine 0.1.0+7772e32
+HG04239	engine 0.1.0+7772e32
+NA06984	engine 0.1.0+7772e32
+NA06985	engine 0.1.0+7772e32
+NA06986	engine 0.1.0+7772e32
+NA06989	engine 0.1.0+7772e32
+NA06991	engine 0.1.0+7772e32
+NA06993	engine 0.1.0+7772e32
+NA06994	engine 0.1.0+7772e32
+NA06995	engine 0.1.0+7772e32
+NA06997	DJ -0.81 copies; engine 0.1.0+7772e32
+NA07000	engine 0.1.0+7772e32
+NA07014	engine 0.1.0+7772e32
+NA07019	engine 0.1.0+7772e32
+NA07022	engine 0.1.0+7772e32
+NA07029	engine 0.1.0+7772e32
+NA07031	engine 0.1.0+7772e32
+NA07034	engine 0.1.0+7772e32
+NA07037	engine 0.1.0+7772e32
+NA07045	DJ -0.95 copies; engine 0.1.0+7772e32
+NA07048	engine 0.1.0+7772e32
+NA07051	engine 0.1.0+7772e32
+NA07055	engine 0.1.0+7772e32
+NA07056	engine 0.1.0+7772e32
+NA07345	engine 0.1.0+7772e32
+NA07346	engine 0.1.0+7772e32
+NA07347	engine 0.1.0+7772e32
+NA07348	chrX 1.20 (mosaic X loss?); engine 0.1.0+7772e32
+NA07349	engine 0.1.0+7772e32
+NA07357	engine 0.1.0+7772e32
+NA07435	aneuploid: chr12; engine 0.1.0+7772e32
+NA10830	engine 0.1.0+7772e32
+NA10831	engine 0.1.0+7772e32
+NA10835	engine 0.1.0+7772e32
+NA10836	DJ +0.80 copies; engine 0.1.0+7772e32
+NA10837	engine 0.1.0+7772e32
+NA10838	engine 0.1.0+7772e32
+NA10839	engine 0.1.0+7772e32
+NA10840	engine 0.1.0+7772e32
+NA10842	engine 0.1.0+7772e32
+NA10843	aneuploid: chr5,chr9,chr10,chr12,chr15; engine 0.1.0+7772e32
+NA10845	engine 0.1.0+7772e32
+NA10846	engine 0.1.0+7772e32
+NA10847	engine 0.1.0+7772e32
+NA10851	engine 0.1.0+7772e32
+NA10852	engine 0.1.0+7772e32
+NA10854	aneuploid: chr9; chrX 1.09 (mosaic X loss?); engine 0.1.0+7772e32
+NA10855	engine 0.1.0+7772e32
+NA10856	engine 0.1.0+7772e32
+NA10857	engine 0.1.0+7772e32
+NA10859	chrX 1.74 (mosaic X loss?); DJ +0.78 copies; engine 0.1.0+7772e32
+NA10860	engine 0.1.0+7772e32
+NA10861	engine 0.1.0+7772e32
+NA10863	engine 0.1.0+7772e32
+NA10864	engine 0.1.0+7772e32
+NA10865	engine 0.1.0+7772e32
+NA11829	engine 0.1.0+7772e32
+NA11830	engine 0.1.0+7772e32
+NA11831	engine 0.1.0+7772e32
+NA11832	engine 0.1.0+7772e32
+NA11839	engine 0.1.0+7772e32
+NA11840	engine 0.1.0+7772e32
+NA11843	engine 0.1.0+7772e32
+NA11881	DJ +1.22 copies; engine 0.1.0+7772e32
+NA11882	engine 0.1.0+7772e32
+NA11891	aneuploid: chr15; DJ -1.33 copies; engine 0.1.0+7772e32
+NA11892	engine 0.1.0+7772e32
+NA11893	engine 0.1.0+7772e32
+NA11894	engine 0.1.0+7772e32
+NA11917	engine 0.1.0+7772e32
+NA11918	engine 0.1.0+7772e32
+NA11919	engine 0.1.0+7772e32
+NA11920	engine 0.1.0+7772e32
+NA11930	DJ -0.96 copies; engine 0.1.0+7772e32
+NA11931	engine 0.1.0+7772e32
+NA11932	engine 0.1.0+7772e32
+NA11933	chrX 1.74 (mosaic X loss?); engine 0.1.0+7772e32
+NA11992	engine 0.1.0+7772e32
+NA11993	engine 0.1.0+7772e32
+NA11994	engine 0.1.0+7772e32
+NA11995	engine 0.1.0+7772e32
+NA12003	engine 0.1.0+7772e32
+NA12004	engine 0.1.0+7772e32
+NA12005	engine 0.1.0+7772e32
+NA12006	engine 0.1.0+7772e32
+NA12043	engine 0.1.0+7772e32
+NA12044	engine 0.1.0+7772e32
+NA12045	engine 0.1.0+7772e32
+NA12046	engine 0.1.0+7772e32
+NA12056	engine 0.1.0+7772e32
+NA12057	engine 0.1.0+7772e32
+NA12058	aneuploid: chr15; engine 0.1.0+7772e32
+NA12144	engine 0.1.0+7772e32
+NA12145	chrX 1.79 (mosaic X loss?); engine 0.1.0+7772e32
+NA12146	engine 0.1.0+7772e32
+NA12154	engine 0.1.0+7772e32
+NA12155	engine 0.1.0+7772e32
+NA12156	aneuploid: chr9; engine 0.1.0+7772e32
+NA12234	engine 0.1.0+7772e32
+NA12236	aneuploid: chr14; engine 0.1.0+7772e32
+NA12239	engine 0.1.0+7772e32
+NA12248	aneuploid: chr9,chr12,chr14; engine 0.1.0+7772e32
+NA12249	engine 0.1.0+7772e32
+NA12264	engine 0.1.0+7772e32
+NA12272	engine 0.1.0+7772e32
+NA12273	engine 0.1.0+7772e32
+NA12274	aneuploid: chr11; DJ +0.93 copies; engine 0.1.0+7772e32
+NA12275	engine 0.1.0+7772e32
+NA12282	engine 0.1.0+7772e32
+NA12283	engine 0.1.0+7772e32
+NA12286	engine 0.1.0+7772e32
+NA12287	DJ +1.04 copies; engine 0.1.0+7772e32
+NA12329	engine 0.1.0+7772e32
+NA12335	engine 0.1.0+7772e32
+NA12336	engine 0.1.0+7772e32
+NA12340	engine 0.1.0+7772e32
+NA12341	aneuploid: chr14; engine 0.1.0+7772e32
+NA12342	engine 0.1.0+7772e32
+NA12343	engine 0.1.0+7772e32
+NA12344	engine 0.1.0+7772e32
+NA12347	engine 0.1.0+7772e32
+NA12348	engine 0.1.0+7772e32
+NA12376	engine 0.1.0+7772e32
+NA12383	engine 0.1.0+7772e32
+NA12386	engine 0.1.0+7772e32
+NA12399	DJ +1.79 copies; engine 0.1.0+7772e32
+NA12400	engine 0.1.0+7772e32
+NA12413	engine 0.1.0+7772e32
+NA12414	engine 0.1.0+7772e32
+NA12485	engine 0.1.0+7772e32
+NA12489	engine 0.1.0+7772e32
+NA12546	engine 0.1.0+7772e32
+NA12707	engine 0.1.0+7772e32
+NA12716	engine 0.1.0+7772e32
+NA12717	engine 0.1.0+7772e32
+NA12718	engine 0.1.0+7772e32
+NA12739	aneuploid: chr12; engine 0.1.0+7772e32
+NA12740	engine 0.1.0+7772e32
+NA12748	engine 0.1.0+7772e32
+NA12749	engine 0.1.0+7772e32
+NA12750	engine 0.1.0+7772e32
+NA12751	engine 0.1.0+7772e32
+NA12752	engine 0.1.0+7772e32
+NA12753	engine 0.1.0+7772e32
+NA12760	engine 0.1.0+7772e32
+NA12761	engine 0.1.0+7772e32
+NA12762	engine 0.1.0+7772e32
+NA12763	engine 0.1.0+7772e32
+NA12766	engine 0.1.0+7772e32
+NA12767	engine 0.1.0+7772e32
+NA12775	engine 0.1.0+7772e32
+NA12776	engine 0.1.0+7772e32
+NA12777	engine 0.1.0+7772e32
+NA12778	engine 0.1.0+7772e32
+NA12801	DJ -1.82 copies; engine 0.1.0+7772e32
+NA12802	engine 0.1.0+7772e32
+NA12812	DJ -1.04 copies; engine 0.1.0+7772e32
+NA12813	DJ -0.83 copies; engine 0.1.0+7772e32
+NA12814	engine 0.1.0+7772e32
+NA12815	engine 0.1.0+7772e32
+NA12817	engine 0.1.0+7772e32
+NA12818	engine 0.1.0+7772e32
+NA12827	engine 0.1.0+7772e32
+NA12828	engine 0.1.0+7772e32
+NA12829	engine 0.1.0+7772e32
+NA12830	engine 0.1.0+7772e32
+NA12832	engine 0.1.0+7772e32
+NA12842	engine 0.1.0+7772e32
+NA12843	engine 0.1.0+7772e32
+NA12864	engine 0.1.0+7772e32
+NA12865	chrX 1.52 (mosaic X loss?); engine 0.1.0+7772e32
+NA12872	engine 0.1.0+7772e32
+NA12873	engine 0.1.0+7772e32
+NA12874	engine 0.1.0+7772e32
+NA12875	aneuploid: chr2; engine 0.1.0+7772e32
+NA12877	engine 0.1.0+7772e32
+NA12878	engine 0.1.0+7772e32
+NA12889	engine 0.1.0+7772e32
+NA12890	engine 0.1.0+7772e32
+NA12891	engine 0.1.0+7772e32
+NA12892	engine 0.1.0+7772e32
+NA18484	engine 0.1.0+7772e32
+NA18485	engine 0.1.0+7772e32
+NA18486	aneuploid: chr9; engine 0.1.0+7772e32
+NA18487	engine 0.1.0+7772e32
+NA18488	engine 0.1.0+7772e32
+NA18489	engine 0.1.0+7772e32
+NA18497	engine 0.1.0+7772e32
+NA18498	engine 0.1.0+7772e32
+NA18499	engine 0.1.0+7772e32
+NA18500	engine 0.1.0+7772e32
+NA18501	DJ -0.85 copies; engine 0.1.0+7772e32
+NA18502	engine 0.1.0+7772e32
+NA18503	engine 0.1.0+7772e32
+NA18504	engine 0.1.0+7772e32
+NA18505	engine 0.1.0+7772e32
+NA18506	engine 0.1.0+7772e32
+NA18507	engine 0.1.0+7772e32
+NA18508	engine 0.1.0+7772e32
+NA18510	engine 0.1.0+7772e32
+NA18511	engine 0.1.0+7772e32
+NA18515	engine 0.1.0+7772e32
+NA18516	engine 0.1.0+7772e32
+NA18517	engine 0.1.0+7772e32
+NA18518	engine 0.1.0+7772e32
+NA18519	engine 0.1.0+7772e32
+NA18520	chrX 1.74 (mosaic X loss?); engine 0.1.0+7772e32
+NA18521	engine 0.1.0+7772e32
+NA18522	aneuploid: chr12; engine 0.1.0+7772e32
+NA18523	engine 0.1.0+7772e32
+NA18525	engine 0.1.0+7772e32
+NA18526	engine 0.1.0+7772e32
+NA18528	engine 0.1.0+7772e32
+NA18530	engine 0.1.0+7772e32
+NA18531	engine 0.1.0+7772e32
+NA18532	DJ -0.97 copies; engine 0.1.0+7772e32
+NA18533	engine 0.1.0+7772e32
+NA18534	engine 0.1.0+7772e32
+NA18535	engine 0.1.0+7772e32
+NA18536	engine 0.1.0+7772e32
+NA18537	engine 0.1.0+7772e32
+NA18538	engine 0.1.0+7772e32
+NA18539	engine 0.1.0+7772e32
+NA18541	engine 0.1.0+7772e32
+NA18542	engine 0.1.0+7772e32
+NA18543	engine 0.1.0+7772e32
+NA18544	engine 0.1.0+7772e32
+NA18545	engine 0.1.0+7772e32
+NA18546	DJ -0.96 copies; engine 0.1.0+7772e32
+NA18547	engine 0.1.0+7772e32
+NA18548	engine 0.1.0+7772e32
+NA18549	engine 0.1.0+7772e32
+NA18550	engine 0.1.0+7772e32
+NA18552	engine 0.1.0+7772e32
+NA18553	engine 0.1.0+7772e32
+NA18555	engine 0.1.0+7772e32
+NA18557	engine 0.1.0+7772e32
+NA18558	engine 0.1.0+7772e32
+NA18559	engine 0.1.0+7772e32
+NA18560	engine 0.1.0+7772e32
+NA18561	engine 0.1.0+7772e32
+NA18562	engine 0.1.0+7772e32
+NA18563	engine 0.1.0+7772e32
+NA18564	engine 0.1.0+7772e32
+NA18565	engine 0.1.0+7772e32
+NA18566	engine 0.1.0+7772e32
+NA18567	engine 0.1.0+7772e32
+NA18570	engine 0.1.0+7772e32
+NA18571	engine 0.1.0+7772e32
+NA18572	engine 0.1.0+7772e32
+NA18573	engine 0.1.0+7772e32
+NA18574	engine 0.1.0+7772e32
+NA18577	engine 0.1.0+7772e32
+NA18579	engine 0.1.0+7772e32
+NA18582	engine 0.1.0+7772e32
+NA18591	engine 0.1.0+7772e32
+NA18592	engine 0.1.0+7772e32
+NA18593	engine 0.1.0+7772e32
+NA18595	engine 0.1.0+7772e32
+NA18596	engine 0.1.0+7772e32
+NA18597	engine 0.1.0+7772e32
+NA18599	engine 0.1.0+7772e32
+NA18602	engine 0.1.0+7772e32
+NA18603	engine 0.1.0+7772e32
+NA18605	engine 0.1.0+7772e32
+NA18606	engine 0.1.0+7772e32
+NA18608	engine 0.1.0+7772e32
+NA18609	engine 0.1.0+7772e32
+NA18610	engine 0.1.0+7772e32
+NA18611	engine 0.1.0+7772e32
+NA18612	engine 0.1.0+7772e32
+NA18613	engine 0.1.0+7772e32
+NA18614	engine 0.1.0+7772e32
+NA18615	engine 0.1.0+7772e32
+NA18616	engine 0.1.0+7772e32
+NA18617	engine 0.1.0+7772e32
+NA18618	engine 0.1.0+7772e32
+NA18619	engine 0.1.0+7772e32
+NA18620	engine 0.1.0+7772e32
+NA18621	engine 0.1.0+7772e32
+NA18622	engine 0.1.0+7772e32
+NA18623	engine 0.1.0+7772e32
+NA18624	engine 0.1.0+7772e32
+NA18625	engine 0.1.0+7772e32
+NA18626	engine 0.1.0+7772e32
+NA18627	engine 0.1.0+7772e32
+NA18628	engine 0.1.0+7772e32
+NA18629	engine 0.1.0+7772e32
+NA18630	engine 0.1.0+7772e32
+NA18631	engine 0.1.0+7772e32
+NA18632	engine 0.1.0+7772e32
+NA18633	engine 0.1.0+7772e32
+NA18634	engine 0.1.0+7772e32
+NA18635	DJ -0.96 copies; engine 0.1.0+7772e32
+NA18636	engine 0.1.0+7772e32
+NA18637	engine 0.1.0+7772e32
+NA18638	engine 0.1.0+7772e32
+NA18639	engine 0.1.0+7772e32
+NA18640	engine 0.1.0+7772e32
+NA18641	engine 0.1.0+7772e32
+NA18642	engine 0.1.0+7772e32
+NA18643	engine 0.1.0+7772e32
+NA18644	engine 0.1.0+7772e32
+NA18645	engine 0.1.0+7772e32
+NA18646	engine 0.1.0+7772e32
+NA18647	engine 0.1.0+7772e32
+NA18648	engine 0.1.0+7772e32
+NA18740	engine 0.1.0+7772e32
+NA18745	DJ +0.87 copies; engine 0.1.0+7772e32
+NA18747	engine 0.1.0+7772e32
+NA18748	engine 0.1.0+7772e32
+NA18749	engine 0.1.0+7772e32
+NA18757	engine 0.1.0+7772e32
+NA18852	engine 0.1.0+7772e32
+NA18853	engine 0.1.0+7772e32
+NA18854	engine 0.1.0+7772e32
+NA18855	engine 0.1.0+7772e32
+NA18856	engine 0.1.0+7772e32
+NA18857	engine 0.1.0+7772e32
+NA18858	engine 0.1.0+7772e32
+NA18859	engine 0.1.0+7772e32
+NA18860	engine 0.1.0+7772e32
+NA18861	engine 0.1.0+7772e32
+NA18862	engine 0.1.0+7772e32
+NA18863	engine 0.1.0+7772e32
+NA18864	chrX 1.49 (mosaic X loss?); engine 0.1.0+7772e32
+NA18865	engine 0.1.0+7772e32
+NA18867	engine 0.1.0+7772e32
+NA18868	DJ -1.97 copies; engine 0.1.0+7772e32
+NA18869	engine 0.1.0+7772e32
+NA18870	engine 0.1.0+7772e32
+NA18871	engine 0.1.0+7772e32
+NA18872	engine 0.1.0+7772e32
+NA18873	engine 0.1.0+7772e32
+NA18874	engine 0.1.0+7772e32
+NA18875	engine 0.1.0+7772e32
+NA18876	engine 0.1.0+7772e32
+NA18877	engine 0.1.0+7772e32
+NA18878	DJ -0.80 copies; engine 0.1.0+7772e32
+NA18879	engine 0.1.0+7772e32
+NA18881	engine 0.1.0+7772e32
+NA18906	engine 0.1.0+7772e32
+NA18907	engine 0.1.0+7772e32
+NA18908	engine 0.1.0+7772e32
+NA18909	engine 0.1.0+7772e32
+NA18910	engine 0.1.0+7772e32
+NA18911	engine 0.1.0+7772e32
+NA18912	engine 0.1.0+7772e32
+NA18913	engine 0.1.0+7772e32
+NA18914	engine 0.1.0+7772e32
+NA18915	engine 0.1.0+7772e32
+NA18916	engine 0.1.0+7772e32
+NA18917	engine 0.1.0+7772e32
+NA18923	engine 0.1.0+7772e32
+NA18924	engine 0.1.0+7772e32
+NA18925	engine 0.1.0+7772e32
+NA18930	engine 0.1.0+7772e32
+NA18933	engine 0.1.0+7772e32
+NA18934	engine 0.1.0+7772e32
+NA18935	engine 0.1.0+7772e32
+NA18939	engine 0.1.0+7772e32
+NA18940	engine 0.1.0+7772e32
+NA18941	engine 0.1.0+7772e32
+NA18942	engine 0.1.0+7772e32
+NA18943	engine 0.1.0+7772e32
+NA18944	engine 0.1.0+7772e32
+NA18945	engine 0.1.0+7772e32
+NA18946	engine 0.1.0+7772e32
+NA18947	engine 0.1.0+7772e32
+NA18948	engine 0.1.0+7772e32
+NA18949	engine 0.1.0+7772e32
+NA18950	engine 0.1.0+7772e32
+NA18951	DJ +0.99 copies; engine 0.1.0+7772e32
+NA18952	engine 0.1.0+7772e32
+NA18953	engine 0.1.0+7772e32
+NA18954	DJ +1.52 copies; engine 0.1.0+7772e32
+NA18956	engine 0.1.0+7772e32
+NA18957	engine 0.1.0+7772e32
+NA18959	engine 0.1.0+7772e32
+NA18960	engine 0.1.0+7772e32
+NA18961	engine 0.1.0+7772e32
+NA18962	engine 0.1.0+7772e32
+NA18963	chrX 1.61 (mosaic X loss?); engine 0.1.0+7772e32
+NA18964	engine 0.1.0+7772e32
+NA18965	engine 0.1.0+7772e32
+NA18966	engine 0.1.0+7772e32
+NA18967	engine 0.1.0+7772e32
+NA18968	engine 0.1.0+7772e32
+NA18969	engine 0.1.0+7772e32
+NA18970	engine 0.1.0+7772e32
+NA18971	engine 0.1.0+7772e32
+NA18972	engine 0.1.0+7772e32
+NA18973	engine 0.1.0+7772e32
+NA18974	engine 0.1.0+7772e32
+NA18975	engine 0.1.0+7772e32
+NA18976	engine 0.1.0+7772e32
+NA18977	engine 0.1.0+7772e32
+NA18978	chrX 1.50 (mosaic X loss?); engine 0.1.0+7772e32
+NA18979	engine 0.1.0+7772e32
+NA18980	engine 0.1.0+7772e32
+NA18981	engine 0.1.0+7772e32
+NA18982	engine 0.1.0+7772e32
+NA18983	engine 0.1.0+7772e32
+NA18984	engine 0.1.0+7772e32
+NA18985	engine 0.1.0+7772e32
+NA18986	engine 0.1.0+7772e32
+NA18987	engine 0.1.0+7772e32
+NA18988	engine 0.1.0+7772e32
+NA18989	engine 0.1.0+7772e32
+NA18990	engine 0.1.0+7772e32
+NA18991	engine 0.1.0+7772e32
+NA18992	engine 0.1.0+7772e32
+NA18993	engine 0.1.0+7772e32
+NA18994	engine 0.1.0+7772e32
+NA18995	engine 0.1.0+7772e32
+NA18997	engine 0.1.0+7772e32
+NA18998	engine 0.1.0+7772e32
+NA18999	engine 0.1.0+7772e32
+NA19000	engine 0.1.0+7772e32
+NA19001	engine 0.1.0+7772e32
+NA19002	engine 0.1.0+7772e32
+NA19003	engine 0.1.0+7772e32
+NA19004	DJ +0.86 copies; engine 0.1.0+7772e32
+NA19005	engine 0.1.0+7772e32
+NA19006	engine 0.1.0+7772e32
+NA19007	engine 0.1.0+7772e32
+NA19009	engine 0.1.0+7772e32
+NA19010	engine 0.1.0+7772e32
+NA19011	engine 0.1.0+7772e32
+NA19012	engine 0.1.0+7772e32
+NA19017	engine 0.1.0+7772e32
+NA19019	engine 0.1.0+7772e32
+NA19020	engine 0.1.0+7772e32
+NA19023	engine 0.1.0+7772e32
+NA19024	engine 0.1.0+7772e32
+NA19025	engine 0.1.0+7772e32
+NA19026	engine 0.1.0+7772e32
+NA19027	engine 0.1.0+7772e32
+NA19028	engine 0.1.0+7772e32
+NA19030	engine 0.1.0+7772e32
+NA19031	engine 0.1.0+7772e32
+NA19035	engine 0.1.0+7772e32
+NA19036	engine 0.1.0+7772e32
+NA19037	engine 0.1.0+7772e32
+NA19038	engine 0.1.0+7772e32
+NA19041	engine 0.1.0+7772e32
+NA19042	engine 0.1.0+7772e32
+NA19043	engine 0.1.0+7772e32
+NA19054	chrX 1.36 (mosaic X loss?); engine 0.1.0+7772e32
+NA19055	engine 0.1.0+7772e32
+NA19056	engine 0.1.0+7772e32
+NA19057	engine 0.1.0+7772e32
+NA19058	engine 0.1.0+7772e32
+NA19059	engine 0.1.0+7772e32
+NA19060	engine 0.1.0+7772e32
+NA19062	engine 0.1.0+7772e32
+NA19063	engine 0.1.0+7772e32
+NA19064	engine 0.1.0+7772e32
+NA19065	engine 0.1.0+7772e32
+NA19066	engine 0.1.0+7772e32
+NA19067	engine 0.1.0+7772e32
+NA19068	engine 0.1.0+7772e32
+NA19070	engine 0.1.0+7772e32
+NA19072	engine 0.1.0+7772e32
+NA19074	engine 0.1.0+7772e32
+NA19075	engine 0.1.0+7772e32
+NA19076	engine 0.1.0+7772e32
+NA19077	engine 0.1.0+7772e32
+NA19078	DJ -0.97 copies; engine 0.1.0+7772e32
+NA19079	engine 0.1.0+7772e32
+NA19080	DJ +1.40 copies; engine 0.1.0+7772e32
+NA19081	engine 0.1.0+7772e32
+NA19082	engine 0.1.0+7772e32
+NA19083	engine 0.1.0+7772e32
+NA19084	engine 0.1.0+7772e32
+NA19085	engine 0.1.0+7772e32
+NA19086	engine 0.1.0+7772e32
+NA19087	engine 0.1.0+7772e32
+NA19088	engine 0.1.0+7772e32
+NA19089	engine 0.1.0+7772e32
+NA19090	engine 0.1.0+7772e32
+NA19091	engine 0.1.0+7772e32
+NA19092	engine 0.1.0+7772e32
+NA19093	engine 0.1.0+7772e32
+NA19094	engine 0.1.0+7772e32
+NA19095	engine 0.1.0+7772e32
+NA19096	engine 0.1.0+7772e32
+NA19097	engine 0.1.0+7772e32
+NA19098	engine 0.1.0+7772e32
+NA19099	engine 0.1.0+7772e32
+NA19100	engine 0.1.0+7772e32
+NA19101	engine 0.1.0+7772e32
+NA19102	engine 0.1.0+7772e32
+NA19103	engine 0.1.0+7772e32
+NA19107	engine 0.1.0+7772e32
+NA19108	engine 0.1.0+7772e32
+NA19109	engine 0.1.0+7772e32
+NA19113	engine 0.1.0+7772e32
+NA19114	engine 0.1.0+7772e32
+NA19115	engine 0.1.0+7772e32
+NA19116	engine 0.1.0+7772e32
+NA19117	engine 0.1.0+7772e32
+NA19118	engine 0.1.0+7772e32
+NA19119	engine 0.1.0+7772e32
+NA19120	engine 0.1.0+7772e32
+NA19121	engine 0.1.0+7772e32
+NA19122	engine 0.1.0+7772e32
+NA19123	engine 0.1.0+7772e32
+NA19127	engine 0.1.0+7772e32
+NA19128	engine 0.1.0+7772e32
+NA19129	engine 0.1.0+7772e32
+NA19130	engine 0.1.0+7772e32
+NA19131	engine 0.1.0+7772e32
+NA19132	engine 0.1.0+7772e32
+NA19137	engine 0.1.0+7772e32
+NA19138	engine 0.1.0+7772e32
+NA19139	engine 0.1.0+7772e32
+NA19140	engine 0.1.0+7772e32
+NA19141	engine 0.1.0+7772e32
+NA19142	engine 0.1.0+7772e32
+NA19143	engine 0.1.0+7772e32
+NA19144	engine 0.1.0+7772e32
+NA19145	engine 0.1.0+7772e32
+NA19146	engine 0.1.0+7772e32
+NA19147	engine 0.1.0+7772e32
+NA19148	engine 0.1.0+7772e32
+NA19149	engine 0.1.0+7772e32
+NA19150	DJ +0.78 copies; engine 0.1.0+7772e32
+NA19151	engine 0.1.0+7772e32
+NA19152	engine 0.1.0+7772e32
+NA19153	engine 0.1.0+7772e32
+NA19154	engine 0.1.0+7772e32
+NA19159	engine 0.1.0+7772e32
+NA19160	engine 0.1.0+7772e32
+NA19161	engine 0.1.0+7772e32
+NA19171	engine 0.1.0+7772e32
+NA19172	engine 0.1.0+7772e32
+NA19173	engine 0.1.0+7772e32
+NA19174	engine 0.1.0+7772e32
+NA19175	engine 0.1.0+7772e32
+NA19176	chrX 1.01 (mosaic X loss?); engine 0.1.0+7772e32
+NA19177	engine 0.1.0+7772e32
+NA19184	engine 0.1.0+7772e32
+NA19185	engine 0.1.0+7772e32
+NA19186	engine 0.1.0+7772e32
+NA19189	engine 0.1.0+7772e32
+NA19190	engine 0.1.0+7772e32
+NA19191	engine 0.1.0+7772e32
+NA19197	engine 0.1.0+7772e32
+NA19198	engine 0.1.0+7772e32
+NA19199	engine 0.1.0+7772e32
+NA19200	engine 0.1.0+7772e32
+NA19201	engine 0.1.0+7772e32
+NA19202	engine 0.1.0+7772e32
+NA19203	engine 0.1.0+7772e32
+NA19204	engine 0.1.0+7772e32
+NA19205	engine 0.1.0+7772e32
+NA19206	engine 0.1.0+7772e32
+NA19207	engine 0.1.0+7772e32
+NA19208	aneuploid: chr9; engine 0.1.0+7772e32
+NA19209	engine 0.1.0+7772e32
+NA19210	engine 0.1.0+7772e32
+NA19211	engine 0.1.0+7772e32
+NA19213	engine 0.1.0+7772e32
+NA19214	engine 0.1.0+7772e32
+NA19215	engine 0.1.0+7772e32
+NA19221	engine 0.1.0+7772e32
+NA19222	engine 0.1.0+7772e32
+NA19223	engine 0.1.0+7772e32
+NA19224	engine 0.1.0+7772e32
+NA19225	engine 0.1.0+7772e32
+NA19226	sex: pedigree M, reads F; chrX 0.99 (mosaic X loss?); engine 0.1.0+7772e32
+NA19235	engine 0.1.0+7772e32
+NA19236	engine 0.1.0+7772e32
+NA19237	engine 0.1.0+7772e32
+NA19238	engine 0.1.0+7772e32
+NA19239	engine 0.1.0+7772e32
+NA19240	engine 0.1.0+7772e32
+NA19247	engine 0.1.0+7772e32
+NA19248	engine 0.1.0+7772e32
+NA19249	engine 0.1.0+7772e32
+NA19256	engine 0.1.0+7772e32
+NA19257	engine 0.1.0+7772e32
+NA19258	engine 0.1.0+7772e32
+NA19307	engine 0.1.0+7772e32
+NA19308	engine 0.1.0+7772e32
+NA19309	engine 0.1.0+7772e32
+NA19310	engine 0.1.0+7772e32
+NA19312	engine 0.1.0+7772e32
+NA19314	engine 0.1.0+7772e32
+NA19315	engine 0.1.0+7772e32
+NA19316	engine 0.1.0+7772e32
+NA19317	engine 0.1.0+7772e32
+NA19318	engine 0.1.0+7772e32
+NA19319	engine 0.1.0+7772e32
+NA19320	engine 0.1.0+7772e32
+NA19321	engine 0.1.0+7772e32
+NA19323	engine 0.1.0+7772e32
+NA19324	engine 0.1.0+7772e32
+NA19327	engine 0.1.0+7772e32
+NA19328	engine 0.1.0+7772e32
+NA19331	engine 0.1.0+7772e32
+NA19332	chrX 1.01 (mosaic X loss?); engine 0.1.0+7772e32
+NA19334	engine 0.1.0+7772e32
+NA19338	engine 0.1.0+7772e32
+NA19346	DJ -1.03 copies; engine 0.1.0+7772e32
+NA19347	engine 0.1.0+7772e32
+NA19350	engine 0.1.0+7772e32
+NA19351	engine 0.1.0+7772e32
+NA19355	DJ -0.90 copies; engine 0.1.0+7772e32
+NA19360	engine 0.1.0+7772e32
+NA19372	engine 0.1.0+7772e32
+NA19374	engine 0.1.0+7772e32
+NA19375	engine 0.1.0+7772e32
+NA19376	engine 0.1.0+7772e32
+NA19377	chrX 1.82 (mosaic X loss?); engine 0.1.0+7772e32
+NA19378	aneuploid: chr12; DJ -0.94 copies; engine 0.1.0+7772e32
+NA19379	engine 0.1.0+7772e32
+NA19380	engine 0.1.0+7772e32
+NA19383	engine 0.1.0+7772e32
+NA19384	engine 0.1.0+7772e32
+NA19385	engine 0.1.0+7772e32
+NA19390	DJ -1.20 copies; engine 0.1.0+7772e32
+NA19391	engine 0.1.0+7772e32
+NA19393	engine 0.1.0+7772e32
+NA19394	engine 0.1.0+7772e32
+NA19395	chrX 1.13 (mosaic X loss?); engine 0.1.0+7772e32
+NA19397	engine 0.1.0+7772e32
+NA19399	engine 0.1.0+7772e32
+NA19401	engine 0.1.0+7772e32
+NA19403	engine 0.1.0+7772e32
+NA19404	engine 0.1.0+7772e32
+NA19428	engine 0.1.0+7772e32
+NA19429	engine 0.1.0+7772e32
+NA19430	engine 0.1.0+7772e32
+NA19431	engine 0.1.0+7772e32
+NA19434	engine 0.1.0+7772e32
+NA19435	engine 0.1.0+7772e32
+NA19436	engine 0.1.0+7772e32
+NA19437	engine 0.1.0+7772e32
+NA19438	engine 0.1.0+7772e32
+NA19439	engine 0.1.0+7772e32
+NA19440	engine 0.1.0+7772e32
+NA19443	engine 0.1.0+7772e32
+NA19445	engine 0.1.0+7772e32
+NA19446	engine 0.1.0+7772e32
+NA19448	engine 0.1.0+7772e32
+NA19449	engine 0.1.0+7772e32
+NA19451	engine 0.1.0+7772e32
+NA19452	engine 0.1.0+7772e32
+NA19454	engine 0.1.0+7772e32
+NA19455	engine 0.1.0+7772e32
+NA19456	engine 0.1.0+7772e32
+NA19457	engine 0.1.0+7772e32
+NA19461	engine 0.1.0+7772e32
+NA19462	engine 0.1.0+7772e32
+NA19463	engine 0.1.0+7772e32
+NA19466	engine 0.1.0+7772e32
+NA19467	DJ -0.91 copies; engine 0.1.0+7772e32
+NA19468	engine 0.1.0+7772e32
+NA19471	engine 0.1.0+7772e32
+NA19472	engine 0.1.0+7772e32
+NA19473	engine 0.1.0+7772e32
+NA19474	engine 0.1.0+7772e32
+NA19475	engine 0.1.0+7772e32
+NA19625	engine 0.1.0+7772e32
+NA19648	engine 0.1.0+7772e32
+NA19649	engine 0.1.0+7772e32
+NA19650	engine 0.1.0+7772e32
+NA19651	engine 0.1.0+7772e32
+NA19652	aneuploid: chr12; engine 0.1.0+7772e32
+NA19653	engine 0.1.0+7772e32
+NA19654	engine 0.1.0+7772e32
+NA19655	engine 0.1.0+7772e32
+NA19656	engine 0.1.0+7772e32
+NA19657	engine 0.1.0+7772e32
+NA19658	engine 0.1.0+7772e32
+NA19659	engine 0.1.0+7772e32
+NA19660	DJ +3.93 copies; engine 0.1.0+7772e32
+NA19661	DJ +0.84 copies; engine 0.1.0+7772e32
+NA19662	DJ +4.05 copies; engine 0.1.0+7772e32
+NA19663	engine 0.1.0+7772e32
+NA19664	engine 0.1.0+7772e32
+NA19665	engine 0.1.0+7772e32
+NA19669	engine 0.1.0+7772e32
+NA19670	engine 0.1.0+7772e32
+NA19671	aneuploid: chr15; engine 0.1.0+7772e32
+NA19675	engine 0.1.0+7772e32
+NA19676	engine 0.1.0+7772e32
+NA19677	engine 0.1.0+7772e32
+NA19678	engine 0.1.0+7772e32
+NA19679	engine 0.1.0+7772e32
+NA19680	aneuploid: chr11; engine 0.1.0+7772e32
+NA19681	engine 0.1.0+7772e32
+NA19682	engine 0.1.0+7772e32
+NA19683	engine 0.1.0+7772e32
+NA19684	engine 0.1.0+7772e32
+NA19685	engine 0.1.0+7772e32
+NA19686	engine 0.1.0+7772e32
+NA19700	engine 0.1.0+7772e32
+NA19701	engine 0.1.0+7772e32
+NA19702	engine 0.1.0+7772e32
+NA19703	engine 0.1.0+7772e32
+NA19704	engine 0.1.0+7772e32
+NA19705	engine 0.1.0+7772e32
+NA19707	engine 0.1.0+7772e32
+NA19711	engine 0.1.0+7772e32
+NA19712	engine 0.1.0+7772e32
+NA19713	engine 0.1.0+7772e32
+NA19716	engine 0.1.0+7772e32
+NA19717	engine 0.1.0+7772e32
+NA19718	engine 0.1.0+7772e32
+NA19719	engine 0.1.0+7772e32
+NA19720	engine 0.1.0+7772e32
+NA19721	engine 0.1.0+7772e32
+NA19722	engine 0.1.0+7772e32
+NA19723	engine 0.1.0+7772e32
+NA19724	engine 0.1.0+7772e32
+NA19725	engine 0.1.0+7772e32
+NA19726	engine 0.1.0+7772e32
+NA19727	engine 0.1.0+7772e32
+NA19728	DJ -0.96 copies; engine 0.1.0+7772e32
+NA19729	engine 0.1.0+7772e32
+NA19730	DJ -0.85 copies; engine 0.1.0+7772e32
+NA19731	engine 0.1.0+7772e32
+NA19732	engine 0.1.0+7772e32
+NA19733	engine 0.1.0+7772e32
+NA19734	engine 0.1.0+7772e32
+NA19735	engine 0.1.0+7772e32
+NA19740	engine 0.1.0+7772e32
+NA19741	engine 0.1.0+7772e32
+NA19746	engine 0.1.0+7772e32
+NA19747	engine 0.1.0+7772e32
+NA19748	engine 0.1.0+7772e32
+NA19749	engine 0.1.0+7772e32
+NA19750	engine 0.1.0+7772e32
+NA19751	engine 0.1.0+7772e32
+NA19752	engine 0.1.0+7772e32
+NA19755	engine 0.1.0+7772e32
+NA19756	engine 0.1.0+7772e32
+NA19757	engine 0.1.0+7772e32
+NA19758	engine 0.1.0+7772e32
+NA19759	engine 0.1.0+7772e32
+NA19760	engine 0.1.0+7772e32
+NA19761	DJ -0.91 copies; engine 0.1.0+7772e32
+NA19762	engine 0.1.0+7772e32
+NA19763	DJ -0.84 copies; engine 0.1.0+7772e32
+NA19764	engine 0.1.0+7772e32
+NA19770	DJ +1.11 copies; engine 0.1.0+7772e32
+NA19771	engine 0.1.0+7772e32
+NA19772	engine 0.1.0+7772e32
+NA19773	engine 0.1.0+7772e32
+NA19774	engine 0.1.0+7772e32
+NA19775	chrX 1.81 (mosaic X loss?); engine 0.1.0+7772e32
+NA19776	engine 0.1.0+7772e32
+NA19777	engine 0.1.0+7772e32
+NA19778	engine 0.1.0+7772e32
+NA19779	engine 0.1.0+7772e32
+NA19780	engine 0.1.0+7772e32
+NA19781	engine 0.1.0+7772e32
+NA19782	engine 0.1.0+7772e32
+NA19783	engine 0.1.0+7772e32
+NA19784	engine 0.1.0+7772e32
+NA19785	engine 0.1.0+7772e32
+NA19786	engine 0.1.0+7772e32
+NA19787	DJ -0.92 copies; engine 0.1.0+7772e32
+NA19788	engine 0.1.0+7772e32
+NA19789	DJ -0.86 copies; engine 0.1.0+7772e32
+NA19790	engine 0.1.0+7772e32
+NA19792	engine 0.1.0+7772e32
+NA19794	engine 0.1.0+7772e32
+NA19795	engine 0.1.0+7772e32
+NA19796	engine 0.1.0+7772e32
+NA19818	engine 0.1.0+7772e32
+NA19819	engine 0.1.0+7772e32
+NA19828	engine 0.1.0+7772e32
+NA19834	engine 0.1.0+7772e32
+NA19835	engine 0.1.0+7772e32
+NA19836	engine 0.1.0+7772e32
+NA19900	engine 0.1.0+7772e32
+NA19901	engine 0.1.0+7772e32
+NA19902	engine 0.1.0+7772e32
+NA19904	engine 0.1.0+7772e32
+NA19908	engine 0.1.0+7772e32
+NA19909	engine 0.1.0+7772e32
+NA19913	engine 0.1.0+7772e32
+NA19914	engine 0.1.0+7772e32
+NA19916	engine 0.1.0+7772e32
+NA19917	DJ -1.10 copies; engine 0.1.0+7772e32
+NA19918	DJ -1.17 copies; engine 0.1.0+7772e32
+NA19919	engine 0.1.0+7772e32
+NA19920	engine 0.1.0+7772e32
+NA19921	engine 0.1.0+7772e32
+NA19922	engine 0.1.0+7772e32
+NA19923	engine 0.1.0+7772e32
+NA19924	engine 0.1.0+7772e32
+NA19982	DJ -1.13 copies; engine 0.1.0+7772e32
+NA19983	engine 0.1.0+7772e32
+NA19984	engine 0.1.0+7772e32
+NA20126	engine 0.1.0+7772e32
+NA20127	engine 0.1.0+7772e32
+NA20128	engine 0.1.0+7772e32
+NA20129	engine 0.1.0+7772e32
+NA20274	DJ -0.87 copies; engine 0.1.0+7772e32
+NA20276	engine 0.1.0+7772e32
+NA20278	engine 0.1.0+7772e32
+NA20279	engine 0.1.0+7772e32
+NA20281	engine 0.1.0+7772e32
+NA20282	engine 0.1.0+7772e32
+NA20287	engine 0.1.0+7772e32
+NA20289	chrX 1.81 (mosaic X loss?); DJ -0.96 copies; engine 0.1.0+7772e32
+NA20291	engine 0.1.0+7772e32
+NA20294	engine 0.1.0+7772e32
+NA20296	engine 0.1.0+7772e32
+NA20298	engine 0.1.0+7772e32
+NA20299	engine 0.1.0+7772e32
+NA20314	engine 0.1.0+7772e32
+NA20317	engine 0.1.0+7772e32
+NA20318	engine 0.1.0+7772e32
+NA20320	engine 0.1.0+7772e32
+NA20321	engine 0.1.0+7772e32
+NA20332	engine 0.1.0+7772e32
+NA20334	engine 0.1.0+7772e32
+NA20339	engine 0.1.0+7772e32
+NA20340	engine 0.1.0+7772e32
+NA20342	engine 0.1.0+7772e32
+NA20346	engine 0.1.0+7772e32
+NA20348	aneuploid: chr12; engine 0.1.0+7772e32
+NA20351	engine 0.1.0+7772e32
+NA20355	engine 0.1.0+7772e32
+NA20356	engine 0.1.0+7772e32
+NA20357	engine 0.1.0+7772e32
+NA20358	engine 0.1.0+7772e32
+NA20359	DJ +0.93 copies; engine 0.1.0+7772e32
+NA20362	engine 0.1.0+7772e32
+NA20412	engine 0.1.0+7772e32
+NA20502	engine 0.1.0+7772e32
+NA20503	engine 0.1.0+7772e32
+NA20504	engine 0.1.0+7772e32
+NA20505	engine 0.1.0+7772e32
+NA20506	chrX 1.07 (mosaic X loss?); engine 0.1.0+7772e32
+NA20507	engine 0.1.0+7772e32
+NA20508	engine 0.1.0+7772e32
+NA20509	aneuploid: chr5; engine 0.1.0+7772e32
+NA20510	engine 0.1.0+7772e32
+NA20511	engine 0.1.0+7772e32
+NA20512	engine 0.1.0+7772e32
+NA20513	engine 0.1.0+7772e32
+NA20514	engine 0.1.0+7772e32
+NA20515	engine 0.1.0+7772e32
+NA20516	engine 0.1.0+7772e32
+NA20517	aneuploid: chr9; engine 0.1.0+7772e32
+NA20518	DJ -1.09 copies; engine 0.1.0+7772e32
+NA20519	engine 0.1.0+7772e32
+NA20520	engine 0.1.0+7772e32
+NA20521	engine 0.1.0+7772e32
+NA20522	engine 0.1.0+7772e32
+NA20524	engine 0.1.0+7772e32
+NA20525	engine 0.1.0+7772e32
+NA20527	engine 0.1.0+7772e32
+NA20528	engine 0.1.0+7772e32
+NA20529	engine 0.1.0+7772e32
+NA20530	chrX 1.11 (mosaic X loss?); engine 0.1.0+7772e32
+NA20531	engine 0.1.0+7772e32
+NA20532	engine 0.1.0+7772e32
+NA20533	aneuploid: chr13; chrX 1.17 (mosaic X loss?); engine 0.1.0+7772e32
+NA20534	engine 0.1.0+7772e32
+NA20535	chrX 1.75 (mosaic X loss?); engine 0.1.0+7772e32
+NA20536	engine 0.1.0+7772e32
+NA20538	engine 0.1.0+7772e32
+NA20539	engine 0.1.0+7772e32
+NA20540	chrX 1.82 (mosaic X loss?); engine 0.1.0+7772e32
+NA20541	engine 0.1.0+7772e32
+NA20542	engine 0.1.0+7772e32
+NA20543	engine 0.1.0+7772e32
+NA20544	engine 0.1.0+7772e32
+NA20581	engine 0.1.0+7772e32
+NA20582	DJ -0.76 copies; engine 0.1.0+7772e32
+NA20585	engine 0.1.0+7772e32
+NA20586	engine 0.1.0+7772e32
+NA20587	engine 0.1.0+7772e32
+NA20588	engine 0.1.0+7772e32
+NA20589	engine 0.1.0+7772e32
+NA20752	engine 0.1.0+7772e32
+NA20753	engine 0.1.0+7772e32
+NA20754	chrY 0.39 (mosaic Y loss?); DJ +0.83 copies; engine 0.1.0+7772e32
+NA20755	engine 0.1.0+7772e32
+NA20756	engine 0.1.0+7772e32
+NA20757	DJ +1.83 copies; engine 0.1.0+7772e32
+NA20758	engine 0.1.0+7772e32
+NA20759	aneuploid: chr12; engine 0.1.0+7772e32
+NA20760	engine 0.1.0+7772e32
+NA20761	engine 0.1.0+7772e32
+NA20762	engine 0.1.0+7772e32
+NA20763	engine 0.1.0+7772e32
+NA20764	engine 0.1.0+7772e32
+NA20765	engine 0.1.0+7772e32
+NA20766	engine 0.1.0+7772e32
+NA20767	engine 0.1.0+7772e32
+NA20768	engine 0.1.0+7772e32
+NA20769	chrX 1.73 (mosaic X loss?); engine 0.1.0+7772e32
+NA20770	DJ -0.90 copies; engine 0.1.0+7772e32
+NA20771	engine 0.1.0+7772e32
+NA20772	engine 0.1.0+7772e32
+NA20773	engine 0.1.0+7772e32
+NA20774	engine 0.1.0+7772e32
+NA20775	engine 0.1.0+7772e32
+NA20778	DJ +1.11 copies; engine 0.1.0+7772e32
+NA20783	engine 0.1.0+7772e32
+NA20785	engine 0.1.0+7772e32
+NA20786	DJ +0.80 copies; engine 0.1.0+7772e32
+NA20787	engine 0.1.0+7772e32
+NA20790	chrX 1.59 (mosaic X loss?); engine 0.1.0+7772e32
+NA20792	engine 0.1.0+7772e32
+NA20795	engine 0.1.0+7772e32
+NA20796	engine 0.1.0+7772e32
+NA20797	engine 0.1.0+7772e32
+NA20798	engine 0.1.0+7772e32
+NA20799	engine 0.1.0+7772e32
+NA20800	engine 0.1.0+7772e32
+NA20801	engine 0.1.0+7772e32
+NA20802	engine 0.1.0+7772e32
+NA20803	engine 0.1.0+7772e32
+NA20804	engine 0.1.0+7772e32
+NA20805	engine 0.1.0+7772e32
+NA20806	engine 0.1.0+7772e32
+NA20807	engine 0.1.0+7772e32
+NA20808	engine 0.1.0+7772e32
+NA20809	engine 0.1.0+7772e32
+NA20810	engine 0.1.0+7772e32
+NA20811	engine 0.1.0+7772e32
+NA20812	engine 0.1.0+7772e32
+NA20813	engine 0.1.0+7772e32
+NA20814	engine 0.1.0+7772e32
+NA20815	engine 0.1.0+7772e32
+NA20818	engine 0.1.0+7772e32
+NA20819	DJ -0.90 copies; engine 0.1.0+7772e32
+NA20821	engine 0.1.0+7772e32
+NA20822	engine 0.1.0+7772e32
+NA20826	DJ +0.79 copies; engine 0.1.0+7772e32
+NA20827	engine 0.1.0+7772e32
+NA20828	engine 0.1.0+7772e32
+NA20832	chrX 1.50 (mosaic X loss?); engine 0.1.0+7772e32
+NA20845	engine 0.1.0+7772e32
+NA20846	engine 0.1.0+7772e32
+NA20847	engine 0.1.0+7772e32
+NA20849	engine 0.1.0+7772e32
+NA20850	engine 0.1.0+7772e32
+NA20851	engine 0.1.0+7772e32
+NA20852	engine 0.1.0+7772e32
+NA20853	engine 0.1.0+7772e32
+NA20854	engine 0.1.0+7772e32
+NA20856	engine 0.1.0+7772e32
+NA20858	engine 0.1.0+7772e32
+NA20859	engine 0.1.0+7772e32
+NA20861	engine 0.1.0+7772e32
+NA20862	engine 0.1.0+7772e32
+NA20863	engine 0.1.0+7772e32
+NA20864	DJ -0.86 copies; engine 0.1.0+7772e32
+NA20866	engine 0.1.0+7772e32
+NA20867	DJ +2.49 copies; engine 0.1.0+7772e32
+NA20868	engine 0.1.0+7772e32
+NA20869	engine 0.1.0+7772e32
+NA20870	engine 0.1.0+7772e32
+NA20872	engine 0.1.0+7772e32
+NA20874	engine 0.1.0+7772e32
+NA20875	engine 0.1.0+7772e32
+NA20876	engine 0.1.0+7772e32
+NA20877	engine 0.1.0+7772e32
+NA20878	engine 0.1.0+7772e32
+NA20881	engine 0.1.0+7772e32
+NA20882	engine 0.1.0+7772e32
+NA20884	engine 0.1.0+7772e32
+NA20885	engine 0.1.0+7772e32
+NA20886	engine 0.1.0+7772e32
+NA20887	engine 0.1.0+7772e32
+NA20888	engine 0.1.0+7772e32
+NA20889	engine 0.1.0+7772e32
+NA20890	engine 0.1.0+7772e32
+NA20891	DJ -1.08 copies; engine 0.1.0+7772e32
+NA20892	chrX 1.79 (mosaic X loss?); engine 0.1.0+7772e32
+NA20894	engine 0.1.0+7772e32
+NA20895	engine 0.1.0+7772e32
+NA20896	engine 0.1.0+7772e32
+NA20897	engine 0.1.0+7772e32
+NA20899	DJ -1.06 copies; engine 0.1.0+7772e32
+NA20900	DJ -1.18 copies; engine 0.1.0+7772e32
+NA20901	engine 0.1.0+7772e32
+NA20902	engine 0.1.0+7772e32
+NA20903	engine 0.1.0+7772e32
+NA20904	engine 0.1.0+7772e32
+NA20905	engine 0.1.0+7772e32
+NA20906	engine 0.1.0+7772e32
+NA20908	engine 0.1.0+7772e32
+NA20910	engine 0.1.0+7772e32
+NA20911	DJ -1.03 copies; engine 0.1.0+7772e32
+NA21086	engine 0.1.0+7772e32
+NA21087	engine 0.1.0+7772e32
+NA21088	engine 0.1.0+7772e32
+NA21089	engine 0.1.0+7772e32
+NA21090	engine 0.1.0+7772e32
+NA21091	engine 0.1.0+7772e32
+NA21092	engine 0.1.0+7772e32
+NA21093	engine 0.1.0+7772e32
+NA21094	engine 0.1.0+7772e32
+NA21095	engine 0.1.0+7772e32
+NA21097	engine 0.1.0+7772e32
+NA21098	engine 0.1.0+7772e32
+NA21099	engine 0.1.0+7772e32
+NA21100	engine 0.1.0+7772e32
+NA21101	engine 0.1.0+7772e32
+NA21102	engine 0.1.0+7772e32
+NA21103	engine 0.1.0+7772e32
+NA21104	engine 0.1.0+7772e32
+NA21105	engine 0.1.0+7772e32
+NA21106	engine 0.1.0+7772e32
+NA21107	engine 0.1.0+7772e32
+NA21108	engine 0.1.0+7772e32
+NA21109	engine 0.1.0+7772e32
+NA21110	engine 0.1.0+7772e32
+NA21111	engine 0.1.0+7772e32
+NA21112	DJ -1.04 copies; engine 0.1.0+7772e32
+NA21113	DJ -0.93 copies; engine 0.1.0+7772e32
+NA21114	engine 0.1.0+7772e32
+NA21115	engine 0.1.0+7772e32
+NA21116	engine 0.1.0+7772e32
+NA21117	engine 0.1.0+7772e32
+NA21118	aneuploid: chr5; engine 0.1.0+7772e32
+NA21119	engine 0.1.0+7772e32
+NA21120	engine 0.1.0+7772e32
+NA21122	engine 0.1.0+7772e32
+NA21123	engine 0.1.0+7772e32
+NA21124	engine 0.1.0+7772e32
+NA21125	engine 0.1.0+7772e32
+NA21126	engine 0.1.0+7772e32
+NA21127	engine 0.1.0+7772e32
+NA21128	engine 0.1.0+7772e32
+NA21129	engine 0.1.0+7772e32
+NA21130	engine 0.1.0+7772e32
+NA21133	engine 0.1.0+7772e32
+NA21135	engine 0.1.0+7772e32
+NA21137	engine 0.1.0+7772e32
+NA21141	engine 0.1.0+7772e32
+NA21142	chrX 1.78 (mosaic X loss?); engine 0.1.0+7772e32
+NA21143	aneuploid: chr9,chr12,chr14; engine 0.1.0+7772e32
+NA21144	engine 0.1.0+7772e32
