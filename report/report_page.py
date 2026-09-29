@@ -424,6 +424,10 @@ the pipeline's notes or a test run outside this page, are fixed text and say whe
         case.append(("Coverage QC, same files", f'r = {fmt(nq["mtdna"]["r"], 3)}', f"mitochondrial copies per cell vs NGS-PCA (mosdepth), {nq['n']:,} genomes; chrX r = {fmt(nq['chrX']['r'], 4)}", "#published"))
     if tracking:
         case.append(("Against assemblies", f"{len(tracking)} of {len(hpst)} families", f"track HPRC assemblies with r ≥ 0.95 in {(sat.get('hprc') or {}).get('n_samples', 0)} people", "#assemblies"))
+    if (data.get("dj") or {}).get("assemblies"):
+        _S = data["dj"]["assemblies"]["stats"]; _r = _S["resolved"]
+        case.append(("Junction vs assemblies", f'{fmt(_r.get("core_diff_mean"), 2)} ± {fmt(_r.get("core_diff_sd"), 2)}',
+                     f"distal junction, reads − HPRC assembly (copies), {_r.get('n', 0)} genomes with the junction resolved; {_S['blocks']['deviating_confirmed']} of {_S['blocks']['deviating']} deviating blocks confirmed", "#djsteps"))
     P.h('<div class="tiles case">' + "".join(f'<a class="tile" href="{h}"><div class="label">{esc(l)}</div><div class="value">{v}</div><div class="note">{esc(t)}</div></a>' for l, v, t, h in case) + "</div>")
     P.end()
 
@@ -670,6 +674,7 @@ controls {", ".join(esc(x) for x in m["controls_sha"]) or "–"}{(", sinks " + "
 
     # ---------------------------------------------------------------- 3.1 known truth
     P.section("truth", "3.1 Sequence of known copy number, in every genome", "Known truth")
+    _k10 = (((data.get("dj") or {}).get("assemblies") or {}).get("stats") or {}).get("known10") or {}
     P.h(f'''<p>If the model is right, held-out autosomal sequence reads 2, chrX reads 1 in men and 2 in women, chrY reads 1 and 0, and the
 distal junction reads 10, in every genome. Held-out autosomal sequence reads <strong>{pm(a)}</strong> copies (n = {a.get("n", 0):,}).
 chrX reads <strong>{pm(men1x)}</strong> in {men1x.get("n", 0):,} men{one_x}'''
@@ -684,7 +689,9 @@ chrY reads <strong>{pm(sx["men_intact_Y"])}</strong> in men with an intact Y and
                if (bio.get("DJ_vs_chrX_female") or {}).get("n", 0) >= 3 and bio["DJ_vs_chrX_female"].get("r_lo") is not None
                and bio["DJ_vs_chrX_female"]["r_lo"] <= 0 <= bio["DJ_vs_chrX_female"]["r_hi"] else
                f"; in women the two deficits correlate at r = {ci(bio['DJ_vs_chrX_female'])} (section 4)." if (bio.get("DJ_vs_chrX_female") or {}).get("n", 0) >= 3 else "."))
-           if X["F"].get("median", 2) < 1.98 and DJ.get("median", 10) < 10 else "") + "</p>")
+           if X["F"].get("median", 2) < 1.98 and DJ.get("median", 10) < 10 else "")
+        + (f" The HPRC assemblies of {_k10['n']} genomes that read {fmt(min(_k10['reads_cn']), 2)}–{fmt(max(_k10['reads_cn']), 2)} here hold ten complete junction copies (<a href='#djsteps'>3.2</a>): the junction's deficit is in the measurement's scale, not in the copies."
+           if _k10 and _k10.get("n") and _k10.get("reads_cn") else "") + "</p>")
     P.h('<div class="grid2">')
     cohort_ = "genomes of the 1000 Genomes 30× cohort"
     P.chart("auto", dict(type="hist", col="truth.auto", xlabel="copies", ref=[dict(x=2, label="expected 2")], xfmt=3), "Known copy number: held-out autosomal sequence (expected 2)",
@@ -718,7 +725,7 @@ chrY reads <strong>{pm(sx["men_intact_Y"])}</strong> in men with an intact Y and
     P.end()
 
     # ---------------------------------------------------------------- 3.2 DJ steps
-    P.section("djsteps", "3.2 The distal junction changes in whole copies, and the changes are inherited", "DJ steps")
+    P.section("djsteps", "3.2 The distal junction: whole-copy steps, partial variants, and the HPRC assemblies", "Distal junction")
     if dj.get("carriers") is not None:
         P.h(f'''<p>Ten distal junctions is the norm; a rearranged acrocentric short arm leaves nine, and a Robertsonian translocation, which fuses two
 acrocentrics and loses both short arms, leaves eight. Copy number relative to the cohort's level ({fmt(dj["median"], 2)}) should therefore sit
@@ -755,6 +762,8 @@ the main mode has a robust SD of {fmt(dj["spread"], 2)} copies and {dj["between"
 The distal junction is measured by the same k-mer path as the rDNA.{" A change of one copy in ten, seen in a parent and again in the child, shows that the path resolves multi-copy acrocentric sequence to a single copy." if dj["transmitted"] else ""}</p>''')
     else:
         P.h("<p>Appears once the distal junction has been measured.</p>")
+    from .dj_page import render as _dj_render
+    _dj_render(P, data, rows)
     P.end()
 
     # ---------------------------------------------------------------- 3.3 modes
@@ -1829,7 +1838,7 @@ by their k-mer recall).</p>''')
       'The known truths test the model and the k-mer path, not the absolute scale of the rDNA.') if dd_ok else
       '<strong>No absolute calibration.</strong> No orthogonal assay of rDNA copy number exists for these samples. The absolute level rests on unit windows on which three Illumina chemistries agree; the known truths test the model and the k-mer path, not the absolute scale of the rDNA.'}</li>
 <li><strong>Cell-line DNA.</strong> Every sample is a lymphoblastoid line; its EBV load and mitochondrial content are measured but not removed,
-and it shows deficits in late-replicating sequence (the X in women, the distal junction) whose cause is not established (<a href="#rdna">section 4</a>).
+and it shows deficits in late-replicating sequence (the X in women, the distal junction) whose cause is not established (<a href="#rdna">section 4</a>){"; for the junction the HPRC assemblies place the deficit in the measurement's scale rather than in the copies (<a href='#djsteps'>3.2</a>)" if _k10 and _k10.get("n") else ""}.
 Whether blood-derived genomes show them is untested here.</li>
 <li>{trio_limit}
 Because the rDNA varies far more between people than any estimator errs, trios show that the measured variation is real, not which estimator
@@ -1861,7 +1870,7 @@ python -m report --scan counts_scan --fetch counts_fetch -p meta/20130606_g1k_32
 # and builds docs/evidence.png and docs/trio_report.pdf (python -m report.evidence_figure, python -m report.trio_report)</pre>
 <p>Tables behind every figure: <code>data/cohort.tsv</code> (one row per genome, every column), <code>data/modes.tsv</code>,
 <code>data/transmission.tsv</code>, <code>data/transmission_by_sex.tsv</code> and <code>data/trios.tsv</code> (every trio's values), <code>data/fetch_check.tsv</code>, <code>data/pcsweep.tsv</code>,
-<code>data/satellites_hprc.tsv</code>,{" <code>data/rdna_hprc.tsv</code>," if rd.get("assemblies") else ""} <code>data/fetch_paths.tsv</code> (each class's path), <code>data/flags.tsv</code>; the numbers
+<code>data/satellites_hprc.tsv</code>,{" <code>data/rdna_hprc.tsv</code>," if rd.get("assemblies") else ""}{" <code>data/dj_blocks.tsv</code> (every genome's junction profile), <code>data/dj_segments.tsv</code>," if data.get("dj") else ""}{" <code>data/dj_hprc.tsv</code>, <code>data/dj_hprc_blocks.tsv</code>, <code>data/dj_hprc_copies.tsv</code> (the junction against the HPRC assemblies)," if (data.get("dj") or {}).get("assemblies") else ""} <code>data/fetch_paths.tsv</code> (each class's path), <code>data/flags.tsv</code>; the numbers
 in the prose, <code>report.json</code>; the ddPCR lines, <code>data/ddpcr.tsv</code>; the trio assessment as a document, <code>trio_report.pdf</code>. The counts were made by <code>ngs-dose count</code> ({eng}) from the 1000 Genomes 30× CRAMs
 (Byrska-Bishop et al., <em>Cell</em> 2022; AWS Open Data) with the {esc(m.get("bundle"))} resource bundle. Method, design document and
 audit: <a href="https://github.com/jlanej/NGS-DOSE">github.com/jlanej/NGS-DOSE</a>.</p>''')

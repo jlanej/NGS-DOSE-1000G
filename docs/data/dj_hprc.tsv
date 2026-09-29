@@ -1,0 +1,29 @@
+sample	group	haplotypes	assembly_total	assembly_core	assembly_mean	reads_cn	reads_step	reads_core	reads_mean	diff_core	diff_mean	block_concordance	n_copies	n_partial	n_truncated	n_distal_start	resolved	phasing_split	unit_vs_blocks	flagged_chromosomes	partial_extents	truncated_extents	rhie
+HG00097	zero	hap1=5 + hap2=5	10	10.0	9.9	9.66	-0.06	9.9716	9.9198	-0.0284	0.0198	0.9	10	0	0	2	True	0					
+HG00146	between	hap1=2 + hap2=8	10	11.0	10.8	10.24	0.52	10.715	10.5675	-0.285	-0.2325	0.75	12	1	1	0	False	6	hap2: 8 over the unit, 9 over most core blocks		hap2 3-316 kb	hap1 66-117 kb (0.05 Mb contig)	
+HG00232	between	hap1=5 + hap2=5	10	11.0	10.675	10.33	0.61	10.8601	10.6822	-0.1399	0.0072	0.9	11	1	0	2	True	0	hap1: 5 over the unit, 6 over most core blocks		hap1 3-316 kb		
+HG00320	between	hap1=6 + hap2=4	10	11.0	10.625	10.33	0.61	10.937	10.5497	-0.063	-0.0753	0.9	12	1	1	1	False	2	hap1: 6 over the unit, 7 over most core blocks		hap1 187-400 kb	hap2 368-400 kb (0.18 Mb contig)	partially assembled among rDNA; the partial DJ holds one arm of the palindrome, flank intact to the rDNA
+HG00438	zero	mat=5 + pat=5	10	10.0	9.95	9.52	-0.2	9.8271	9.7881	-0.1729	-0.1619	0.95	10	0	0	0	True	0					
+HG00621	carrier	mat=5 + pat=4	9	9.0	8.85	8.76	-0.96	8.9666	8.9315	-0.0334	0.0815	1.0	9	0	0	0	True	1					DJ lost entirely (paternal), with the HSat3 distal to it and the start of the rDNA array
+HG00642	zero	mat=5 + pat=5	10	10.0	9.8	9.61	-0.11	9.9492	9.9359	-0.0508	0.1359	0.55	12	2	3	1	False	0			mat 22-155 kb; pat 3-134 kb	mat 122-400 kb (0.29 Mb contig); pat 113-400 kb (0.40 Mb contig); pat 111-400 kb (0.32 Mb contig)	
+HG00658	carrier	mat=5 + pat=4	9	9.0	9.225	8.69	-1.03	8.9961	8.9557	-0.0039	-0.2693	0.75	11	0	3	0	False	1				pat 317-400 kb (0.17 Mb contig); pat 3-343 kb (3.65 Mb contig); pat 319-400 kb (0.23 Mb contig)	
+HG00673	between	mat=5 + pat=4	9	9.0	8.6	9.05	-0.67	9.4557	9.2981	0.4557	0.6981	0.15	9	1	0	0	True	1			pat 122-400 kb		
+HG00735	between	mat=5 + pat=5	10	10.0	9.85	9.39	-0.33	9.7122	9.6971	-0.2878	-0.1529	0.9	10	0	0	0	True	0					
+HG01255	zero	mat=5 + pat=5	10	10.0	9.875	9.52	-0.2	9.8814	9.7772	-0.1186	-0.0978	0.85	10	0	0	1	True	0					
+HG01786	carrier	hap1=4 + hap2=6	10	11.0	10.625	10.57	0.85	11.1304	10.9232	0.1304	0.2982	0.75	11	1	0	2	True	2	hap2: 6 over the unit, 7 over most core blocks		hap2 3-316 kb		
+HG01891	carrier	mat=4 + pat=5	9	9.0	8.925	8.62	-1.1	8.8661	8.8532	-0.1339	-0.0718	0.95	9	0	0	2	True	1					DJ lost entirely (maternal), with part of the HSat3; a rare rDNA inversion at the start of the array
+HG01943	carrier	mat=5 + pat=4	9	10.0	9.95	10.9	1.18	11.6071	11.2503	1.6071	1.3003	0.1	16	0	10	0	False	1	mat: 5 over the unit, 6 over most core blocks; pat: 4 over the unit, 5 over most core blocks			mat 3-244 kb (0.43 Mb contig); mat 3-214 kb (2.88 Mb contig); mat 327-400 kb (0.10 Mb contig); pat 247-400 kb (0.25 Mb contig); pat 135-238 kb (0.08 Mb contig); pat 318-400 kb (0.11 Mb contig); pat 3-85 kb (0.09 Mb contig); pat 3-264 kb (1.06 Mb contig); pat 247-400 kb (0.23 Mb contig); pat 133-235 kb (0.08 Mb contig)	
+HG01981	between	mat=5 + pat=5	10	10.0	9.625	9.23	-0.49	9.6037	9.561	-0.3963	-0.064	0.9	10	1	1	0	False	0			mat 3-277 kb	pat 3-328 kb (3.22 Mb contig)	9.1-9.4 copies; a partial loss of the DJ flank
+HG02040	between	hap1=3 + hap2=7	10	10.0	10.325	9.2	-0.52	9.4164	9.4882	-0.5836	-0.8368	0.35	14	0	7	0	False	4	hap2: 7 over the unit, 8 over most core blocks			hap1 3-300 kb (2.48 Mb contig); hap1 3-150 kb (4.51 Mb contig); hap1 100-146 kb (0.05 Mb contig); hap2 129-399 kb (0.51 Mb contig); hap2 3-150 kb (0.42 Mb contig); hap2 248-400 kb (0.42 Mb contig); hap2 127-400 kb (0.59 Mb contig)	
+HG02155	zero	hap1=6 + hap2=4	10	10.0	9.9	9.68	-0.04	10.0041	9.9841	0.0041	0.0841	0.9	10	0	0	1	True	2					
+HG02258	between	mat=5 + pat=5	10	10.0	9.75	9.37	-0.35	9.682	9.5461	-0.318	-0.2039	0.8	10	0	0	3	True	0					
+HG02280	between	mat=5 + pat=5	10	10.0	9.85	9.32	-0.4	9.6353	9.5967	-0.3647	-0.2533	0.7	10	0	0	0	True	0					
+HG02392	zero	hap1=6 + hap2=4	10	10.0	10.175	9.67	-0.05	9.9013	9.8603	-0.0987	-0.3147	0.8	11	0	1	1	False	2				hap2 3-103 kb (4.61 Mb contig)	
+HG02523	between	mat=5 + pat=5	10	10.0	9.1	9.38	-0.34	9.7975	9.5879	-0.2025	0.4879	0.7	10	1	2	0	False	0			mat 122-400 kb	pat 86-400 kb (0.36 Mb contig); pat 109-400 kb (0.37 Mb contig)	
+HG02615	zero	mat=5 + pat=5	10	10.0	9.875	9.77	0.05	10.0575	10.0252	0.0575	0.1502	0.9	10	0	0	0	True	0					
+HG03239	zero	mat=5 + pat=5	10	10.0	10.025	9.66	-0.06	9.8609	9.9496	-0.1391	-0.0754	0.95	10	0	0	0	True	0					
+HG03521	carrier	hap1=2 + hap2=7	9	9.0	8.975	8.89	-0.83	9.1276	9.1672	0.1276	0.1922	0.8	9	0	0	0	True	5					
+HG03654	between	mat=5 + pat=5	10	11.0	10.6	10.25	0.53	10.8425	10.6476	-0.1575	0.0476	0.85	11	1	0	2	True	0	mat: 5 over the unit, 6 over most core blocks		mat 3-287 kb		a duplicated block starting with a smaller portion of the DJ flank, down to the ACRO repeat
+HG03942	carrier	mat=5 + pat=5	10	11.0	10.725	10.59	0.87	11.0207	10.9194	0.0207	0.1944	0.85	11	1	0	0	True	0	pat: 5 over the unit, 6 over most core blocks		pat 3-316 kb		
+NA20752	between	hap1=4 + hap2=6	10	11.0	10.6	10.41	0.69	10.7889	10.6818	-0.2111	0.0818	0.9	11	1	0	0	True	2	hap2: 6 over the unit, 7 over most core blocks		hap2 3-316 kb		a duplicated DJ (with NA20805), the second copy partial, breakpoint inside the flank
+NA20805	between	hap1=5 + hap2=5	10	11.0	10.65	10.31	0.59	10.7853	10.6496	-0.2147	-0.0004	0.9	11	1	0	1	True	0	hap2: 5 over the unit, 6 over most core blocks		hap2 3-316 kb		a duplicated DJ (with NA20752), the second copy partial, breakpoint inside the flank

@@ -26,7 +26,7 @@ the kind of sequence the rDNA is.
 | held-out autosomal sequence (2) | 1.997 ± 0.008 | 3,202 |
 | chrX in men with one X (1) / in women with an intact culture (2) | 0.992 ± 0.006 / 1.939 ± 0.038 | 1,596 / 1,543 |
 | chrY in men with an intact Y (1) / in women (0) | 0.983 ± 0.044 / 0.012 at most | 1,585 / 1,605 |
-| distal junction (10) | 9.71 ± 0.34; robust SD 0.15 about the main mode | 3,202 |
+| distal junction (10) | 9.71 ± 0.34; robust SD 0.15 about the main mode; the HPRC assemblies of 9 genomes that read 9.32–9.77 hold ten complete copies ([DJ.md](DJ.md)) | 3,202 |
 
 Sex read from the X and Y agrees with the pedigree in 3,200 of 3,202: the highest X in a man
 with one X is 1.05, the lowest in a woman with an intact culture 1.85. Sixty-two women and
@@ -55,6 +55,25 @@ neither reading): fewer than the half a heterozygous variant passes on (two-side
 deficit the first 22 pairs had already shown (7 of 22) and that is worth a look at the carriers'
 arms. No child carries a step that neither parent has. **What it rules out:** that multi-copy
 acrocentric sequence cannot be resolved to a single copy by this path. *Panel b.*
+
+The HPRC release-2 assemblies of 28 cohort members, screened copy by copy for the junction
+([DJ.md](DJ.md); the page's section 3.2), confirm the steps and explain the rest. Every −1 carrier
+with a resolved assembly holds nine junction copies (HG01891, HG00621, HG00658, HG03521; the two
+Rhie et al. 2026 name as entire losses are the same two). The values between steps are partial
+variants: six gain genomes carry the same partial copy, the first 316 kb of the unit in tandem with
+a complete one, which reads 11 over the first 320 kb and 10 beyond, and a whole-unit median puts
+it at +0.5 to +0.9; partial losses read −0.3 to −0.7 the same way. Two segments of the unit, the
+distal 22 kb and 200–215 kb, are deletion polymorphisms of single copies (19 of 300 assembled
+copies begin 22 kb in), and left out of the level the steps are called in more trios (477 fully
+called at integers, all Mendelian-consistent, against 468 on the whole unit). For the 19 genomes whose
+assembly resolves the junction, the estimate's core level lies −0.08 ± 0.19 copies from the
+assembly's and 78% of 20-kb blocks round to the same copy number; the other 9 assemblies are
+fragmented at the junction (copies cut by contig ends, fragments assembled twice, the ten copies
+phased 2 + 8), and there the reads are the more coherent reading of the locus. The 2.8% deficit
+against ten is in the measurement's scale, not in the copies: it rests on the fragment-GC model in
+the anchor windows, whose efficiencies fall with GC for this unit as for the 45S, and it can be
+pinned to the core's mode. **What it rules out:** that the values between steps are measurement
+noise, or that the junction's deficit is a loss of copies in the cell lines.
 
 ## 3. The measured rDNA variation is inherited
 

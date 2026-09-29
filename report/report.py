@@ -40,6 +40,8 @@ from ngsdose import __version__, cohort, estimate, hprc, io, pcselect, resources
 from ngsdose import trios as T
 from ngsdose.tables import dump, load_result, num, summary_row, write_table
 
+from . import dj as djmod
+
 REPORT_VERSION = 5
 POSITIONAL = ("rDNA45S", "rDNA5S", "DJ")
 # the classes fetch mode retrieves through the sinks, and the column their two modes are compared on
@@ -1207,7 +1209,8 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
     def stream():
         for p in est_paths:
             r = load_result(p)
-            grab.append(dict(sample=r.get("sample"), gc_rel=r.get("gc_rel"), windows=((r.get("classes") or {}).get("rDNA45S") or {}).get("windows")))
+            grab.append(dict(sample=r.get("sample"), gc_rel=r.get("gc_rel"), windows=((r.get("classes") or {}).get("rDNA45S") or {}).get("windows"),
+                             dj=djmod.grab(r)))
             yield r
     rows, eff, info = cohort.cohort_table(stream(), res.anchors(), log=log)
     for r in rows:
@@ -1279,6 +1282,13 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
     data["satellites"] = satellite_analysis(rows, a.censat)
     unit45 = len(res.units().get("rDNA45S", "")) if a.censat else 0
     data["rdna"]["assemblies"] = rdna_assemblies(rows, a.censat, "rDNA45S.cn" if data["rdna"]["rDNA45S.cn"]["n"] else "rDNA45S.cn_single", unit45)
+    data["dj"] = djmod.run(rows, grab, eff, dj, a.dj_assemblies, log)
+    if data["dj"] and data["dj"].get("assemblies"):
+        try:
+            from . import dj_figure
+            data["dj"]["figure"] = dj_figure.render(data["dj"], out / "dj_assemblies.png")
+        except ImportError:
+            log("[report] the distal-junction figure needs matplotlib; skipped")
     data["hall"] = hall_comparison(rows, a.hall)
     data["replicates"] = replicate_analysis(a.pilot)
     data["ngspca_qc"] = ngspca_qc_comparison(rows, a.qc)
@@ -1325,6 +1335,15 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
         write_table(data["satellites"]["hprc"]["rows"], out / "data" / "satellites_hprc.tsv")
     if data["rdna"]["assemblies"]:
         write_table(data["rdna"]["assemblies"]["rows"], out / "data" / "rdna_hprc.tsv")
+    if data.get("dj"):
+        write_table(data["dj"].pop("blocks"), out / "data" / "dj_blocks.tsv")                # every genome's profile, on the pinned scale
+        sg = data["dj"]["segments"]
+        write_table([dict(sub_kb=k, sd=sd, median=m, hypervariable=h) for k, sd, m, h in zip(sg["sub_kb"], sg["sd"], sg["median"], sg["hypervariable"])], out / "data" / "dj_segments.tsv")
+        if data["dj"].get("assemblies"):
+            asm = data["dj"]["assemblies"]
+            write_table(asm["samples"], out / "data" / "dj_hprc.tsv")
+            write_table(asm.pop("blocks"), out / "data" / "dj_hprc_blocks.tsv")
+            write_table(asm.pop("copies"), out / "data" / "dj_hprc_copies.tsv")
     write_table([dict(sample=s, flags=f) for s, f in data["flags"]], out / "data" / "flags.tsv")
     Path(out / "data" / "efficiencies.json").write_text(json.dumps(eff))
     data["efficiencies"] = {cls: dict(start=e["start"], a=e["a"], anchor=e["anchor"], gc=e["gc"]) for cls, e in eff.items()}
@@ -1338,7 +1357,7 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
 
 SAMPLE_COLUMNS = ["sample", "sex", "sex_inferred", "pop", "superpop", "mode_used", "engine", "depth", "insert_median", "ctrl_dup_frac", "rDNA45S.dup_flag_frac",
                   "gc_curve_max_se", "truth.auto", "truth.chrX", "truth.chrY", "chrM.copies", "chrEBV.copies", "rDNA45S.cn", "rDNA45S.cn_single",
-                  "rDNA45S.18S.flat", "rDNA5S.cn", "rDNA5S.cn_single", "DJ.cn", "DJ.cn_single", "rDNA45S.cn.adj", "rDNA45S.cn.adj_ngspca",
+                  "rDNA45S.18S.flat", "rDNA5S.cn", "rDNA5S.cn_single", "DJ.cn", "DJ.cn_single", "DJ.cn_core", "rDNA45S.cn.adj", "rDNA45S.cn.adj_ngspca",
                   "elapsed_sec", "flags", "DJ.step", "gc_rel_65", "rDNA45S.18S.flat_over_cn", "rDNA45S.18S_over_cn", "flat.chrM",
                   "ngspca.MTDNA_CN", "ngspca.chrX", "ngspca.chrY", "ngspca.depth", "ngspca.batch"] + [f"{c}.mass_Mb" for c in SATELLITES] + [f"fetch_ratio.{c}" for c, _ in FETCHABLE] + [f"capture.{c}" for c, _ in FETCHABLE]
 
@@ -1381,6 +1400,7 @@ def add_arguments(ap):
     ap.add_argument("-p", "--pedigree", help="1000 Genomes pedigree (sex, population, trios)")
     ap.add_argument("--pcs", help="NGS-PCA svd.pcs.txt (with svd.singularvalues.txt and svd.bins.txt beside it)")
     ap.add_argument("--censat", help="directory of HPRC CenSat annotations (<sample>_<hap>_...cenSat.bed)")
+    ap.add_argument("--dj-assemblies", help="directory with haplotypes.tsv and copies.tsv from pipeline/hprc_dj.py: the distal junction in HPRC assemblies of cohort members")
     ap.add_argument("--hall", help="Hall, Turner & Queitsch 2021 Supplementary Data 1 (per-sample table for the same CRAMs)")
     ap.add_argument("--ddpcr", help="ddPCR copy numbers of cohort lines (Potapova et al. 2025 Table S1 with CONKORD; NGS-DOSE values for lines outside the run): "
                     "the results repository's assembly_rdna/tables/potapova_comparison.tsv")

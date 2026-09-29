@@ -41,6 +41,7 @@ args=(-p "$PED" --hall meta/hall2021_MOESM1.txt --pilot pilot --pcs meta/ngspca/
 [ -n "$(ls counts_scan/*.json.gz 2>/dev/null)" ] && args+=(--scan counts_scan)
 [ -n "$(ls counts_fetch/*.json.gz 2>/dev/null)" ] && args+=(--fetch counts_fetch)
 [ -d hprc_censat ] && args+=(--censat hprc_censat)
+[ -s meta/dj_hprc/haplotypes.tsv ] && args+=(--dj-assemblies meta/dj_hprc)   # the distal junction in HPRC assemblies (pipeline/07_hprc_dj.sh)
 [ -s meta/ngspca_sample_qc.tsv ] && args+=(--qc meta/ngspca_sample_qc.tsv)
 [ -s assembly_rdna/tables/potapova_comparison.tsv ] && args+=(--ddpcr assembly_rdna/tables/potapova_comparison.tsv)
 python3 -m report "${args[@]}"
