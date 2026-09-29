@@ -12,6 +12,8 @@ windows it lacks, and an extra partial copy raises the windows it holds.
 from __future__ import annotations
 
 import csv
+import math
+import re
 import warnings
 from collections import Counter
 from pathlib import Path
@@ -93,6 +95,11 @@ def segments(P: dict, rules: dict | None = None) -> dict:
                 hyper_intervals=runs, core_blocks=core_blocks, excluded=excluded)
 
 
+def _status(c) -> str:
+    """settled, fractional or uncertain (a call made before the library knew fractions is settled or uncertain)."""
+    return getattr(c, "status", "uncertain" if c.uncertain else "settled")
+
+
 def cohort_stats(P: dict, seg: dict) -> dict:
     """The cohort's levels against whole numbers, its calls (complete copies, partial copies, breakpoints, the genomes
     whose scale leaves their integers open) and the block states."""
@@ -121,7 +128,8 @@ def cohort_stats(P: dict, seg: dict) -> dict:
         out["calls"] = dict(n=len(C), copies={int(k): int(v) for k, v in sorted(Counter(c.copies for c in C).items())},
                             flat={int(k): int(v) for k, v in sorted(Counter(c.copies for c in C if not big(c)).items())},
                             with_large_event=int(sum(1 for c in C if big(c))), with_partial_copy=int(sum(1 for c in C if any(e.kind == "partial copy" for e in c.events))),
-                            whole={int(k): int(v) for k, v in sorted(Counter(c.copies for c in C if not big(c) and not c.uncertain).items())},
+                            whole={int(k): int(v) for k, v in sorted(Counter(c.copies for c in C if not big(c) and _status(c) == "settled").items())},
+                            status={k: int(v) for k, v in Counter(_status(c) for c in C).items()},
                             with_partial_loss=int(sum(1 for c in C if any(e.kind == "partial loss" for e in c.events))),
                             scale_sd=float(f.std(ddof=1)) if len(f) > 1 else None, scale_uncertain=int(sum(c.uncertain for c in C)),
                             off_integer=int(sum(1 for c in C if any(s.off_integer and s.end - s.start >= 40000 for s in c.segments))),
@@ -160,7 +168,7 @@ def inheritance(P: dict, ped: dict | None, rules: dict | None, min_trios: int = 
     if len(trios) < min_trios:
         return None
     cn, starts, level, calls = P["cn"], P["starts"], P["level"], P["calls"]
-    quiet = np.array([s in calls and not calls[s].events and not calls[s].uncertain and len(calls[s].segments) == 1 for s in P["samples"]])
+    quiet = np.array([s in calls and not calls[s].events and _status(calls[s]) == "settled" and len(calls[s].segments) == 1 for s in P["samples"]])
     if quiet.sum() < 30:
         quiet = np.ones(len(P["samples"]), bool)                          # without calls, every genome; the noise is measured robustly either way
     mad_var = lambda x: float((1.4826 * np.nanmedian(np.abs(x - np.nanmedian(x)))) ** 2)
@@ -227,7 +235,7 @@ def inheritance(P: dict, ped: dict | None, rules: dict | None, min_trios: int = 
         dev = []
         for s in P["samples"]:
             k = calls.get(s)
-            if k is None or k.uncertain:
+            if k is None or _status(k) != "settled":
                 dev.append(None)
                 continue
             beside = {k.state_at(q) for q in sides}
@@ -333,6 +341,7 @@ def assemblies(dir_, P: dict, seg: dict, by_sample: dict, log=lambda m: None) ->
             rec.update(copies=call.copies, bulk=bulk, bulk_equal=bool(bulk == int(round(asm_core))), partial=r.get("DJ.partial"), variants=r.get("DJ.variants"), scale_f=round(call.scale, 3),
                        tilt=round(call.tilt, 3),
                        scale_uncertain=bool(call.uncertain), call_gap=None if not np.isfinite(call.gap) else round(call.gap, 1),
+                       status=_status(call), off=r.get("DJ.off"), off_z=r.get("DJ.off_z"), fractional=r.get("DJ.fractional"),
                        call_concordance=r4(np.mean(st[oks] == asm_sub[oks])) if oks.any() else None, call_sub_blocks=int(oks.sum()),
                        call_equal=int(np.sum(st[oks] == asm_sub[oks])), assembly_partial_found=f"{found} of {len(asm_partial)}" if asm_partial else "",
                        assembly_partial_off_kb=max(off) if off else None)
@@ -383,7 +392,7 @@ def assemblies(dir_, P: dict, seg: dict, by_sample: dict, log=lambda m: None) ->
         ns, es = sum(t["call_sub_blocks"] for t in same), sum(t["call_equal"] for t in same)
         return dict(n_genomes=len(ts), sub_blocks=n, equal=e, concordance=(e / n if n else None), bulk_equal=len(same),
                     bulk_differs=[t["sample"] for t in ts if not t["bulk_equal"]], concordance_same_level=(es / ns if ns else None), sub_blocks_same_level=ns)
-    certain = [t for t in called if t["resolved"] and not t["scale_uncertain"]]
+    certain = [t for t in called if t["resolved"] and t["status"] == "settled"]
     found = [t["assembly_partial_found"] for t in called if t["resolved"] and t["assembly_partial_found"]]
     stats = dict(n=len(T), all=agree(np.ones(len(T), bool)), resolved=agree(res), n_resolved=int(res.sum()),
                  blocks=dict(n=len(blocks_all), deviating=len(dev), deviating_confirmed=same, ten=len(ten), ten_false_alarm=false_alarm,
@@ -397,6 +406,7 @@ def assemblies(dir_, P: dict, seg: dict, by_sample: dict, log=lambda m: None) ->
         stats["calls"] = dict(resolved=calls_agree([t for t in called if t["resolved"]]), resolved_certain=calls_agree(certain),
                               fragmented=calls_agree([t for t in called if not t["resolved"]]),
                               uncertain=[t["sample"] for t in called if t["scale_uncertain"]],
+                              fractional=[t["sample"] for t in called if t["status"] == "fractional"],
                               partial_found=sum(int(x.split(" of ")[0]) for x in found), partial_in_assemblies=sum(int(x.split(" of ")[1]) for x in found),
                               partial_off_kb=max((t["assembly_partial_off_kb"] for t in called if t["resolved"] and t.get("assembly_partial_off_kb") is not None), default=None),
                               partial_found_all=sum(int(t["assembly_partial_found"].split(" of ")[0]) for t in called if t["assembly_partial_found"]),
@@ -404,7 +414,7 @@ def assemblies(dir_, P: dict, seg: dict, by_sample: dict, log=lambda m: None) ->
                               partial_off_kb_all=max((t["assembly_partial_off_kb"] for t in called if t.get("assembly_partial_off_kb") is not None), default=None))
     log(f"[report] DJ vs HPRC assemblies: {len(T)} genomes ({int(res.sum())} with a resolved assembly), {len(blocks_all)} blocks; reads-assembly core diff "
         f"{stats['resolved'].get('core_diff_mean', float('nan')):+.3f} ± {stats['resolved'].get('core_diff_sd', float('nan')):.3f} (resolved)"
-        + (f"; calls equal to the assembly in {100 * stats['calls']['resolved_certain']['concordance']:.1f}% of 5-kb sub-blocks ({stats['calls']['resolved_certain']['n_genomes']} resolved genomes of settled scale)"
+        + (f"; calls equal to the assembly in {100 * stats['calls']['resolved_certain']['concordance']:.1f}% of 5-kb sub-blocks ({stats['calls']['resolved_certain']['n_genomes']} resolved genomes with a settled call)"
            if called and stats["calls"]["resolved_certain"]["concordance"] is not None else ""))
     return dict(samples=T, blocks=block_rows, copies=C, oddities=oddities, stats=stats)
 
@@ -414,7 +424,8 @@ def block_table(P: dict, by: dict) -> list[dict]:
     for i, s in enumerate(P["samples"]):
         r = by.get(s, {})
         row = dict(sample=s, cn=r.get("DJ.cn"), cn_unit=r.get("DJ.cn_unit"), copies=r.get("DJ.copies"), partial=r.get("DJ.partial"), variants=r.get("DJ.variants"),
-                   scale_f=r.get("DJ.scale_f"), tilt=r.get("DJ.tilt"), call=r.get("DJ.call"), call_gap=r.get("DJ.call_gap"))
+                   scale_f=r.get("DJ.scale_f"), tilt=r.get("DJ.tilt"), call=r.get("DJ.call"), call_gap=r.get("DJ.call_gap"),
+                   off=r.get("DJ.off"), off_z=r.get("DJ.off_z"), fractional=r.get("DJ.fractional"))
         for b in range(NBLOCK):
             v = P["block"][i][b]
             row[f"b{b * BLOCK // 1000}"] = None if not np.isfinite(v) else round(float(v), 3)
@@ -423,8 +434,178 @@ def block_table(P: dict, by: dict) -> list[dict]:
 
 
 def call_table(P: dict) -> list[dict]:
-    """One row per genome and segment."""
-    return [dict(sample=s, **g.as_dict(), off_integer=g.off_integer) for s in P["samples"] if s in P["calls"] for g in P["calls"][s].segments]
+    """One row per genome and segment (kind `segment`: the whole number called, the mean on the genome's scale, and
+    `raw`, the mean as the reads give it), and one per stretch that reads a fraction of a copy off the whole numbers
+    (kind `fraction`: the whole number called there, the mean, and z against the cohort)."""
+    cols = ("sample", "kind", "start", "end", "windows", "state", "mean", "se", "raw", "off_integer", "z", "call")
+    out = []
+    for s in P["samples"]:
+        c = P["calls"].get(s)
+        if c is None:
+            continue
+        status = getattr(c, "status", "uncertain" if c.uncertain else "settled")
+        out += [dict(sample=s, kind="segment", **g.as_dict(), off_integer=g.off_integer, z=None, call=status) for g in c.segments]
+        out += [dict(sample=s, kind="fraction", start=f.start, end=f.end, windows=f.windows, state=f.state, mean=round(f.state + f.offset, 3), se=None, raw=None,
+                     off_integer=True, z=f.z, call=status) for f in getattr(c, "fractions", [])]
+    return [{k: r.get(k) for k in cols} for r in out]
+
+
+def parse_fractional(text, z=None) -> list[tuple[float, int, int, float | None]]:
+    """'+0.53:106-400kb;-0.45:361-400kb' (and the z beside it, '+4.2;-4.1') -> [(0.53, 106, 400, 4.2), (-0.45, 361, 400, -4.1)]."""
+    zs = [x for x in str(z or "").split(";") if x not in ("", "none")]
+    out = []
+    for k, item in enumerate(x for x in str(text or "").split(";") if x not in ("", "none")):
+        m = re.fullmatch(r"([+-]\d+(?:\.\d+)?):(\d+)-(\d+)kb", item.strip())
+        if m:
+            try:
+                zz = float(zs[k]) if k < len(zs) else None
+            except ValueError:
+                zz = None
+            out.append((float(m.group(1)), int(m.group(2)), int(m.group(3)), zz))
+    return out
+
+
+def _num(r, k) -> float:
+    try:
+        return float(r.get(k))
+    except (TypeError, ValueError):
+        return float("nan")
+
+
+def off_whole(rows: list[dict], ped: dict | None, eff: dict | None, compared=None, min_trios: int = 30, n_boot: int = 2000, seed: int = 1) -> dict | None:
+    """The genomes that sit off whole numbers: a level some way from the whole number called (`DJ.off`, `DJ.off_z`), a
+    stretch of the unit a fraction of a copy off (`DJ.fractional`), or a level between two whole numbers (uncertain).
+    A change in part of the cells would leave any of them; so would a library unlike the cohort's. What can be said
+    from the cohort is said here: how many there are against what the scatter of the scales gives by chance, which
+    way they lie, whom they are found in (the generation, the sex, the release batch), whether they come with the
+    other signs of a culture that has changed, how far the offset is shared within families and handling groups
+    (which is the part of it that the libraries make), and for each genome what its relatives read."""
+    called = [r for r in rows if r.get("DJ.call") not in (None, "", "NA") and np.isfinite(_num(r, "DJ.off_z"))]
+    if not called:
+        return None
+    fr = dict((eff or {}).get("DJ", {}).get("fractions") or {})
+    lz = float(fr.get("level_z", 3.0))
+    by = {r["sample"]: r for r in called}
+    off = {s: _num(r, "DJ.off") for s, r in by.items()}
+    z = {s: _num(r, "DJ.off_z") for s, r in by.items()}
+    status = Counter(r["DJ.call"] for r in called)
+    clear = [r for r in called if r["DJ.call"] != "uncertain"]
+    level = [r for r in clear if r["DJ.call"] == "fractional" and abs(z[r["sample"]]) >= lz - 0.005]          # by the status the library gave (the z is written to two places)
+    steps = [r for r in clear if parse_fractional(r.get("DJ.fractional"))]
+    normal = lambda x: 1 - math.erf(x / math.sqrt(2))                                  # two-sided tail of a normal scatter
+    x = np.array([off[r["sample"]] for r in clear])
+    sd = float(1.4826 * np.median(np.abs(x - np.median(x)))) if len(x) else float("nan")
+    out = dict(n=len(called), status={k: int(v) for k, v in status.items()}, rules=fr, spread_copies=sd,
+               level=dict(n=len(level), below=sum(1 for r in level if off[r["sample"]] < 0), above=sum(1 for r in level if off[r["sample"]] > 0),
+                          by_chance=float(len(clear) * normal(lz)), of=len(clear),
+                          beyond=[dict(copies=c, n=int(np.sum(np.abs(x - np.median(x)) > c)), below=int(np.sum(x - np.median(x) < -c)), above=int(np.sum(x - np.median(x) > c)),
+                                       by_chance=float(len(x) * normal(c / sd))) for c in (0.3, 0.4, 0.5)] if sd > 0 else []),
+               steps=dict(n=len(steps), events=sum(len(parse_fractional(r["DJ.fractional"])) for r in steps), looked_for=bool(fr.get("steps"))))
+    bp = Counter()
+    for r in steps:
+        for _, a, b, _ in parse_fractional(r["DJ.fractional"]):
+            for q in (a, b):
+                if 0 < q < UNIT // 1000:
+                    bp[int(round(q / 20.0) * 20)] += 1
+    out["steps"]["breakpoints"] = [dict(kb=k, n=v) for k, v in sorted(bp.items())]
+    out["uncertain_off"] = dict(n=status.get("uncertain", 0), beyond=sum(1 for r in called if r["DJ.call"] == "uncertain" and abs(z[r["sample"]]) >= lz - 0.005))
+    odd = lambda r: r["DJ.call"] in ("fractional", "uncertain")
+    # whom they are found in
+    ped = ped or {}
+    trio = {c: q for c, q in ped.items() if c in by and q.get("father") in by and q.get("mother") in by}
+    fathers, mothers = {q["father"] for q in trio.values()}, {q["mother"] for q in trio.values()}
+    role = lambda s: "child" if s in trio and s not in fathers | mothers else "father" if s in fathers else "mother" if s in mothers else "other"
+
+    def share(sel, name):
+        g = [r for r in called if sel(r)]
+        return dict(group=name, n=len(g), fractional=sum(1 for r in g if r["DJ.call"] == "fractional"), uncertain=sum(1 for r in g if r["DJ.call"] == "uncertain"))
+    out["by_role"] = [share(lambda r, k=k: role(r["sample"]) == k, k) for k in ("father", "mother", "child", "other")]
+    out["by_sex"] = [share(lambda r, k=k: r.get("sex_inferred") == k, {"M": "men", "F": "women"}[k]) for k in ("M", "F")]
+    batches = sorted({str(r.get("ngspca.batch")) for r in called if r.get("ngspca.batch") not in (None, "", "unknown")})
+    out["by_batch"] = [share(lambda r, k=k: str(r.get("ngspca.batch")) == k, k) for k in batches]
+    # the other signs of a culture that has changed: an X or a Y lost in part of the cells, a chromosome off its dosage
+    def sign(r):
+        x_, y_, si = _num(r, "truth.chrX"), _num(r, "truth.chrY"), r.get("sex_inferred")
+        return bool((si == "F" and x_ < 1.85) or (si == "M" and y_ < 0.85) or r.get("flagged_chromosomes") not in (None, "", "NA"))
+    a_, b_ = sum(1 for r in called if odd(r) and sign(r)), sum(1 for r in called if odd(r) and not sign(r))
+    c_, d_ = sum(1 for r in called if not odd(r) and sign(r)), sum(1 for r in called if not odd(r) and not sign(r))
+    from .report import fisher_exact
+    out["other_signs"] = dict(off=a_ + b_, off_with=a_, settled=c_ + d_, settled_with=c_, p=fisher_exact(a_, b_, c_, d_) if a_ + b_ and c_ + d_ else None)
+    # how far the offset is shared: within families (spouses share no genes), and between the groups the samples were handled in
+    full = [(c, q["father"], q["mother"]) for c, q in trio.items() if all(by[k]["DJ.call"] != "uncertain" for k in (c, q["father"], q["mother"]))]
+    if len(full) >= min_trios:
+        ch = np.array([off[c] for c, _, _ in full])
+        fa = np.array([off[f] for _, f, _ in full])
+        mo = np.array([off[m] for _, _, m in full])
+        mid = (fa + mo) / 2
+        rng = np.random.default_rng(seed)
+        slope = lambda i: float(np.cov(mid[i], ch[i])[0, 1] / mid[i].var(ddof=1))
+        boot = [slope(rng.integers(0, len(ch), len(ch))) for _ in range(n_boot)]
+        rs = float(np.corrcoef(fa, mo)[0, 1])
+        bs = [float(np.corrcoef(fa[i], mo[i])[0, 1]) for i in (rng.integers(0, len(ch), len(ch)) for _ in range(n_boot))]
+        out["shared"] = dict(n_trios=len(full), spouses_r=rs, spouses_lo=float(np.percentile(bs, 2.5)), spouses_hi=float(np.percentile(bs, 97.5)),
+                             slope=slope(np.arange(len(ch))), slope_lo=float(np.percentile(boot, 2.5)), slope_hi=float(np.percentile(boot, 97.5)),
+                             child_father_r=float(np.corrcoef(ch, fa)[0, 1]), child_mother_r=float(np.corrcoef(ch, mo)[0, 1]))
+    pops = {}
+    for r in clear:
+        if r.get("pop"):
+            pops.setdefault(r["pop"], []).append(off[r["sample"]])
+    pops = {k: v for k, v in pops.items() if len(v) >= 30}
+    if len(pops) >= 5:
+        allv = np.concatenate([np.array(v) for v in pops.values()])
+        between = sum(len(v) * (np.mean(v) - allv.mean()) ** 2 for v in pops.values()) / (len(allv) - 1)
+        m = sorted(((float(np.mean(v)), k, len(v)) for k, v in pops.items()))
+        sup = {}
+        for r in clear:
+            if r.get("superpop") and r.get("pop") in pops:
+                sup.setdefault(r["superpop"], []).append(off[r["sample"]])
+        bsup = sum(len(v) * (np.mean(v) - allv.mean()) ** 2 for v in sup.values()) / (len(allv) - 1) if sup else float("nan")
+        out["by_population"] = dict(n=len(pops), share=float(between / allv.var(ddof=1)), share_superpop=float(bsup / allv.var(ddof=1)),
+                                    lowest=[dict(pop=k, mean=v, n=n, superpop=next((r.get("superpop") for r in clear if r.get("pop") == k), "")) for v, k, n in m[:3]],
+                                    highest=[dict(pop=k, mean=v, n=n, superpop=next((r.get("superpop") for r in clear if r.get("pop") == k), "")) for v, k, n in m[-3:]])
+    # each genome off whole numbers, with what its relatives read
+    kids = {}
+    for c, q in trio.items():
+        for k in (q["father"], q["mother"]):
+            kids.setdefault(k, []).append(c)
+    compared = compared or {}
+    table = []
+    for r in called:
+        if not odd(r):
+            continue
+        s = r["sample"]
+        q = trio.get(s, {})
+        rel = [(w, q[w]) for w in ("father", "mother") if q.get(w) in by]
+        rel += [("child", c) for c in kids.get(s, [])]
+        rel += [("spouse", (trio[c]["mother"] if trio[c]["father"] == s else trio[c]["father"])) for c in kids.get(s, [])[:1]]
+        ev = parse_fractional(r.get("DJ.fractional"), r.get("DJ.fractional_z"))
+        same = [f"{w} {k}" for w, k in rel if abs(z[k]) >= 2 and z[k] * z[s] > 0] if abs(z[s]) >= lz - 0.005 else []
+        shared_step = [f"{w} {k}" for w, k in rel for _, a, b, _ in ev for _, a2, b2, _ in parse_fractional(by[k].get("DJ.fractional"))
+                       if any(abs(u - v) <= 15 for u in (a, b) if 0 < u < UNIT // 1000 for v in (a2, b2) if 0 < v < UNIT // 1000)]
+        table.append(dict(sample=s, pop=r.get("pop"), sex=r.get("sex_inferred"), role=role(s), batch=r.get("ngspca.batch"), call=r["DJ.call"], level=_num(r, "DJ.cn"),
+                          copies=r.get("DJ.copies"), off=off[s], off_z=z[s], fractional=r.get("DJ.fractional") if ev else "none", fractional_z=r.get("DJ.fractional_z") if ev else "none",
+                          whole_numbers=r.get("DJ.variants"), scale_f=r.get("DJ.scale_f"), lean=r.get("DJ.tilt"), call_gap=r.get("DJ.call_gap"),
+                          relatives="; ".join(f"{w} {k} {off[k]:+.2f}" + (f" [{by[k].get('DJ.fractional')}]" if parse_fractional(by[k].get("DJ.fractional")) else "") for w, k in rel),
+                          relatives_off_the_same_way="; ".join(sorted(set(same + shared_step))), assembly=compared.get(s, ""),
+                          rank=max([abs(z[s])] + [abs(e[3]) for e in ev if e[3] is not None])))
+    table.sort(key=lambda t_: -t_["rank"])
+    out["table"] = table
+    lv = [t_ for t_ in table if t_["call"] == "fractional" and abs(t_["off_z"]) >= lz - 0.005]
+    out["level"]["with_relatives"] = sum(1 for t_ in lv if t_["relatives"])
+    out["level"]["relatives_same_way"] = sum(1 for t_ in lv if t_["relatives_off_the_same_way"])
+    st = [t_ for t_ in table if t_["call"] == "fractional" and t_["fractional"] != "none"]
+    # a step of fractional height in a parent: is it in a child, at a whole number or at a fraction?
+    passed = looked = 0
+    for t_ in st:
+        for c in kids.get(t_["sample"], []):
+            looked += 1
+            mine = [q_ for _, a, b, _ in parse_fractional(t_["fractional"]) for q_ in (a, b) if 0 < q_ < UNIT // 1000]
+            theirs = [q_ for _, a, b, _ in parse_fractional(by[c].get("DJ.fractional")) for q_ in (a, b) if 0 < q_ < UNIT // 1000]
+            theirs += [int(q_) for it in str(by[c].get("DJ.partial") or "").split(";") for m_ in [re.fullmatch(r"[+-]\d+:(\d+)-(\d+)kb", it.strip())] if m_
+                       for q_ in m_.groups() if 0 < int(q_) < UNIT // 1000]
+            passed += any(abs(u - v) <= 15 for u in mine for v in theirs)
+    out["steps"].update(children_looked_at=looked, children_with_the_breakpoint=passed)
+    return out
 
 
 def group_of(r: dict) -> str:
@@ -434,6 +615,8 @@ def group_of(r: dict) -> str:
     if r.get("DJ.copies") not in (None, "", "NA"):
         if r.get("DJ.call") == "uncertain":
             return "uncertain"
+        if r.get("DJ.call") == "fractional":
+            return "fractional"
         if int(r["DJ.copies"]) != int(EXPECTED):
             return "carrier"
         if r.get("DJ.partial") not in (None, "", "none"):

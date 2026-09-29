@@ -1,0 +1,79 @@
+sample	pop	sex	role	batch	call	level	copies	off	off_z	fractional	fractional_z	whole_numbers	scale_f	lean	call_gap	relatives	relatives_off_the_same_way	assembly
+HG02386	CDX	M	other	2504	fractional	9.9	10	0.11	0.83	-0.60:0-245kb	-5.9	none	0.975	0.13	NA			
+HG01495	CLM	F	mother	2504	fractional	11.48	12	-0.07	-0.41	-0.62:316-400kb	-5.8	-2:0-23kb;-1:23-116kb;-1:198-216kb	0.98	-0.08	5.7	child HG01496 -0.06; spouse HG01494 -0.12		
+NA19922	ASW	M	father	2504	uncertain	10.17	11	-0.81	-5.68	none	none	-3:0-18kb;-2:204-216kb	0.93	-0.02	1.6	child NA19924 -0.50; spouse NA19923 +0.07	child NA19924	
+HG01967	PEL	M	father	2504	fractional	10.69	10	-0.12	-0.87	+0.54:245-400kb	+5.1	+1:0-197kb;+1:216-261kb	1.005	0.13	NA	child HG01969 -0.30; spouse HG01968 -0.01		
+HG02465	GWD	F	mother	2504	fractional	8.99	9	0.19	1.53	-0.42:328-400kb	-5.0	-1:0-28kb;-1:201-216kb	1.015	-0.11	NA	child HG02466 -0.05; spouse HG02464 +0.15		
+HG01628	IBS	F	mother	2504	fractional	9.87	10	-0.01	-0.06	-0.57:0-119kb	-4.9	-2:0-23kb;-4:133-138kb;-1:196-217kb	0.985	0.04	NA	child HG01629 +0.20; spouse HG01630 -0.00		
+HG02055	ACB	M	child	698	fractional	10.35	10	-0.1	-0.76	+0.60:181-400kb	+4.9	-2:0-14kb	1.025	0.1	10.3	father HG02053 -0.10; mother HG02054 +0.24		
+HG02258	ACB	M	child	698	fractional	9.69	10	-0.2	-1.52	-0.44:328-400kb	-4.8	-2:0-29kb;-1:208-216kb	0.97	-0.02	7.3	father HG02314 +0.03; mother HG02315 -0.47		assembly 10 on the core, resolved
+NA20768	TSI	F	other	2504	uncertain	10.24	10	0.06	0.41	+0.47:0-259kb	+4.8	-2:199-216kb	1.035	-0.07	1.6			
+HG02345	PEL	F	other	2504	fractional	9.27	9	0.12	1.0	+0.40:0-283kb;-0.45:361-400kb	+4.7;-4.2	none	1.035	-0.05	8.5			
+HG01520	IBS	F	child	698	fractional	10.14	10	-0.07	-0.53	+0.51:271-400kb	+4.6	-1:197-215kb	1.01	0.04	16.9	father HG01518 +0.19; mother HG01519 -0.31		
+HG02142	KHV	F	other	2504	fractional	10.06	10	-0.16	-1.18	+0.51:271-400kb	+4.6	-1:0-15kb	1.005	0.03	NA			
+HG01977	PEL	M	father	2504	fractional	10.35	10	-0.09	-0.71	+0.54:102-400kb	+4.5	-1:0-19kb	1.03	0.06	4.3	child HG01978 +0.17; spouse HG01976 -0.32		
+NA19174	YRI	M	child	698	fractional	10.15	10	-0.12	-0.93	+0.50:255-400kb	+4.5	-1:194-216kb	1.01	0.08	NA	father NA19117 +0.20; mother NA19118 -0.07		
+HG02223	IBS	F	mother	2504	fractional	9.85	10	0.04	0.32	-0.48:0-259kb	-4.4	none	0.97	0.11	16.9	child HG02225 -0.02; spouse HG02224 -0.08		
+HG03672	STU	M	other	2504	fractional	10.28	10	-0.57	-4.32	none	none	-1:0-14kb;+1:84-149kb;+1:168-198kb;+1:216-400kb	0.945	0.0	7.0			
+NA20786	TSI	F	other	2504	fractional	10.87	11	-0.09	-0.62	-0.54:0-106kb	-4.3	+7:379-400kb	0.975	0.08	NA			
+HG01107	PUR	M	father	2504	fractional	10.86	10	-0.56	-4.28	none	none	+2:21-198kb;-1:198-216kb;+2:216-316kb	0.945	0.03	19.6	child HG01109 -0.14; spouse HG01108 -0.25		
+HG01975	PEL	F	child	698	fractional	10.19	10	0.28	2.04	-0.49:0-106kb	-4.2	+1:0-17kb	1.01	0.05	22.6	father HG01974 -0.36; mother HG01973 -0.36		
+HG01850	KHV	F	other	2504	uncertain	10.48	11	-0.49	-3.36	-0.52:0-90kb	-4.1	-2:0-14kb	0.95	0.04	0.1			
+HG02131	KHV	M	father	2504	fractional	9.68	10	-0.24	-1.79	-0.38:337-400kb	-4.1	-2:0-14kb	0.97	-0.01	24.5	child HG02129 -0.24; spouse HG02130 +0.15		
+HG02449	ACB	M	father	2504	fractional	9.66	10	-0.24	-1.8	-0.47:0-90kb	-4.1	-1:0-11kb	0.965	0.0	8.1	child HG02451 -0.08; spouse HG02450 -0.15		
+HG03453	MSL	F	child	698	fractional	10.05	10	0.07	0.54	+0.55:0-84kb	+4.1	-1:0-59kb	1.015	-0.04	10.2	father HG03451 -0.06; mother HG03452 +0.37		
+HG01604	IBS	F	child	698	uncertain	10.54	11	-0.58	-4.01	none	none	-1:0-22kb	0.95	0.08	0.4	father HG01606 +0.19; mother HG01605 -0.09		
+HG01670	IBS	F	mother	2504	fractional	10.19	10	0.27	1.95	-0.48:0-119kb	-4.0	none	1.005	0.09	NA	child HG01671 +0.02; spouse HG01672 -0.22		
+HG01702	IBS	F	mother	2504	fractional	10.35	10	-0.03	-0.24	+0.49:114-400kb	+4.0	+1:0-16kb;-1:194-216kb	1.03	0.08	6.7	child HG01701 +0.13; spouse HG01700 -0.05		
+HG01950	PEL	M	father	2504	fractional	9.87	10	-0.51	-3.91	none	none	+2:0-19kb;+1:19-189kb;+1:217-260kb	0.95	-0.04	4.5	child HG01952 +0.17; spouse HG01951 -0.20		
+HG02086	KHV	F	other	2504	fractional	10.46	10	-0.51	-3.9	none	none	+1:74-400kb	0.955	0.07	6.6			
+HG01980	PEL	F	mother	2504	uncertain	10.23	10	0.53	3.84	none	none	-1:196-217kb;-1:282-375kb	1.05	0.11	1.4	child HG01981 -0.32; spouse HG01979 -0.08		
+HG01965	PEL	F	other	2504	fractional	9.93	10	-0.5	-3.78	none	none	+1:0-266kb	0.955	-0.01	6.9			
+NA18519	YRI	M	father	2504	uncertain	9.48	10	-0.49	-3.74	none	none	-2:23-29kb;-2:199-216kb	0.955	-0.01	2.0	child NA18518 +0.16; spouse NA18520 +0.21		
+HG00236	GBR	F	other	2504	uncertain	9.49	10	-0.49	-3.73	none	none	none	0.95	-0.03	1.5			
+HG00448	CHS	M	father	2504	uncertain	9.46	10	-0.49	-3.73	none	none	none	0.95	-0.03	1.0	child HG00450 -0.23; spouse HG00449 -0.19		
+HG01405	PUR	M	other	2504	fractional	10.6	10	-0.49	-3.71	none	none	+3:0-16kb;+2:16-205kb;+1:205-228kb;+2:228-263kb;+1:263-316kb	0.95	-0.04	12.6			
+HG02058	KHV	M	father	2504	fractional	9.49	10	-0.49	-3.7	none	none	none	0.955	-0.04	3.3	child HG02056 -0.23; spouse HG02057 -0.14		
+HG02040	KHV	M	other	2504	uncertain	9.41	9	0.46	3.67	none	none	none	1.05	-0.02	1.2			assembly 10 on the core, fragmented
+HG02947	ESN	M	father	2504	uncertain	10.44	11	-0.53	-3.67	none	none	-3:0-14kb	0.95	0.01	1.4	child HG02948 -0.01; spouse HG02946 -0.22		
+HG03713	ITU	M	other	2504	uncertain	9.45	10	-0.48	-3.65	none	none	-4:0-15kb;-2:15-21kb;-1:21-71kb;+1:392-400kb	0.955	-0.05	2.4			
+HG00368	FIN	F	other	2504	fractional	9.43	10	-0.47	-3.57	none	none	-1:0-22kb;-1:196-222kb	0.955	-0.07	6.1			
+HG02315	ACB	F	mother	2504	uncertain	9.47	10	-0.47	-3.57	none	none	none	0.95	-0.04	1.1	child HG02258 -0.20 [-0.44:328-400kb]; spouse HG02314 +0.03		
+HG01806	CDX	F	other	2504	uncertain	9.4	9	0.44	3.55	none	none	none	1.05	-0.01	1.2			
+HG00684	CHS	F	mother	2504	fractional	9.53	10	-0.46	-3.49	none	none	-1:0-15kb	0.955	-0.02	6.7	child HG00685 -0.13; spouse HG00683 -0.42	spouse HG00683	
+HG01696	IBS	M	child	698	fractional	10.61	11	-0.51	-3.48	none	none	+2:0-17kb;-1:197-227kb;+1:392-400kb	0.95	0.07	6.1	father HG01694 +0.16; mother HG01695 -0.14		
+HG01113	CLM	F	mother	2504	uncertain	10.99	12	-0.55	-3.47	none	none	-1:0-23kb;-1:263-400kb	0.95	0.07	1.3	child HG01114 +0.08; spouse HG01112 +0.07		
+NA12777	CEU	M	father	2504	uncertain	10.42	10	0.47	3.44	none	none	none	1.045	-0.01	1.1	child NA12767 -0.00; spouse NA12778 +0.03		
+NA19924	ASW	F	child	698	fractional	10.49	11	-0.5	-3.43	none	none	-2:0-22kb;-4:198-216kb	0.955	0.01	3.7	father NA19922 -0.81; mother NA19923 +0.07	father NA19922	
+HG02383	CDX	M	other	2504	fractional	9.44	10	-0.45	-3.4	none	none	-1:0-26kb;-2:133-138kb;-1:360-400kb	0.955	0.06	16.3			
+HG02396	CDX	M	other	2504	fractional	10.55	10	0.47	3.4	none	none	-2:0-14kb	1.045	0.08	3.4			
+HG00453	CHS	F	child	698	fractional	9.46	10	-0.44	-3.36	none	none	-2:0-14kb	0.955	-0.06	4.3	father HG00451 +0.01; mother HG00452 +0.13		
+HG02278	PEL	F	mother	2504	fractional	11.3	10	0.46	3.32	none	none	+3:0-11kb;+2:11-263kb	1.045	-0.03	14.7	child HG02279 -0.04; spouse HG02277 +0.01		
+HG01815	CDX	F	other	2504	fractional	9.52	10	-0.44	-3.3	none	none	-1:381-400kb	0.95	0.06	4.4			
+HG02595	GWD	F	mother	2504	uncertain	10.41	10	0.44	3.22	none	none	-2:0-14kb	1.04	-0.02	2.9	child HG02596 -0.04; spouse HG02594 -0.19		
+HG00342	FIN	M	other	2504	fractional	9.6	10	-0.42	-3.21	none	none	-2:197-216kb	0.96	0.03	12.0			
+HG00418	CHS	M	father	698	fractional	10.47	11	-0.46	-3.19	none	none	-3:0-14kb;-1:14-21kb	0.96	-0.05	7.4	child HG00420 -0.13; spouse HG00419 -0.07		
+HG03191	ESN	M	child	698	fractional	10.45	10	0.44	3.18	none	none	none	1.035	0.03	4.4	father HG03190 +0.03; mother HG03189 +0.03		
+HG01379	CLM	F	child	698	fractional	10.26	10	-0.42	-3.16	none	none	+1:0-16kb;+1:22-197kb;-1:197-216kb;+1:216-316kb	0.955	0.04	5.9	father HG01377 -0.40; mother HG01378 -0.13	father HG01377	
+HG01997	PEL	F	mother	2504	fractional	9.52	10	-0.42	-3.15	none	none	none	0.955	-0.04	4.0	child HG01998 +0.04; spouse HG02008 +0.02		
+HG00683	CHS	M	father	2504	fractional	9.52	10	-0.42	-3.14	none	none	none	0.955	-0.05	3.7	child HG00685 -0.13; spouse HG00684 -0.46	spouse HG00684	
+HG02031	KHV	F	mother	2504	uncertain	9.53	10	-0.41	-3.14	none	none	none	0.955	-0.02	2.9	child HG02030 -0.23; spouse HG02032 +0.11		
+NA11892	CEU	F	mother	2504	fractional	10.45	10	0.43	3.14	none	none	-1:0-21kb	1.04	0.06	3.9	child NA10865 +0.15; spouse NA11891 +0.24		
+HG02252	PEL	F	other	2504	fractional	9.35	9	0.39	3.11	none	none	-1:0-14kb	1.04	-0.02	7.2			
+HG02808	GWD	F	mother	2504	fractional	10.41	10	0.42	3.06	none	none	none	1.04	0.0	3.3	child HG02809 -0.02; spouse HG02807 -0.06		
+NA20821	TSI	F	other	2504	uncertain	10.64	11	-0.45	-3.06	none	none	none	0.96	0.07	2.6			
+HG01377	CLM	M	father	2504	fractional	10.22	10	-0.4	-3.05	none	none	-1:0-22kb;+1:22-198kb;-1:198-216kb;+1:216-317kb	0.965	-0.04	20.8	child HG01379 -0.42; spouse HG01378 -0.13	child HG01379	
+HG00673	CHS	M	child	698	fractional	9.34	10	-0.4	-3.04	none	none	-1:0-121kb;-1:191-216kb	0.955	-0.02	10.3	father HG00671 -0.13; mother HG00672 -0.06		assembly 9 on the core, resolved
+HG00346	FIN	F	other	2504	fractional	9.57	10	-0.4	-3.02	none	none	-1:0-23kb;-1:221-229kb;+1:367-378kb	0.96	-0.06	4.2			
+HG02495	PJL	F	child	698	fractional	9.58	10	-0.4	-3.01	none	none	none	0.96	0.0	5.5	father HG02493 +0.02; mother HG02494 +0.21		
+NA21127	GIH	M	other	2504	uncertain	10.33	10	0.37	2.71	none	none	-1:0-16kb;-1:188-228kb	1.035	0.0	2.1			
+HG03452	MSL	F	mother	2504	uncertain	10.32	10	0.37	2.66	none	none	-1:7-14kb	1.035	-0.02	1.3	child HG03453 +0.07 [+0.55:0-84kb]; spouse HG03451 -0.06		
+NA12283	CEU	F	other	2504	uncertain	10.34	10	0.36	2.64	none	none	-1:0-19kb	1.035	-0.02	2.9			
+HG01100	PUR	F	child	698	uncertain	10.31	10	-0.33	-2.52	none	none	+1:23-196kb;+1:214-316kb	0.965	0.01	2.8	father HG01247 -0.22; mother HG01248 +0.05		
+NA18908	YRI	M	other	2504	uncertain	10.35	10	0.34	2.45	none	none	-2:0-14kb	1.035	0.02	2.0			
+HG02573	GWD	M	father	2504	uncertain	10.25	10	0.27	1.96	none	none	-2:0-14kb	1.03	-0.02	2.0	child HG02575 -0.06; spouse HG02574 -0.05		
+NA18489	YRI	F	mother	2504	uncertain	10.2	10	0.22	1.61	none	none	-4:0-10kb;-3:10-14kb;-1:14-29kb	1.025	-0.02	2.3	child NA18485 +0.17; spouse NA18487 +0.07		
+NA19707	ASW	F	other	2504	uncertain	10.22	10	0.22	1.58	none	none	-1:0-30kb;-1:197-220kb	1.03	-0.03	2.0			
+HG02164	CDX	F	other	2504	uncertain	11.14	11	0.18	1.18	none	none	-3:0-14kb;-1:193-227kb	1.015	-0.02	2.1			
+HG02972	ESN	M	child	698	uncertain	10.76	10	-0.06	-0.48	none	none	-2:0-14kb;+1:165-214kb;+2:214-298kb;+1:298-400kb	0.995	-0.02	1.1	father HG02971 +0.02; mother HG02970 -0.02		
+NA19150	YRI	M	father	698	uncertain	10.82	10	0.04	0.27	none	none	-2:0-14kb;+1:164-215kb;+2:215-297kb;+1:297-400kb	1.005	-0.01	0.9	child NA19151 +0.17; spouse NA19149 +0.06		

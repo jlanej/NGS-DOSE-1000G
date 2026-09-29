@@ -177,6 +177,14 @@ def _cohort_limitation(m: dict, n: int, total: int, tr: dict) -> str:
 
 
 
+def _not_settled(dj: dict) -> str:
+    """What the calls that are not settled are: a fraction off their whole numbers, or between two of them."""
+    fr, un = len(dj.get("fractional") or []), len(dj.get("uncertain") or [])
+    bits = ([f"{fr:,} sit a fraction of a copy off their whole numbers, in level or over a stretch of the unit"] if fr else []) \
+        + ([f"{un:,} lie between two whole numbers throughout"] if un else [])
+    return ("; ".join(bits) + ": a change in part of the cells would leave either, and they are set out below") if bits else "every call is"
+
+
 def dj_pairs(dj: dict) -> str:
     """'X of N' carrier-parent–child pairs transmitted, with the pairs neither hypothesis fits named as unclassified."""
     n = dj.get("n_pairs", dj.get("transmitted", 0) + dj.get("not_transmitted", 0))
@@ -738,7 +746,7 @@ chrY reads <strong>{pm(sx["men_intact_Y"])}</strong> in men with an intact Y and
         P.h(f'''<p>Ten distal junctions is the norm; a rearranged acrocentric short arm leaves nine, and a Robertsonian translocation, which fuses two
 acrocentrics and loses both short arms, leaves eight. Whole numbers of copies are called along the unit for every genome (below), which sets the
 junctions a genome holds whole apart from the copies that hold or lack an end of the unit. Of the {dj.get("n_settled", 0):,} genomes whose call is settled
-({len(dj.get("uncertain") or []):,} are not: their level lies between two whole numbers throughout), {", ".join((f"<strong>{v:,}</strong> hold{'s' if v == 1 else ''} {k} copies throughout" if k != 10 else f"{v:,} hold ten throughout") for k, v in sorted(wh.items()) if v)},
+({_not_settled(dj)}), {", ".join((f"<strong>{v:,}</strong> hold{'s' if v == 1 else ''} {k} copies throughout" if k != 10 else f"{v:,} hold ten throughout") for k, v in sorted(wh.items()) if v)},
 and {dj["between"]:,} carry a copy that holds or lacks an end. Relative to ten, by the copies each genome is described against: {step_txt()}.
 A change of a whole copy, being a structural variant, should be transmitted to half of a carrier's children and
 arise de novo in almost none. The level of the genomes at ten copies throughout has a robust SD of {fmt(dj["spread"], 2)} copies about the cohort's median ({fmt(dj["median"], 2)}).</p>''')

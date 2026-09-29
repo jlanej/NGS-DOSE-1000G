@@ -16,6 +16,25 @@ def _kb(a, b):
     return f"{a // 1000}–{b // 1000} kb"
 
 
+def _f(x):
+    try:
+        return float(x)
+    except (TypeError, ValueError):
+        return None
+
+
+def _unexplained(t: dict) -> str:
+    """One compared genome whose reads and assembly differ: what each holds, and what the call says of the reads."""
+    bits = [f"assembly {fmt(t['assembly_core'], 0)}", f"reads {fmt(t['reads_core'], 2)}"]
+    if t.get("status") in ("fractional", "uncertain"):
+        bits.append(str(t["status"]))
+    if _f(t.get("off")) is not None:
+        bits.append(f"level {_signed(_f(t['off']))} from {t.get('copies')}")
+    if t.get("fractional") not in (None, "", "none"):
+        bits.append(str(t["fractional"]))
+    return f"{esc(t['sample'])} ({esc(', '.join(bits))})"
+
+
 def _signed(x, nd=2):
     if x is None:
         return "–"
@@ -74,6 +93,90 @@ def lean_relations(rows: list[dict]) -> dict:
         if m.sum() >= 50 and v[m].std() > 0:
             out["r"][name] = float(np.corrcoef(tilt[m], v[m])[0, 1])
     return out
+
+
+def off_whole_numbers(P, dj: dict, data: dict):
+    """The genomes that sit off whole numbers: what is measured, how many there are against chance, whom they are found
+    in, what speaks for a change in part of the cells and what for the library, and the genomes themselves."""
+    o = dj.get("off")
+    if not o:
+        return
+    fr, lv, st = o.get("rules") or {}, o["level"], o["steps"]
+    s = o["status"]
+    lz, ez, mh = float(fr.get("level_z", 3.0)), float(fr.get("event_z", 4.0)), float(fr.get("min_height", 0.25))
+    spread = fr.get("spread")
+    P.h('<h3 id="djfractions">Off the whole numbers: a change in part of the cells?</h3>')
+    P.h(f"""<p>Whole numbers are what a germ line holds. A junction lost or gained in part of the cells (a culture that is changing, a rearrangement in some of a donor's
+blood) leaves the profile a fraction of a copy off them, as a lost X leaves a woman's X dosage between one and two. A chain of whole numbers would hide it: the nearest whole number is
+called and the difference goes into the genome's scale. So the difference is measured and kept, in two ways.
+<strong>The level.</strong> <code>DJ.off</code> is a genome's level less the whole numbers called, in copies, and <code>DJ.off_z</code> the same in robust SDs of the cohort's scales
+({_pct(spread, 2) if spread else "–"} here{f", {fmt(o['spread_copies'], 2)} copies at ten" if o.get("spread_copies") else ""}; from {esc(str(fr.get("spread_from", "the class's rules")))}).
+<strong>A stretch of the unit.</strong> In what the whole numbers leave, a level per stretch is fitted together with the genome's lean and its slope on the windows' GC
+(a step is partly like a lean, and the profile of a library whose GC response the model left in follows GC); a step is proposed where it improves the fit as much as a change of state must, and it is kept where it
+stands {fmt(ez, 0)} robust SDs from what the same fit finds in the cohort's other genomes and is {fmt(mh, 2)} copies high. The cohort is the measure because its profiles wander more than counting alone allows.
+A call that is not uncertain is then <em>fractional</em> where the level lies {fmt(lz, 0)} SDs or more from its whole number or a stretch stands off; <code>DJ.fractional</code> gives the stretches with their height
+against the copies the genome is described against, as <code>+0.53:106-400kb</code>.{"" if st.get("looked_for") else " In a cohort this small no step is looked for, and the level is judged against the spread the rules record."}</p>""")
+    P.tiles([("Settled", f'{s.get("settled", 0):,}', f'of {o["n"]:,} calls: on their whole numbers'),
+             ("Fractional", f'{s.get("fractional", 0):,}', f'{lv["n"]:,} by the level ({lv["below"]} below their whole number, {lv["above"]} above), {st["n"]:,} by a stretch of the unit'),
+             ("Uncertain", f'{s.get("uncertain", 0):,}', f'between two whole numbers throughout; the level of {o["uncertain_off"]["beyond"]} of them lies {fmt(lz, 0)} SDs or more from the nearer'),
+             ("By chance", fmt(lv["by_chance"], 0), f'levels {fmt(lz, 0)} SDs off that a normal scatter of the scales would give among {lv["of"]:,} genomes; {lv["n"]:,} are seen')])
+    if lv.get("beyond"):
+        P.table([[f'more than {fmt(b["copies"], 2)}', b["n"], b["below"], b["above"], fmt(b["by_chance"], 0)] for b in lv["beyond"]],
+                ["level's distance from its whole number, copies", "genomes", "below", "above", "by chance"], numeric={1, 2, 3, 4})
+        P.h(f"""<p class="small">Among the {lv["of"]:,} calls that are not uncertain; by chance: what a normal scatter with the robust SD of the offsets ({fmt(o["spread_copies"], 3)} copies) would give.
+The tail is heavier than the scatter's, and heavier below the whole numbers than above them: a junction lost in part of the cells lies below.</p>""")
+    who = lambda g: f'{esc(str(g["group"]))} {g["fractional"] + g["uncertain"]} of {g["n"]:,} ({_pct((g["fractional"] + g["uncertain"]) / g["n"], 1) if g["n"] else "–"})'
+    sh, bp, osn = o.get("shared"), o.get("by_population"), o.get("other_signs") or {}
+    txt = "<p><strong>Whom they are found in.</strong> Fractional or uncertain: " + "; ".join(who(g) for g in o["by_role"] if g["n"]) + ". "
+    txt += "By sex: " + "; ".join(who(g) for g in o["by_sex"] if g["n"]) + ". "
+    if len(o.get("by_batch") or []) > 1:
+        txt += "By release batch: " + "; ".join(who(g) for g in o["by_batch"] if g["n"]) + ". "
+    if osn.get("off") and osn.get("p") is not None:
+        txt += ((f"They do not come with the other signs of a culture that has changed: " if osn["p"] > 0.05 else "Of the other signs of a culture that has changed: ")
+                + f"an X or a Y lost in part of the cells, or a chromosome off its dosage, is seen in {osn['off_with']} of {osn['off']} of them and in "
+                f"{osn['settled_with']:,} of {osn['settled']:,} settled genomes (Fisher exact p = {fmt(osn['p'], 2)}). ")
+    P.h(txt + "</p>")
+    if sh or bp:
+        txt = "<p><strong>What the libraries make of it.</strong> A part of a genome's offset is not the genome's. "
+        if sh:
+            txt += (f"Spouses share no genes, and their offsets go together: r = {fmt(sh['spouses_r'], 2)} ({fmt(sh['spouses_lo'], 2)}–{fmt(sh['spouses_hi'], 2)}; {sh['n_trios']:,} trios), as a child's goes with its "
+                    f"father's ({fmt(sh['child_father_r'], 2)}) and its mother's ({fmt(sh['child_mother_r'], 2)}). What a family shares here is how its samples were handled. ")
+        if bp:
+            ext = lambda g: f"{esc(g['pop'])} ({esc(g['superpop'])}) {_signed(g['mean'])}"
+            txt += (f"Populations differ in their mean offset by more than their ancestry accounts for: {_pct(bp['share'], 0)} of the offset's variance lies between the {bp['n']} populations and "
+                    f"{_pct(bp['share_superpop'], 0)} between the continental groups, from " + ", ".join(ext(g) for g in bp["lowest"]) + " to " + ", ".join(ext(g) for g in bp["highest"])
+                    + " copies. The populations were collected and sequenced in groups. ")
+        txt += ("A level judged against the whole cohort's spread therefore carries its group's offset with it, a tenth of a copy at most here, and a genome whose relatives are off the same way "
+                "is more likely a matter of the libraries than of its cells: the table marks them. Calibration by batch is not done here.")
+        P.h(txt + "</p>")
+    if lv.get("with_relatives") or st.get("children_looked_at"):
+        txt = "<p><strong>In the families.</strong> "
+        if lv.get("with_relatives"):
+            txt += (f"Of the {lv['n']} genomes whose level is off, {lv['with_relatives']} have a relative in the cohort, and in {lv['relatives_same_way']} of them a relative lies two SDs or more off the same way. ")
+        if st.get("children_looked_at"):
+            k = st["children_with_the_breakpoint"]
+            txt += (("A step of fractional height is not passed on as a whole copy is: " if 2 * k < st["children_looked_at"] else "A step of fractional height in a parent, and its children: ")
+                    + f"of the {st['children_looked_at']} children of a parent that carries one, {'none' if k == 0 else k} "
+                    f"{'have' if k > 1 else 'has'} a breakpoint within 15 kb of the parent's, at a whole number or at a fraction. "
+                    "A variant of the germ line would be in half of them; a change in part of a parent's cells, or a matter of the parent's library, in none. ")
+        P.h(txt + "</p>")
+    if st.get("breakpoints"):
+        top = sorted(st["breakpoints"], key=lambda b: -b["n"])[:6]
+        P.h(f"""<p><strong>Where the stretches end.</strong> {st["events"]} stretches in {st["n"]} genomes; their ends inside the unit fall most often near {", ".join(f"{b['kb']} kb ({b['n']})" for b in top)}.</p>""")
+    rows_t = o.get("table") or []
+    if rows_t:
+        shown = rows_t[:40]
+        ev = lambda t_: "–" if t_["fractional"] in (None, "", "none") else t_["fractional"].replace(";", "; ") + f' (z {str(t_["fractional_z"]).replace(";", "; ")})'
+        P.h(f"""<p>The genomes, the {len(shown)} furthest off of {len(rows_t)} (all of them in <code>data/dj_fractional.tsv</code>): the level, the copies called, the level's distance from them, the stretches of
+fractional height, what the chain of whole numbers called, the relatives in the cohort with their own offsets, and where a relative is off the same way.</p>""")
+        P.table([[t_["sample"], t_["pop"] or "", t_["role"], t_["call"], fmt(t_["level"], 2), t_["copies"], f'{_signed(t_["off"])} ({_signed(t_["off_z"], 1)})', ev(t_),
+                  (t_["whole_numbers"] or "").replace("none", "–").replace(";", "; "), (t_["relatives"] or "–"), t_["relatives_off_the_same_way"] or "–", t_["assembly"] or "–"] for t_ in shown],
+                ["sample", "population", "in the pedigree", "call", "level", "copies", "level − copies (z)", "stretches of fractional height", "whole numbers called", "relatives and their offsets",
+                 "off the same way", "assembly"], numeric={4, 5}, wrap=True, filter_box=True)
+    P.h(f"""<p><strong>What a fraction is, and what is not seen.</strong> The measurement cannot say what a fraction is: a change in part of the cells, a library unlike the cohort's, or a copy of the germ line
+that the panel reads in part. It says where the whole numbers do not hold. A level is found from {fmt(lz * (o.get("spread_copies") or 0), 2)} copies off its whole number, a stretch from about
+0.4 copies over 30 kb or more, which for one copy is a change in two fifths to three fifths of the cells; nearer a whole number the whole number is called and nothing is said, so a change in a quarter of the cells
+passes as none and one in three quarters as a whole copy. A step near the middle of the unit is partly a lean and is found less often than one near an end or a stretch inside the unit.</p>""")
 
 
 def render(P, data: dict, rows: list[dict]):
@@ -153,12 +256,14 @@ Some genomes' profiles lean, rising or falling smoothly along the unit (SD {_pct
 chain, like the scale (prior SD {_pct(chain.get("tilt_sd", 0.03), 0)}): a smooth rise costs less as a lean than as a change of state, and a step, which a lean fits badly on both sides, stays a step.
 A genome is described against ten copies where it holds ten over 40 kb or more of the core, otherwise against the state that holds most of it; a gain that reaches an end of the unit is a
 <strong>partial copy</strong>, a loss that does a <strong>partial loss</strong> (a copy that lacks that end), anything else a local gain or loss. A genome whose level lies between two whole numbers
-throughout has two readings, and the call says how far behind the second is: below three log units it is <em>uncertain</em>.</p>
-<p>Of {calls["n"]:,} genomes, {calls["scale_uncertain"]:,} are uncertain. Of the others, {", ".join(holds(k, v) for k, v in sorted(wh.items(), key=lambda kv: kv[0]) if v)}
+throughout has two readings, and the call says how far behind the second is: below three log units it is <em>uncertain</em>. A call that is not
+uncertain is <em>settled</em> where the genome sits on its whole numbers and <em>fractional</em> where its level or a stretch of its unit sits off them (below).</p>
+<p>Of {calls["n"]:,} genomes, {(calls.get("status") or {}).get("settled", calls["n"] - calls["scale_uncertain"]):,} are settled, {(calls.get("status") or {}).get("fractional", 0):,} fractional and {calls["scale_uncertain"]:,} uncertain. Of the settled, {", ".join(holds(k, v) for k, v in sorted(wh.items(), key=lambda kv: kv[0]) if v)}
 (the polymorphic intervals aside): the whole-junction losses and gains. {calls["with_partial_copy"]:,} genomes carry a partial copy and {calls.get("with_partial_loss", 0):,} a partial loss;
 {calls["with_large_event"]:,} hold an event of 40 kb or more of any kind, and {calls["off_integer"]} a segment of that length more than a third of a copy from its state. The genomes' scales have an SD of
 {_pct(calls.get("scale_sd"), 1)}. Breakpoints recur: in the core, most at {", ".join(f"{b['kb']} kb ({b['n']})" for b in core_bp)}.
-Every segment of every genome is in <code>data/dj_calls.tsv</code>; <code>DJ.copies</code>, <code>DJ.partial</code>, <code>DJ.variants</code>, <code>DJ.scale_f</code> and <code>DJ.call</code> are in the sample table.</p>''')
+Every segment of every genome is in <code>data/dj_calls.tsv</code>, with its mean as the reads give it (<code>raw</code>) beside its mean on the genome's scale; <code>DJ.copies</code>, <code>DJ.partial</code>,
+<code>DJ.variants</code>, <code>DJ.scale_f</code>, <code>DJ.call</code>, <code>DJ.off</code> and <code>DJ.fractional</code> are in the sample table.</p>''')
         if md.get("n_trios"):
             c_, p_ = md["core"], md["polymorphic"]
             P.h(f'''<p><strong>The calls are Mendelian.</strong> In the {md["n_trios"]:,} trios whose three calls are settled, position by position in {md["size_kb"]}-kb blocks (those within {md["edge_kb"]} kb of a
@@ -210,6 +315,7 @@ Child − parents: the child's value less the mean of its parents', in copies (m
                         "or a variant passed on less often than chance. Neither is tested here, and the deficit rests on the whole-copy steps, a father's losses most of all.")
             P.h(txt + "</p>")
 
+    off_whole_numbers(P, dj, data)
     if not asm:
         P.h('<p class="small">The comparison with HPRC assemblies appears when <code>--dj-assemblies</code> names the tables of <code>pipeline/hprc_dj.py</code>.</p>')
         return
@@ -268,7 +374,7 @@ the unit and at most one copy is partial.</p>''')
         return "; ".join(v[:6]) + (" …" if len(v) > 6 else "") or "–"
     P.table([[t["sample"], t["haplotypes"], fmt(t["assembly_core"], 0), "; ".join(x for x in (t["partial_extents"], t["truncated_extents"]) if x) or "–",
               fmt(t["reads_cn"], 2) if t["reads_cn"] is not None else "–", t.get("copies", "–"), (t.get("partial") or "–").replace("none", "–"), others(t),
-              (fmt(t.get("scale_f"), 3) + (" (uncertain)" if t.get("scale_uncertain") else "")) if t.get("scale_f") is not None else "–",
+              (fmt(t.get("scale_f"), 3) + (" (uncertain)" if t.get("scale_uncertain") else " (fractional)" if t.get("status") == "fractional" else "")) if t.get("scale_f") is not None else "–",
               _pct(t.get("call_concordance")) if t.get("call_concordance") is not None else "–", "yes" if t["resolved"] else "no", t["rhie"] or "–"]
              for t in sorted(A, key=lambda t: (t["assembly_mean"], t["sample"]))], hdr, numeric={2, 4, 5, 8, 9}, flagged=lambda r: r[10] == "no", wrap=True)
     P.h('<p class="small">Every block of every compared genome: <code>data/dj_hprc_blocks.tsv</code>; every junction copy the alignments found, with its contig, extent and class: '
@@ -282,7 +388,7 @@ the unit and at most one copy is partial.</p>''')
     under = [o for o in odd if o["under_blocks"] and o["truncated"]]
     split = [o for o in odd if o["phasing_split"] >= 3]
     kva = [o for o in odd if o["unit_vs_blocks"]]
-    unexplained = [t for t in A if t["resolved"] and (abs(t["diff_core"]) >= 0.35 or t.get("scale_uncertain"))]
+    unexplained = [t for t in A if t["resolved"] and (abs(t["diff_core"]) >= 0.35 or t.get("scale_uncertain") or t.get("status") == "fractional")]
     P.h(f'''<p>The junction sits beside the rDNA array, where long-read assemblies break, and its copies are {">"}99% identical, so an assembly's
 count of it is only as good as its contigs there. The screens show four ways an assembly misreads the junction, each visible in the reads:</p><ul>
 <li><strong>Copies cut by a contig end</strong> ({S["n_truncated"]} of {S["n_copies"]} copies, in {len(trunc)} genomes: {", ".join(esc(o["sample"]) for o in trunc) or "none"}). The k-mers of the missing part are
@@ -294,10 +400,10 @@ the acrocentric short arms are phased by Hi-C or trio k-mers no better than thei
 <li><strong>A haplotype's k-mer median over the whole unit under-reads a high copy number</strong>{f" ({', '.join(esc(o['sample']) + ': ' + esc(o['unit_vs_blocks']) for o in kva)})" if kva else " (none here)"}: with six or more copies, nucleotide differences among them leave fewer than half the unit's k-mers at
 the full count, so an exact-k-mer count from an assembly (as from reads, in a method that counts k-mer multiplicity) needs the median per block, not per unit. NGS-DOSE classifies a read by any four of its k-mers and is untouched by single differences.</li></ul>''')
     if unexplained:
-        P.h(f'''<p>Where a resolved assembly and the reads disagree by a third of a copy or more on the core, or the call is uncertain,
-{", ".join(f"{esc(t['sample'])} (assembly {fmt(t['assembly_core'], 0)}, reads {fmt(t['reads_core'], 2)}" + (f", scale {fmt(t['scale_f'], 3)}" if t.get('scale_f') is not None else "") + ")" for t in unexplained)},
+        P.h(f'''<p>Where a resolved assembly and the reads disagree by a third of a copy or more on the core, or the call is fractional or uncertain,
+{", ".join(_unexplained(t) for t in unexplained)},
 neither side is confirmed: a copy the assembly does not hold, a junction lost or gained in part of the cell line (the assembly's DNA and the reads' DNA are different cultures of the same line), or a genome whose
-level the cohort model misplaces are all possible. {"None of them has a chromosome flagged in the control regions (a chromosome 4% off its expected dosage is), so a mosaic loss or gain of a whole acrocentric is not the reason." if not any(t["flagged_chromosomes"] for t in unexplained) else "Flagged in the control regions: " + "; ".join(esc(t["sample"]) + " (" + esc(t["flagged_chromosomes"]) + ")" for t in unexplained if t["flagged_chromosomes"]) + "."}</p>''')
+level the cohort model misplaces are all possible. A change that one culture holds in every cell and the other in part of its cells would read as these do: a whole number in the assembly, a fraction in the reads. {"None of them has a chromosome flagged in the control regions (a chromosome 4% off its expected dosage is), so a mosaic loss or gain of a whole acrocentric is not the reason." if not any(t["flagged_chromosomes"] for t in unexplained) else "Flagged in the control regions: " + "; ".join(esc(t["sample"]) + " (" + esc(t["flagged_chromosomes"]) + ")" for t in unexplained if t["flagged_chromosomes"]) + "."}</p>''')
     n_ds = S["n_distal_start"]
     by_name = {o["name"]: o for o in offs}
     d22 = (by_name.get("distal 5-15 kb") or {}).get("states")

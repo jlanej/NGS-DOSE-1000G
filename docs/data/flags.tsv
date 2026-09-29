@@ -8,13 +8,19 @@ HG00176	chrX 1.79 (mosaic X loss?)
 HG00185	chrY 0.75 (mosaic Y loss?)
 HG00187	chrY 0.84 (mosaic Y loss?)
 HG00189	aneuploid: chr9
+HG00236	DJ 9.49 copies, between whole numbers (part of the cells?)
 HG00244	chrY 0.81 (mosaic Y loss?)
 HG00246	chrY 0.31 (mosaic Y loss?)
 HG00331	DJ 11 copies
+HG00342	DJ level -0.42 from 10 copies (part of the cells?)
+HG00346	DJ level -0.40 from 10 copies (part of the cells?)
 HG00361	chrX 1.14 (mosaic X loss?)
+HG00368	DJ level -0.47 from 10 copies (part of the cells?)
 HG00376	chrX 1.84 (mosaic X loss?)
 HG00384	chrX 1.77 (mosaic X loss?)
-HG00418	DJ 11 copies
+HG00418	DJ 11 copies; DJ level -0.46 from 11 copies (part of the cells?)
+HG00448	DJ 9.46 copies, between whole numbers (part of the cells?)
+HG00453	DJ level -0.44 from 10 copies (part of the cells?)
 HG00501	aneuploid: chr12
 HG00524	DJ 9 copies
 HG00531	DJ 9 copies
@@ -27,6 +33,9 @@ HG00651	DJ 8 copies
 HG00652	DJ 8 copies
 HG00656	DJ 9 copies
 HG00658	DJ 9 copies
+HG00673	DJ level -0.40 from 10 copies (part of the cells?)
+HG00683	DJ level -0.42 from 10 copies (part of the cells?)
+HG00684	DJ level -0.46 from 10 copies (part of the cells?)
 HG00732	chrX 1.61 (mosaic X loss?)
 HG00740	DJ 9 copies
 HG00864	chrX 1.74 (mosaic X loss?)
@@ -37,6 +46,9 @@ HG01073	chrX 1.82 (mosaic X loss?)
 HG01085	DJ 9 copies
 HG01088	DJ 11 copies
 HG01089	chrX 1.81 (mosaic X loss?)
+HG01100	DJ 10.31 copies, between whole numbers (part of the cells?)
+HG01107	DJ level -0.56 from 10 copies (part of the cells?)
+HG01113	DJ 10.99 copies, between whole numbers (part of the cells?)
 HG01137	aneuploid: chr12; chrX 1.50 (mosaic X loss?)
 HG01140	chrX 1.79 (mosaic X loss?)
 HG01168	aneuploid: chr12
@@ -48,55 +60,90 @@ HG01303	aneuploid: chr5,chr12; held-out autosomal 2.067
 HG01349	chrX 1.84 (mosaic X loss?)
 HG01357	aneuploid: chr12
 HG01366	chrX 1.28 (mosaic X loss?)
+HG01377	DJ level -0.40 from 10 copies (part of the cells?)
+HG01379	DJ level -0.42 from 10 copies (part of the cells?)
+HG01405	DJ level -0.49 from 10 copies (part of the cells?)
 HG01414	aneuploid: chr12
 HG01437	DJ 9 copies
 HG01440	DJ 9 copies
-HG01495	DJ 12 copies
+HG01495	DJ 12 copies; DJ -0.62:316-400kb (part of the cells?)
 HG01506	aneuploid: chr11
 HG01517	DJ 11 copies
+HG01520	DJ +0.51:271-400kb (part of the cells?)
 HG01532	chrY 0.74 (mosaic Y loss?)
 HG01602	aneuploid: chr9
+HG01604	DJ 10.54 copies, between whole numbers (part of the cells?)
 HG01607	DJ 12 copies
+HG01628	DJ -0.57:0-119kb (part of the cells?)
+HG01670	DJ -0.48:0-119kb (part of the cells?)
 HG01683	chrX 1.97 with a Y
-HG01696	DJ 11 copies
-HG01702	aneuploid: chr12
+HG01696	DJ 11 copies; DJ level -0.51 from 11 copies (part of the cells?)
+HG01702	aneuploid: chr12; DJ +0.49:114-400kb (part of the cells?)
 HG01704	aneuploid: chr12
 HG01765	DJ 11 copies
 HG01771	DJ 11 copies
 HG01772	DJ 12 copies
 HG01790	DJ 11 copies
-HG01806	chrX 1.75 (mosaic X loss?)
+HG01806	chrX 1.75 (mosaic X loss?); DJ 9.40 copies, between whole numbers (part of the cells?)
+HG01815	DJ level -0.44 from 10 copies (part of the cells?)
 HG01844	DJ 9 copies
+HG01850	DJ 10.48 copies, between whole numbers (part of the cells?)
 HG01883	DJ 9 copies
 HG01888	aneuploid: chr9
 HG01889	DJ 9 copies
 HG01891	DJ 9 copies
 HG01938	DJ 9 copies
+HG01950	DJ level -0.51 from 10 copies (part of the cells?)
+HG01965	DJ level -0.50 from 10 copies (part of the cells?)
+HG01967	DJ +0.54:245-400kb (part of the cells?)
 HG01968	chrX 1.79 (mosaic X loss?)
+HG01975	DJ -0.49:0-106kb (part of the cells?)
+HG01977	DJ +0.54:102-400kb (part of the cells?)
+HG01980	DJ 10.23 copies, between whole numbers (part of the cells?)
 HG01983	aneuploid: chr12; DJ 9 copies
 HG01984	DJ 9 copies
+HG01997	DJ level -0.42 from 10 copies (part of the cells?)
+HG02031	DJ 9.53 copies, between whole numbers (part of the cells?)
+HG02040	DJ 9.41 copies, between whole numbers (part of the cells?)
 HG02051	DJ 11 copies
 HG02053	chrY 0.54 (mosaic Y loss?)
+HG02055	DJ +0.60:181-400kb (part of the cells?)
+HG02058	DJ level -0.49 from 10 copies (part of the cells?)
 HG02073	DJ 9 copies
 HG02077	aneuploid: chr12
+HG02086	DJ level -0.51 from 10 copies (part of the cells?)
+HG02131	DJ -0.38:337-400kb (part of the cells?)
+HG02142	DJ +0.51:271-400kb (part of the cells?)
 HG02144	chrX 1.71 (mosaic X loss?)
 HG02145	chrY 0.76 (mosaic Y loss?)
 HG02147	DJ 11 copies
 HG02148	DJ 11 copies
+HG02164	DJ 11.14 copies, between whole numbers (part of the cells?)
 HG02187	DJ 9 copies
 HG02220	chrX 1.84 (mosaic X loss?)
-HG02252	DJ 9 copies
+HG02223	DJ -0.48:0-259kb (part of the cells?)
+HG02252	DJ 9 copies; DJ level +0.39 from 9 copies (part of the cells?)
 HG02253	DJ 9 copies
 HG02256	DJ 9 copies
+HG02258	DJ -0.44:328-400kb (part of the cells?)
+HG02278	DJ level +0.46 from 10 copies (part of the cells?)
 HG02300	sex: pedigree M, reads F
+HG02315	DJ 9.47 copies, between whole numbers (part of the cells?)
 HG02322	aneuploid: chr12
 HG02334	DJ 9 copies
-HG02345	DJ 9 copies
+HG02345	DJ 9 copies; DJ +0.40:0-283kb;-0.45:361-400kb (part of the cells?)
+HG02383	DJ level -0.45 from 10 copies (part of the cells?)
+HG02386	DJ -0.60:0-245kb (part of the cells?)
+HG02396	DJ level +0.47 from 10 copies (part of the cells?)
 HG02408	DJ 9 copies
 HG02409	aneuploid: chr9
-HG02465	DJ 9 copies
+HG02449	DJ -0.47:0-90kb (part of the cells?)
+HG02465	DJ 9 copies; DJ -0.42:328-400kb (part of the cells?)
 HG02485	aneuploid: chr12; DJ 9 copies
+HG02495	DJ level -0.40 from 10 copies (part of the cells?)
 HG02508	DJ 9 copies
+HG02573	DJ 10.25 copies, between whole numbers (part of the cells?)
+HG02595	DJ 10.41 copies, between whole numbers (part of the cells?)
 HG02603	aneuploid: chr12
 HG02610	DJ 9 copies
 HG02623	DJ 9 copies
@@ -120,12 +167,15 @@ HG02773	DJ 9 copies
 HG02785	chrX 1.83 (mosaic X loss?)
 HG02791	aneuploid: chr21
 HG02805	aneuploid: chr9
+HG02808	DJ level +0.42 from 10 copies (part of the cells?)
 HG02816	DJ 9 copies
 HG02818	DJ 9 copies
 HG02837	chrX 1.84 (mosaic X loss?)
 HG02869	DJ 9 copies
 HG02895	DJ 9 copies
 HG02941	DJ 9 copies
+HG02947	DJ 10.44 copies, between whole numbers (part of the cells?)
+HG02972	DJ 10.76 copies, between whole numbers (part of the cells?)
 HG03016	chrX 1.73 (mosaic X loss?)
 HG03019	chrX 1.27 (mosaic X loss?)
 HG03022	DJ 9 copies
@@ -136,6 +186,7 @@ HG03091	DJ 9 copies
 HG03118	aneuploid: chr12
 HG03132	chrX 1.83 (mosaic X loss?)
 HG03157	DJ 9 copies
+HG03191	DJ level +0.44 from 10 copies (part of the cells?)
 HG03197	aneuploid: chr9
 HG03224	DJ 9 copies
 HG03250	chrX 1.06 (mosaic X loss?)
@@ -143,6 +194,8 @@ HG03352	chrY 0.76 (mosaic Y loss?)
 HG03363	aneuploid: chr11
 HG03401	chrX 1.66 (mosaic X loss?)
 HG03432	DJ 9 copies
+HG03452	DJ 10.32 copies, between whole numbers (part of the cells?)
+HG03453	DJ +0.55:0-84kb (part of the cells?)
 HG03455	aneuploid: chr12
 HG03499	DJ 9 copies
 HG03511	chrX 1.00 (mosaic X loss?)
@@ -155,10 +208,12 @@ HG03611	DJ 9 copies
 HG03615	chrY 0.67 (mosaic Y loss?)
 HG03634	chrX 1.75 (mosaic X loss?)
 HG03644	DJ 9 copies
+HG03672	DJ level -0.57 from 10 copies (part of the cells?)
 HG03682	DJ 11 copies
 HG03685	DJ 9 copies
 HG03699	DJ 9 copies
 HG03701	DJ 9 copies
+HG03713	DJ 9.45 copies, between whole numbers (part of the cells?)
 HG03717	DJ 9 copies
 HG03731	DJ 12 copies
 HG03733	DJ 11 copies
@@ -189,6 +244,7 @@ NA10843	aneuploid: chr5,chr9,chr10,chr12,chr15
 NA10854	aneuploid: chr9; chrX 1.09 (mosaic X loss?)
 NA10859	chrX 1.74 (mosaic X loss?)
 NA11891	aneuploid: chr15; DJ 9 copies
+NA11892	DJ level +0.43 from 10 copies (part of the cells?)
 NA11930	DJ 9 copies
 NA11933	chrX 1.74 (mosaic X loss?)
 NA12058	aneuploid: chr15
@@ -197,16 +253,20 @@ NA12156	aneuploid: chr9
 NA12236	aneuploid: chr14
 NA12248	aneuploid: chr9,chr12,chr14; DJ 11 copies
 NA12274	aneuploid: chr11
+NA12283	DJ 10.34 copies, between whole numbers (part of the cells?)
 NA12287	DJ 11 copies
 NA12341	aneuploid: chr14
 NA12399	DJ 12 copies
 NA12739	aneuploid: chr12
+NA12777	DJ 10.42 copies, between whole numbers (part of the cells?)
 NA12801	DJ 8 copies
 NA12812	DJ 9 copies
 NA12813	DJ 9 copies
 NA12865	chrX 1.52 (mosaic X loss?)
 NA12875	aneuploid: chr2
 NA18486	aneuploid: chr9
+NA18489	DJ 10.20 copies, between whole numbers (part of the cells?)
+NA18519	DJ 9.48 copies, between whole numbers (part of the cells?)
 NA18520	chrX 1.74 (mosaic X loss?)
 NA18522	aneuploid: chr12
 NA18532	DJ 9 copies
@@ -216,6 +276,7 @@ NA18745	DJ 11 copies
 NA18864	chrX 1.49 (mosaic X loss?)
 NA18868	DJ 8 copies
 NA18878	DJ 9 copies
+NA18908	DJ 10.35 copies, between whole numbers (part of the cells?)
 NA18951	DJ 11 copies
 NA18954	DJ 12 copies
 NA18963	chrX 1.61 (mosaic X loss?)
@@ -224,6 +285,8 @@ NA19004	DJ 11 copies
 NA19054	chrX 1.36 (mosaic X loss?)
 NA19078	DJ 9 copies
 NA19080	DJ 11 copies
+NA19150	DJ 10.82 copies, between whole numbers (part of the cells?)
+NA19174	DJ +0.50:255-400kb (part of the cells?)
 NA19176	chrX 1.01 (mosaic X loss?)
 NA19208	aneuploid: chr9
 NA19226	sex: pedigree M, reads F; chrX 0.99 (mosaic X loss?)
@@ -239,6 +302,7 @@ NA19473	DJ 11 copies
 NA19652	aneuploid: chr12
 NA19671	aneuploid: chr15
 NA19680	aneuploid: chr11
+NA19707	DJ 10.22 copies, between whole numbers (part of the cells?)
 NA19728	DJ 9 copies
 NA19730	DJ 9 copies
 NA19761	DJ 9 copies
@@ -249,7 +313,8 @@ NA19787	DJ 9 copies
 NA19789	DJ 9 copies
 NA19917	DJ 9 copies
 NA19918	DJ 9 copies
-NA19924	DJ 11 copies
+NA19922	DJ 10.17 copies, between whole numbers (part of the cells?)
+NA19924	DJ 11 copies; DJ level -0.50 from 11 copies (part of the cells?)
 NA19982	DJ 9 copies
 NA20274	DJ 9 copies
 NA20289	chrX 1.81 (mosaic X loss?)
@@ -267,12 +332,14 @@ NA20582	DJ 9 copies
 NA20754	chrY 0.39 (mosaic Y loss?); DJ 11 copies
 NA20757	DJ 12 copies
 NA20759	aneuploid: chr12
+NA20768	DJ 10.24 copies, between whole numbers (part of the cells?)
 NA20769	chrX 1.73 (mosaic X loss?)
 NA20770	DJ 9 copies
 NA20778	DJ 11 copies
-NA20786	DJ 11 copies
+NA20786	DJ 11 copies; DJ -0.54:0-106kb (part of the cells?)
 NA20790	chrX 1.59 (mosaic X loss?)
 NA20819	DJ 9 copies
+NA20821	DJ 10.64 copies, between whole numbers (part of the cells?)
 NA20832	chrX 1.50 (mosaic X loss?)
 NA20864	DJ 9 copies
 NA20867	DJ 13 copies
@@ -285,5 +352,6 @@ NA20911	DJ 9 copies
 NA21112	DJ 9 copies
 NA21113	DJ 9 copies
 NA21118	aneuploid: chr5
+NA21127	DJ 10.33 copies, between whole numbers (part of the cells?)
 NA21142	chrX 1.78 (mosaic X loss?)
 NA21143	aneuploid: chr9,chr12,chr14

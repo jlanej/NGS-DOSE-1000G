@@ -19,7 +19,8 @@ for s in sel:
     ev = [x for x in str(r.get("variants") or "").split(";") if x and x != "none"]
     large = [x for x in ev if (lambda m: m and int(m.group(2)) - int(m.group(1)) >= 40)(re.search(r":(\d+)-(\d+)kb", x))]
     lean = r.get("tilt") not in ("", "NA", None) and abs(float(r["tilt"])) > 0.05
-    call = ("an uncertain call" if r.get("call") == "uncertain" else "a copy that holds or lacks an end" if r.get("partial") not in ("", "none", "NA", None)
+    call = ("an uncertain call" if r.get("call") == "uncertain" else "a fractional call (the level or a stretch off its whole number)" if r.get("call") == "fractional"
+            else "a copy that holds or lacks an end" if r.get("partial") not in ("", "none", "NA", None)
             else "another event of 40 kb or more" if large else "other copies than ten throughout" if r.get("copies") not in ("", "NA", None, "10")
             else "ten copies and a lean of more than 5%" if lean else "ten copies, the scale a few percent off")
     by_call[call] = by_call.get(call, 0) + 1

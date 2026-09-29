@@ -4,16 +4,23 @@
 acrocentric short arms, ten copies in a diploid genome. It is the cohort's ten-copy truth class. Its estimate used to
 be one number that read 9.7 in most people and sat between whole numbers in one genome in five. This document
 records why, what the method now does about it (NGS-DOSE 0.2.0), and how the result stands against two independent
-truths: the HPRC release-2 assemblies of 28 cohort members and the 602 trios. It also records what the assemblies
-themselves get wrong at this locus. The page ([index.html, section 3.2](index.html#djsteps)) recomputes every number
+truths: the HPRC release-2 assemblies of 28 cohort members and the 602 trios. It records what the assemblies
+themselves get wrong at this locus, and which genomes sit off the whole numbers, as a change in part of the cells
+would leave them. The page ([index.html, section 3.2](index.html#djsteps)) recomputes every number
 here from the committed tables, except the direct tests of `analysis/dj/`, which are named where they are used.*
 
 ## Summary
 
 - **The junction is read in whole numbers of copies along its length.** Every genome's profile over the unit is
-  read as a chain of whole numbers with its breakpoints. Of 3,202 genomes 3,173 calls are settled: 2,775 hold ten
-  copies throughout, 109 nine, 7 eight, 27 eleven, 3 twelve and 1 thirteen, and 220 carry a copy that holds or lacks
-  an end of the unit. The other 29 lie between two whole numbers throughout and are called uncertain.
+  read as a chain of whole numbers with its breakpoints. Of 3,202 genomes 3,124 calls are settled: 2,747 hold ten
+  copies throughout, 106 nine, 7 eight, 23 eleven, 3 twelve and 1 thirteen, and 207 carry a copy that holds or lacks
+  an end of the unit.
+- **What the whole numbers leave is kept, so that a change in part of the cells can show.** The level stays a
+  continuous number. A call is fractional where the level lies three SDs of the cohort's scales from its whole
+  number, or where a stretch of the unit reads a fraction of a copy off it: 49 genomes. Another 29 lie between two
+  whole numbers throughout and are uncertain. A change in two fifths to three fifths of the cells was flagged in
+  half to nine tenths of the genomes it was put into, less often where it spans a short stretch; a change in a
+  quarter of the cells is not flagged, though the level reads it.
 - **Three corrections put the level where the copies are.** The level is set on the core of the unit, without the
   four stretches where copies differ. Its scale is pinned to the cohort's mode, which the fragment-GC model puts at
   9.78 copies and the assemblies at ten. The common deletions' windows are put on the cohort's own comb of whole
@@ -23,17 +30,17 @@ here from the committed tables, except the direct tests of `analysis/dj/`, which
   carried by 63 genomes (2.0%), a copy of the first 262 kb by 49 (1.5%), and a copy that lacks the first 122 kb by 19.
   A whole-unit median reads each as a fraction of a copy; the chain reads eleven copies over 316 kb and ten beyond.
 - **The assemblies agree where they are resolved.** In 19 of 28 genomes the assembly resolves the junction. There
-  the reads' core level lies −0.09 ± 0.20 copies from the assembly's, the called state equals the assembly's in 90.6%
-  of 5-kb blocks, and all 7 partial copies are called with the breakpoint within 4 kb. All four carriers of a lost
-  junction hold nine copies in their assemblies.
-- **The trios agree.** In the 585 trios with three settled calls the parents' states allow the child's in 99.54% of
-  34,852 core blocks, and 580 trios have no block out of place. The common deletions pass to children at the rate a
-  germline variant should: one copy in one parent is found in 73 of 147 children at 197–217 kb.
+  the reads' core level lies −0.09 ± 0.20 copies from the assembly's, the called state equals the assembly's in 90.9%
+  of 5-kb blocks of the genomes with a settled call, and all 7 partial copies are called with the breakpoint within
+  4 kb. All four carriers of a lost junction hold nine copies in their assemblies.
+- **The trios agree.** In the 556 trios with three settled calls the parents' states allow the child's in 99.65% of
+  33,151 core blocks, and 553 trios have no block out of place. The common deletions pass to children at the rate a
+  germline variant should: one copy in one parent is found in 67 of 137 children at 197–217 kb.
 - **Whole copies pass to fewer than half of the children, and the reason is open.** A whole-copy step passes to 15
-  of 46 children and a partial copy to 33 of 81, together 48 of 127 (p = 0.008 against one half). The readings
+  of 44 children and a partial copy to 29 of 70, together 44 of 114 (p = 0.02 against one half). The readings
   leave little room for error, and the events did not arise in culture at a rate the children's lines would show.
   The deficit rests on a father's loss of a junction, which passes to 4 of 23 children where a mother's passes to
-  10 of 17.
+  10 of 16.
 - **What the assemblies get wrong**, each visible in the reads: copies cut by a contig end (29 of 300 copies, in 9 of
   28 genomes), fragments of one copy assembled twice, the ten copies phased 2 + 8, and a haplotype's whole-unit
   k-mer median under-reading seven copies.
@@ -52,7 +59,7 @@ Rhie et al. 2026 (bioRxiv, DJCounter) typed the same 3,202 genomes from the mult
 against each library's two-copy k-mer peak, binned to integers with a Gaussian mixture, and examined the atypical
 genomes in the HPRC release-2 assemblies. They report 9 copies in 2.8–3.4% of people and 11 or more in 8.4–9.3%, seven
 genomes at 8 (one, HG01204, a G-banded Robertsonian carrier), and in the assemblies partial duplications for most of
-the gains and, for the losses, three of six assembled cleanly. Section 4.7 holds the two studies together.
+the gains and, for the losses, three of six assembled cleanly. Section 4.8 holds the two studies together.
 
 ## 2. How the junction is read
 
@@ -71,7 +78,7 @@ the whole unit is kept beside it as `DJ.cn_unit`.
 
 **The scale.** On the scale the fragment-GC model sets in the anchor windows (40–60% GC), the core of the cohort's
 main mode reads 9.78 copies (2,920 genomes). The junction is ten copies in nearly everyone and the assemblies
-confirm it (section 4.4), so every estimate is multiplied by 1.0221. A cohort of fewer than fifty genomes is not
+confirm it (section 4.5), so every estimate is multiplied by 1.0221. A cohort of fewer than fifty genomes is not
 pinned, and a saved efficiency table carries the pin to genomes counted later.
 
 **The polymorphic intervals.** Where a deletion is common the cohort's median genome lacks part of a copy, and a
@@ -108,9 +115,22 @@ that does is a *partial loss* (a copy that lacks that end), and anything else is
 level lies between two whole numbers throughout has two readings, and the call says how far behind the second is:
 below three log units it is *uncertain*.
 
+**Off the whole numbers.** Whole numbers are what a germ line holds. A junction lost or gained in part of the cells
+leaves the profile a fraction of a copy off them, and the chain would hide it: the nearest whole number is called and
+the difference goes into the genome's scale. So the difference is measured and kept, in two ways. `DJ.off` is the
+level less the whole numbers called, in copies, and `DJ.off_z` the same in robust SDs of the cohort's scales (1.35%,
+0.13 copies at ten). And in what the whole numbers leave, a level per stretch is fitted together with the genome's
+lean and its slope on the windows' GC, whose priors are the cohort's own spreads of them. A step is proposed where
+it improves the fit as much as a change of state must, and it is kept where its stretch stands four robust SDs from
+what the same fit finds in the cohort's other genomes and is a quarter of a copy high. The cohort is the measure
+because its profiles wander more than counting alone allows. A call that is not uncertain is then *settled*, or
+*fractional* where the level lies three SDs from its whole number or a stretch stands off.
+
 **What is written.** The sample table carries `DJ.cn` (the level on the core, pinned), `DJ.cn_unit`, `DJ.copies`,
-`DJ.partial`, `DJ.variants`, `DJ.scale_f`, `DJ.tilt`, `DJ.call` and `DJ.call_gap`. Every segment of every genome is in
-`data/dj_calls.tsv`, and every genome's profile in 20-kb blocks in `data/dj_blocks.tsv`.
+`DJ.partial`, `DJ.variants`, `DJ.scale_f`, `DJ.tilt`, `DJ.call`, `DJ.call_gap`, `DJ.off`, `DJ.off_z` and
+`DJ.fractional`. Every segment of every genome is in `data/dj_calls.tsv`, with its mean as the reads give it beside
+its mean on the genome's scale, and every genome's profile in 20-kb blocks in `data/dj_blocks.tsv`. The genomes off
+whole numbers are in `data/dj_fractional.tsv`.
 
 ## 3. What the calls were held against
 
@@ -126,7 +146,7 @@ classed as complete (231), complete with internal gaps (8), distal-start (19: th
 truncated at a contig end (29) or partial with an internal breakpoint (13). An assembly counts as *resolved* at the
 junction when no copy is cut by a contig end inside the unit and at most one copy is partial: 19 of 28.
 
-**Trios.** The 602 trios of the cohort; 585 have three settled calls. The test is made position by position: a
+**Trios.** The 602 trios of the cohort; 556 have three settled calls. The test is made position by position: a
 parent whose state at a position is ten plus *d* carries *d* on its two haplotypes between them and passes on one, so
 a child's deviation must be a part of its father's plus a part of its mother's.
 
@@ -141,30 +161,31 @@ committed tables. `regenerate.sh` reads them with `--dj-assemblies meta/dj_hprc`
 | state | genomes | |
 | --- | --- | --- |
 | eight copies throughout | 7 | six of them read the ACRO1 composites of the acrocentric short arms at 0.75–0.84 of the cohort's median: the arms are missing, as in a Robertsonian translocation |
-| nine throughout | 109 | 3.4% of settled calls |
-| ten throughout | 2,775 | 87.5% |
-| eleven, twelve, thirteen throughout | 27, 3, 1 | |
-| a copy that holds or lacks an end of the unit | 220 | 146 with a partial copy, 75 with a partial loss |
+| nine throughout | 106 | 3.4% of settled calls |
+| ten throughout | 2,747 | 87.9% |
+| eleven, twelve, thirteen throughout | 23, 3, 1 | |
+| a copy that holds or lacks an end of the unit | 207 | 136 with a partial copy, 72 with a partial loss |
+| fractional | 49 | 29 by the level, 20 by a stretch of the unit (section 4.4) |
 | uncertain | 29 | the level between two whole numbers throughout |
 
 The breakpoints recur. In the core they fall most often at 315 kb (68 genomes), 260 kb (51), 120 kb (17) and 390 kb
 (17), and the copies that hold or lack an end are, by their extent:
 
-| partial copy or loss | genomes | of the cohort | passed on (section 4.3) |
+| partial copy or loss | genomes with a settled call | of the cohort | passed on (section 4.3) |
 | --- | --- | --- | --- |
-| copy of 0–316 kb | 63 | 2.0% | 8 of 17 |
-| copy of 0–262 kb | 49 | 1.5% | 8 of 21 |
-| loss of 0–122 kb | 19 | 0.6% | 2 of 6 |
+| copy of 0–316 kb | 60 | 1.9% | 6 of 13 |
+| copy of 0–262 kb | 45 | 1.4% | 6 of 18 |
+| loss of 0–122 kb | 17 | 0.5% | 2 of 5 |
 | copy of 217–300 kb | 9 | 0.3% | |
 | copy of 300–400 kb | 9 | 0.3% | |
 | loss of 0–80 kb | 9 | 0.3% | 0 of 1 |
-| loss of 0–60 kb | 8 | 0.2% | 0 of 2 |
+| loss of 0–60 kb | 7 | 0.2% | 0 of 2 |
 | loss of 290–400 kb | 6 | 0.2% | 0 of 2 |
 
-Of the 309 genomes whose core level lies more than 0.3 copies from a whole number, the calls make 118 a genome with
-a copy that holds or lacks an end, 119 a ten-copy genome whose scale is a few percent off, 35 a ten-copy genome with
-a lean of more than 5%, 19 uncertain, 11 another whole number throughout and 7 another event of 40 kb or more
-(`analysis/dj/between_profiles.py`).
+Of the 309 genomes whose core level lies more than 0.3 copies from a whole number, the calls make 112 a genome with
+a copy that holds or lacks an end, 108 a ten-copy genome whose scale is a few percent off, 31 fractional, 26 a
+ten-copy genome with a lean of more than 5%, 19 uncertain, 7 another whole number throughout and 6 another event of
+40 kb or more (`analysis/dj/between_profiles.py`).
 
 ### 4.2 Against the assemblies
 
@@ -175,7 +196,8 @@ a lean of more than 5%, 19 uncertain, 11 another whole number throughout and 7 a
 | 20-kb blocks that round to the same copy number | 80% of 560 |
 | blocks the assembly puts off ten that the reads confirm | 237 of 286 |
 | blocks the assembly puts at ten that the reads put half a copy or more away | 31 of 274 |
-| called state equal to the assembly's, 5-kb blocks, 18 resolved genomes that share the assembly's level | 90.6% of 1,404 |
+| called state equal to the assembly's, 5-kb blocks, 17 resolved genomes with a settled call | 90.9% of 1,326 |
+| the same in all 19 resolved genomes | 85.9% of 1,482 |
 | the same in the 9 fragmented assemblies | 61% of 702 |
 | partial copies of the resolved assemblies that are called | 7 of 7, the breakpoint within 4 kb in each |
 | partial copies of all 28 assemblies that are called | 10 of 13 |
@@ -195,17 +217,20 @@ again beyond, so it is listed as a local loss and not as a partial loss. Of the 
 called, two are in HG00642, whose two copies are in pieces at contig ends, and the third is HG01981's.
 
 *Where the two disagree on the level.* HG00673 reads one copy more than its resolved assembly throughout (ten with a
-partial loss, against nine with one). Its level is 9.49 on the core, and the call takes its scale to be 4.5% low.
-HG02280 reads 9.58 where its assembly holds ten, and is called ten. Neither has a chromosome flagged in the control
-regions. A copy the assembly does not hold, a junction changed in part of the cell line (the assembly's DNA and the
-reads' DNA are different cultures), and a genome whose level the model misplaces are all possible.
+partial loss, against nine with one). Its level lies 0.40 copies below the whole numbers called, three SDs of the
+cohort's scales, and its call is fractional. HG02280 reads 9.58 where its assembly holds ten: 0.39 below, 2.9 SDs,
+and settled by a hair. HG02258 reads 0.44 copies below ten over 328–400 kb, where its assembly holds ten. None has
+a chromosome flagged in the control regions. The assembly's DNA and the reads' DNA are different cultures of each
+line, and a change that one culture holds in every cell and the other in part of its cells would read as these do:
+a whole number in the assembly, a fraction in the reads. A genome whose level the model misplaces would read the
+same, and the comparison cannot tell them apart.
 
 ### 4.3 In the trios: what is consistent, and what is passed on
 
-*Consistency.* In the 585 trios with three settled calls, leaving out the blocks within 10 kb of a breakpoint of any
-of the three, the parents' states allow the child's in 99.54% of 34,852 core blocks and in 98.5% of 5,640 blocks of
-the polymorphic intervals. 580 trios have no core block out of place. Of the blocks in which a child deviates from
-ten, a parent explains 93.8% in the core. HG01517 holds a whole copy more than either parent, and NA18497 a partial
+*Consistency.* In the 556 trios with three settled calls, leaving out the blocks within 10 kb of a breakpoint of any
+of the three, the parents' states allow the child's in 99.65% of 33,151 core blocks and in 98.7% of 5,373 blocks of
+the polymorphic intervals. 553 trios have no core block out of place. Of the blocks in which a child deviates from
+ten, a parent explains 95.1% in the core. HG01517 holds a whole copy more than either parent, and NA18497 a partial
 copy (56–400 kb) that neither has.
 
 *The common deletions pass as a germline variant should.* These deletions are old and common, in the germ line
@@ -217,43 +242,108 @@ the called state in the middle of the interval less the state beside it.
 
 | interval | windows | slope of child on midparent (95%) | reliability | one copy passed on, by the values | by the calls | called in the child of two parents without it | child less the mean of its parents |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 5–15 kb | 39 | 0.94 (0.86–1.02) | 0.98 | 22 of 45 | 57 of 123 | 20 of 121 | −0.12 ± 0.03 |
-| 15–23 kb | 28 | 0.81 (0.68–0.95) | 0.89 | 35 of 72 | 67 of 149 | 27 of 320 | −0.11 ± 0.02 |
-| 197–217 kb | 49 | 0.95 (0.85–1.04) | 0.95 | 62 of 110 | 73 of 147 | 23 of 249 | −0.03 ± 0.02 |
+| 5–15 kb | 39 | 0.94 (0.86–1.02) | 0.98 | 22 of 45 | 56 of 119 | 18 of 115 | −0.12 ± 0.03 |
+| 15–23 kb | 28 | 0.81 (0.68–0.95) | 0.89 | 35 of 72 | 65 of 143 | 25 of 302 | −0.11 ± 0.02 |
+| 197–217 kb | 49 | 0.95 (0.85–1.04) | 0.95 | 62 of 110 | 67 of 137 | 22 of 238 | −0.03 ± 0.02 |
 
-Over the three intervals one copy passes to 119 of 227 children by the values and to 197 of 419 by the calls, and
+Over the three intervals one copy passes to 119 of 227 children by the values and to 188 of 399 by the calls, and
 each slope's interval holds its reliability. The measurement passes on what the germ line does. Two things qualify the
-calls in these short intervals. A deletion is called in 8–17% of the children of two parents without it, which is the
+calls in these short intervals. A deletion is called in 8–16% of the children of two parents without it, which is the
 calls' error where an event is near the limit of what the chain can find. And in the two distal intervals the
 children read 0.11–0.12 copies lower than the mean of their parents, which Mendel does not allow. Most children were
 sequenced in the later release batch, and in 15–23 kb the parents of that batch read lower by the same amount
 (`analysis/dj/intervals_by_batch.py`), so there the difference is the libraries'.
 
 *Whole copies and partial copies pass to fewer than half.* Where a carrier holds one state throughout and the other
-parent ten, a whole-copy step passes to 15 of 46 children (two-sided binomial p = 0.03 against one half). A partial
+parent ten, a whole-copy step passes to 15 of 44 children (two-sided binomial p = 0.05 against one half). A partial
 copy is looked for in the child by its breakpoint and not by its name, because a copy that holds the first 316 kb
 and a copy that lacks the last 84 kb are the same step down at 316 kb, described against different tens. Where a
 parent's call has one breakpoint in the core and the other parent is at ten with none near it, the child's call has
-the breakpoint in 33 of 81 pairs (p = 0.12). Together that is 48 of 127 (p = 0.008). Four things were tested.
+the breakpoint in 29 of 70 pairs (p = 0.19). Together that is 44 of 114 (p = 0.02). Only settled calls are counted:
+a parent whose call is fractional is no carrier to count. Four things were tested.
 
 | question | test | result |
 | --- | --- | --- |
-| are the carriers' or the children's readings in doubt? | the level of each, where a whole-copy step was not passed on | the parent's level lies within 0.3 copies of its whole number in 29 of 31 pairs (−0.07 ± 0.15) and the child's within 0.3 of ten in 29 (0.00 ± 0.14); the two parents further off are fathers called at eleven |
-| did the calls miss the child's copy? | the child's profile across the parent's breakpoint (`analysis/dj/partial_transmission.py`) | the children whose call lacks the breakpoint step by +0.02 copies there (median), those whose call has it by +0.96; by the profile 28 of 65 pairs are passed on, by the calls 27 |
-| is it a property of reading a man's genome? | nine-copy calls by sex (`analysis/dj/carriers_by_sex.py`) | 57 of 1,587 men and 52 of 1,586 women are at nine throughout, and the level of the genomes at ten is 9.990 and 9.993; a father's loss passes to 2 of 8 sons and 2 of 14 daughters |
-| did the events arise in the cell lines? | new events in the children of two parents at ten throughout | 147 of 1,160 parents carry an event; had the excess over half-transmission arisen in culture, the 443 such children would hold about 14 new ones; they hold 2 |
+| are the carriers' or the children's readings in doubt? | the level of each, where a whole-copy step was not passed on | the parent's level lies within 0.3 copies of its whole number in 28 of 29 pairs (−0.05 ± 0.13) and the child's within 0.3 of ten in 27 (0.00 ± 0.14) |
+| did the calls miss the child's copy? | the child's profile across the parent's breakpoint (`analysis/dj/partial_transmission.py`) | the children whose call lacks the breakpoint step by +0.02 copies there (median), those whose call has it by +0.96; by the profile 24 of 55 pairs are passed on, by the calls 23 |
+| is it a property of reading a man's genome? | nine-copy calls by sex (`analysis/dj/carriers_by_sex.py`) | 57 of 1,565 men and 49 of 1,559 women are at nine throughout, and the level of the genomes at ten is 9.990 and 9.995; a father's loss passes to 2 of 8 sons and 2 of 14 daughters |
+| did the events arise in the cell lines? | new events in the children of two parents at ten throughout | 134 of 1,102 parents carry an event; had the excess over half-transmission arisen in culture, the 427 such children would hold about 12 new ones; they hold 2 |
 
-By the parent, a father's loss of a junction passes to 4 of 23 children and a mother's to 10 of 17 (Fisher exact
-p = 0.009, a comparison made after the fact). A father's gain passes to 0 of 4 and a mother's to 1 of 2. A partial
-copy passes from a father in 21 of 49 pairs and from a mother in 12 of 32. Children carry fewer of these events than
-their parents: 62 of 585 against 147 of 1,160.
+By the parent, a father's loss of a junction passes to 4 of 23 children and a mother's to 10 of 16 (Fisher exact
+p = 0.007, a comparison made after the fact). A father's gain passes to 0 of 3 and a mother's to 1 of 2. A partial
+copy passes from a father in 18 of 41 pairs and from a mother in 11 of 29. Children carry fewer of these events than
+their parents: 56 of 556 against 134 of 1,102.
 
 What remains is a difference between the generations or in the germ line. A change in a donor's blood that a clonal
 cell line makes whole would be commoner in older donors, and would be passed on by no one. A variant that is passed
 on less often than chance would show the same counts. Neither is tested here. The partial copies alone are within
-chance of one half, and the deficit rests on the whole-copy steps, a father's losses most of all: 23 pairs.
+chance of one half, and the deficit rests on the whole-copy steps, a father's losses most of all: 23 pairs. The
+fathers who did not pass their loss on are not fractional: their levels sit on nine.
 
-### 4.4 Why the fragment-GC model's scale reads 9.78
+### 4.4 Off the whole numbers: a change in part of the cells?
+
+| call | genomes | |
+| --- | --- | --- |
+| settled | 3,124 | on their whole numbers |
+| fractional, by the level | 29 | 23 below their whole number, 6 above; a normal scatter of the scales would give 9 |
+| fractional, by a stretch of the unit | 20 | 21 stretches, 0.38 to 0.62 copies off |
+| uncertain | 29 | between two whole numbers; the level of 17 lies three SDs or more from the nearer |
+
+*The level's tail is heavy, and heavier below.* Among the 3,173 calls that are not uncertain:
+
+| level's distance from its whole number | genomes | below | above | by chance |
+| --- | --- | --- | --- | --- |
+| more than 0.30 copies | 135 | 91 | 44 | 78 |
+| more than 0.40 copies | 27 | 21 | 6 | 9 |
+| more than 0.50 copies | 5 | 5 | 0 | 1 |
+
+A junction lost in part of the cells lies below its whole number, and the excess is there.
+
+*What a change in part of the cells reads as.* The change was put into forty genomes at ten copies, which were then
+called again and judged with the rest of the cohort (`analysis/dj/mosaic_power.py`). The noise, the scales and the
+leans are therefore the cohort's own.
+
+| change | in 0.2 of the cells | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| a whole junction lost: fractional or uncertain | 0% | 7% | 60% | 88% | 58% | 17% | 6% |
+| the same: called nine | 0% | 0% | 7% | 50% | 90% | 97% | 100% |
+| a copy of the first 316 kb: fractional or uncertain | 5% | 20% | 50% | 80% | 52% | 12% | 0% |
+| the same: called as a whole copy | 0% | 0% | 3% | 23% | 68% | 90% | 100% |
+| the first 110 kb lost: fractional or uncertain | 3% | 3% | 20% | 33% | 35% | 20% | 3% |
+| 240–320 kb lost: fractional or uncertain | 3% | 28% | 65% | 80% | 65% | 38% | 15% |
+
+The level itself reads the change at every share: a junction lost in 0.3 of the cells reads 0.31 below ten. The
+call flags it between two fifths and three fifths of the cells. Below that the whole number is called and nothing is
+said, and above it the change is called as a whole copy. No genome was flagged for a change in a tenth of its cells.
+
+*Whom the genomes are.* Fractional or uncertain calls are as common in fathers (17 of 597), mothers (18 of 597) and
+children (16 of 599), in men (34 of 1,597) and women (44 of 1,605), and in the two release batches (60 of 2,501 and
+18 of 698). They do not come with the other signs of a culture that has changed: an X or a Y lost in part of the
+cells, or a chromosome off its dosage, is seen in 2 of 78 of them and in 130 of 3,124 settled genomes (Fisher exact
+p = 0.77).
+
+*What the libraries make of it.* A part of a genome's offset is not the genome's. Spouses share no genes, and their
+offsets go together: r = 0.20 (0.12–0.28, 585 trios), as a child's goes with its father's (0.23) and its mother's
+(0.13). What a family shares here is how its samples were handled. Populations differ in their mean offset by more
+than ancestry accounts for: 11% of the offset's variance lies between the 26 populations and 3% between the
+continental groups, from FIN −0.09, CHS −0.08 and PUR −0.08 to CEU +0.04, BEB +0.06 and MXL +0.06 copies. A level
+judged against the whole cohort's spread carries its group's offset with it, and a genome whose relatives are off
+the same way is more likely a matter of the libraries than of its cells. Of the 29 genomes whose level is off, 18
+have a relative in the cohort, and in 5 a relative lies two SDs or more off the same way. The table marks them.
+
+*The stretches.* Of their ends inside the unit, 6 fall near 100–120 kb and 6 near 280–320 kb. A step of
+fractional height is not passed on as a whole copy is: of the 10 children of a parent that carries one, none has a
+breakpoint within 15 kb of the parent's, at a whole number or at a fraction. A variant of the germ line would be in
+half of them. Before the windows' GC was fitted beside the lean, half of the stretches found came with a profile
+that followed GC, which is richer below 105 kb: a library whose GC response the model left in. With GC in the fit
+those are gone, and the rule is kept for that reason.
+
+*What a fraction is.* The measurement cannot say: a change in part of the cells, a library unlike the cohort's, or a
+copy of the germ line that the panel reads in part. It says where the whole numbers do not hold. What would decide
+is a second culture or a second tissue of the same person, which the assemblies are for three genomes here
+(section 4.2).
+
+### 4.5 Why the fragment-GC model's scale reads 9.78
 
 Nine genomes whose resolved assembly holds ten complete copies (HG00097, HG00438, HG00735, HG01255, HG02155, HG02258,
 HG02280, HG02615, HG03239) read 9.37–9.79 on the fragment-GC model's scale (median 9.65), and 9.58–10.01 once it is
@@ -271,16 +361,17 @@ pinned. The deficit is in the measurement's scale: the assemblies hold the copie
 The 45S unit's scale is pinned by anchor windows chosen on replicate pairs across chemistries. The junction has no
 such windows, so its scale is pinned to the mode of the cohort it is counted in.
 
-### 4.5 Which is more accurate?
+### 4.6 Which is more accurate?
 
 For a genome whose junction assembled cleanly the two agree to the noise of the reads: 0.13 copies on the level, and
 one 5-kb block in ten on the called state. Where the junction did not assemble cleanly, in 9 of 28 genomes, the reads
 are the more coherent reading of the locus, and the profile says which blocks the assembly broke. The reads are
-weakest in three places. Events shorter than about 10 kb at one copy are not called. In the short polymorphic
-intervals a deletion is called in the child of two parents without it in 8–17% of trios, which is the calls' error
-there. And 29 genomes cannot be given a whole number at all.
+weakest in four places. Events shorter than about 10 kb at one copy are not called. In the short polymorphic
+intervals a deletion is called in the child of two parents without it in 8–16% of trios, which is the calls' error
+there. A change in fewer than two fifths of the cells passes as none, though the level reads it. And 29 genomes
+cannot be given a whole number at all.
 
-### 4.6 What the assemblies get wrong, and what the reads show
+### 4.7 What the assemblies get wrong, and what the reads show
 
 The junction sits beside the rDNA array, where long-read assemblies break, and its copies are more than 99%
 identical. The catalogue of copies (`data/dj_hprc_copies.tsv`) and the profiles show:
@@ -311,13 +402,13 @@ identical. The catalogue of copies (`data/dj_hprc_copies.tsv`) and the profiles 
 6. **Inverted segments within copies** appear as mixed strands in the alignments of many complete copies (the unit
    holds palindromes) and are not counted as breaks.
 
-### 4.7 The comparison with Rhie et al. 2026
+### 4.8 The comparison with Rhie et al. 2026
 
 Their eight-copy genomes are the seven at eight throughout here. Their entire losses in HG00621 and HG01891 are
 nine-copy calls, HG01981's partial loss is a loss over 282–376 kb, and the duplications in NA20752, NA20805, HG03654
 and HG00320 are partial copies with the duplicated stretch placed. Their 9 copies in 2.8–3.4% of people are 3.4% at
-nine throughout here. Their 11 or more in 8.4–9.3% compare with 5.9% that carry a whole or partial extra copy here
-and 7.3% whose level is 10.3 or more; the two typings bin the partial copies differently, and the difference is not
+nine throughout here. Their 11 or more in 8.4–9.3% compare with 5.5% of settled calls that carry a whole or partial
+extra copy here and 7.3% of genomes whose level is 10.3 or more; the two typings bin the partial copies differently, and the difference is not
 resolved here. They report parents typed higher than their children (p = 3.7 × 10⁻⁶). On the pinned level here the
 children's median is 10.03 and the parents' 9.99, and the children carry fewer large events than their parents.
 
@@ -325,12 +416,15 @@ children's median is 10.03 and the parents' 9.99, and the children carry fewer l
 
 **In NGS-DOSE (0.2.0, branch `claude/dj-calls`).** Class rules in the bundle (`calibration.json`): the windows left
 out of the level, the pin of the scale to the cohort's mode, the polymorphic intervals and their comb, and the
-chain's parameters. A segmentation module (`ngsdose/segments.py`). New columns in the cohort table and
-`ngsdose cohort --segments`. `--no-class-rules` reads a class as before.
+chain's parameters. A segmentation module (`ngsdose/segments.py`). What the whole numbers leave: the level's
+distance from its whole number, the stretches of fractional height, and a third status for a call, fractional. New
+columns in the cohort table and `ngsdose cohort --segments`. `--no-class-rules` reads a class as before.
 
 **In this repository.** The page's section 3.2 is written on the calls: the states, the partial copies by extent,
 the position-by-position test in the trios, the transmission of the common deletions and of the large events, and the
-assemblies against the calls. The sample table carries the calls, and `data/dj_calls.tsv` every segment. The figure
+assemblies against the calls, and the genomes off the whole numbers with what their relatives read. The sample
+table carries the calls, `data/dj_calls.tsv` every segment and `data/dj_fractional.tsv` the genomes off whole
+numbers. The flags name a junction off its whole numbers as they name an X lost in part of the cells. The figure
 shows the assembly, the profile and the call of every compared genome. `analysis/dj/` holds the direct tests.
 
 ## 6. What remains
@@ -345,8 +439,12 @@ shows the assembly, the profile and the call of every compared genome. `analysis
    them.
 4. **A genome counted alone.** Without a cohort or a saved efficiency table its level rests on the GC model, a few
    percent low, and it has no calls.
-5. **The two release batches.** In 15–23 kb the later release batch reads 0.15 copies lower than the earlier one,
-   in parents as in children. Calibration by batch is a decision for the whole method and is not made here.
+5. **The two release batches, and the handling groups.** In 15–23 kb the later release batch reads 0.15 copies lower
+   than the earlier one, in parents as in children, and a tenth of the level's offset lies between populations that
+   were handled in groups. Calibration by batch is a decision for the whole method and is not made here. It would
+   narrow the spread that a fraction is judged against.
+6. **What a fraction is.** A second culture or a second tissue of a fractional genome would say whether its cells
+   differ. The assemblies are that for three genomes, and a screen of all assembled cohort members would be for more.
 
 ## 7. Data and reproducibility
 
@@ -354,7 +452,8 @@ shows the assembly, the profile and the call of every compared genome. `analysis
 | --- | --- |
 | `meta/dj_hprc/haplotypes.tsv`, `meta/dj_hprc/copies.tsv` | the 56 screens: k-mer medians per 5-kb sub-block, and the alignment catalogue of 300 copies (`pipeline/hprc_dj.py screen`) |
 | `data/dj_hprc.tsv`, `data/dj_hprc_blocks.tsv`, `data/dj_hprc_copies.tsv` | the page's comparison: per genome, per genome and block, and the copies |
-| `data/dj_blocks.tsv`, `data/dj_calls.tsv`, `data/dj_segments.tsv` | every genome's profile in 20-kb blocks with its call; every segment of every call; the cohort's segment map |
+| `data/dj_blocks.tsv`, `data/dj_calls.tsv`, `data/dj_segments.tsv` | every genome's profile in 20-kb blocks with its call; every segment of every call and every stretch of fractional height; the cohort's segment map |
+| `data/dj_fractional.tsv` | the genomes whose call is fractional or uncertain, with their relatives' offsets |
 | `dj_assemblies.png` | the figure (`python -m report.dj_figure`) |
 | `pipeline/07_hprc_dj.sh`, `pipeline/hprc_dj.py` | fetch, screen and align the haplotypes; write the tables |
 | `report/dj.py`, `report/dj_page.py`, `report/dj_figure.py` | the analysis, the page section, the figure |
@@ -369,4 +468,6 @@ at every k-mer it holds verbatim, so a copy diverged by more than a few percent 
 none was seen. The pin assumes that the cohort's mode is ten copies, which holds for a human cohort and would not for
 a set of genomes chosen for their junctions. The chain's parameters were set on this cohort, with the trios and the
 assemblies in view, so the agreement with both is not an out-of-sample test. The comparisons of transmission by the
-parent's sex were made after the counts were seen.
+parent's sex were made after the counts were seen. The thresholds for a fraction (three SDs for the level, four for
+a stretch) were set on this cohort too, and no genome here is known to be a mosaic at the junction: the power was
+measured on changes put into real profiles, and the genomes flagged are candidates.

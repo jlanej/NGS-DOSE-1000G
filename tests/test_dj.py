@@ -70,6 +70,7 @@ def test_group_of():
     g = dj.group_of
     assert g({"DJ.copies": 9, "DJ.partial": "none", "DJ.call": "settled"}) == "carrier" and g({"DJ.copies": 10, "DJ.partial": "+1:0-316kb", "DJ.call": "settled"}) == "partial copy"
     assert g({"DJ.copies": 11, "DJ.partial": "none", "DJ.call": "uncertain"}) == "uncertain" and g({"DJ.copies": 10, "DJ.partial": "none", "DJ.call": "settled"}) == "ten"
+    assert g({"DJ.copies": 10, "DJ.partial": "none", "DJ.call": "fractional"}) == "fractional"
     assert g({"DJ.step": -1.02}) == "carrier" and g({"DJ.step": 0.05}) == "zero" and g({"DJ.step": 0.55}) == "between" and g({"DJ.step": None}) == ""
 
 
@@ -194,6 +195,66 @@ def test_events_that_arose_in_the_lines_would_show_in_the_children():
     assert n["parent"]["n"] == 30 and abs(n["parent"]["mean"]) < 0.05 and abs(n["child"]["mean"]) < 0.05 and n["parent"]["within_0_3"] == 30 == n["child"]["within_0_3"]
 
 
+def _off(sample, sex, cn, copies, off, off_z, call, fractional="none", z="none", **more):
+    return dict(sample=sample, sex_inferred=sex, **{"DJ.cn": cn, "DJ.copies": copies, "DJ.variants": "none", "DJ.partial": "none", "DJ.scale_f": 1.0, "DJ.call": call,
+                                                   "DJ.off": off, "DJ.off_z": off_z, "DJ.fractional": fractional, "DJ.fractional_z": z, "truth.chrX": 1.95, "truth.chrY": 0.98}, **more)
+
+
+def test_a_call_off_its_whole_numbers_is_set_apart_and_flagged():
+    """A fractional call is neither a carrier nor a parent at ten in the families' tallies; the flags say what it is."""
+    from report.report import dj_flags, dj_steps
+    assert dj.parse_fractional("+0.53:106-400kb;-0.45:361-400kb", "+4.2;-4.1") == [(0.53, 106, 400, 4.2), (-0.45, 361, 400, -4.1)]
+    assert dj.parse_fractional("none") == [] and dj.parse_fractional(None, None) == [] and dj.parse_fractional("+1:0-316kb") == [(1.0, 0, 316, None)]
+    assert dj_flags(_off("a", "F", 9.0, 9, -0.01, -0.1, "settled")) == ["DJ 9 copies"] and dj_flags(_off("a", "F", 10.0, 10, 0.0, 0.0, "settled")) == []
+    assert dj_flags(_off("a", "F", 9.58, 10, -0.42, -3.1, "fractional")) == ["DJ level -0.42 from 10 copies (part of the cells?)"]
+    assert dj_flags(_off("a", "F", 10.2, 10, 0.1, 0.7, "fractional", "+0.53:106-400kb", "+4.2")) == ["DJ +0.53:106-400kb (part of the cells?)"]
+    assert dj_flags(_off("a", "F", 8.6, 9, -0.41, -3.4, "fractional")) == ["DJ 9 copies", "DJ level -0.41 from 9 copies (part of the cells?)"]
+    assert dj_flags(_off("a", "F", 9.5, 10, -0.5, -3.7, "uncertain")) == ["DJ 9.50 copies, between whole numbers (part of the cells?)"]
+    ped = {"kid1": dict(father="dad1", mother="mum1"), "kid2": dict(father="dad2", mother="mum2")}
+    rows = [_off("dad1", "M", 9.4, 9, 0.4, 3.3, "fractional"), _off("mum1", "F", 10.0, 10, 0.0, 0.0, "settled"), _off("kid1", "F", 10.0, 10, 0.0, 0.0, "settled"),
+            _off("dad2", "M", 9.0, 9, 0.0, 0.0, "settled"), _off("mum2", "F", 9.6, 10, -0.4, -3.0, "fractional"), _off("kid2", "M", 10.0, 10, 0.0, 0.0, "settled")] \
+        + [_off(f"x{i}", "F", 10.0, 10, 0.0, 0.0, "settled") for i in range(20)]
+    d = dj_steps(rows, ped)
+    assert d["n_settled"] == 24 and d["fractional"] == ["dad1", "mum2"] and d["uncertain"] == []
+    assert d["transmitted"] == 0 and d["not_transmitted"] == 0                 # dad1 is no carrier to count, and mum2 no parent at ten beside dad2
+    assert d["whole"] == {9: 1, 10: 23} and d["mendel"]["n_trios"] == 0
+
+
+def test_the_genomes_off_whole_numbers_are_counted_and_their_relatives_read():
+    rng = np.random.default_rng(2)
+    ped, rows = {}, []
+    for i in range(60):
+        ped[f"kid{i}"] = dict(father=f"dad{i}", mother=f"mum{i}")
+        shared = rng.normal(0, 0.08)                                           # what a family's samples share: how they were handled
+        for who, sex in (("dad", "M"), ("mum", "F"), ("kid", "F")):
+            o = shared + rng.normal(0, 0.1)
+            rows.append(_off(f"{who}{i}", sex, round(10 + o, 2), 10, round(o, 2), round(o / 0.13, 2), "settled", pop=f"P{i % 6}", superpop=f"S{i % 2}", **{"ngspca.batch": "A" if who != "kid" else "B"}))
+    by = {r["sample"]: r for r in rows}
+    by["dad3"].update({"DJ.cn": 9.55, "DJ.off": -0.45, "DJ.off_z": -3.4, "DJ.call": "fractional"})
+    by["mum3"].update({"DJ.cn": 9.7, "DJ.off": -0.3, "DJ.off_z": -2.3})                                    # his wife is off the same way: the libraries, more likely
+    by["kid7"].update({"DJ.cn": 9.5, "DJ.off": -0.5, "DJ.off_z": -3.8, "DJ.call": "uncertain", "truth.chrX": 1.7})
+    by["mum9"].update({"DJ.call": "fractional", "DJ.fractional": "+0.50:110-400kb", "DJ.fractional_z": "+4.4"})
+    by["kid9"].update({"DJ.partial": "+1:112-400kb"})                                                       # her child has the breakpoint, at a whole number
+    by["dad11"].update({"DJ.call": "fractional", "DJ.fractional": "-0.45:0-262kb", "DJ.fractional_z": "-4.2"})
+    eff = dict(DJ=dict(fractions=dict(level_z=3.0, event_z=4.0, min_height=0.25, spread=0.013, spread_from="this cohort", steps=True)))
+    o = dj.off_whole(rows, ped, eff, compared={"mum9": "assembly 10 on the core, resolved"})
+    assert o["n"] == 180 and o["status"] == dict(settled=176, fractional=3, uncertain=1)
+    assert o["level"]["n"] == 1 and o["level"]["below"] == 1 and o["level"]["above"] == 0 and o["level"]["of"] == 179 and 0.3 < o["level"]["by_chance"] < 0.7
+    assert o["level"]["with_relatives"] == 1 and o["level"]["relatives_same_way"] == 1
+    assert o["steps"]["n"] == 2 and o["steps"]["events"] == 2 and o["steps"]["children_looked_at"] == 2 and o["steps"]["children_with_the_breakpoint"] == 1
+    assert {b["kb"] for b in o["steps"]["breakpoints"]} == {120, 260} and o["uncertain_off"] == dict(n=1, beyond=1)
+    assert [g["group"] for g in o["by_role"]] == ["father", "mother", "child", "other"] and [g["fractional"] + g["uncertain"] for g in o["by_role"]] == [2, 1, 1, 0]
+    assert {g["group"]: g["n"] for g in o["by_batch"]} == dict(A=120, B=60) and o["other_signs"]["off"] == 4 and o["other_signs"]["off_with"] == 1
+    assert o["shared"]["n_trios"] == 59 and o["shared"]["spouses_r"] > 0.15 and o["shared"]["slope"] > 0.2                  # the family's share shows between spouses
+    assert o["by_population"]["n"] == 5 and 0 <= o["by_population"]["share"] < 0.2                                            # a population of thirty loses kid7, uncertain, and falls below thirty
+    T = {t_["sample"]: t_ for t_ in o["table"]}
+    assert set(T) == {"dad3", "kid7", "mum9", "dad11"} and T["dad3"]["relatives_off_the_same_way"] == "spouse mum3" and T["dad3"]["role"] == "father"
+    assert "child kid3" in T["dad3"]["relatives"] and "spouse mum3 -0.30" in T["dad3"]["relatives"] and T["kid7"]["relatives"].startswith("father dad7")
+    assert T["mum9"]["assembly"].startswith("assembly 10") and T["mum9"]["fractional"] == "+0.50:110-400kb" and T["mum9"]["relatives_off_the_same_way"] == ""
+    assert [t_["sample"] for t_ in o["table"]][0] == "mum9" and o["table"][0]["rank"] == 4.4                                 # the furthest off first
+    assert dj.off_whole([dict(sample="a")], ped, eff) is None
+
+
 def test_copies_from_a_paf_and_their_classes(tmp_path):
     """A complete copy, a partial copy in tandem with it on one contig, and a copy cut by a contig end."""
     def paf(ctg, clen, q0, t0, t1, ident=0.99):
@@ -260,7 +321,8 @@ def test_the_page_compares_the_pilot_with_synthetic_assemblies(tmp_path):
                     "--as-of", "2026-09-28", "--dj-assemblies", str(asm)], check=True, cwd=ROOT, capture_output=True)
     html = (out / "index.html").read_text()
     for must in ("The junction in profile", "Whole numbers of copies along the unit", "Against the HPRC release-2 assemblies of 2 cohort members", "What the assemblies get wrong",
-                 "What the method does now, and what remains", "too small to pin the scale", 'id="chart-djasm"', "data/dj_hprc.tsv", "data/dj_blocks.tsv", "data/dj_calls.tsv"):
+                 "What the method does now, and what remains", "too small to pin the scale", 'id="chart-djasm"', "data/dj_hprc.tsv", "data/dj_blocks.tsv", "data/dj_calls.tsv",
+                 "Off the whole numbers: a change in part of the cells?", "In a cohort this small no step is looked for", "What a fraction is, and what is not seen"):
         assert must in html, must
     visible = html.split('<script id="report-data"')[0]
     assert "NaN" not in visible and "None" not in visible.replace("None of", "")
@@ -280,8 +342,11 @@ def test_the_page_compares_the_pilot_with_synthetic_assemblies(tmp_path):
     with open(out / "data" / "dj_calls.tsv") as fh:
         C = list(csv.DictReader(fh, delimiter="\t"))
     assert {r["sample"] for r in C} == {r["sample"] for r in P} and all(int(r["start"]) < int(r["end"]) for r in C)
+    assert {r["kind"] for r in C} == {"segment"} and all(r["raw"] and r["call"] in ("settled", "fractional", "uncertain") for r in C)     # twelve genomes: no step is looked for
+    assert all(r["off"] not in ("", "NA") and r["off_z"] not in ("", "NA") and r["fractional"] == "none" for r in P)
     with open(out / "data" / "cohort.tsv") as fh:
         K = {r["sample"]: r for r in csv.DictReader(fh, delimiter="\t")}
-    assert K["HG00733"]["DJ.copies"] == T["HG00733"]["copies"] and "DJ.cn_unit" in K["HG00733"] and "DJ.variants" in K["HG00733"] and K["HG00733"]["DJ.call"] in ("settled", "uncertain")
+    assert K["HG00733"]["DJ.copies"] == T["HG00733"]["copies"] and "DJ.cn_unit" in K["HG00733"] and "DJ.variants" in K["HG00733"] and K["HG00733"]["DJ.call"] in ("settled", "fractional", "uncertain")
+    assert abs(float(K["HG00733"]["DJ.off"]) - (float(K["HG00733"]["DJ.cn"]) - int(K["HG00733"]["DJ.copies"]))) < 0.2 and K["HG00733"]["DJ.fractional"] == "none"
     if (out / "dj_assemblies.png").exists():
         assert (out / "dj_assemblies.png").stat().st_size > 10000 and 'src="dj_assemblies.png"' in html

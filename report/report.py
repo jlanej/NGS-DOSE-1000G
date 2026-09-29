@@ -385,8 +385,7 @@ def flags_for(row: dict, majority_engine: str | None) -> list[str]:
         f.append(f"chrX {x:.2f} with a Y")
     step = row.get("DJ.step")
     if row.get("DJ.copies") not in (None, "", "NA"):
-        if int(row["DJ.copies"]) != 10 and row.get("DJ.call") != "uncertain":
-            f.append(f"DJ {int(row['DJ.copies'])} copies")
+        f += dj_flags(row)
     elif step is not None and abs(step) >= 0.75:
         f.append(f"DJ {step:+.2f} copies")
     # builds of one engine version count alike (NGS-DOSE's CI asserts byte-identical counts across them); only an engine
@@ -454,7 +453,7 @@ def dj_steps(rows, ped, expected: int = 10) -> dict:
     has = lambda r: r.get("DJ.copies") not in (None, "", "NA")
     called = [r for r in rows if has(r)]
     basis = "calls" if called else "level"
-    settled = lambda r: has(r) and r.get("DJ.call") != "uncertain"
+    settled = lambda r: has(r) and r.get("DJ.call") == "settled"           # on its whole numbers: neither uncertain between two nor a fraction off them
     events = lambda r: r.get("DJ.variants") not in (None, "", "none", "NA")
     large = lambda r: any(b - a >= 40 for _, a, b in parse_partial(r.get("DJ.variants")))
     plain = lambda r: settled(r) and int(r["DJ.copies"]) == expected and not large(r)      # ten copies throughout, polymorphic intervals aside
@@ -559,7 +558,8 @@ def dj_steps(rows, ped, expected: int = 10) -> dict:
     if basis == "calls":
         ok = [r for r in called if settled(r)]
         out["n_called"], out["n_settled"] = len(called), len(ok)
-        out["uncertain"] = sorted(r["sample"] for r in called if not settled(r))
+        out["uncertain"] = sorted(r["sample"] for r in called if r.get("DJ.call") == "uncertain")
+        out["fractional"] = sorted(r["sample"] for r in called if r.get("DJ.call") == "fractional")
         out["plain"] = int(sum(1 for r in ok if plain(r)))
         out["whole"] = {int(k): int(sum(1 for r in ok if not large(r) and int(r["DJ.copies"]) == k)) for k in sorted({int(r["DJ.copies"]) for r in ok})}
         out["partial"] = partial_copies(ok, ped, by, plain, expected)
@@ -594,6 +594,26 @@ def new_in_lines(called, ped, by, plain, steps) -> dict:
         rate = share * carrying / len(parents)
         lam = rate * len(both)
         out.update(excess_share=share, rate=rate, expected_new=lam, p_new=float(sum(math.exp(-lam) * lam ** k / math.factorial(k) for k in range(len(new) + 1))))
+    return out
+
+
+def dj_flags(row) -> list[str]:
+    """What a genome's junction call is worth a look for: other copies than ten, and a level or a stretch that sits off
+    the whole numbers, which a change in part of the cells would leave (as a mosaic X does on the X)."""
+    out, copies, call = [], int(row["DJ.copies"]), row.get("DJ.call")
+    level = num(row, "DJ.cn")
+    if call == "uncertain":
+        out.append(f"DJ {level:.2f} copies, between whole numbers (part of the cells?)" if np.isfinite(level) else "DJ between whole numbers")
+        return out
+    if copies != 10:
+        out.append(f"DJ {copies} copies")
+    if call == "fractional":
+        steps = row.get("DJ.fractional")
+        if steps not in (None, "", "none", "NA"):
+            out.append(f"DJ {steps} (part of the cells?)")
+        else:
+            off = num(row, "DJ.off")
+            out.append(f"DJ level {off:+.2f} from {copies} copies (part of the cells?)" if np.isfinite(off) else "DJ level off its whole number")
     return out
 
 
@@ -1555,6 +1575,15 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
     data["hall"] = hall_comparison(rows, a.hall)
     data["replicates"] = replicate_analysis(a.pilot)
     data["ngspca_qc"] = ngspca_qc_comparison(rows, a.qc)
+    if data.get("dj"):
+        # the genomes off whole numbers, once the release batch is known: whom they are found in, and what their relatives read
+        asm = {t_["sample"]: f"assembly {t_['assembly_core']:g} on the core, {'resolved' if t_['resolved'] else 'fragmented'}"
+               for t_ in ((data["dj"].get("assemblies") or {}).get("samples") or [])}
+        data["dj"]["off"] = djmod.off_whole(rows, ped, eff, compared=asm)
+        if data["dj"]["off"]:
+            o = data["dj"]["off"]
+            log(f"[report] DJ off whole numbers: {o['status']}; levels {o['level']['n']} ({o['level']['below']} below, {o['level']['above']} above; {o['level']['by_chance']:.0f} by chance); "
+                f"{o['steps']['n']} genomes with a step of fractional height")
     if data["ngspca_qc"] and data["trios"]["n_complete"]:
         data["trios"]["batches"] = trio_batches(rows, trio_list)
     for r in rows:
@@ -1600,6 +1629,8 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
         write_table(data["rdna"]["assemblies"]["rows"], out / "data" / "rdna_hprc.tsv")
     if data.get("dj"):
         write_table(data["dj"].pop("blocks"), out / "data" / "dj_blocks.tsv")                # every genome's profile in 20-kb blocks, with its call
+        if (data["dj"].get("off") or {}).get("table"):
+            write_table([{k: v for k, v in t_.items() if k != "rank"} for t_ in data["dj"]["off"]["table"]], out / "data" / "dj_fractional.tsv")   # the genomes off whole numbers
         calls_rows = data["dj"].pop("calls")
         if calls_rows:
             write_table(calls_rows, out / "data" / "dj_calls.tsv")                           # every genome's segments and their integer states
@@ -1623,7 +1654,7 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
 
 SAMPLE_COLUMNS = ["sample", "sex", "sex_inferred", "pop", "superpop", "mode_used", "engine", "depth", "insert_median", "ctrl_dup_frac", "rDNA45S.dup_flag_frac",
                   "gc_curve_max_se", "truth.auto", "truth.chrX", "truth.chrY", "chrM.copies", "chrEBV.copies", "rDNA45S.cn", "rDNA45S.cn_single",
-                  "rDNA45S.18S.flat", "rDNA5S.cn", "rDNA5S.cn_single", "DJ.cn", "DJ.cn_single", "DJ.cn_unit", "DJ.copies", "DJ.partial", "DJ.variants", "DJ.scale_f", "DJ.tilt", "DJ.call", "DJ.call_gap",
+                  "rDNA45S.18S.flat", "rDNA5S.cn", "rDNA5S.cn_single", "DJ.cn", "DJ.cn_single", "DJ.cn_unit", "DJ.copies", "DJ.partial", "DJ.variants", "DJ.scale_f", "DJ.tilt", "DJ.call", "DJ.call_gap", "DJ.off", "DJ.off_z", "DJ.fractional", "DJ.fractional_z",
                   "rDNA45S.cn.adj", "rDNA45S.cn.adj_ngspca",
                   "elapsed_sec", "flags", "DJ.step", "gc_rel_65", "rDNA45S.18S.flat_over_cn", "rDNA45S.18S_over_cn", "flat.chrM",
                   "ngspca.MTDNA_CN", "ngspca.chrX", "ngspca.chrY", "ngspca.depth", "ngspca.batch"] + [f"{c}.mass_Mb" for c in SATELLITES] + [f"fetch_ratio.{c}" for c, _ in FETCHABLE] + [f"capture.{c}" for c, _ in FETCHABLE]

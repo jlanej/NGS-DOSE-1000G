@@ -44,10 +44,13 @@ fragment-GC model, the k-mer assignment or the control regions are wrong in a wa
 The distal junction is ten copies of a 400-kb sequence, and the method reads it twice over: as a
 level (9.99 ± 0.33 copies once its scale is pinned to the cohort's mode; the genomes at ten scatter
 with a robust SD of 0.13), and as whole numbers of copies called along the unit for every genome
-([DJ.md](DJ.md); the page's section 3.2). Of 3,202 calls 3,173 are settled. 2,775 genomes hold ten
-copies throughout, 109 nine, 7 eight, 27 eleven, 3 twelve and 1 thirteen; 220 carry a copy that
-holds or lacks an end of the unit, the commonest a copy of the first 316 kb (63 genomes) and one
-of the first 262 kb (49); 29 lie between two whole numbers throughout and are called uncertain.
+([DJ.md](DJ.md); the page's section 3.2). Of 3,202 calls 3,124 are settled. 2,747 genomes hold ten
+copies throughout, 106 nine, 7 eight, 23 eleven, 3 twelve and 1 thirteen; 207 carry a copy that
+holds or lacks an end of the unit, the commonest a copy of the first 316 kb (60 genomes) and one
+of the first 262 kb (45). The level stays a continuous number, so that a change in part of the
+cells can show: 49 calls are fractional (the level three SDs of the cohort's scales from its whole
+number, or a stretch of the unit a fraction of a copy off it) and 29 lie between two whole numbers
+throughout and are uncertain.
 A loss of a whole junction is a structural variant of an acrocentric short arm, and a two-copy
 loss is the signature of a Robertsonian translocation (about one person in a thousand carries
 one). Six of the seven two-copy carriers also read the ACRO1 composites of the acrocentric short
@@ -61,32 +64,33 @@ cohort members, screened copy by copy, all four carriers of a lost junction hold
 (HG01891, HG00621 and HG03521 in a resolved assembly, HG00658 in one whose paternal haplotype is
 fragmented; the two Rhie et al. 2026 name as entire losses are the first two), all 7 partial copies
 of the 19 resolved assemblies are called with the breakpoint within 4 kb, and the called state
-equals the assembly's in 90.6% of the 5-kb blocks of the 18 genomes whose level the assembly shares
-(in HG00673 the reads hold one copy more than the assembly throughout). The other 9 assemblies are
+equals the assembly's in 90.9% of the 5-kb blocks of the 17 of them whose call is settled (HG00673
+and HG02258 are fractional: the reads hold a fraction where the assembly, made from another
+culture of the line, holds a whole number). The other 9 assemblies are
 fragmented at the junction (copies cut by contig ends, fragments assembled twice, the ten copies
 phased 2 + 8), and there the reads are the more coherent reading of the locus. **Trios:** of the
-585 trios whose three calls are settled, 580 have no 5-kb block of the core that the parents'
-states do not allow (99.5% of 34,852 blocks), and a parent explains 94% of the blocks in which a
+556 trios whose three calls are settled, 553 have no 5-kb block of the core that the parents'
+states do not allow (99.6% of 33,151 blocks), and a parent explains 95% of the blocks in which a
 child deviates from ten. One child (HG01517) holds a whole copy more than either parent and one
 (NA18497) a partial copy that neither has. The junction's common deletions, which are in the germ
 line beyond doubt, pass as a germline variant should: where one parent lacks one copy of
-197–217 kb and the other none, 73 of 147 children lack one, and the child's value regressed on the
+197–217 kb and the other none, 67 of 137 children lack one, and the child's value regressed on the
 mean of its parents' has a slope of 0.95 (0.85–1.04) against a reliability of 0.95. The
 measurement passes on what the germ line does.
 
 What the calls do not explain is how often a whole copy is passed on. Where a carrier holds one
-state throughout and the other parent ten, a whole-copy step passes to 15 of 46 children
-(two-sided binomial p = 0.03 against one half). A partial copy, looked for in the child by its
-breakpoint, passes to 33 of 81 (p = 0.12), and the two together to 48 of 127 (p = 0.008). A
-father's loss of a junction passes to 4 of 23 children, a mother's to 10 of 17 (Fisher exact
-p = 0.009, a comparison made after the fact). The readings leave little room: where a step was not
-passed on, the parent's level lies within 0.3 copies of its whole number in 29 of 31 pairs and the
-child's within 0.3 of ten in 29. Nine-copy calls are as common in men as in women (57 and 52).
-Nor did the events arise in culture at a rate the children's lines would show: had the excess
-arisen there, the 443 children of two parents at ten throughout would hold about 14 new events,
-and they hold 2. What remains is a change in a donor's blood that a clonal line makes whole, the
-likelier the older the donor, or a variant passed on less often than chance; neither is tested
-here, and the deficit rests on 23 fathers. **What it rules out:** that multi-copy acrocentric
+state throughout and the other parent ten, a whole-copy step passes to 15 of 44 children
+(two-sided binomial p = 0.05 against one half). A partial copy, looked for in the child by its
+breakpoint, passes to 29 of 70 (p = 0.19), and the two together to 44 of 114 (p = 0.02). A
+father's loss of a junction passes to 4 of 23 children, a mother's to 10 of 16 (Fisher exact
+p = 0.007, a comparison made after the fact). The readings leave little room: where a step was not
+passed on, the parent's level lies within 0.3 copies of its whole number in 28 of 29 pairs and the
+child's within 0.3 of ten in 27, and none of these parents' calls is fractional. Nine-copy calls
+are as common in men as in women (57 and 49). Nor did the events arise in culture at a rate the
+children's lines would show: had the excess arisen there, the 427 children of two parents at ten
+throughout would hold about 12 new events, and they hold 2. What remains is a change in a donor's
+blood that a clonal line makes whole, the likelier the older the donor, or a variant passed on
+less often than chance; neither is tested here, and the deficit rests on 23 fathers. **What it rules out:** that multi-copy acrocentric
 sequence cannot be resolved to a single copy by this path, that the values between whole numbers
 are measurement noise, and that the junction's 2.2% deficit on the fragment-GC model's scale is a
 loss of copies in the cell lines (nine genomes that read 9.37–9.79 on that scale hold ten complete
