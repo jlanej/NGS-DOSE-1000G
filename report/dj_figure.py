@@ -28,11 +28,13 @@ def render(dj: dict, out) -> str:
         blocks.setdefault(b["sample"], {})[b["block_kb"]] = b
     kbs = sorted({b["block_kb"] for b in asm["blocks"]})
     A = np.array([[blocks[s][k]["assembly"] if blocks[s][k]["assembly"] is not None else np.nan for k in kbs] for s in order], float)
-    R = np.array([[blocks[s][k]["reads_pinned"] if blocks[s][k]["reads_pinned"] is not None else np.nan for k in kbs] for s in order], float)
+    R = np.array([[blocks[s][k]["reads"] if blocks[s][k]["reads"] is not None else np.nan for k in kbs] for s in order], float)
+    K = np.array([[blocks[s][k]["call"] if blocks[s][k].get("call") is not None else np.nan for k in kbs] for s in order], float)
+    rows_per = 3 if np.isfinite(K).any() else 2
     seg = dj["segments"]
     n = len(order)
-    fig = plt.figure(figsize=(13, 3.6 + 0.3 * n))
-    gs = fig.add_gridspec(2, 2, height_ratios=[3.0, 0.3 * n], width_ratios=[1.35, 1], hspace=0.32, wspace=0.28)
+    fig = plt.figure(figsize=(13, 3.6 + 0.14 * rows_per * n))
+    gs = fig.add_gridspec(2, 2, height_ratios=[3.0, 0.14 * rows_per * n], width_ratios=[1.35, 1], hspace=0.32, wspace=0.28)
 
     # A: the cohort's segment map
     ax = fig.add_subplot(gs[0, 0])
@@ -81,25 +83,27 @@ def render(dj: dict, out) -> str:
 
     # C: the profiles, assembly and reads side by side
     ax = fig.add_subplot(gs[1, :])
-    M = np.full((2 * n, len(kbs)), np.nan)
-    M[0::2], M[1::2] = A, R
+    M = np.full((rows_per * n, len(kbs)), np.nan)
+    M[0::rows_per], M[1::rows_per] = A, R
+    if rows_per == 3:
+        M[2::3] = K
     norm = TwoSlopeNorm(vmin=7, vcenter=EXPECTED, vmax=13)
     im = ax.imshow(M, aspect="auto", cmap="RdBu_r", norm=norm, interpolation="nearest")
-    ax.set_yticks(np.arange(0, 2 * n, 2) + 0.5)
+    ax.set_yticks(np.arange(0, rows_per * n, rows_per) + (rows_per - 1) / 2)
     ax.set_yticklabels([f"{t['sample']}{'' if t['resolved'] else ' ⚠'}  {t['assembly_mean']:.1f} | {t['reads_mean']:.1f}" for t in samples], fontsize=7.5)
     for i in range(n):
-        ax.axhline(2 * i + 1.5, color="white", lw=1.2)
+        ax.axhline(rows_per * i + rows_per - 0.5, color="white", lw=1.6)
     ax.set_xticks(np.arange(len(kbs))[::2])
     ax.set_xticklabels([f"{k}" for k in kbs[::2]], fontsize=8)
-    ax.set_xlabel("20-kb block of the unit (kb); each genome: assembly (upper row), NGS-DOSE (lower row)")
+    ax.set_xlabel("20-kb block of the unit (kb); each genome: assembly (upper row), NGS-DOSE's profile (middle)" + (", its integer call (lower)" if rows_per == 3 else ""))
     core = set(seg.get("core_kb", []))
     for j, k in enumerate(kbs):
         if k not in core:
             ax.axvspan(j - 0.5, j + 0.5, ymin=0, ymax=1, facecolor="none", edgecolor="#8a4b08", hatch="//", lw=0, alpha=0.25)
     cb = fig.colorbar(im, ax=ax, fraction=0.012, pad=0.01)
     cb.set_label("copies (10 = one per acrocentric short arm)", fontsize=8)
-    ax.set_title("C. Profiles along the unit: HPRC assembly (k-mer block medians, both haplotypes; upper row) against NGS-DOSE (calibrated windows, ten-copy scale; lower row)\n"
-                 "⚠ assembly fragmented at the junction; hatched blocks are the hyper-variable segments left out of the core level", loc="left", fontsize=9.5, fontweight="bold")
+    ax.set_title("C. Along the unit: HPRC assembly (k-mer block medians, both haplotypes), NGS-DOSE's calibrated profile, and the integer states called from it\n"
+                 "⚠ assembly fragmented at the junction; hatched blocks are the segments left out of the level", loc="left", fontsize=9.5, fontweight="bold")
     fig.savefig(out, dpi=140, bbox_inches="tight")
     plt.close(fig)
     return Path(out).name
@@ -111,8 +115,9 @@ def from_files(report_json, data_dir) -> dict:
         rows = list(csv.DictReader(fh, delimiter="\t"))
     for r in rows:
         r["block_kb"] = int(r["block_kb"])
-        r["assembly"] = float(r["assembly"]) if r["assembly"] not in ("", "None") else None
-        r["reads_pinned"] = float(r["reads_pinned"]) if r["reads_pinned"] not in ("", "None") else None
+        r["assembly"] = float(r["assembly"]) if r["assembly"] not in ("", "None", "NA") else None
+        r["reads"] = float(r["reads"]) if r["reads"] not in ("", "None", "NA") else None
+        r["call"] = float(r["call"]) if r.get("call") not in ("", "None", "NA", None) else None
     d["assemblies"]["blocks"] = rows
     return d
 

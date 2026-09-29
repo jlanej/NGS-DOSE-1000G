@@ -384,7 +384,10 @@ def flags_for(row: dict, majority_engine: str | None) -> list[str]:
     if si == "M" and np.isfinite(x) and x > 1.5:
         f.append(f"chrX {x:.2f} with a Y")
     step = row.get("DJ.step")
-    if step is not None and abs(step) >= 0.75:
+    if row.get("DJ.copies") not in (None, "", "NA"):
+        if int(row["DJ.copies"]) != 10 and row.get("DJ.call") != "uncertain":
+            f.append(f"DJ {int(row['DJ.copies'])} copies")
+    elif step is not None and abs(step) >= 0.75:
         f.append(f"DJ {step:+.2f} copies")
     # builds of one engine version count alike (NGS-DOSE's CI asserts byte-identical counts across them); only an engine
     # of another version is worth a look
@@ -425,12 +428,18 @@ def known_truth(rows) -> dict:
     return out
 
 
-def dj_steps(rows, ped) -> dict:
+def dj_steps(rows, ped, expected: int = 10) -> dict:
     """The distal junction has ten copies, one per acrocentric short arm, in nearly everyone; a
     person with a rearranged short arm has nine or eight (a Robertsonian translocation loses two).
-    Copy number relative to the cohort's median is therefore near an integer, and a step, being a
-    structural variant, should be transmitted to half of a carrier's children and appear de novo
-    in none - which the trios can check."""
+    A change of a whole copy, being a structural variant, should be transmitted to half of a carrier's
+    children and appear de novo in none - which the trios can check.
+
+    Where the cohort layer called whole numbers of copies along the unit (`basis` "calls"), a genome's step is
+    the copies it is described against (`DJ.copies`) less `expected`, for the genomes whose call is settled;
+    the copies that hold or lack an end of the unit (`DJ.partial`) are tallied beside it, and both are tested
+    in the trios whose other parent is at `expected` copies throughout. Otherwise (`basis` "level") the step
+    is the level relative to the cohort's median, within 0.3 of a whole number. `DJ.step`, the level less the
+    cohort's median, is written either way."""
     col = "DJ.cn" if any(np.isfinite(num(r, "DJ.cn")) for r in rows) else "DJ.cn_single"
     v = np.array([num(r, col) for r in rows])
     if not np.isfinite(v).any():
@@ -442,66 +451,316 @@ def dj_steps(rows, ped) -> dict:
         by[r["sample"]] = r
     steps = v - med
     fs = steps[np.isfinite(steps)]
-    near = {k: int(np.sum(np.abs(steps - k) < 0.3)) for k in range(min(-2, int(np.round(fs.min()))), max(2, int(np.round(fs.max()))) + 1)}
-    between = int(np.sum(np.isfinite(steps) & (np.abs(steps - np.round(steps)) > 0.35)))
-    main = steps[np.abs(steps) < 0.5]
-    spread = float(1.4826 * np.median(np.abs(main - np.median(main)))) if len(main) > 2 else float("nan")
+    has = lambda r: r.get("DJ.copies") not in (None, "", "NA")
+    called = [r for r in rows if has(r)]
+    basis = "calls" if called else "level"
+    settled = lambda r: has(r) and r.get("DJ.call") != "uncertain"
+    events = lambda r: r.get("DJ.variants") not in (None, "", "none", "NA")
+    large = lambda r: any(b - a >= 40 for _, a, b in parse_partial(r.get("DJ.variants")))
+    plain = lambda r: settled(r) and int(r["DJ.copies"]) == expected and not large(r)      # ten copies throughout, polymorphic intervals aside
+
+    def state(r):
+        """A genome's whole-copy step: by the copies of a settled call, or by its level."""
+        if basis == "calls":
+            return int(r["DJ.copies"]) - expected if settled(r) else None
+        return r.get("DJ.step")
+    if basis == "calls":
+        ok = [r for r in called if settled(r)]
+        sts = np.array([state(r) for r in ok])
+        near = {int(k): int(np.sum(sts == k)) for k in range(min(-2, int(sts.min())), max(2, int(sts.max())) + 1)}
+        partial = [r for r in ok if r.get("DJ.partial") not in (None, "", "none", "NA")]
+        between = len(partial)
+        flat = np.array([r["DJ.step"] for r in ok if plain(r) and r.get("DJ.step") is not None], float)
+        spread = float(1.4826 * np.median(np.abs(flat - np.median(flat)))) if len(flat) > 2 else float("nan")
+        is_carrier = lambda r: state(r) not in (None, 0)
+    else:
+        near = {k: int(np.sum(np.abs(steps - k) < 0.3)) for k in range(min(-2, int(np.round(fs.min()))), max(2, int(np.round(fs.max()))) + 1)}
+        between = int(np.sum(np.isfinite(steps) & (np.abs(steps - np.round(steps)) > 0.35)))
+        main = steps[np.abs(steps) < 0.5]
+        spread = float(1.4826 * np.median(np.abs(main - np.median(main)))) if len(main) > 2 else float("nan")
+        partial = []
+        is_carrier = lambda r: r.get("DJ.step") is not None and abs(r["DJ.step"]) >= 0.75
+    shown = lambda r: None if state(r) is None else (int(state(r)) if basis == "calls" else state(r))
     carriers = []
     for r in rows:
-        st = r.get("DJ.step")
-        if st is None or abs(st) < 0.75:
+        if not is_carrier(r):
             continue
         p = ped.get(r["sample"], {})
         rel = []
         for who in ("father", "mother"):
             o = p.get(who, "0")
-            if o in by and by[o].get("DJ.step") is not None:
-                rel.append(dict(who=who, sample=o, step=by[o]["DJ.step"]))
+            if o in by and state(by[o]) is not None:
+                rel.append(dict(who=who, sample=o, step=shown(by[o])))
         for o, q in ped.items():
-            if o in by and (q.get("father") == r["sample"] or q.get("mother") == r["sample"]) and by[o].get("DJ.step") is not None:
-                rel.append(dict(who="child", sample=o, step=by[o]["DJ.step"]))
-        carriers.append(dict(sample=r["sample"], pop=r.get("pop"), sex=r.get("sex_inferred"), step=st, relatives=rel))
-    # transmission: a carrier parent and a counted child (the other parent need not be counted), classified by the
-    # nearer hypothesis - the child is nearer the parent's step (transmitted) or nearer zero (not transmitted), and within
-    # half a copy of it; a child within half a copy of neither is unclassified. De novo: a child with a step when both
-    # counted parents have none.
+            if o in by and (q.get("father") == r["sample"] or q.get("mother") == r["sample"]) and state(by[o]) is not None:
+                other = q.get("mother") if q.get("father") == r["sample"] else q.get("father")
+                rel.append(dict(who="child", sample=o, step=shown(by[o]), other_plain=bool(other in by and plain(by[other])) if basis == "calls" else None,
+                                child_large=bool(large(by[o])) if basis == "calls" else None))
+        carriers.append(dict(sample=r["sample"], pop=r.get("pop"), sex=r.get("sex_inferred"), step=shown(r), level_step=r.get("DJ.step"),
+                             partial=(r.get("DJ.partial") if basis == "calls" else None), large=bool(large(r)) if basis == "calls" else None, relatives=rel))
+    # transmission. By calls: a carrier whose unit holds one state throughout, a child whose other parent is at ten throughout;
+    # the child has the parent's step (transmitted) or none (not); anything else is unclassified. By level: the nearer
+    # hypothesis, within half a copy (the other parent need not be counted). De novo: a child with a step, both parents without.
     transmitted = not_transmitted = 0
-    unclassified = []
+    unclassified, by_parent = [], {}
+    off = dict(parent=[], child=[])                                   # where a step was not passed on: how far the parent's level lies from its whole number, the child's from the cohort's
     for c in carriers:
         for rel in c["relatives"]:
             if rel["who"] != "child":
                 continue
-            d_step, d_zero = abs(rel["step"] - c["step"]), abs(rel["step"])
-            if d_step < d_zero and d_step < 0.5:
-                transmitted += 1
-            elif d_zero <= d_step and d_zero < 0.5:
-                not_transmitted += 1
+            if basis == "calls":
+                if c["large"] or not rel["other_plain"]:
+                    continue                                          # a carrier with a partial copy besides, or another parent who is not at ten: the pair is not read
+                got = "transmitted" if (rel["step"] == c["step"] and not rel["child_large"]) else ("not" if (rel["step"] == 0 and not rel["child_large"]) else None)
             else:
+                d_step, d_zero = abs(rel["step"] - c["step"]), abs(rel["step"])
+                got = "transmitted" if (d_step < d_zero and d_step < 0.5) else ("not" if (d_zero <= d_step and d_zero < 0.5) else None)
+            if got is None:
                 unclassified.append(dict(parent=c["sample"], parent_step=c["step"], child=rel["sample"], child_step=rel["step"]))
+                continue
+            transmitted += got == "transmitted"
+            not_transmitted += got == "not"
+            if got == "not" and basis == "calls" and c.get("level_step") is not None and by[rel["sample"]].get("DJ.step") is not None:
+                off["parent"].append(c["level_step"] - c["step"])
+                off["child"].append(by[rel["sample"]]["DJ.step"])
+            k = ("father" if c.get("sex") == "M" else "mother" if c.get("sex") == "F" else "parent", "loss" if c["step"] < 0 else "gain")
+            by_parent.setdefault(k, [0, 0])[0 if got == "transmitted" else 1] += 1
     de_novo = []
     for r in rows:
-        st = r.get("DJ.step")
+        st = state(r)
         p = ped.get(r["sample"], {})
         f, m = by.get(p.get("father", "0")), by.get(p.get("mother", "0"))
-        if st is None or f is None or m is None or f.get("DJ.step") is None or m.get("DJ.step") is None:
+        if st is None or f is None or m is None or state(f) is None or state(m) is None:
             continue
-        if abs(st) >= 0.75 and abs(f["DJ.step"]) < 0.5 and abs(m["DJ.step"]) < 0.5:
+        if basis == "calls":
+            if st != 0 and not large(r) and plain(f) and plain(m):
+                de_novo.append(r["sample"])
+        elif abs(st) >= 0.75 and abs(state(f)) < 0.5 and abs(state(m)) < 0.5:
             de_novo.append(r["sample"])
     # the satellite families of the acrocentric short arms, in the carriers, relative to the cohort: a
     # lost arm takes its satellites with it, and the pan-centromeric alpha satellite stays
     arm = ("ACRO", "SST1", "bSat", "HSat3", "CER", "HSat1A", "aSatHOR")
-    ok = [r for r in rows if r.get("DJ.step") is not None and abs(r["DJ.step"]) < 0.3]
+    ref = [r for r in rows if (plain(r) if basis == "calls" else (r.get("DJ.step") is not None and abs(r["DJ.step"]) < 0.3))]
     arm_ref = {}
     for cls in arm:
-        v = np.array([num(r, f"{cls}.mass_Mb") for r in ok])
+        v = np.array([num(r, f"{cls}.mass_Mb") for r in ref])
         if np.isfinite(v).sum() >= 10:
             arm_ref[cls] = dict(median=float(np.nanmedian(v)), sd_rel=float(np.nanstd(v / np.nanmedian(v), ddof=1)))
     for c in carriers:
         r = by[c["sample"]]
         c["arm_content"] = {cls: round(float(num(r, f"{cls}.mass_Mb") / arm_ref[cls]["median"]), 3) for cls in arm_ref if np.isfinite(num(r, f"{cls}.mass_Mb"))}
-    return dict(column=col, median=med, near=near, between=between, spread=spread, carriers=sorted(carriers, key=lambda c: c["step"]),
-                transmitted=transmitted, not_transmitted=not_transmitted, unclassified=len(unclassified), unclassified_pairs=unclassified,
-                n_pairs=transmitted + not_transmitted + len(unclassified), de_novo=de_novo, arm_ref=arm_ref)
+    loss = {k[0]: v for k, v in by_parent.items() if k[1] == "loss"}
+    sexes = fisher_exact(*loss["father"], *loss["mother"]) if {"father", "mother"} <= set(loss) else None
+    out = dict(column=col, basis=basis, expected=expected, median=med, near=near, between=between, spread=spread, carriers=sorted(carriers, key=lambda c: c["step"]),
+               loss_by_sex_p=sexes,
+               transmitted=transmitted, not_transmitted=not_transmitted, unclassified=len(unclassified), unclassified_pairs=unclassified,
+               n_pairs=transmitted + not_transmitted + len(unclassified), de_novo=de_novo, arm_ref=arm_ref,
+               by_parent={f"{k[0]}, {k[1]}": dict(transmitted=v[0], not_transmitted=v[1]) for k, v in sorted(by_parent.items())})
+    if basis == "calls":
+        ok = [r for r in called if settled(r)]
+        out["n_called"], out["n_settled"] = len(called), len(ok)
+        out["uncertain"] = sorted(r["sample"] for r in called if not settled(r))
+        out["plain"] = int(sum(1 for r in ok if plain(r)))
+        out["whole"] = {int(k): int(sum(1 for r in ok if not large(r) and int(r["DJ.copies"]) == k)) for k in sorted({int(r["DJ.copies"]) for r in ok})}
+        out["partial"] = partial_copies(ok, ped, by, plain, expected)
+        out["mendel"] = dj_mendel(ok, ped, by, expected)
+        out["lines"] = new_in_lines(ok, ped, by, plain, out)
+        if len(off["parent"]) > 2:
+            out["not_passed"] = {k: dict(n=len(v), mean=float(np.mean(v)), sd=float(np.std(v, ddof=1)), furthest=float(np.max(np.abs(v))),
+                                         within_0_3=int(np.sum(np.abs(v) <= 0.3))) for k, v in off.items()}
+    return out
+
+
+def new_in_lines(called, ped, by, plain, steps) -> dict:
+    """If the events that carrier parents do not pass on had arisen in their cell lines, the children's lines would hold
+    new ones as often. Among the trios whose three calls are settled: the parents that carry an event of 40 kb or more,
+    the share of their events in excess of what half-transmission leaves (1 - 2 T / N over the pairs read, whole steps
+    and partial copies together), hence a rate per line, the number of new events that rate puts in the children of two
+    parents at ten throughout, and the number seen there (with the Poisson probability of as few)."""
+    ok = {r["sample"] for r in called}
+    trios = [(c, q["father"], q["mother"]) for c, q in ped.items() if c in ok and q.get("father") in ok and q.get("mother") in ok]
+    parents = {x for _, f, m in trios for x in (f, m)}
+    carrying = sum(1 for s in parents if not plain(by[s]))
+    both = [c for c, f, m in trios if plain(by[f]) and plain(by[m])]
+    new = sorted(c for c in both if not plain(by[c]))
+    part = steps.get("partial") or {}
+    T = steps["transmitted"] + part.get("transmitted", 0)
+    N = T + steps["not_transmitted"] + part.get("not_transmitted", 0)
+    out = dict(trios=len(trios), parents=len(parents), parents_carrying=carrying, children_carrying=sum(1 for c, _, _ in trios if not plain(by[c])),
+               both_plain=len(both), new=new, transmitted=T, pairs=N,
+               p_half=float(sum(math.comb(N, k) for k in range(N + 1) if math.comb(N, k) <= math.comb(N, T)) / 2 ** N) if N else None)
+    if N and parents and 2 * T < N:
+        share = 1 - 2 * T / N
+        rate = share * carrying / len(parents)
+        lam = rate * len(both)
+        out.update(excess_share=share, rate=rate, expected_new=lam, p_new=float(sum(math.exp(-lam) * lam ** k / math.factorial(k) for k in range(len(new) + 1))))
+    return out
+
+
+def fisher_exact(a: int, b: int, c: int, d: int) -> float:
+    """Two-sided Fisher exact p of the table [[a, b], [c, d]]: the tables as probable as the one seen, or less."""
+    n, r1, c1 = a + b + c + d, a + b, a + c
+    p = lambda x: math.comb(c1, x) * math.comb(n - c1, r1 - x) / math.comb(n, r1)
+    seen = p(a)
+    return float(min(1.0, sum(p(x) for x in range(max(0, r1 - (n - c1)), min(r1, c1) + 1) if p(x) <= seen * (1 + 1e-9))))
+
+
+def parse_partial(text) -> list[tuple[int, int, int]]:
+    """'+1:0-316kb;-1:123-400kb' -> [(1, 0, 316), (-1, 123, 400)] (count, start kb, end kb)."""
+    out = []
+    for item in str(text or "").split(";"):
+        m = re.fullmatch(r"([+-]\d+):(\d+)-(\d+)kb", item.strip())
+        if m:
+            out.append((int(m.group(1)), int(m.group(2)), int(m.group(3))))
+    return out
+
+
+# a partial copy's ends, by the breakpoints that recur in the cohort (kb); an end within `SNAP` of one takes its name
+RECURRENT = (0, 22, 105, 122, 132, 185, 197, 217, 262, 316, 400)
+SNAP = 9
+
+
+def partial_class(start: int, end: int, count: int = 1) -> str:
+    snap = lambda x: min(RECURRENT, key=lambda b: abs(b - x)) if min(abs(b - x) for b in RECURRENT) <= SNAP else int(round(x / 10.0) * 10)
+    a, b = snap(start), snap(end)
+    a = 0 if a <= 30 else a                                   # a copy that begins at the unit's start, with or without the distal 22 kb
+    return f"{'copy of' if count > 0 else 'loss of'} {a}-{b} kb"
+
+
+# the stretches of the junction that the level leaves out (kb; the class's `level_exclude`): their own deletions are no breakpoints of the core
+DJ_LEFT_OUT = ((0, 30), (128, 137), (155, 170), (190, 232))
+
+
+def dj_breakpoints(r, expected: int, size_kb: int = 5, left_out=DJ_LEFT_OUT) -> list[tuple[float, int]]:
+    """The breakpoints of a genome's called states in the core: (position in kb, the step across it, read from the
+    unit's start). The blocks of the stretches the level leaves out are passed over, so that a deletion inside one is no
+    breakpoint and a change of state across one is placed at its middle. A copy that holds the first 316 kb and a copy
+    that lacks the last 84 kb are one breakpoint, a step down at 316 kb: the description differs, the copy does not."""
+    st = dj_states(r, expected, size_kb)
+    mid = (np.arange(len(st)) + 0.5) * size_kb
+    keep = [i for i in range(len(st)) if not any(a <= mid[i] < b for a, b in left_out)]
+    return [(float((mid[i] + mid[j]) / 2), int(st[j] - st[i])) for i, j in zip(keep[:-1], keep[1:]) if st[j] != st[i]]
+
+
+def partial_copies(called, ped, by, plain, expected: int = 10, tol_kb: int = 12) -> dict:
+    """The copies that hold only an end of the unit, and the copies that lack one: how many genomes carry each kind (by
+    its ends, snapped to the breakpoints that recur), and whether a parent's is found in the child.
+
+    A parent's copy is looked for by its breakpoint, not by its name: two calls of one copy can differ in the ten they
+    are described against and in where an end is rounded to. A pair is read when the parent's call has one breakpoint in
+    the core, the other parent is at `expected` copies with no breakpoint within twice `tol_kb` of it, and the three
+    calls are settled; the child has the copy when its call has a breakpoint within `tol_kb`, stepping the same way.
+    Parents whose call has several breakpoints are counted (`several`) and not read."""
+    kinds, carriers = {}, {}
+    for r in called:
+        for cnt, a, b in parse_partial(r.get("DJ.partial")):
+            k = partial_class(a, b, cnt)
+            kinds.setdefault(k, []).append(r["sample"])
+            carriers.setdefault(r["sample"], set()).add(k)
+    ok = {r["sample"] for r in called}
+    bp = {s: dj_breakpoints(by[s], expected) for s in ok}
+
+    def kind_at(s, q):
+        """The kind of the partial copy whose end inside the unit is the breakpoint at q."""
+        best = None
+        for cnt, a, b in parse_partial(by[s].get("DJ.partial")):
+            inner = b if a <= 30 else a
+            if abs(inner - q) <= tol_kb and (best is None or abs(inner - q) < best[0]):
+                best = (abs(inner - q), partial_class(a, b, cnt))
+        return best[1] if best else None
+    trans, by_parent, passed, several = {}, {}, [0, 0], 0
+    for child, q in ped.items():
+        if child not in ok:
+            continue
+        for who in ("father", "mother"):
+            par, other = q.get(who, "0"), q.get("mother" if who == "father" else "father", "0")
+            if par not in ok or other not in ok or not bp[par] or int(by[other]["DJ.copies"]) != expected:
+                continue
+            if any(abs(x - y) <= 2 * tol_kb for x, _ in bp[other] for y, _ in bp[par]):
+                continue
+            if len(bp[par]) != 1:
+                several += 1
+                continue
+            (at, step), = bp[par]
+            found = any(abs(x - at) <= tol_kb and s * step > 0 for x, s in bp[child])
+            passed[0 if found else 1] += 1
+            by_parent.setdefault(who, [0, 0])[0 if found else 1] += 1
+            k = kind_at(par, at)
+            if k:
+                trans.setdefault(k, dict(transmitted=0, not_transmitted=0))["transmitted" if found else "not_transmitted"] += 1
+    de_novo = sorted(c for c, q in ped.items() if c in carriers and c in ok and q.get("father", "0") in by and q.get("mother", "0") in by
+                     and plain(by[q["father"]]) and plain(by[q["mother"]]))
+    table = [dict(kind=k, n=len(set(v)), **trans.get(k, dict(transmitted=0, not_transmitted=0))) for k, v in sorted(kinds.items(), key=lambda kv: -len(set(kv[1])))]
+    n = passed[0] + passed[1]
+    return dict(n_carriers=len(carriers), n_gain=sum(1 for v in carriers.values() if any(k.startswith("copy") for k in v)),
+                n_loss=sum(1 for v in carriers.values() if any(k.startswith("loss") for k in v)), kinds=table,
+                transmitted=passed[0], not_transmitted=passed[1], several=several, tol_kb=tol_kb,
+                p_half=float(sum(math.comb(n, k) for k in range(n + 1) if math.comb(n, k) <= math.comb(n, passed[0])) / 2 ** n) if n else None,
+                by_parent={k: dict(transmitted=v[0], not_transmitted=v[1]) for k, v in sorted(by_parent.items())}, de_novo=de_novo)
+
+
+def dj_states(r, expected: int, size_kb: int = 5, unit_kb: int = 400) -> np.ndarray:
+    """A genome's called state per block, from its copies and events."""
+    st = np.full(unit_kb // size_kb, int(r["DJ.copies"]))
+    for d, a, b in parse_partial(r.get("DJ.variants")):
+        for k in range(len(st)):
+            lo, hi = k * size_kb, (k + 1) * size_kb
+            if min(hi, b) - max(lo, a) > size_kb / 2:
+                st[k] += d
+    return st
+
+
+def dj_mendel(called, ped, by, expected: int, size_kb: int = 5, edge_kb: int = 10, poly=DJ_LEFT_OUT) -> dict:
+    """Are the called states Mendelian, position by position? A parent whose state at a position is `expected` + d
+    carries d on its two haplotypes between them and passes on one, so a child's deviation is a part of the father's
+    plus a part of the mother's: between 0 and d for each. Blocks within `edge_kb` of a breakpoint of any of the three
+    are left out (a breakpoint is placed to a few kb). Reported for the core and for the polymorphic intervals: the
+    share of blocks consistent, the share of the blocks in which the child deviates that a parent explains, and, where
+    one parent deviates by one and the other not at all, the share passed on (one half is expected)."""
+    ok = {r["sample"]: r for r in called}
+    n = 400 // size_kb
+    mid = (np.arange(n) + 0.5) * size_kb
+    in_poly = np.array([any(a <= x < b for a, b in poly) for x in mid])
+    tot = {k: dict(blocks=0, consistent=0, child_dev=0, child_explained=0, informative=0, passed=0) for k in ("core", "polymorphic")}
+    n_trios = clean = 0
+    worst = []
+    for child, q in ped.items():
+        f, m = q.get("father", "0"), q.get("mother", "0")
+        if not (child in ok and f in ok and m in ok):
+            continue
+        n_trios += 1
+        S = {k: dj_states(ok[k], expected, size_kb) - expected for k in (child, f, m)}
+        edge = np.zeros(n, bool)
+        for k in (child, f, m):
+            for b in np.flatnonzero(np.diff(S[k])):
+                x = (b + 1) * size_kb
+                edge |= np.abs(mid - x) <= edge_kb
+        c, df, dm = S[child], S[f], S[m]
+        lo = np.minimum(df, 0) + np.minimum(dm, 0)
+        hi = np.maximum(df, 0) + np.maximum(dm, 0)
+        cons = (c >= lo) & (c <= hi)
+        bad = 0
+        for name, sel in (("core", ~in_poly & ~edge), ("polymorphic", in_poly & ~edge)):
+            t = tot[name]
+            t["blocks"] += int(sel.sum())
+            t["consistent"] += int((cons & sel).sum())
+            dev = sel & (c != 0)
+            t["child_dev"] += int(dev.sum())
+            t["child_explained"] += int((dev & cons).sum())
+            one = sel & (((np.abs(df) == 1) & (dm == 0)) | ((np.abs(dm) == 1) & (df == 0)))
+            t["informative"] += int(one.sum())
+            t["passed"] += int((one & (c == df + dm)).sum())
+            if name == "core":
+                bad = int((~cons & sel).sum())
+        clean += bad == 0
+        if bad >= 4:
+            worst.append(dict(child=child, father=f, mother=m, blocks=bad))
+    for t in tot.values():
+        t["share"] = t["consistent"] / t["blocks"] if t["blocks"] else None
+        t["explained"] = t["child_explained"] / t["child_dev"] if t["child_dev"] else None
+        t["passed_share"] = t["passed"] / t["informative"] if t["informative"] else None
+    return dict(n_trios=n_trios, clean=clean, size_kb=size_kb, edge_kb=edge_kb, core=tot["core"], polymorphic=tot["polymorphic"],
+                worst=sorted(worst, key=lambda w: -w["blocks"])[:20], n_worst=len(worst))
 
 
 def mode_agreement(S: dict) -> dict:
@@ -771,18 +1030,20 @@ def method_profiles(grab, rows, eff, features) -> dict | None:
                 features=[dict(name=n, start=s, end=t) for n, s, t in (features or {}).get("rDNA45S", [])])
 
 
-def fetch_check(rows, S, est_fetch, res, trio_list, population, sequenced=None) -> dict | None:
+def fetch_check(rows, S, est_fetch, res, trio_list, population, sequenced=None, rules=None) -> dict | None:
     """The same cohort layer and the same trio test on the fetch-mode counts alone, independently of
     the scan: does the targeted fetch give the same estimate for every genome, and does it carry the
     same inherited variation (reliability from fetch beside reliability from scan)? Columns made
     from the same reads in both modes (controls, dosage regions, library properties) come out
-    identical; the classes differ by what the sinks miss and by a calibration learned twice. `est_fetch`: sample -> its
+    identical; the classes differ by what the sinks miss and by a calibration learned twice (with the same class
+    `rules` as the scan's, so that a class's level is the same quantity in both). `est_fetch`: sample -> its
     cached fetch estimate. A column that does not vary in one of the modes has no correlation to compare: it goes to
     `constant` (column, label, n, reason), not into `agreement`."""
     f_samples = sorted(s for s in S if "fetch" in S[s])
     if len(f_samples) < 10:
         return None
-    rows_f, _, _ = cohort.cohort_table((load_result(est_fetch[s]) for s in f_samples), res.anchors(), log=lambda m: None)
+    rows_f, _, _ = (cohort.cohort_table((load_result(est_fetch[s]) for s in f_samples), res.anchors(), log=lambda m: None, rules=rules) if rules
+                    else cohort.cohort_table((load_result(est_fetch[s]) for s in f_samples), res.anchors(), log=lambda m: None))
     for r in rows_f:
         r.update({k: v for k, v in S[r["sample"]]["fetch"].items() if k not in r})
     by_scan = {r["sample"]: r for r in rows}
@@ -1209,10 +1470,12 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
     def stream():
         for p in est_paths:
             r = load_result(p)
-            grab.append(dict(sample=r.get("sample"), gc_rel=r.get("gc_rel"), windows=((r.get("classes") or {}).get("rDNA45S") or {}).get("windows"),
-                             dj=djmod.grab(r)))
+            grab.append(dict(sample=r.get("sample"), gc_rel=r.get("gc_rel"), windows=((r.get("classes") or {}).get("rDNA45S") or {}).get("windows")))
             yield r
-    rows, eff, info = cohort.cohort_table(stream(), res.anchors(), log=log)
+    profiles: dict = {}
+    rules = res.calibration() if hasattr(res, "calibration") else {}
+    rows, eff, info = (cohort.cohort_table(stream(), res.anchors(), log=log, rules=rules, profiles=profiles) if rules
+                       else cohort.cohort_table(stream(), res.anchors(), log=log))
     for r in rows:
         r.update({k: v for k, v in S[r["sample"]][primary].items() if k not in r})
         r["mode_used"] = primary
@@ -1267,7 +1530,7 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
     if trio_list:
         data["trios"]["by_sex"] = transmission_by_sex(rows, trio_list, population, TRIO_COLUMNS)
         data["trios"]["points"] = trio_points(data["trios"].get("values") or [], rows, TRIO_COLUMNS)
-    data["fetch_check"] = fetch_check(rows, S, est.get("fetch", {}), res, trio_list, population, sequenced) if primary == "scan" and n_mode["fetch"] else None
+    data["fetch_check"] = fetch_check(rows, S, est.get("fetch", {}), res, trio_list, population, sequenced, rules=rules) if primary == "scan" and n_mode["fetch"] else None
     data["fetch_paths"] = fetch_paths(S, data["meta"]["sinks"])
     data["ddpcr"] = ddpcr_comparison(rows, a.ddpcr)
     data["pcs"] = pc_analysis(rows, info, trio_list, population, a.pcs, log)
@@ -1282,7 +1545,7 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
     data["satellites"] = satellite_analysis(rows, a.censat)
     unit45 = len(res.units().get("rDNA45S", "")) if a.censat else 0
     data["rdna"]["assemblies"] = rdna_assemblies(rows, a.censat, "rDNA45S.cn" if data["rdna"]["rDNA45S.cn"]["n"] else "rDNA45S.cn_single", unit45)
-    data["dj"] = djmod.run(rows, grab, eff, dj, a.dj_assemblies, log)
+    data["dj"] = djmod.run(rows, profiles.get("DJ"), eff, dj, a.dj_assemblies, log, rules=(rules or {}).get("DJ"), ped=ped)
     if data["dj"] and data["dj"].get("assemblies"):
         try:
             from . import dj_figure
@@ -1336,7 +1599,10 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
     if data["rdna"]["assemblies"]:
         write_table(data["rdna"]["assemblies"]["rows"], out / "data" / "rdna_hprc.tsv")
     if data.get("dj"):
-        write_table(data["dj"].pop("blocks"), out / "data" / "dj_blocks.tsv")                # every genome's profile, on the pinned scale
+        write_table(data["dj"].pop("blocks"), out / "data" / "dj_blocks.tsv")                # every genome's profile in 20-kb blocks, with its call
+        calls_rows = data["dj"].pop("calls")
+        if calls_rows:
+            write_table(calls_rows, out / "data" / "dj_calls.tsv")                           # every genome's segments and their integer states
         sg = data["dj"]["segments"]
         write_table([dict(sub_kb=k, sd=sd, median=m, hypervariable=h) for k, sd, m, h in zip(sg["sub_kb"], sg["sd"], sg["median"], sg["hypervariable"])], out / "data" / "dj_segments.tsv")
         if data["dj"].get("assemblies"):
@@ -1357,7 +1623,8 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
 
 SAMPLE_COLUMNS = ["sample", "sex", "sex_inferred", "pop", "superpop", "mode_used", "engine", "depth", "insert_median", "ctrl_dup_frac", "rDNA45S.dup_flag_frac",
                   "gc_curve_max_se", "truth.auto", "truth.chrX", "truth.chrY", "chrM.copies", "chrEBV.copies", "rDNA45S.cn", "rDNA45S.cn_single",
-                  "rDNA45S.18S.flat", "rDNA5S.cn", "rDNA5S.cn_single", "DJ.cn", "DJ.cn_single", "DJ.cn_core", "rDNA45S.cn.adj", "rDNA45S.cn.adj_ngspca",
+                  "rDNA45S.18S.flat", "rDNA5S.cn", "rDNA5S.cn_single", "DJ.cn", "DJ.cn_single", "DJ.cn_unit", "DJ.copies", "DJ.partial", "DJ.variants", "DJ.scale_f", "DJ.tilt", "DJ.call", "DJ.call_gap",
+                  "rDNA45S.cn.adj", "rDNA45S.cn.adj_ngspca",
                   "elapsed_sec", "flags", "DJ.step", "gc_rel_65", "rDNA45S.18S.flat_over_cn", "rDNA45S.18S_over_cn", "flat.chrM",
                   "ngspca.MTDNA_CN", "ngspca.chrX", "ngspca.chrY", "ngspca.depth", "ngspca.batch"] + [f"{c}.mass_Mb" for c in SATELLITES] + [f"fetch_ratio.{c}" for c, _ in FETCHABLE] + [f"capture.{c}" for c, _ in FETCHABLE]
 

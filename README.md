@@ -17,9 +17,10 @@ what is measured and why, and the evidence that it works, recomputed from the fi
 **[docs/trio_report.pdf](docs/trio_report.pdf)** is the same case as a document, focused on the trios;
 **[docs/EVIDENCE.md](docs/EVIDENCE.md)** is the write-up — each finding with its number, what it rules out,
 and what is not yet shown, on the complete cohort. **[docs/DJ.md](docs/DJ.md)** is the distal-junction study:
-the ten-copy class against the HPRC assemblies of 28 cohort members, copy by copy and block by block; why it
-reads 9.72 rather than 10 (the scale, not the copies); the partial variants behind the values between steps;
-what the assemblies themselves get wrong at the locus; and what follows for the method.
+the ten-copy class read in whole numbers of copies along its 400 kb (NGS-DOSE 0.2.0), held against the HPRC
+assemblies of 28 cohort members and against the 602 trios; why the fragment-GC model's scale reads 9.78 rather
+than 10 (the scale, not the copies); the partial copies behind the values between whole numbers; what is passed
+on to children and what is not; and what the assemblies themselves get wrong at the locus.
 
 | path | what |
 | --- | --- |
@@ -33,7 +34,7 @@ what the assemblies themselves get wrong at the locus; and what follows for the 
 | `hprc_censat/` | HPRC release-2 CenSat annotations of the cohort's members (fetched by `regenerate.sh`) |
 | `assembly_rdna/` | what the HPRC assemblies hold of the rDNA, and NGS-DOSE against assemblies, ddPCR and FISH ([README](assembly_rdna/README.md)) |
 | `review/` | an independent review with its re-analysis of the committed tables |
-| `analysis/dj/` | the direct tests behind `docs/DJ.md` that lie outside the page: fetch capture, exact-k-mer presence against GC, acrocentric dosage, trio consistency of integer calls, the between-step profile classes |
+| `analysis/dj/` | the direct tests behind `docs/DJ.md` that lie outside the page: fetch capture, exact-k-mer presence against GC, acrocentric dosage, the polymorphic intervals' offsets against the assemblies, the transmission of partial copies by the children's profiles, carriers by sex, the intervals by release batch ([README](analysis/dj/README.md)) |
 | `tests/` | the report on the pilot and on a slice of the cohort, the pilot's regression tests, the scripts |
 | `regenerate.sh` | rebuilds `docs/` from the counts |
 

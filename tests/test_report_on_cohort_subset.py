@@ -58,6 +58,8 @@ def test_every_section_is_built_from_real_data(page):
     assert tr.get("by_sex") and tr.get("batches", {}).get("n") == tr["n_complete"]
     fc = d["fetch_check"]
     assert fc["n"] == n and fc["agreement"]["rDNA45S.cn"]["r"] > 0.99 and {t["column"] for t in fc["trios"]["table"]} >= {"rDNA45S.cn", "truth.auto"}
+    # the junction's level is the same quantity in both modes: the class's rules (core, pinned scale) are applied to the fetch's cohort too
+    assert 0.99 < fc["agreement"]["DJ.cn"]["ratio_median"] < 1.01 and fc["agreement"]["DJ.cn"]["r"] > 0.99
     assert "sweep" in d["pcs"] and d["hall"]["n"] >= 3 and d["ngspca_qc"]["n"] == n and d["replicates"]["n"] == 12
     assert d["ddpcr"]["n"] >= 9 and d["ddpcr"]["ngsdose"]["r"] > 0.9
     dn = d["ddpcr"]["ngsdose"]

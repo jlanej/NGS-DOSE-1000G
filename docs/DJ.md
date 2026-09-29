@@ -1,282 +1,372 @@
-# The distal junction: NGS-DOSE against long-read assemblies
+# The distal junction: whole numbers of copies along the unit, held against assemblies and trios
 
-*NGS-DOSE-1000G, 2026-09-28. The distal junction (DJ) is the 400-kb sequence beside every rDNA array on the five
-acrocentric short arms, ten copies in a diploid genome. It is the cohort's ten-copy truth class, and its
-estimate reads 9.72 rather than 10 in most people while 20% of people sit off a whole number. This document
-compares the estimate with the HPRC release-2 assemblies of 28 cohort members, explains where the deviations from
-ten come from, records what the assemblies themselves get wrong at this locus, and says what follows for the method.
-The page ([index.html, section 3.2](index.html#djsteps)) recomputes the assembly comparison from the committed
-tables; the numbers here are the page's, with the direct tests from this analysis added.*
+*NGS-DOSE-1000G, 2026-09-29. The distal junction (DJ) is the 400-kb sequence beside every rDNA array on the five
+acrocentric short arms, ten copies in a diploid genome. It is the cohort's ten-copy truth class. Its estimate used to
+be one number that read 9.7 in most people and sat between whole numbers in one genome in five. This document
+records why, what the method now does about it (NGS-DOSE 0.2.0), and how the result stands against two independent
+truths: the HPRC release-2 assemblies of 28 cohort members and the 602 trios. It also records what the assemblies
+themselves get wrong at this locus. The page ([index.html, section 3.2](index.html#djsteps)) recomputes every number
+here from the committed tables, except the direct tests of `analysis/dj/`, which are named where they are used.*
 
 ## Summary
 
-- **Whole-copy steps are real.** Every carrier of a −1 step with a resolved assembly (HG01891, HG00621, HG00658,
-  HG03521) has nine junction copies in it; the two Rhie et al. name as entire losses are the same two (maternal in
-  HG01891, paternal in HG00621). Gains of +0.85 to +0.87 (HG01786, HG03942) are an extra *partial* copy.
-- **The values between steps are partial variants, and one of them recurs.** Six gain genomes carry the same
-  structure: a partial copy holding the first 316 kb of the unit in tandem with a complete copy, which reads 11 over
-  the first 320 kb and 10 beyond; a whole-unit median puts it at +0.5 to +0.9. Partial losses (HG01981: one copy ends
-  at 277 kb; HG02523 and HG00673: one copy begins at 122 kb) read −0.3 to −0.7 the same way. Across the cohort,
-  breakpoints of half a copy or more fall at 20 kb in 1,410 genomes, at 200 kb in 904 and at 220 kb in 1,018: the
-  distal 22 kb and the 200–215 kb segment are deletion polymorphisms of single copies (19 of 300 assembled copies begin
-  22 kb in; one copy of HG00097 lacks 193–222 kb), and the 0–20 kb block alone reads 9 copies in 24% of genomes and
-  11 in 21%.
-- **The 2.8% deficit is in the scale, not in the copies.** Nine genomes whose resolved assembly holds ten complete
-  copies read 9.32–9.77 on the cohort's scale (median 9.52), and the cohort's core sits at 9.72. The level rests on
-  the fragment-GC model in windows of 40–60% GC; the cohort's window efficiencies fall with GC (−3.4% per 10% GC for
-  the junction, −5.3% for the 45S unit), a residual of the model in repeat context. What was ruled out: the fetch
-  (99.76% of the junction's reads), duplicate flags (counted), nucleotide divergence among the copies (the
-  assemblies' exact-k-mer presence is 0.95 per haplotype but uncorrelated with GC, r = +0.08, while the raw estimate
-  falls with GC, and a read is classified by any four of its k-mers), mosaic loss of an acrocentric (rare: 4 of 600 genomes examined), and the
-  cell line's replication timing (the deficit differs between chemistries: the pilot's older libraries read the
-  junction 2.1% higher than the NYGC libraries of the same people).
-- **Which is more accurate?** For the 19 genomes whose assembly resolves the junction, NGS-DOSE's core level lies
-  −0.08 ± 0.19 copies from the assembly's (mean ± SD; within half a copy in 19 of 19) and 78% of 20-kb blocks round
-  to the same copy number, with 230 of 286 blocks the assembly puts off ten confirmed by the reads. For the other 9
-  genomes the assembly is fragmented at the junction, and the reads are the more coherent reading of the locus. The
-  reads' own noise is 0.14 copies per genome (the mode cluster's SD) and about 0.3 per 20-kb block; two resolved genomes
-  (HG00673, HG02280) disagree with their assembly by 0.35–0.45 copies on the core for reasons neither side settles.
-- **What the assemblies get wrong**, each visible in the reads: junction copies cut by a contig end (29 of 300
-  copies, in 9 of 28 genomes), fragments of one copy assembled twice on small contigs (HG00658), the two haplotypes
-  of a person splitting the ten copies 2 + 8, 3 + 7 or 2 + 7, and a haplotype's whole-unit k-mer median under-reading
-  seven copies (HG01786). One zero-step genome (HG00642) has a fragmented junction the k-mer counts render as 8–9
-  copies over its first 120 kb and 11–12 at 120–160 kb, where the reads are flat at ten.
-- **What follows.** Pin the junction's scale to its core's mode (or to anchor windows chosen on replicate pairs, as
-  the 45S unit's are); set the level on the core (17 of 20 blocks) and report the hyper-variable segments apart; call
-  partial variants by segment with the recurrent breakpoints (22, 200, 220, 316 kb). None of this changes what the
-  junction already shows about the method, that ten copies of a 400-kb acrocentric sequence are resolved to a
-  single copy in every genome; it makes the number honest where the biology is not a whole number.
+- **The junction is read in whole numbers of copies along its length.** Every genome's profile over the unit is
+  read as a chain of whole numbers with its breakpoints. Of 3,202 genomes 3,173 calls are settled: 2,775 hold ten
+  copies throughout, 109 nine, 7 eight, 27 eleven, 3 twelve and 1 thirteen, and 220 carry a copy that holds or lacks
+  an end of the unit. The other 29 lie between two whole numbers throughout and are called uncertain.
+- **Three corrections put the level where the copies are.** The level is set on the core of the unit, without the
+  four stretches where copies differ. Its scale is pinned to the cohort's mode, which the fragment-GC model puts at
+  9.78 copies and the assemblies at ten. The common deletions' windows are put on the cohort's own comb of whole
+  numbers. The level is then 9.99 ± 0.33 copies over the cohort, and the genomes at ten scatter with a robust SD of
+  0.13.
+- **The values between whole numbers are partial copies, and they recur.** A copy of the first 316 kb of the unit is
+  carried by 63 genomes (2.0%), a copy of the first 262 kb by 49 (1.5%), and a copy that lacks the first 122 kb by 19.
+  A whole-unit median reads each as a fraction of a copy; the chain reads eleven copies over 316 kb and ten beyond.
+- **The assemblies agree where they are resolved.** In 19 of 28 genomes the assembly resolves the junction. There
+  the reads' core level lies −0.09 ± 0.20 copies from the assembly's, the called state equals the assembly's in 90.6%
+  of 5-kb blocks, and all 7 partial copies are called with the breakpoint within 4 kb. All four carriers of a lost
+  junction hold nine copies in their assemblies.
+- **The trios agree.** In the 585 trios with three settled calls the parents' states allow the child's in 99.54% of
+  34,852 core blocks, and 580 trios have no block out of place. The common deletions pass to children at the rate a
+  germline variant should: one copy in one parent is found in 73 of 147 children at 197–217 kb.
+- **Whole copies pass to fewer than half of the children, and the reason is open.** A whole-copy step passes to 15
+  of 46 children and a partial copy to 33 of 81, together 48 of 127 (p = 0.008 against one half). The readings
+  leave little room for error, and the events did not arise in culture at a rate the children's lines would show.
+  The deficit rests on a father's loss of a junction, which passes to 4 of 23 children where a mother's passes to
+  10 of 17.
+- **What the assemblies get wrong**, each visible in the reads: copies cut by a contig end (29 of 300 copies, in 9 of
+  28 genomes), fragments of one copy assembled twice, the ten copies phased 2 + 8, and a haplotype's whole-unit
+  k-mer median under-reading seven copies.
 
 ## 1. Why the junction, and what "ten" means
 
 Each acrocentric short arm (13, 14, 15, 21, 22) carries an rDNA array flanked distally by the distal junction, a
 sequence assembled in T2T-CHM13 on all five arms and present nowhere else. The panel is the 169,808 31-mers that
-occur exactly once in each of CHM13's five junctions and nowhere in GRCh38 outside them; a read is assigned to the
-class by any four of its k-mers, and its 5′ end is counted in a 250-bp window of the unit. The estimator predicts
-each window's count from the library's fragment-GC response measured on single-copy control regions, and the cohort
-layer (a median polish over genomes × windows) removes each window's shared efficiency and sets the scale on anchor
-windows of 40–60% GC. The result is one number per genome, `DJ.cn`, expected to be 10.
+occur exactly once in each of CHM13's five junctions and nowhere in GRCh38 outside them. A read is assigned to the
+class by any four of its k-mers, and its 5′ end is counted in a 250-bp window of the unit (1,182 of the 1,600 windows
+hold panel k-mers). The estimator predicts each window's count from the library's fragment-GC response measured on
+single-copy control regions, and the cohort layer (a median polish over genomes × windows) removes each window's
+shared efficiency.
 
 Rhie et al. 2026 (bioRxiv, DJCounter) typed the same 3,202 genomes from the multiplicity of once-per-copy DJ 31-mers
 against each library's two-copy k-mer peak, binned to integers with a Gaussian mixture, and examined the atypical
 genomes in the HPRC release-2 assemblies. They report 9 copies in 2.8–3.4% of people and 11 or more in 8.4–9.3%, seven
 genomes at 8 (one, HG01204, a G-banded Robertsonian carrier), and in the assemblies partial duplications for most of
-the gains and, for the losses, three of six assembled cleanly. Their frequencies and ours agree once their integer
-bins are read against our continuous values: at or below −0.7 of the level, 3.9% of the cohort here; at or above +0.3,
-8.5%; and they added a mixture component between 10 and 11 for the partial duplications this document describes.
+the gains and, for the losses, three of six assembled cleanly. Section 4.7 holds the two studies together.
 
-## 2. What was compared
+## 2. How the junction is read
 
-**Genomes.** 28 cohort members with an HPRC release-2 assembly, chosen to cover the whole-copy steps (7), the values
-between steps (13), the mode (7) and HG00097 as a first test: 56 haplotypes (hap1/hap2 for Hi-C-phased lines, mat/pat
-for trio children).
+The rules below are the class's own, in the bundle's `calibration.json` (`ngsdose` 0.2.0; NGS-DOSE `docs/DESIGN.md`,
+section 7). A class without rules is read as before.
 
-**The assembly's reading.** Each haplotype FASTA (~900 MB) was screened for the panel's k-mers with
-`ngs-dose panel --report`, which counts every k-mer of the unit in the assembly: a complete junction copy contributes
-one, so five complete copies read 5 at every k-mer, a copy lacking a segment reads 4 across it, and a nucleotide
-difference in one copy lowers single k-mers only. The median over the k-mers of a 5-kb sub-block is the haplotype's
-copies there; the sum over the two haplotypes is the genome's. Independently, each assembly was aligned (minimap2,
-asm20) to the unit with everything outside a panel k-mer masked to N, so that the repeat elements the unit shares
-with the rest of the genome seed nothing and each junction copy appears as a run of alignments on one contig; every
-copy's extent, contig and distance from the contig's ends are in `data/dj_hprc_copies.tsv`, classed as complete (231),
-complete with internal gaps (8), distal-start (19: the copies that begin 22 kb in), truncated at a contig end (29)
-or partial with an internal breakpoint (13). An assembly counts as *resolved* at the junction when no copy is cut by a
-contig end inside the unit and at most one copy is partial: 19 of 28.
+**The profile.** Within a genome the calibrated window estimates read the same copy number in every window that a
+junction copy holds whole. A copy that lacks part of the unit lowers the windows it lacks, and an extra partial copy
+raises the windows it holds. Across the cohort the SD of the calibrated estimate per 5-kb sub-block has a floor of
+0.48 copies, which is counting noise, and rises far above it over 0–20 kb, 160–165 kb and 200–215 kb, where copies
+differ between people.
 
-**The reads' reading.** The same cohort-calibrated window estimates, `C_w / exp(a_w)`, in the same 20-kb blocks;
-their median over the unit is the page's `DJ.cn`. Because the cohort's scale reads 9.72 for ten copies (section 3.3),
-the profiles are shown on the *ten-copy scale*, multiplied by 10 / 9.721 = 1.0287, the factor that puts the cohort's
-core level at ten. The *core* is the unit without the segments that vary between people (0–20, 160–165 and 200–215 kb,
-found from the cohort's own profiles: the sub-blocks whose cohort SD exceeds 1.4 times the median sub-block's).
+**The core.** The level is the median over the windows outside 0–30 kb, 128–137 kb, 155–170 kb and 190–232 kb: 925
+windows, 12 of the 20 blocks of 20 kb in full. A copy that lacks the distal 22 kb does not move it. The level over
+the whole unit is kept beside it as `DJ.cn_unit`.
 
-**Reproducing it.** `pipeline/07_hprc_dj.sh` fetches, screens and aligns each haplotype (about four minutes each on a
-laptop, dominated by the download) and `python3 pipeline/hprc_dj.py screen DIR -o meta/dj_hprc` writes the two
-committed tables (`haplotypes.tsv`: the k-mer medians per sub-block; `copies.tsv`: the alignment catalogue). The page
-reads them with `--dj-assemblies meta/dj_hprc` and writes `data/dj_hprc.tsv` (per genome), `data/dj_hprc_blocks.tsv`
-(per genome and block), `data/dj_hprc_copies.tsv`, `data/dj_blocks.tsv` (every cohort genome's profile on the ten-copy
-scale, with its core level) and `data/dj_segments.tsv` (the segment map), and draws `dj_assemblies.png`. The direct
-tests of section 3.3 that lie outside the page are in `analysis/dj/`.
+**The scale.** On the scale the fragment-GC model sets in the anchor windows (40–60% GC), the core of the cohort's
+main mode reads 9.78 copies (2,920 genomes). The junction is ten copies in nearly everyone and the assemblies
+confirm it (section 4.4), so every estimate is multiplied by 1.0221. A cohort of fewer than fifty genomes is not
+pinned, and a saved efficiency table carries the pin to genomes counted later.
 
-## 3. Findings
+**The polymorphic intervals.** Where a deletion is common the cohort's median genome lacks part of a copy, and a
+median over genomes gives the interval's windows an efficiency that is too low. Every genome then reads the interval
+too high by one factor, and its comb of whole numbers sits half a copy off. The cohort's own comb gives the factor,
+with the reference state (every copy holding the interval) the highest that many genomes share:
 
-### 3.1 Whole-copy steps are real, uniform along the unit, and inherited
+| interval | factor | every copy holds it | one lacks it | two lack it | three or more | one or more extra |
+| --- | --- | --- | --- | --- | --- | --- |
+| 5–15 kb | ×1.075 | 35% | 32% | 18% | 7% | 8% |
+| 15–23 kb | ×1.028 | 65% | 27% | 4% | 0.4% | 4% |
+| 197–217 kb | ×1.046 | 59% | 30% | 9% | 1.5% | 0.5% |
 
-| genome | NGS-DOSE (step) | assembly, haplotypes | assembly core | note |
-| --- | --- | --- | --- | --- |
-| HG01891 | 8.62 (−1.10) | mat 4 + pat 5 | 9 | four complete copies on four maternal contigs; Rhie: DJ lost entirely (maternal) |
-| HG00621 | 8.76 (−0.96) | mat 5 + pat 4 | 9 | Rhie: DJ lost entirely (paternal); a second copy lacks 240–300 kb, and the reads read 7.9–8.3 there |
-| HG00658 | 8.69 (−1.03) | mat 5 + pat 4 | 9 | paternal haplotype fragmented; the reads flat at 9 |
-| HG03521 | 8.89 (−0.83) | hap1 2 + hap2 7 | 9 | nine copies phased 2 + 7 |
+The shares are of the 2,755 genomes whose level lies within a quarter of a copy of a whole number, the ones the comb
+is fitted on. The resolved assemblies give the same factors to 0.02 in the logarithm
+(`analysis/dj/polymorphic_offsets.py`: +0.084, +0.034 and +0.062 against the cohort's +0.073, +0.028 and +0.045).
 
-The steps are flat along the unit: a lost junction lowers every block by one. The trios say the same. With integer
-states called on the ten-copy scale (members within 0.3 of an integer; `analysis/dj/trio_integers.py`), every fully
-called trio is Mendelian-consistent: 468 of 468 on the whole-unit level, 477 of 477 on the core, which calls nine
-more trios because the polymorphic segments no longer pull members off an integer. Single-carrier parents transmitted
-their step to 21 of 60 children (35%; fathers' losses 5 of 23, fathers' gains 5 of 14, mothers' losses 8 of 16,
-mothers' gains 3 of 7), the deficit against one half the page also reports (27 of 72 by its own pairing). A parent
-whose step arose in the cell line rather than the germ line would explain part of it.
+**The chain of whole numbers** (`ngsdose.segments`). A window in state *k* is expected at *k* copies times the
+genome's own scale. An event, with its two changes of state, costs as much as 27 windows a copy off, and the most
+probable chain is found for each scale of a grid. A prior on the scale (SD 1.5%, the level's SD among the genomes at
+ten) keeps it from explaining a copy away. One copy over about 10 kb, or two over 4 kb, can be found. The genomes'
+window noise is 0.65 copies per 250 bp.
 
-### 3.2 The values between steps are partial variants
+**The lean.** Some genomes' profiles rise or fall smoothly along the unit: robustly an SD of 1.5% across it, more
+than 5% in 5.6% of genomes and more than 8% in 1.1%. The lean goes weakly with the release batch (more than 5% in
+5.1% of the earlier batch's genomes and 7.4% of the later's) and with the library's GC response (|r| at most 0.08),
+and not with depth (r = −0.02). None of them accounts for it. A chain of whole numbers would break a lean into a
+step, so it is a parameter of the chain, like the scale (prior SD 3%). A smooth rise costs less as a lean than as a
+change of state, and a step, which a lean fits badly on both sides, stays a step.
 
-On the whole unit 8.8% of genomes lie more than 0.3 copies from an integer. Their profiles are structured, not
-flat: of the 254 genomes more than 0.3 from an integer on the core, 210 have a run of blocks at one integer and the
-rest at another, 29 are shifted as a whole and 15 are noisy (`analysis/dj/between_profiles.py`; 221, 27 and 9 of the
-257 first selected on the whole unit). The assemblies show what the runs are.
+**The description.** A genome is described against ten copies where it holds ten over 40 kb or more of the core,
+otherwise against the state that holds most of it. A gain that reaches an end of the unit is a *partial copy*, a loss
+that does is a *partial loss* (a copy that lacks that end), and anything else is a local gain or loss. A genome whose
+level lies between two whole numbers throughout has two readings, and the call says how far behind the second is:
+below three log units it is *uncertain*.
+
+**What is written.** The sample table carries `DJ.cn` (the level on the core, pinned), `DJ.cn_unit`, `DJ.copies`,
+`DJ.partial`, `DJ.variants`, `DJ.scale_f`, `DJ.tilt`, `DJ.call` and `DJ.call_gap`. Every segment of every genome is in
+`data/dj_calls.tsv`, and every genome's profile in 20-kb blocks in `data/dj_blocks.tsv`.
+
+## 3. What the calls were held against
+
+**Assemblies.** 28 cohort members with an HPRC release-2 assembly, chosen to cover the whole-copy steps, the values
+between steps and the mode: 56 haplotypes (hap1/hap2 for Hi-C-phased lines, mat/pat for trio children). Each
+haplotype FASTA was screened for the panel's k-mers with `ngs-dose panel --report`, which counts every k-mer of the
+unit in the assembly. A complete junction copy contributes one, so five complete copies read 5 at every k-mer, a copy
+lacking a segment reads 4 across it, and a nucleotide difference in one copy lowers single k-mers only. The median
+over the k-mers of a 5-kb sub-block is the haplotype's copies there, and the sum over the two haplotypes is the
+genome's. Independently, each assembly was aligned (minimap2, asm20) to the unit with everything outside a panel
+k-mer masked to N, so that each junction copy appears as a run of alignments on one contig. The 300 copies found are
+classed as complete (231), complete with internal gaps (8), distal-start (19: the copies that begin 22 kb in),
+truncated at a contig end (29) or partial with an internal breakpoint (13). An assembly counts as *resolved* at the
+junction when no copy is cut by a contig end inside the unit and at most one copy is partial: 19 of 28.
+
+**Trios.** The 602 trios of the cohort; 585 have three settled calls. The test is made position by position: a
+parent whose state at a position is ten plus *d* carries *d* on its two haplotypes between them and passes on one, so
+a child's deviation must be a part of its father's plus a part of its mother's.
+
+**Reproducing it.** `pipeline/07_hprc_dj.sh` fetches, screens and aligns each haplotype (about four minutes each on
+a laptop, most of it the download) and `python3 pipeline/hprc_dj.py screen DIR -o meta/dj_hprc` writes the two
+committed tables. `regenerate.sh` reads them with `--dj-assemblies meta/dj_hprc`.
+
+## 4. Findings
+
+### 4.1 The cohort in whole numbers
+
+| state | genomes | |
+| --- | --- | --- |
+| eight copies throughout | 7 | six of them read the ACRO1 composites of the acrocentric short arms at 0.75–0.84 of the cohort's median: the arms are missing, as in a Robertsonian translocation |
+| nine throughout | 109 | 3.4% of settled calls |
+| ten throughout | 2,775 | 87.5% |
+| eleven, twelve, thirteen throughout | 27, 3, 1 | |
+| a copy that holds or lacks an end of the unit | 220 | 146 with a partial copy, 75 with a partial loss |
+| uncertain | 29 | the level between two whole numbers throughout |
+
+The breakpoints recur. In the core they fall most often at 315 kb (68 genomes), 260 kb (51), 120 kb (17) and 390 kb
+(17), and the copies that hold or lack an end are, by their extent:
+
+| partial copy or loss | genomes | of the cohort | passed on (section 4.3) |
+| --- | --- | --- | --- |
+| copy of 0–316 kb | 63 | 2.0% | 8 of 17 |
+| copy of 0–262 kb | 49 | 1.5% | 8 of 21 |
+| loss of 0–122 kb | 19 | 0.6% | 2 of 6 |
+| copy of 217–300 kb | 9 | 0.3% | |
+| copy of 300–400 kb | 9 | 0.3% | |
+| loss of 0–80 kb | 9 | 0.3% | 0 of 1 |
+| loss of 0–60 kb | 8 | 0.2% | 0 of 2 |
+| loss of 290–400 kb | 6 | 0.2% | 0 of 2 |
+
+Of the 309 genomes whose core level lies more than 0.3 copies from a whole number, the calls make 118 a genome with
+a copy that holds or lacks an end, 119 a ten-copy genome whose scale is a few percent off, 35 a ten-copy genome with
+a lean of more than 5%, 19 uncertain, 11 another whole number throughout and 7 another event of 40 kb or more
+(`analysis/dj/between_profiles.py`).
+
+### 4.2 Against the assemblies
+
+| measure | value |
+| --- | --- |
+| core level, reads less assembly, 19 resolved genomes | −0.09 ± 0.20 copies (mean ± SD); within half a copy in 19 of 19 |
+| the same over all 28 | −0.09 ± 0.24; within half a copy in 26 of 28 |
+| 20-kb blocks that round to the same copy number | 80% of 560 |
+| blocks the assembly puts off ten that the reads confirm | 237 of 286 |
+| blocks the assembly puts at ten that the reads put half a copy or more away | 31 of 274 |
+| called state equal to the assembly's, 5-kb blocks, 18 resolved genomes that share the assembly's level | 90.6% of 1,404 |
+| the same in the 9 fragmented assemblies | 61% of 702 |
+| partial copies of the resolved assemblies that are called | 7 of 7, the breakpoint within 4 kb in each |
+| partial copies of all 28 assemblies that are called | 10 of 13 |
+
+*The whole-copy losses.* HG01891, HG00621 and HG03521 hold nine copies in a resolved assembly, and HG00658 holds
+nine in an assembly whose paternal haplotype is fragmented. The reads call nine throughout in all four. The two that
+Rhie et al. name as entire losses are the same two here (maternal in HG01891, paternal in HG00621).
 
 *The recurrent gain.* In HG00146, HG00232, HG01786, HG03942, NA20752 and NA20805 the assembly holds, on one contig, a
-partial copy spanning exactly the first 316 kb of the unit followed by a complete copy. The reads read 11 over blocks
-0–320 kb and 10 over 320–400 kb in all six; their whole-unit values are +0.52 to +0.87. HG03654's partial copy spans
-3–287 kb (Rhie: a smaller portion of the flank), and reads 11 over 20–280 kb. HG00320's spans 187–400 kb (Rhie: one arm
-of the palindrome, flank intact to the rDNA) and reads 10 over 0–180 kb, 11 beyond. These are the "11 copies" of an
-integer typing; they are duplications of most of a junction, and their frequency (6 of 8 of Rhie's assembled gains
-share the structure) makes the 316-kb breakpoint a feature of the locus.
+partial copy spanning the first 316 kb of the unit followed by a complete copy. The calls read eleven copies up to
+313–316 kb and ten beyond in all six. HG03654's partial copy spans 3–287 kb and is called over 22–291 kb. HG00320's
+spans 187–400 kb and is called over 185–400 kb.
 
-*Partial losses.* HG01981's maternal copy ends at 277 kb on a chromosome-scale contig, and its paternal copy at
-328 kb at a contig's end; the reads read 10 over 0–280 kb and 8.4–9.1 beyond (−0.49 on the whole unit; Rhie: 9.1–9.4,
-a partial loss of the flank). HG02523 has one maternal copy beginning at 122 kb; its reads read 9 over 0–120 kb.
-HG00673 has a paternal copy beginning at 122 kb *and* one junction fewer; its reads read 8.6–9.1 over 0–120 kb and
-9.3–9.6 beyond.
+*Partial losses.* HG00673 and HG02523 each hold a copy that begins at 122 kb, and the calls read one copy fewer over
+0–121 kb and 0–123 kb. HG01981's maternal copy ends at 277 kb; the call reads one copy fewer over 282–376 kb and ten
+again beyond, so it is listed as a local loss and not as a partial loss. Of the three partial copies that are not
+called, two are in HG00642, whose two copies are in pieces at contig ends, and the third is HG01981's.
 
-*The polymorphic segments.* Across the 3,202 profiles the cohort SD per 5-kb sub-block is 0.47 copies where only
-counting noise acts and 0.8–1.3 over 0–20 kb, 0.76 at 160–165 kb and 0.9–1.0 over 200–215 kb. The first is the
-distal 22 kb: 19 of the 300 assembled copies begin at 22–23 kb, in 12 of the 28 genomes, so the block reads 9 copies
-in 24% of the cohort, 11 in 21%, 8 in 6% and 12 in 4%. The second is a deletion of 193–222 kb seen in one copy of
-HG00097 and in one or more copies of HG01891, HG03521, NA20752 and NA20805 among others: the block reads 9 in 20% and 11 in 17%. These segments
-contribute little to a whole-unit median (5% of the unit each) but everything to the block-level noise, and they are
-left out of the core.
+*Where the two disagree on the level.* HG00673 reads one copy more than its resolved assembly throughout (ten with a
+partial loss, against nine with one). Its level is 9.49 on the core, and the call takes its scale to be 4.5% low.
+HG02280 reads 9.58 where its assembly holds ten, and is called ten. Neither has a chromosome flagged in the control
+regions. A copy the assembly does not hold, a junction changed in part of the cell line (the assembly's DNA and the
+reads' DNA are different cultures), and a genome whose level the model misplaces are all possible.
 
-### 3.3 The level is 2.8% low, and the assemblies place the deficit in the scale
+### 4.3 In the trios: what is consistent, and what is passed on
+
+*Consistency.* In the 585 trios with three settled calls, leaving out the blocks within 10 kb of a breakpoint of any
+of the three, the parents' states allow the child's in 99.54% of 34,852 core blocks and in 98.5% of 5,640 blocks of
+the polymorphic intervals. 580 trios have no core block out of place. Of the blocks in which a child deviates from
+ten, a parent explains 93.8% in the core. HG01517 holds a whole copy more than either parent, and NA18497 a partial
+copy (56–400 kb) that neither has.
+
+*The common deletions pass as a germline variant should.* These deletions are old and common, in the germ line
+beyond doubt, so they test the measurement: a method that lost or invented copies would pass them to fewer than half
+of a carrier's children. Three readings were made (the table is the page's; `report/dj.py`, `inheritance`). Without
+a call, the child's value in the interval is regressed on the mean of its parents', and under Mendel the slope equals
+the value's reliability. By the values, a genome within 0.3 of a whole number is given it. By the calls, a genome has
+the called state in the middle of the interval less the state beside it.
+
+| interval | windows | slope of child on midparent (95%) | reliability | one copy passed on, by the values | by the calls | called in the child of two parents without it | child less the mean of its parents |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 5–15 kb | 39 | 0.94 (0.86–1.02) | 0.98 | 22 of 45 | 57 of 123 | 20 of 121 | −0.12 ± 0.03 |
+| 15–23 kb | 28 | 0.81 (0.68–0.95) | 0.89 | 35 of 72 | 67 of 149 | 27 of 320 | −0.11 ± 0.02 |
+| 197–217 kb | 49 | 0.95 (0.85–1.04) | 0.95 | 62 of 110 | 73 of 147 | 23 of 249 | −0.03 ± 0.02 |
+
+Over the three intervals one copy passes to 119 of 227 children by the values and to 197 of 419 by the calls, and
+each slope's interval holds its reliability. The measurement passes on what the germ line does. Two things qualify the
+calls in these short intervals. A deletion is called in 8–17% of the children of two parents without it, which is the
+calls' error where an event is near the limit of what the chain can find. And in the two distal intervals the
+children read 0.11–0.12 copies lower than the mean of their parents, which Mendel does not allow. Most children were
+sequenced in the later release batch, and in 15–23 kb the parents of that batch read lower by the same amount
+(`analysis/dj/intervals_by_batch.py`), so there the difference is the libraries'.
+
+*Whole copies and partial copies pass to fewer than half.* Where a carrier holds one state throughout and the other
+parent ten, a whole-copy step passes to 15 of 46 children (two-sided binomial p = 0.03 against one half). A partial
+copy is looked for in the child by its breakpoint and not by its name, because a copy that holds the first 316 kb
+and a copy that lacks the last 84 kb are the same step down at 316 kb, described against different tens. Where a
+parent's call has one breakpoint in the core and the other parent is at ten with none near it, the child's call has
+the breakpoint in 33 of 81 pairs (p = 0.12). Together that is 48 of 127 (p = 0.008). Four things were tested.
+
+| question | test | result |
+| --- | --- | --- |
+| are the carriers' or the children's readings in doubt? | the level of each, where a whole-copy step was not passed on | the parent's level lies within 0.3 copies of its whole number in 29 of 31 pairs (−0.07 ± 0.15) and the child's within 0.3 of ten in 29 (0.00 ± 0.14); the two parents further off are fathers called at eleven |
+| did the calls miss the child's copy? | the child's profile across the parent's breakpoint (`analysis/dj/partial_transmission.py`) | the children whose call lacks the breakpoint step by +0.02 copies there (median), those whose call has it by +0.96; by the profile 28 of 65 pairs are passed on, by the calls 27 |
+| is it a property of reading a man's genome? | nine-copy calls by sex (`analysis/dj/carriers_by_sex.py`) | 57 of 1,587 men and 52 of 1,586 women are at nine throughout, and the level of the genomes at ten is 9.990 and 9.993; a father's loss passes to 2 of 8 sons and 2 of 14 daughters |
+| did the events arise in the cell lines? | new events in the children of two parents at ten throughout | 147 of 1,160 parents carry an event; had the excess over half-transmission arisen in culture, the 443 such children would hold about 14 new ones; they hold 2 |
+
+By the parent, a father's loss of a junction passes to 4 of 23 children and a mother's to 10 of 17 (Fisher exact
+p = 0.009, a comparison made after the fact). A father's gain passes to 0 of 4 and a mother's to 1 of 2. A partial
+copy passes from a father in 21 of 49 pairs and from a mother in 12 of 32. Children carry fewer of these events than
+their parents: 62 of 585 against 147 of 1,160.
+
+What remains is a difference between the generations or in the germ line. A change in a donor's blood that a clonal
+cell line makes whole would be commoner in older donors, and would be passed on by no one. A variant that is passed
+on less often than chance would show the same counts. Neither is tested here. The partial copies alone are within
+chance of one half, and the deficit rests on the whole-copy steps, a father's losses most of all: 23 pairs.
+
+### 4.4 Why the fragment-GC model's scale reads 9.78
 
 Nine genomes whose resolved assembly holds ten complete copies (HG00097, HG00438, HG00735, HG01255, HG02155, HG02258,
-HG02280, HG02615, HG03239) read 9.32–9.77 on the cohort's scale (median 9.52; three of them were chosen for reading
-between steps, which their partial variants outside the core explain). The cohort's core level has its median at 9.721
-and its mode there. So the junction's deficit against ten is in the measurement's scale: the assemblies hold the
-copies the reads do not fully count.
-
-The scale is set by the fragment-GC model in the anchor windows (40–60% GC). Direct tests of where the residual comes
-from (`analysis/dj/`):
+HG02280, HG02615, HG03239) read 9.37–9.79 on the fragment-GC model's scale (median 9.65), and 9.58–10.01 once it is
+pinned. The deficit is in the measurement's scale: the assemblies hold the copies the reads do not fully count.
 
 | hypothesis | test | result |
 | --- | --- | --- |
-| the targeted fetch misses junction reads | DJ reads in fetch vs whole-file scan, 600 genomes | fetch holds 99.76% (range 99.64–99.83%); not it |
+| the targeted fetch misses junction reads | DJ reads in fetch against whole-file scan, 3,202 genomes (`fetch_capture.py`) | the fetch holds 99.76% (range 99.64–99.84%); not it |
 | duplicate flags remove piled-up reads | engine source | duplicate-flagged reads are counted (tallied apart); not it |
-| divergence among the ten copies loses k-mers | per-window exact-k-mer presence in HG00097's assembly vs window GC | presence 0.95 per haplotype and flat in GC (r = +0.08; 0.93–0.96 from 35% to 60% GC), while the raw estimate of the mode genomes falls from 10.08 to 9.26 over the same bins (r = −0.26); and a read is classified by any four of its k-mers; not it |
-| mosaic loss of an acrocentric chromosome in the line | per-chromosome dosage from the 800 control regions, 600 genomes | acrocentric dosage SD 0.02–0.06 copies; r with the DJ step −0.06; four genomes off by 0.2–0.9 copies (one, HG00142, with a DJ step of the same size); not the bulk |
-| replication timing of the culture's DNA | the same twelve people on two chemistries | the older libraries read the junction 2.1% higher than the NYGC ones; a property of the library, not only of the DNA |
-| the GC model's residual in repeat context | the cohort's window efficiencies against window GC | −0.34 log units per unit GC (r = −0.28, 1,182 windows) for the junction; −0.53 (r = −0.32) for the 45S unit, whose scale the shipped anchors correct; the surviving explanation |
+| divergence among the ten copies loses k-mers | exact-k-mer presence per window in HG00097's assembly against window GC (`presence_vs_gc.py`) | presence 0.95 per haplotype and flat in GC (r = +0.08), while the raw estimate of the mode genomes falls from 10.09 below 35% GC to 9.28 at 50–60% GC (r = −0.26); and a read is classified by any four of its k-mers; not it |
+| mosaic loss of an acrocentric chromosome in the line | per-chromosome dosage from the 800 control regions, 600 genomes (`acro_dosage.py`) | dosage SD 0.02–0.05 copies; r with the junction's step −0.08; ten genomes off by more than 0.15 copies; not the bulk |
+| replication timing of the culture's DNA | the same twelve people on two chemistries (the pilot) | the older libraries read the junction 2.1% higher than the NYGC ones; a property of the library, not only of the DNA |
+| the GC model's residual in repeat context | the cohort's window efficiencies against window GC | they fall with GC: −0.31 in the logarithm per unit GC for the junction (r = −0.26, 1,182 windows) and −0.53 for the 45S unit (r = −0.32, 167 windows), whose scale the shipped anchors correct; the surviving explanation |
 
-The 45S unit's scale is pinned by anchor windows chosen on replicate pairs across chemistries
-(`resources/GRCh38/anchors.json`); the junction has no such windows and its scale rests on the GC rule alone. Its
-mode is ten copies in 87% of people, and the assemblies confirm ten in the genomes that read 9.5, so the scale can be
-pinned to the core's mode, as the profiles on this page are.
+The 45S unit's scale is pinned by anchor windows chosen on replicate pairs across chemistries. The junction has no
+such windows, so its scale is pinned to the mode of the cohort it is counted in.
 
-### 3.4 Which is more accurate?
+### 4.5 Which is more accurate?
 
-*Sample level.* Over the 19 resolved genomes the reads' core level lies −0.08 ± 0.19 copies from the assembly's
-(within half a copy in every one; block means +0.04 ± 0.22; r = 0.95 between the assembly's mean and `DJ.cn`). Over
-all 28 the SD doubles (0.38) because the fragmented assemblies scatter. The reads' precision is set by the mode
-cluster's SD, 0.14 copies per genome.
+For a genome whose junction assembled cleanly the two agree to the noise of the reads: 0.13 copies on the level, and
+one 5-kb block in ten on the called state. Where the junction did not assemble cleanly, in 9 of 28 genomes, the reads
+are the more coherent reading of the locus, and the profile says which blocks the assembly broke. The reads are
+weakest in three places. Events shorter than about 10 kb at one copy are not called. In the short polymorphic
+intervals a deletion is called in the child of two parents without it in 8–17% of trios, which is the calls' error
+there. And 29 genomes cannot be given a whole number at all.
 
-*Block level.* 78% of 560 20-kb blocks round to the same copy number; the reads confirm 230 of the 286 blocks the
-assembly puts off ten, and read 38 of the 274 blocks the assembly puts at ten as off by half a copy or more, most of
-them in the fragmented genomes. The reads' noise per 20-kb block is about 0.3 copies (robust SD of the difference); at
-5 kb it is 0.3–0.5, and a real one-copy step is visible in a single 5-kb sub-block.
+### 4.6 What the assemblies get wrong, and what the reads show
 
-*Where the reads may be wrong.* HG00673 reads 9.46 on the core where its resolved assembly holds 9, and HG02280 reads
-9.64 against 10; neither has a chromosome flagged in the control regions, so a mosaic loss or gain of a whole
-acrocentric is not the reason. A copy the assembly does not hold, a junction changed in part of the cell line (the
-assembly's DNA and the reads' DNA are different cultures), or a genome whose level the cohort model misplaces are all
-possible; the 29 flat-shifted genomes among the between-step ones are the same question at cohort scale.
-
-*Where the assemblies are wrong* is the next section. On balance: for a genome whose junction assembled cleanly the
-two agree to the noise of the reads; where it did not, the reads are the more coherent reading of the locus, and the
-profile says which blocks the assembly broke. Neither gives an integer everywhere, because the biology is not an
-integer everywhere.
-
-### 3.5 Oddities in the assemblies, illuminated by NGS-DOSE
-
-The junction sits beside the rDNA array, where long-read assemblies break, and its copies are more than 99% identical.
-The catalogue of copies (`data/dj_hprc_copies.tsv`) and the profiles show:
+The junction sits beside the rDNA array, where long-read assemblies break, and its copies are more than 99%
+identical. The catalogue of copies (`data/dj_hprc_copies.tsv`) and the profiles show:
 
 1. **Copies cut by a contig end** (29 of 300 copies, in HG00146, HG00320, HG00642, HG00658, HG01943, HG01981, HG02040,
    HG02392, HG02523). The k-mers of the missing part are absent, and the assembly under-counts those blocks. In
-   HG02523 two paternal copies begin at 86 and 109 kb at the starts of 0.36-Mb and 0.37-Mb contigs; the k-mer sums
-   read 6–8 copies over 0–120 kb where the reads read 9 (the one real partial loss, a maternal copy beginning at
-   122 kb inside a 2.6-Mb contig). In HG00642, a zero-step genome, the maternal 22–155 kb and paternal 3–134 kb pieces
-   sit at contig ends and the 111–400 kb pieces on three 0.3–0.4-Mb contigs; the k-mer sums read 8–9 over 0–120 kb and
-   11–12 over 120–160 kb where the fragments overlap, and the reads are flat at ten.
+   HG02523 two paternal copies begin at 86 and 109 kb at the starts of 0.36-Mb and 0.37-Mb contigs. The k-mer sums
+   read 6–8 copies over 0–120 kb where the reads read 9, the one real partial loss. In HG00642, a ten-copy genome by
+   the reads, the maternal 22–155 kb and paternal 3–134 kb pieces sit at contig ends and the 111–400 kb pieces on
+   three contigs of 0.3–0.4 Mb. The k-mer sums read 8–9 over 0–120 kb and 11–12 over 120–160 kb, where the
+   fragments overlap.
 2. **Fragments assembled twice.** HG00658's paternal haplotype has a copy ending at 343 kb at a contig's end and two
-   small contigs (0.17 and 0.23 Mb) each carrying the unit's last 80 kb: the k-mer sums read 11 over 320–400 kb, the
+   small contigs (0.17 and 0.23 Mb) each carrying the unit's last 80 kb. The k-mer sums read 11 over 320–400 kb, the
    reads 9.0, as everywhere else in this nine-copy genome. HG00146's first haplotype has a 0.05-Mb contig holding
-   66–117 kb (the sums read 12 there; the reads 10.4–10.9 like the neighbouring blocks); HG00320's second, a 0.18-Mb
-   contig with 368–400 kb.
+   66–117 kb, and HG00320's second a 0.18-Mb contig with 368–400 kb.
 3. **Phasing.** The ten copies split 2 + 8 (HG00146), 3 + 7 (HG02040), 2 + 7 (HG03521), 6 + 4 (HG00320, HG02155,
-   HG02392), 4 + 6 (HG01786, NA20752): the acrocentric short arms are phased by Hi-C or trio k-mers no better than
+   HG02392) and 4 + 6 (HG01786, NA20752). The acrocentric short arms are phased by Hi-C or trio k-mers no better than
    their near-identical sequence allows. The sum is what the reads measure, and it is right.
 4. **A haplotype's whole-unit k-mer median under-reads a high copy number.** HG01786's second haplotype holds six
-   complete copies and the 316-kb partial; its k-mer median over the unit is 6 while its block medians over the core
-   are 7, because with seven copies nucleotide differences among them leave fewer than half the k-mers at the full
-   count. An exact-k-mer count, from an assembly or from reads, needs the median per block.
-5. **An unresolvable locus.** HG01943 (+1.18 on the whole unit) has its junction in ten pieces of 0.1–1.1 Mb across
-   both haplotypes (3–244, 3–214, 327–400, 247–400 twice, 135–238, 133–235, 318–400, 3–85, 3–264 kb); the k-mer sums
-   swing between 8 and 13 along the unit, and the reads read 11.4–12.5 over 0–260 kb (apart from the polymorphic 200–220 kb block) and 10.2–10.7 beyond: at least
-   one and a half extra copies' worth of the distal 260 kb, a structure the assembler could not lay out but the
-   profile describes.
+   complete copies and the 316-kb partial. Its k-mer median over the unit is 6 while its block medians over the core
+   are 7, because with seven copies the nucleotide differences among them leave fewer than half the k-mers at the
+   full count. An exact-k-mer count, from an assembly or from reads, needs the median per block. Nine haplotypes
+   show it.
+5. **A locus the assembler could not lay out.** HG01943 has its junction in ten pieces of 0.1–1.1 Mb across both
+   haplotypes, and the k-mer sums swing between 8 and 13 along the unit. The reads call twelve copies over 0–261 kb
+   and ten beyond, with a lean of 12% that is the largest among the compared genomes: two extra copies of the distal
+   261 kb. Its mother HG01942 carries the same two copies.
 6. **Inverted segments within copies** appear as mixed strands in the alignments of many complete copies (the unit
    holds palindromes) and are not counted as breaks.
 
-### 3.6 The comparison with Rhie et al. 2026
+### 4.7 The comparison with Rhie et al. 2026
 
-Their eight-copy genomes (Robertsonian carriers) are the cohort's −2 steps here (7 genomes); their entire losses in
-HG00621 and HG01891 are −0.96 and −1.10; HG01981's partial loss is −0.49 with the loss placed at 280–400 kb; the
-duplications in NA20752, NA20805, HG03654 and HG00320 are +0.53 to +0.69 with the duplicated segment placed. Their 9.3%
-"11 or more" corresponds to the 8.5% of genomes at or above +0.3 here, most of them the 316-kb duplication; their
-integer bins (with an added intermediate component) and our continuous values describe the same structures. Two
-things differ. They report parents typed higher than their children (p = 3.7 × 10⁻⁶); on the core level here parents
-and children have the same median (9.98 and 10.01 on the ten-copy scale). And their scale is each library's two-copy
-k-mer peak, which puts the mode at ten by construction; ours is the fragment-GC model's, which puts it at 9.72 and lets
-the assemblies show that the deficit is the scale's.
+Their eight-copy genomes are the seven at eight throughout here. Their entire losses in HG00621 and HG01891 are
+nine-copy calls, HG01981's partial loss is a loss over 282–376 kb, and the duplications in NA20752, NA20805, HG03654
+and HG00320 are partial copies with the duplicated stretch placed. Their 9 copies in 2.8–3.4% of people are 3.4% at
+nine throughout here. Their 11 or more in 8.4–9.3% compare with 5.9% that carry a whole or partial extra copy here
+and 7.3% whose level is 10.3 or more; the two typings bin the partial copies differently, and the difference is not
+resolved here. They report parents typed higher than their children (p = 3.7 × 10⁻⁶). On the pinned level here the
+children's median is 10.03 and the parents' 9.99, and the children carry fewer large events than their parents.
 
-## 4. What follows for the method
+## 5. What changed
 
-In the order of their effect on the number a user reads:
+**In NGS-DOSE (0.2.0, branch `claude/dj-calls`).** Class rules in the bundle (`calibration.json`): the windows left
+out of the level, the pin of the scale to the cohort's mode, the polymorphic intervals and their comb, and the
+chain's parameters. A segmentation module (`ngsdose/segments.py`). New columns in the cohort table and
+`ngsdose cohort --segments`. `--no-class-rules` reads a class as before.
 
-1. **Pin the junction's scale.** The level is 2.8% low on this cohort and 0.8% low on the pilot's older libraries; the
-   junction is ten copies in nearly everyone and the assemblies confirm it. Either pin the class to its core's mode
-   (the profiles on the page do this; it needs a cohort) or ship anchor windows for the junction chosen on replicate
-   pairs across chemistries, as `anchors.json` does for the 45S unit (`pilot/evaluate_pilot.py --write-anchors` has
-   the machinery), which needs no cohort.
-2. **Report the core level, and the profile.** `DJ.cn_core`, the calibrated median over the 17 core blocks, is now
-   in the sample table; the whole-copy steps are called on it in more trios (477 against 468 fully called at integers). The polymorphic segments (0–22 kb, 160–165 kb, 200–215 kb) belong in a table of their own states.
-3. **Call partial variants by segment.** A whole-unit median reports the 316-kb duplication as +0.6 to +0.9 and a
-   120-kb loss as −0.3. A segmentation of the profile with the recurrent breakpoints (22, 200, 220, 316 kb) gives
-   each segment an integer and names the variant, as an assembly does; the cohort has enough carriers of each to
-   define the segments once.
-4. **Use the assemblies as truth, with the profile as the check.** Nineteen of 28 assemblies resolve the junction;
-   for the rest the block profile says which blocks the assembly broke. A screen of all 200 assembled cohort members
-   (about four minutes per haplotype, dominated by the download) would give a truth panel of 200 for this class, and
-   the same screen applies to any class with a positional unit.
-5. **Leave read counting alone.** The fetch reads 99.8% of the junction's reads; duplicates are counted; the
-   classification tolerates the copies' divergence. Nothing in the counting path needs to change for the junction.
+**In this repository.** The page's section 3.2 is written on the calls: the states, the partial copies by extent,
+the position-by-position test in the trios, the transmission of the common deletions and of the large events, and the
+assemblies against the calls. The sample table carries the calls, and `data/dj_calls.tsv` every segment. The figure
+shows the assembly, the profile and the call of every compared genome. `analysis/dj/` holds the direct tests.
 
-## 5. Data and reproducibility
+## 6. What remains
+
+1. **The transmission of the large events.** The donors' ages, or a second tissue of the same people, would separate
+   a change in the blood from a variant that is passed on less often. Long reads of a father at nine and his children
+   would say which arm lacks the junction.
+2. **A truth panel of 200.** A screen of all assembled cohort members costs about four minutes a haplotype. It would
+   test the calls on genomes chosen without regard to what they read, which the 28 were not.
+3. **The short intervals.** The polymorphisms at 130–135, 160–165 and 225–230 kb show in the segment map, are left
+   out of the level and are not genotyped. A comb per interval, as the three common deletions have, would genotype
+   them.
+4. **A genome counted alone.** Without a cohort or a saved efficiency table its level rests on the GC model, a few
+   percent low, and it has no calls.
+5. **The two release batches.** In 15–23 kb the later release batch reads 0.15 copies lower than the earlier one,
+   in parents as in children. Calibration by batch is a decision for the whole method and is not made here.
+
+## 7. Data and reproducibility
 
 | file | what |
 | --- | --- |
 | `meta/dj_hprc/haplotypes.tsv`, `meta/dj_hprc/copies.tsv` | the 56 screens: k-mer medians per 5-kb sub-block, and the alignment catalogue of 300 copies (`pipeline/hprc_dj.py screen`) |
 | `data/dj_hprc.tsv`, `data/dj_hprc_blocks.tsv`, `data/dj_hprc_copies.tsv` | the page's comparison: per genome, per genome and block, and the copies |
-| `data/dj_blocks.tsv`, `data/dj_segments.tsv` | every cohort genome's profile on the ten-copy scale with its core level; the cohort's segment map |
+| `data/dj_blocks.tsv`, `data/dj_calls.tsv`, `data/dj_segments.tsv` | every genome's profile in 20-kb blocks with its call; every segment of every call; the cohort's segment map |
 | `dj_assemblies.png` | the figure (`python -m report.dj_figure`) |
 | `pipeline/07_hprc_dj.sh`, `pipeline/hprc_dj.py` | fetch, screen and align the haplotypes; write the tables |
 | `report/dj.py`, `report/dj_page.py`, `report/dj_figure.py` | the analysis, the page section, the figure |
-| `analysis/dj/` | the direct tests outside the page: fetch capture, exact-k-mer presence against GC, acrocentric dosage, trio consistency of integer calls, the between-step profile classes, the Rhie et al. text |
+| `analysis/dj/` | the direct tests outside the page ([README](../analysis/dj/README.md)) |
 
-## 6. Limitations
+## 8. Limitations
 
-The 28 genomes were chosen for what their estimates showed, so they over-represent steps and between-step values;
-the comparison tests the method where it is interesting, not on a random draw. The assemblies are release-2 drafts
-whose acrocentric short arms are among the least resolved sequence they contain (9 of 28 fragmented at the junction),
-and the assembly's DNA is a different culture of each line from the reads' DNA, so a change in part of a line is
-possible in either. The exact-k-mer screen counts a copy at every k-mer it holds verbatim; a copy diverged by more
-than a few percent from CHM13 would be under-counted, and none was seen. The recurrent 316-kb breakpoint is placed to
-the resolution of the masked alignment (a few kb); its sequence context is not examined here.
+The 28 genomes were chosen for what their estimates showed, so they over-represent steps and values between steps.
+The assemblies are release-2 drafts whose acrocentric short arms are among the least resolved sequence they contain,
+and the assembly's DNA is a different culture of each line from the reads' DNA. The exact-k-mer screen counts a copy
+at every k-mer it holds verbatim, so a copy diverged by more than a few percent from CHM13 would be under-counted;
+none was seen. The pin assumes that the cohort's mode is ten copies, which holds for a human cohort and would not for
+a set of genomes chosen for their junctions. The chain's parameters were set on this cohort, with the trios and the
+assemblies in view, so the agreement with both is not an out-of-sample test. The comparisons of transmission by the
+parent's sex were made after the counts were seen.

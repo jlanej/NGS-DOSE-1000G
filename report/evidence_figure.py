@@ -87,7 +87,7 @@ def main():
     for k, _ in near:
         B.axvline(k, color=GRID, lw=1, zorder=0)
     B.set_yscale("log")
-    B.set_xlabel("distal-junction copies relative to the cohort's level")
+    B.set_xlabel("distal-junction level relative to the cohort's" + (" (complete copies − 10 in the box)" if dj.get("basis") == "calls" else ""))
     B.set_ylabel("samples (log)")
     B.set_title("b  A ten-copy paralog steps in whole copies")
     tot = dj.get("n_pairs", dj["transmitted"] + dj["not_transmitted"])

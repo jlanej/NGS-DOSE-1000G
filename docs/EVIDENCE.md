@@ -26,7 +26,7 @@ the kind of sequence the rDNA is.
 | held-out autosomal sequence (2) | 1.997 ± 0.008 | 3,202 |
 | chrX in men with one X (1) / in women with an intact culture (2) | 0.992 ± 0.006 / 1.939 ± 0.038 | 1,596 / 1,543 |
 | chrY in men with an intact Y (1) / in women (0) | 0.983 ± 0.044 / 0.012 at most | 1,585 / 1,605 |
-| distal junction (10) | 9.71 ± 0.34; robust SD 0.15 about the main mode; the HPRC assemblies of 9 genomes that read 9.32–9.77 hold ten complete copies ([DJ.md](DJ.md)) | 3,202 |
+| distal junction (10) | 9.99 ± 0.33, its scale pinned to the cohort's mode (9.78 on the fragment-GC model's scale); robust SD 0.13 among the genomes at ten | 3,202 |
 
 Sex read from the X and Y agrees with the pedigree in 3,200 of 3,202: the highest X in a man
 with one X is 1.05, the lowest in a woman with an intact culture 1.85. Sixty-two women and
@@ -39,41 +39,59 @@ chromosomes and a Y, as a 47,XXY karyotype would, by both routes. **What it rule
 fragment-GC model, the k-mer assignment or the control regions are wrong in a way that shows.
 *Panel a.*
 
-## 2. A ten-copy paralog steps in whole copies, and the steps are inherited
+## 2. A ten-copy paralog is read in whole copies, along its length, and the readings are Mendelian
 
-Relative to the cohort's level (9.72), the distal junction sits at whole numbers: 7 genomes at −2,
-113 at −1, 2,741 at 0, 67 at +1, 4 at +2, 1 at +3 and 2 at +4, with a robust SD of 0.15 copies
-around the main mode (171 people sit between steps). A step is a structural variant of an
-acrocentric short arm; a two-copy loss is the signature of a Robertsonian translocation (about one
-person in a thousand carries one). Six of the seven two-copy carriers also read the ACRO1
-composites of the acrocentric short arms at 0.75–0.84 of the cohort's median, and most of them
-less of SST1, β-satellite, HSat3 and CER as well, while the pan-centromeric α-satellite that every
-chromosome carries is unchanged (0.91–1.10): the arms are missing, not just the junction. Two of them are parent and child: HG01204 and HG01206 (PUR) both
-read −2, as do HG00651 and her daughter HG00652 (CHS). Where a carrier parent and a child were both
-counted, the step was passed on in 27 of the 72 pairs that can be read either way (6 more fit
-neither reading): fewer than the half a heterozygous variant passes on (two-sided p = 0.04), a
-deficit the first 22 pairs had already shown (7 of 22) and that is worth a look at the carriers'
-arms. No child carries a step that neither parent has. **What it rules out:** that multi-copy
-acrocentric sequence cannot be resolved to a single copy by this path. *Panel b.*
+The distal junction is ten copies of a 400-kb sequence, and the method reads it twice over: as a
+level (9.99 ± 0.33 copies once its scale is pinned to the cohort's mode; the genomes at ten scatter
+with a robust SD of 0.13), and as whole numbers of copies called along the unit for every genome
+([DJ.md](DJ.md); the page's section 3.2). Of 3,202 calls 3,173 are settled. 2,775 genomes hold ten
+copies throughout, 109 nine, 7 eight, 27 eleven, 3 twelve and 1 thirteen; 220 carry a copy that
+holds or lacks an end of the unit, the commonest a copy of the first 316 kb (63 genomes) and one
+of the first 262 kb (49); 29 lie between two whole numbers throughout and are called uncertain.
+A loss of a whole junction is a structural variant of an acrocentric short arm, and a two-copy
+loss is the signature of a Robertsonian translocation (about one person in a thousand carries
+one). Six of the seven two-copy carriers also read the ACRO1 composites of the acrocentric short
+arms at 0.75–0.84 of the cohort's median, and most of them less of SST1, β-satellite, HSat3 and
+CER as well, while the pan-centromeric α-satellite that every chromosome carries is unchanged
+(0.91–1.10): the arms are missing, not just the junction. Two of them are parent and child:
+HG01204 and HG01206 (PUR) both hold eight, as do HG00651 and her daughter HG00652 (CHS).
 
-The HPRC release-2 assemblies of 28 cohort members, screened copy by copy for the junction
-([DJ.md](DJ.md); the page's section 3.2), confirm the steps and explain the rest. Every −1 carrier
-with a resolved assembly holds nine junction copies (HG01891, HG00621, HG00658, HG03521; the two
-Rhie et al. 2026 name as entire losses are the same two). The values between steps are partial
-variants: six gain genomes carry the same partial copy, the first 316 kb of the unit in tandem with
-a complete one, which reads 11 over the first 320 kb and 10 beyond, and a whole-unit median puts
-it at +0.5 to +0.9; partial losses read −0.3 to −0.7 the same way. Two segments of the unit, the
-distal 22 kb and 200–215 kb, are deletion polymorphisms of single copies (19 of 300 assembled
-copies begin 22 kb in), and left out of the level the steps are called in more trios (477 fully
-called at integers, all Mendelian-consistent, against 468 on the whole unit). For the 19 genomes whose
-assembly resolves the junction, the estimate's core level lies −0.08 ± 0.19 copies from the
-assembly's and 78% of 20-kb blocks round to the same copy number; the other 9 assemblies are
+Two independent truths test the calls. **Assemblies:** in the HPRC release-2 assemblies of 28
+cohort members, screened copy by copy, all four carriers of a lost junction hold nine copies
+(HG01891, HG00621 and HG03521 in a resolved assembly, HG00658 in one whose paternal haplotype is
+fragmented; the two Rhie et al. 2026 name as entire losses are the first two), all 7 partial copies
+of the 19 resolved assemblies are called with the breakpoint within 4 kb, and the called state
+equals the assembly's in 90.6% of the 5-kb blocks of the 18 genomes whose level the assembly shares
+(in HG00673 the reads hold one copy more than the assembly throughout). The other 9 assemblies are
 fragmented at the junction (copies cut by contig ends, fragments assembled twice, the ten copies
-phased 2 + 8), and there the reads are the more coherent reading of the locus. The 2.8% deficit
-against ten is in the measurement's scale, not in the copies: it rests on the fragment-GC model in
-the anchor windows, whose efficiencies fall with GC for this unit as for the 45S, and it can be
-pinned to the core's mode. **What it rules out:** that the values between steps are measurement
-noise, or that the junction's deficit is a loss of copies in the cell lines.
+phased 2 + 8), and there the reads are the more coherent reading of the locus. **Trios:** of the
+585 trios whose three calls are settled, 580 have no 5-kb block of the core that the parents'
+states do not allow (99.5% of 34,852 blocks), and a parent explains 94% of the blocks in which a
+child deviates from ten. One child (HG01517) holds a whole copy more than either parent and one
+(NA18497) a partial copy that neither has. The junction's common deletions, which are in the germ
+line beyond doubt, pass as a germline variant should: where one parent lacks one copy of
+197–217 kb and the other none, 73 of 147 children lack one, and the child's value regressed on the
+mean of its parents' has a slope of 0.95 (0.85–1.04) against a reliability of 0.95. The
+measurement passes on what the germ line does.
+
+What the calls do not explain is how often a whole copy is passed on. Where a carrier holds one
+state throughout and the other parent ten, a whole-copy step passes to 15 of 46 children
+(two-sided binomial p = 0.03 against one half). A partial copy, looked for in the child by its
+breakpoint, passes to 33 of 81 (p = 0.12), and the two together to 48 of 127 (p = 0.008). A
+father's loss of a junction passes to 4 of 23 children, a mother's to 10 of 17 (Fisher exact
+p = 0.009, a comparison made after the fact). The readings leave little room: where a step was not
+passed on, the parent's level lies within 0.3 copies of its whole number in 29 of 31 pairs and the
+child's within 0.3 of ten in 29. Nine-copy calls are as common in men as in women (57 and 52).
+Nor did the events arise in culture at a rate the children's lines would show: had the excess
+arisen there, the 443 children of two parents at ten throughout would hold about 14 new events,
+and they hold 2. What remains is a change in a donor's blood that a clonal line makes whole, the
+likelier the older the donor, or a variant passed on less often than chance; neither is tested
+here, and the deficit rests on 23 fathers. **What it rules out:** that multi-copy acrocentric
+sequence cannot be resolved to a single copy by this path, that the values between whole numbers
+are measurement noise, and that the junction's 2.2% deficit on the fragment-GC model's scale is a
+loss of copies in the cell lines (nine genomes that read 9.37–9.79 on that scale hold ten complete
+copies in their assemblies).
+*Panel b.*
 
 ## 3. The measured rDNA variation is inherited
 

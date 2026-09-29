@@ -168,14 +168,19 @@ def test_qualitative_sentences_follow_their_numbers(subset):
     # a +2 step and an unclassified pair appear in the counts the page prints
     dj = d["known_truth"]["DJ_steps"]
     dj["near"] = {"-2": 0, "-1": 3, "0": 60, "1": 2, "2": 2}
+    by_calls = dj.get("basis") == "calls"                      # whole numbers where the cohort layer called them, levels otherwise
+    steps = (-2, -1) if by_calls else (1.47, 0.59)
     dj.update(transmitted=2, not_transmitted=1, unclassified=1, n_pairs=4,
-              unclassified_pairs=[dict(parent="HGX1", parent_step=1.47, child="HGX2", child_step=0.59)])
-    dj["carriers"] = dj.get("carriers") or [dict(sample="HGX1", pop="CEU", sex="F", step=1.47, relatives=[])]
+              unclassified_pairs=[dict(parent="HGX1", parent_step=steps[0], child="HGX2", child_step=steps[1])])
+    dj["carriers"] = dj.get("carriers") or [dict(sample="HGX1", pop="CEU", sex="F", step=steps[0], relatives=[])]
     # mitochondrial content varies more than the 45S here
     d["biology"].update(cn45_cv=0.2, chrM_cv=0.25)
     t = text(page(d, rows))
-    assert "3 genomes at −1, 60 at 0, 2 at +1 and 2 at +2" in t and "at −2" not in t.split("Within ±0.3 of a step:")[1].split(";")[0]
-    assert "transmitted in 2 of 4 (1 unclassified)" in t and "HGX1 (+1.47) and HGX2 (+0.59) fits neither" in t
+    # the counts are those of the calls where the cohort layer made them, of the level otherwise
+    lead = "by the copies each genome is described against:" if by_calls else "Within ±0.3 of a step:"
+    assert "3 genomes at −1, 60 at 0, 2 at +1 and 2 at +2" in t and "at −2" not in t.split(lead)[1].split(".")[0].split(";")[0]
+    assert "transmitted in 2 of 4 (1 unclassified)" in t
+    assert ("HGX1 (−2) and HGX2 (−1) fits neither" if by_calls else "HGX1 (+1.47) and HGX2 (+0.59) fits neither") in t
     assert "mitochondrial content more than it" in t
     # the satellite spread sentence is written only when the least varying classes do read the lowest R
     low_claim = "read the lowest R" in t
