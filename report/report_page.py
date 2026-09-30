@@ -177,6 +177,14 @@ def _cohort_limitation(m: dict, n: int, total: int, tr: dict) -> str:
 
 
 
+def _not_settled(dj: dict) -> str:
+    """What the calls that are not settled are: a fraction off their whole numbers, or between two of them."""
+    fr, un = len(dj.get("fractional") or []), len(dj.get("uncertain") or [])
+    bits = ([f"{fr:,} sit a fraction of a copy off their whole numbers, in level or over a stretch of the unit"] if fr else []) \
+        + ([f"{un:,} lie between two whole numbers throughout"] if un else [])
+    return ("; ".join(bits) + ": a change in part of the cells would leave either, and they are set out below") if bits else "every call is"
+
+
 def dj_pairs(dj: dict) -> str:
     """'X of N' carrier-parent–child pairs transmitted, with the pairs neither hypothesis fits named as unclassified."""
     n = dj.get("n_pairs", dj.get("transmitted", 0) + dj.get("not_transmitted", 0))
@@ -424,6 +432,10 @@ the pipeline's notes or a test run outside this page, are fixed text and say whe
         case.append(("Coverage QC, same files", f'r = {fmt(nq["mtdna"]["r"], 3)}', f"mitochondrial copies per cell vs NGS-PCA (mosdepth), {nq['n']:,} genomes; chrX r = {fmt(nq['chrX']['r'], 4)}", "#published"))
     if tracking:
         case.append(("Against assemblies", f"{len(tracking)} of {len(hpst)} families", f"track HPRC assemblies with r ≥ 0.95 in {(sat.get('hprc') or {}).get('n_samples', 0)} people", "#assemblies"))
+    if (data.get("dj") or {}).get("assemblies"):
+        _S = data["dj"]["assemblies"]["stats"]; _r = _S["resolved"]
+        case.append(("Junction vs assemblies", f'{fmt(_r.get("core_diff_mean"), 2)} ± {fmt(_r.get("core_diff_sd"), 2)}',
+                     f"distal junction, reads − HPRC assembly (copies), {_r.get('n', 0)} genomes with the junction resolved; {_S['blocks']['deviating_confirmed']} of {_S['blocks']['deviating']} deviating blocks confirmed", "#djsteps"))
     P.h('<div class="tiles case">' + "".join(f'<a class="tile" href="{h}"><div class="label">{esc(l)}</div><div class="value">{v}</div><div class="note">{esc(t)}</div></a>' for l, v, t, h in case) + "</div>")
     P.end()
 
@@ -670,21 +682,29 @@ controls {", ".join(esc(x) for x in m["controls_sha"]) or "–"}{(", sinks " + "
 
     # ---------------------------------------------------------------- 3.1 known truth
     P.section("truth", "3.1 Sequence of known copy number, in every genome", "Known truth")
+    _k10 = (((data.get("dj") or {}).get("assemblies") or {}).get("stats") or {}).get("known10") or {}
+    _sc = ((data.get("dj") or {}).get("stats") or {}).get("scale") or {}
+    _pinned = _sc.get("rule") == "mode" or _sc.get("table_rule") == "mode"
+    _dj_gc = _sc.get("mode_on_anchors") if _pinned else DJ.get("median")            # the junction on the fragment-GC model's scale
+    _k10v = [x for x in (_k10.get("reads_unpinned") or _k10.get("reads_cn") or []) if x is not None]
     P.h(f'''<p>If the model is right, held-out autosomal sequence reads 2, chrX reads 1 in men and 2 in women, chrY reads 1 and 0, and the
 distal junction reads 10, in every genome. Held-out autosomal sequence reads <strong>{pm(a)}</strong> copies (n = {a.get("n", 0):,}).
 chrX reads <strong>{pm(men1x)}</strong> in {men1x.get("n", 0):,} men{one_x}'''
         + (f''' and <strong>{pm(sx["women_intact"])}</strong> in the {sx["women_intact"]["n"]:,} women whose culture has kept both X chromosomes (at least 1.85 copies); {sx["n_mosaic_X"]} women read below that.
 chrY reads <strong>{pm(sx["men_intact_Y"])}</strong> in men with an intact Y and {fmt(Y["F"].get("mean"), 4)} in women (maximum {fmt(Y["F"].get("max"), 4)}); {sx["n_mosaic_Y"]} men read below 0.85.{xxy_txt}''' if women_ok
            else f''' and {pm(X["F"])} in {X["F"].get("n", 0):,} women; chrY {pm(Y["M"])} in men and {pm(Y["F"], 4)} in women.''')
-        + f''' The distal junction reads <strong>{pm(DJ)}</strong>{" (cohort-calibrated)" if kt["DJ_col"] == "DJ.cn" else ""}.'''
+        + f''' The distal junction reads <strong>{pm(DJ)}</strong>{" (cohort-calibrated" + ("; its level is set on the core of the unit and its scale pinned to the cohort's mode, <a href='#djsteps'>3.2</a>)" if _pinned else ")") if kt["DJ_col"] == "DJ.cn" else ""}.'''
         + ((" Women read the X, and the distal junction reads, a few percent below expectation on average"
-            + (f" (median {fmt(DJ['median'], 2)} against 10 for the junction)" if DJ.get("median") is not None else "")
+            + (f" (median {fmt(_dj_gc, 2)} against 10 for the junction" + (" on the fragment-GC model's scale, before the pin" if _pinned else "") + ")" if _dj_gc is not None else "")
             + ". Both are late-replicating sequence"
             + (f", but in women the two deficits show no detectable correlation (r = {ci(bio['DJ_vs_chrX_female'])}, section 4), which weakens a shared S-phase explanation without ruling out a small one: the junction's inherited spread between people could hide it."
                if (bio.get("DJ_vs_chrX_female") or {}).get("n", 0) >= 3 and bio["DJ_vs_chrX_female"].get("r_lo") is not None
                and bio["DJ_vs_chrX_female"]["r_lo"] <= 0 <= bio["DJ_vs_chrX_female"]["r_hi"] else
                f"; in women the two deficits correlate at r = {ci(bio['DJ_vs_chrX_female'])} (section 4)." if (bio.get("DJ_vs_chrX_female") or {}).get("n", 0) >= 3 else "."))
-           if X["F"].get("median", 2) < 1.98 and DJ.get("median", 10) < 10 else "") + "</p>")
+           if X["F"].get("median", 2) < 1.98 and (_dj_gc if _dj_gc is not None else 10) < 10 else "")
+        + (f" The HPRC assemblies of {_k10['n']} genomes that read {fmt(min(_k10v), 2)}–{fmt(max(_k10v), 2)} on that scale hold ten complete junction copies (<a href='#djsteps'>3.2</a>): the junction's deficit is in the measurement's scale, not in the copies"
+           + (", and the pin removes it." if _pinned else ".")
+           if _k10 and _k10.get("n") and _k10v else "") + "</p>")
     P.h('<div class="grid2">')
     cohort_ = "genomes of the 1000 Genomes 30× cohort"
     P.chart("auto", dict(type="hist", col="truth.auto", xlabel="copies", ref=[dict(x=2, label="expected 2")], xfmt=3), "Known copy number: held-out autosomal sequence (expected 2)",
@@ -718,43 +738,60 @@ chrY reads <strong>{pm(sx["men_intact_Y"])}</strong> in men with an intact Y and
     P.end()
 
     # ---------------------------------------------------------------- 3.2 DJ steps
-    P.section("djsteps", "3.2 The distal junction changes in whole copies, and the changes are inherited", "DJ steps")
-    if dj.get("carriers") is not None:
+    P.section("djsteps", "3.2 The distal junction: whole-copy steps, partial variants, and the HPRC assemblies", "Distal junction")
+    by_calls = dj.get("basis") == "calls"
+    sfmt = (lambda v: f"{int(v):+d}".replace("-", "−")) if by_calls else (lambda v: f"{v:+.2f}")
+    if dj.get("carriers") is not None and by_calls:
+        wh = dj.get("whole") or {}
+        P.h(f'''<p>Ten distal junctions is the norm; a rearranged acrocentric short arm leaves nine, and a Robertsonian translocation, which fuses two
+acrocentrics and loses both short arms, leaves eight. Whole numbers of copies are called along the unit for every genome (below), which sets the
+junctions a genome holds whole apart from the copies that hold or lack an end of the unit. Of the {dj.get("n_settled", 0):,} genomes whose call is settled
+({_not_settled(dj)}), {", ".join((f"<strong>{v:,}</strong> hold{'s' if v == 1 else ''} {k} copies throughout" if k != 10 else f"{v:,} hold ten throughout") for k, v in sorted(wh.items()) if v)},
+and {dj["between"]:,} carry a copy that holds or lacks an end. Relative to ten, by the copies each genome is described against: {step_txt()}.
+A change of a whole copy, being a structural variant, should be transmitted to half of a carrier's children and
+arise de novo in almost none. The level of the genomes at ten copies throughout has a robust SD of {fmt(dj["spread"], 2)} copies about the cohort's median ({fmt(dj["median"], 2)}).</p>''')
+    elif dj.get("carriers") is not None:
         P.h(f'''<p>Ten distal junctions is the norm; a rearranged acrocentric short arm leaves nine, and a Robertsonian translocation, which fuses two
 acrocentrics and loses both short arms, leaves eight. Copy number relative to the cohort's level ({fmt(dj["median"], 2)}) should therefore sit
 near a whole number, and a step, being a structural variant, should be transmitted to half of a carrier's children and arise de novo in almost
 none. Within ±0.3 of a step: {step_txt()};
 the main mode has a robust SD of {fmt(dj["spread"], 2)} copies and {dj["between"]} genomes sit between steps.</p>''')
+    if dj.get("carriers") is not None:
         tot_ = dj.get("n_pairs", dj.get("transmitted", 0) + dj.get("not_transmitted", 0))
         P.chart("djstep", dict(type="hist", col="DJ.step", xlabel="distal-junction copies relative to the cohort's level", ref=[dict(x=k, label=str(k)) for k, _ in steps_], xfmt=1, bins=40),
                 "The distal junction changes in whole copies",
-                f"Distal-junction copy number in each of {DJ.get('n', 0):,} genomes of the 1000 Genomes 30× cohort, relative to the cohort's level "
+                f"Distal-junction level {'(the median over the core of the unit, its scale pinned to the cohort mode) ' if by_calls else ''}in each of {DJ.get('n', 0):,} genomes of the 1000 Genomes 30× cohort, relative to the cohort's level "
                 f"({fmt(dj['median'], 2)} copies); lines at whole copies. A rearranged acrocentric short arm leaves one copy fewer, a Robertsonian "
-                f"translocation two. Within ±0.3 of a step: {step_txt(strong=False, zero=False)}"
+                f"translocation two{'; a genome with a copy that holds or lacks an end of the unit sits between the lines' if by_calls else ''}. {'By the copies each settled call is described against' if by_calls else 'Within ±0.3 of a step'}: {step_txt(strong=False, zero=False)}"
                 + (f"; where a carrier parent and a child were both counted, the step was passed on in {dj_pairs(dj)}." if tot_ else "."))
         if dj["carriers"]:
             rows_c = []
             for c in dj["carriers"]:
-                rel = "; ".join(f"{r['who']} {esc(r['sample'])} {r['step']:+.2f}" for r in c["relatives"]) or "none counted"
-                rows_c.append([c["sample"], c.get("pop") or "", c.get("sex") or "", f"{c['step']:+.2f}", rel])
-            P.table(rows_c, ["sample", "population", "sex", "step (copies)", "relatives counted, and their step"], numeric={3})
+                rel = "; ".join(f"{r['who']} {esc(r['sample'])} {sfmt(r['step'])}" for r in c["relatives"]) or "none counted"
+                rows_c.append([c["sample"], c.get("pop") or "", c.get("sex") or "", sfmt(c["step"])]
+                              + ([fmt(c.get("level_step"), 2) if c.get("level_step") is not None else "", (c.get("partial") or "").replace("none", "")] if by_calls else []) + [rel])
+            P.table(rows_c, ["sample", "population", "sex", "step (copies − 10)" if by_calls else "step (copies)"]
+                    + (["level − cohort median", "copies that hold (+) or lack (−) an end"] if by_calls else []) + ["relatives counted, and their step"], numeric={3, 4} if by_calls else {3}, wrap=by_calls)
             two = [c for c in dj["carriers"] if c["step"] <= -1.5 and c.get("arm_content")]
             if two and dj.get("arm_ref"):
                 arm = [cls for cls in ("ACRO", "SST1", "bSat", "HSat3", "CER", "HSat1A", "aSatHOR") if cls in dj["arm_ref"]]
                 P.h("<p>A lost short arm takes its satellite arrays with it. Satellite families of the acrocentric short arms in the two-copy carriers, as a fraction of the cohort's median; the pan-centromeric α-satellite (aSatHOR), which every chromosome carries, is the control:</p>")
-                P.table([[c["sample"], f"{c['step']:+.2f}"] + [fmt(c["arm_content"].get(cls), 2) for cls in arm] for c in two]
+                P.table([[c["sample"], sfmt(c["step"])] + [fmt(c["arm_content"].get(cls), 2) for cls in arm] for c in two]
                         + [["cohort SD", ""] + [fmt(dj["arm_ref"][cls]["sd_rel"], 2) for cls in arm]], ["sample", "DJ step"] + arm, numeric=set(range(1, len(arm) + 2)))
             step_of = {c["sample"]: c["step"] for c in dj["carriers"]}
             unc = dj.get("unclassified_pairs") or []
-            unc_txt = (" A pair is counted as transmitted when the child's step is nearer the parent's than zero and within half a copy of it, as not "
-                       "transmitted when it is nearer zero and within half a copy of zero; "
-                       + ("; ".join(f"{esc(u['parent'])} ({u['parent_step']:+.2f}) and {esc(u['child'])} ({u['child_step']:+.2f})" for u in unc)
+            unc_txt = ((" A pair is read when the carrier holds one state throughout, the other parent ten, and both calls are settled; it is counted as transmitted when the child has the parent's step throughout, as not transmitted when it has ten; " if by_calls else
+                        " A pair is counted as transmitted when the child's step is nearer the parent's than zero and within half a copy of it, as not "
+                        "transmitted when it is nearer zero and within half a copy of zero; ")
+                       + ("; ".join(f"{esc(u['parent'])} ({sfmt(u['parent_step'])}) and {esc(u['child'])} ({sfmt(u['child_step'])})" for u in unc[:12]) + (f" and {len(unc) - 12} more" if len(unc) > 12 else "")
                           + (" fits" if len(unc) == 1 else " fit") + " neither and " + ("is" if len(unc) == 1 else "are") + " left unclassified.")) if unc else ""
             P.h(f'''<p>Where a carrier parent and a child were both counted, the step was transmitted in <strong>{dj_pairs(dj)}</strong>
-(the expectation for a heterozygous variant is one half{_dj_binomial(dj)}){"; " + ", ".join(esc(x) + (f" ({step_of[x]:+.2f} copies)" if x in step_of else "") for x in dj["de_novo"]) + " carr" + ("ies" if len(dj["de_novo"]) == 1 else "y") + " a step that neither counted parent has: a new structural variant, or a change in part of the cell line" if dj["de_novo"] else "; no child carries a step that neither parent has"}.{unc_txt}
+(the expectation for a heterozygous variant is one half{_dj_binomial(dj)}){"; " + ", ".join(esc(x) + (f" ({sfmt(step_of[x])} copies)" if x in step_of else "") for x in dj["de_novo"]) + " carr" + ("ies" if len(dj["de_novo"]) == 1 else "y") + " a step that neither counted parent has: a new structural variant, or a change in part of the cell line" if dj["de_novo"] else "; no child carries a step that neither parent has"}.{unc_txt}{(" By the parent: " + "; ".join(f"{esc(k)} {v['transmitted']} of {v['transmitted'] + v['not_transmitted']}" for k, v in (dj.get("by_parent") or {}).items()) + (f" (a father's loss against a mother's: Fisher exact p = {fmt(dj['loss_by_sex_p'], 3)}, a comparison made after the fact)" if dj.get("loss_by_sex_p") is not None else "") + ".") if dj.get("by_parent") else ""}
 The distal junction is measured by the same k-mer path as the rDNA.{" A change of one copy in ten, seen in a parent and again in the child, shows that the path resolves multi-copy acrocentric sequence to a single copy." if dj["transmitted"] else ""}</p>''')
     else:
         P.h("<p>Appears once the distal junction has been measured.</p>")
+    from .dj_page import render as _dj_render
+    _dj_render(P, data, rows)
     P.end()
 
     # ---------------------------------------------------------------- 3.3 modes
@@ -1829,7 +1866,7 @@ by their k-mer recall).</p>''')
       'The known truths test the model and the k-mer path, not the absolute scale of the rDNA.') if dd_ok else
       '<strong>No absolute calibration.</strong> No orthogonal assay of rDNA copy number exists for these samples. The absolute level rests on unit windows on which three Illumina chemistries agree; the known truths test the model and the k-mer path, not the absolute scale of the rDNA.'}</li>
 <li><strong>Cell-line DNA.</strong> Every sample is a lymphoblastoid line; its EBV load and mitochondrial content are measured but not removed,
-and it shows deficits in late-replicating sequence (the X in women, the distal junction) whose cause is not established (<a href="#rdna">section 4</a>).
+and it shows deficits in late-replicating sequence (the X in women, the distal junction) whose cause is not established (<a href="#rdna">section 4</a>){"; for the junction the HPRC assemblies place the deficit in the measurement's scale rather than in the copies (<a href='#djsteps'>3.2</a>)" if _k10 and _k10.get("n") else ""}.
 Whether blood-derived genomes show them is untested here.</li>
 <li>{trio_limit}
 Because the rDNA varies far more between people than any estimator errs, trios show that the measured variation is real, not which estimator
@@ -1861,7 +1898,7 @@ python -m report --scan counts_scan --fetch counts_fetch -p meta/20130606_g1k_32
 # and builds docs/evidence.png and docs/trio_report.pdf (python -m report.evidence_figure, python -m report.trio_report)</pre>
 <p>Tables behind every figure: <code>data/cohort.tsv</code> (one row per genome, every column), <code>data/modes.tsv</code>,
 <code>data/transmission.tsv</code>, <code>data/transmission_by_sex.tsv</code> and <code>data/trios.tsv</code> (every trio's values), <code>data/fetch_check.tsv</code>, <code>data/pcsweep.tsv</code>,
-<code>data/satellites_hprc.tsv</code>,{" <code>data/rdna_hprc.tsv</code>," if rd.get("assemblies") else ""} <code>data/fetch_paths.tsv</code> (each class's path), <code>data/flags.tsv</code>; the numbers
+<code>data/satellites_hprc.tsv</code>,{" <code>data/rdna_hprc.tsv</code>," if rd.get("assemblies") else ""}{" <code>data/dj_blocks.tsv</code> (every genome's junction profile), <code>data/dj_calls.tsv</code> (its segments and their whole numbers), <code>data/dj_segments.tsv</code>," if data.get("dj") else ""}{" <code>data/dj_hprc.tsv</code>, <code>data/dj_hprc_blocks.tsv</code>, <code>data/dj_hprc_copies.tsv</code> (the junction against the HPRC assemblies)," if (data.get("dj") or {}).get("assemblies") else ""} <code>data/fetch_paths.tsv</code> (each class's path), <code>data/flags.tsv</code>; the numbers
 in the prose, <code>report.json</code>; the ddPCR lines, <code>data/ddpcr.tsv</code>; the trio assessment as a document, <code>trio_report.pdf</code>. The counts were made by <code>ngs-dose count</code> ({eng}) from the 1000 Genomes 30× CRAMs
 (Byrska-Bishop et al., <em>Cell</em> 2022; AWS Open Data) with the {esc(m.get("bundle"))} resource bundle. Method, design document and
 audit: <a href="https://github.com/jlanej/NGS-DOSE">github.com/jlanej/NGS-DOSE</a>.</p>''')

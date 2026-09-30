@@ -412,6 +412,9 @@ def truth_page(doc, d):
             c.set_text_props(fontweight="bold")
     dj = kt.get("DJ_steps") or {}
     sph = (d.get("biology") or {}).get("DJ_vs_chrX_female") or {}
+    sc = ((d.get("dj") or {}).get("stats") or {}).get("scale") or {}
+    pinned = sc.get("rule") == "mode" or sc.get("table_rule") == "mode"
+    dj_gc = sc.get("mode_on_anchors") if pinned else DJ.get("median")            # the junction on the fragment-GC model's scale
     txt = ("Every genome carries sequence whose copy number is not in question, measured under the same fragment-GC model as the rDNA: held-out "
            "autosomal regions and the X and Y, counted by their alignment position, and the distal junction, a 400-kb sequence present once on each of "
            "the ten acrocentric short arms — multi-copy, paralogous and acrocentric, the kind of sequence the rDNA is — counted by the same k-mer path "
@@ -420,15 +423,20 @@ def truth_page(doc, d):
               + (f", but in women the two deficits show no detectable correlation (r = {f(sph['r'])}, {f(sph.get('r_lo'))} to {f(sph.get('r_hi'))}), which "
                  "weakens a shared S-phase explanation without ruling out a small one." if sph.get("r_lo") is not None and sph["r_lo"] <= 0 <= sph["r_hi"] else
                  f"; in women the two deficits correlate at r = {f(sph.get('r'))}." if sph.get("r") is not None else ".")
-              if (X["F"].get("median") or 2) < 1.98 and (DJ.get("median") or 10) < 10 else ""))
+              if (X["F"].get("median") or 2) < 1.98 and (dj_gc or 10) < 10 else "")
+           + (f" The junction's scale is pinned to the cohort's mode: on the fragment-GC model's scale its core reads {f(dj_gc)}." if pinned and dj_gc else ""))
     if dj.get("carriers") is not None:
         steps = sorted((int(k), int(v)) for k, v in (dj.get("near") or {}).items() if v or int(k) == 0)
         name = lambda k: "0" if k == 0 else ("+" if k > 0 else "−") + str(abs(k))
         listed = [f"{v:,}" + ((" genome" if v == 1 else " genomes") if i == 0 else "") + f" at {name(k)}" for i, (k, v) in enumerate(steps)]
         n_pairs = dj.get("n_pairs", dj["transmitted"] + dj["not_transmitted"])
         unc = dj.get("unclassified") or 0
-        txt += (f"\n\nRelative to the cohort's level the distal junction sits at whole numbers: {', '.join(listed[:-1])}{' and ' if len(listed) > 1 else ''}{listed[-1] if listed else ''} "
-                f"(robust SD {f(dj['spread'])} copies). A step is a structural variant of an acrocentric short arm; where a carrier parent and a child were both counted it was "
+        lead = ("By the whole numbers of copies called along the unit, relative to ten complete copies" if dj.get("basis") == "calls"
+                else "Relative to the cohort's level the distal junction sits at whole numbers")
+        tail = (f"; {dj['between']:,} genomes carry a copy that holds only part of the unit (the level of the others has a robust SD of {f(dj['spread'])} copies)" if dj.get("basis") == "calls"
+                else f" (robust SD {f(dj['spread'])} copies)")
+        txt += (f"\n\n{lead}: {', '.join(listed[:-1])}{' and ' if len(listed) > 1 else ''}{listed[-1] if listed else ''}{tail}. "
+                f"A step is a structural variant of an acrocentric short arm; where a carrier parent and a child were both counted it was "
                 f"transmitted in {dj['transmitted']} of {n_pairs}" + (f" pairs, of which {unc} fit{'s' if unc == 1 else ''} neither transmission nor its absence and {'is' if unc == 1 else 'are'} left unclassified" if unc else "")
                 + f", and {len(dj['de_novo'])} child(ren) carry a step neither counted parent has.")
     fig.text(0.07, 0.49, wrap(txt, 120), fontsize=8.2, va="top", linespacing=1.35)

@@ -8,6 +8,7 @@ have HPRC assemblies, and NGS-PCA has already been run on it (`../meta/ngspca/`)
 | --- | --- |
 | `../pilot/` | four trios, each sample also as an independent older library; run locally; counts files, the evaluation and plotting scripts, the report and the figure are there |
 | `00_setup.sh`, `01_stage_and_dose.sh`, `01a_dispatch_staged.sh`, `01b_dose_sample.sh`, `01_count.sh`, `02_cohort.sh`, `03_compare_modes.sh` (+ `compare_modes.py`), `04_hprc_satellites.sh`, `05_report.sh`, `06_learn_sinks.sh`, `config.sh` (+ `check_counts.py`) | the full-cohort run, for SLURM or a plain loop |
+| `07_hprc_dj.sh`, `hprc_dj.py` | the distal junction in the HPRC release-2 assemblies: each haplotype FASTA fetched, screened for the panel's k-mers (`ngs-dose panel --report`) and aligned to the core-masked unit (minimap2), then the two tables the report reads (`../meta/dj_hprc/`; `--dj-assemblies`). `SAMPLES="HG00097 HG01891"` restricts it; about four minutes per haplotype, dominated by the download |
 | `ngs-dose.def` | fallback Apptainer definition of the container image |
 | `../meta/hprc_r2_censat.keys.txt`, `hprc_satellites.py` | the HPRC release-2 CenSat annotations (S3 keys; 205 samples, 200 of them in this cohort) and the comparison of satellite estimates against them |
 | `../meta/ngspca/` | NGS-PCA output for this cohort (200 coverage PCs, `AUTO_HQ_median`), produced by [NGS-PCA's 1000G example](https://github.com/jlanej/NGS-PCA/tree/master/example/1000G_highcov) |
@@ -82,6 +83,8 @@ MODE=scan sbatch 02_cohort.sh                           # estimate, calibrate, a
 MODE=fetch sbatch 02_cohort.sh                          # the same on the targeted fetches, for the comparison
 bash 03_compare_modes.sh                                # sink capture per sample, sinks re-learned, fetch / scan per sample
 sbatch 04_hprc_satellites.sh                            # satellite array mass against the HPRC assemblies of the same people
+sbatch 07_hprc_dj.sh                                    # the distal junction copy by copy in those assemblies (SAMPLES="..." for a few)
+python3 hprc_dj.py screen $WORK_DIR/hprc_dj -o ../meta/dj_hprc   # -> the tables regenerate.sh passes to the report
 sbatch 05_report.sh                                     # the page: known truths, fetch vs scan, trios, cell line, satellites - from whatever exists
 ```
 
