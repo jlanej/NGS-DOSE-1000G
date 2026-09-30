@@ -454,7 +454,6 @@ def dj_steps(rows, ped, expected: int = 10) -> dict:
     called = [r for r in rows if has(r)]
     basis = "calls" if called else "level"
     settled = lambda r: has(r) and r.get("DJ.call") == "settled"           # on its whole numbers: neither uncertain between two nor a fraction off them
-    events = lambda r: r.get("DJ.variants") not in (None, "", "none", "NA")
     large = lambda r: any(b - a >= 40 for _, a, b in parse_partial(r.get("DJ.variants")))
     plain = lambda r: settled(r) and int(r["DJ.copies"]) == expected and not large(r)      # ten copies throughout, polymorphic intervals aside
 

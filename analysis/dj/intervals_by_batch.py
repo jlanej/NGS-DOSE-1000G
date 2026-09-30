@@ -40,7 +40,7 @@ print("interval\twindows\t" + "\t".join(f"{g} (n {int(m.sum())})" for g, m in gr
 for a0, b0 in intervals:
     m = (starts >= a0) & (starts < b0) & has
     d = np.nanmedian(cn[:, m], axis=1) - level
-    cell = lambda sel: f"{d[sel].mean():+.3f} ± {d[sel].std(ddof=1) / sel.sum() ** 0.5:.3f}"
-    diff = lambda x, y: f"{d[x].mean() - d[y].mean():+.3f} ± {(d[x].var(ddof=1) / x.sum() + d[y].var(ddof=1) / y.sum()) ** 0.5:.3f}"
+    cell = lambda sel, d=d: f"{d[sel].mean():+.3f} ± {d[sel].std(ddof=1) / sel.sum() ** 0.5:.3f}"
+    diff = lambda x, y, d=d: f"{d[x].mean() - d[y].mean():+.3f} ± {(d[x].var(ddof=1) / x.sum() + d[y].var(ddof=1) / y.sum()) ** 0.5:.3f}"
     print(f"{a0 // 1000}-{b0 // 1000} kb\t{int(m.sum())}\t" + "\t".join(cell(sel) for _, sel in groups)
           + f"\t{diff(groups[1][1], groups[0][1])}\t{diff(groups[3][1], groups[2][1])}")

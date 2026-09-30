@@ -2,7 +2,6 @@
 (over the whole unit, and on the core) and by the calls (docs/data/dj_blocks.tsv: cn_unit, cn, copies).
 usage: python3 analysis/dj/trio_integers.py [--tol 0.3]"""
 import argparse, csv
-import numpy as np
 ap = argparse.ArgumentParser(); ap.add_argument("--tol", type=float, default=0.3); a = ap.parse_args()
 P = {r["sample"]: r for r in csv.DictReader(open("docs/data/dj_blocks.tsv"), delimiter="\t")}
 trios = list(csv.DictReader(open("docs/data/trios.tsv"), delimiter="\t"))

@@ -81,7 +81,7 @@ def _row(sample, sex, cn, copies, variants="none", partial=None, call="settled")
 def test_the_step_logic_by_calls():
     """The copies a settled call is described against give the steps; a copy that holds an end of the unit is tallied and its
     transmission tested apart; an uncertain call stays out; the calls are tested position by position in the trios."""
-    from report.report import dj_mendel, dj_states, dj_steps, partial_class
+    from report.report import dj_states, dj_steps, partial_class
     ped = {f"kid{i}": dict(father=f"dad{i}", mother=f"mum{i}") for i in range(1, 6)}
     rows = [_row("dad1", "M", 9.0, 9), _row("mum1", "F", 10.0, 10), _row("kid1", "F", 9.05, 9),                       # a father's loss, passed on
             _row("dad2", "M", 10.0, 10), _row("mum2", "F", 9.0, 9), _row("kid2", "M", 10.0, 10),                       # a mother's, not

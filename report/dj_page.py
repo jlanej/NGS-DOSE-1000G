@@ -132,7 +132,7 @@ The tail is heavier than the scatter's, and heavier below the whole numbers than
     if len(o.get("by_batch") or []) > 1:
         txt += "By release batch: " + "; ".join(who(g) for g in o["by_batch"] if g["n"]) + ". "
     if osn.get("off") and osn.get("p") is not None:
-        txt += ((f"They do not come with the other signs of a culture that has changed: " if osn["p"] > 0.05 else "Of the other signs of a culture that has changed: ")
+        txt += (("They do not come with the other signs of a culture that has changed: " if osn["p"] > 0.05 else "Of the other signs of a culture that has changed: ")
                 + f"an X or a Y lost in part of the cells, or a chromosome off its dosage, is seen in {osn['off_with']} of {osn['off']} of them and in "
                 f"{osn['settled_with']:,} of {osn['settled']:,} settled genomes (Fisher exact p = {fmt(osn['p'], 2)}). ")
     P.h(txt + "</p>")

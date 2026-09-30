@@ -86,7 +86,6 @@ def segments(P: dict, rules: dict | None = None) -> dict:
             i = j + 1
         else:
             i += 1
-    blk = (P["starts"] // BLOCK).astype(int)
     excluded = [(int(a), int(b)) for a, b in (rules or {}).get("level_exclude", [])]
     has = lambda b: bool(np.isfinite(P["block"][:, b]).any())
     core_blocks = [b for b in range(NBLOCK) if has(b) and not any(a < (b + 1) * BLOCK and e > b * BLOCK for a, e in excluded)]
@@ -219,7 +218,7 @@ def inheritance(P: dict, ped: dict | None, rules: dict | None, min_trios: int = 
         var = float(par.var(ddof=1))
         if len(c) < min_trios or not var > noise or not mid.var() > 0:
             continue
-        slope = lambda i: float(np.cov(mid[i], c[i])[0, 1] / mid[i].var(ddof=1))
+        slope = lambda i, c=c, mid=mid: float(np.cov(mid[i], c[i])[0, 1] / mid[i].var(ddof=1))      # this interval's children and parents
         boot = [slope(rng.integers(0, len(c), len(c))) for _ in range(n_boot)]
         rel = 1 - noise / var
         full = slope(np.arange(len(c)))
