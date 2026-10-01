@@ -225,6 +225,23 @@ and trio test — gives the same 45S reliability, 0.95 (0.86–1.04). The telome
 entered the bundle part-way through the run, so 1,454 of the fetches carry it, at 0.9988 of the
 scan. **What it rules out:** that a biobank would need the whole files. *Panel h.*
 
+## 9. Every chromosome, in copies
+
+The single-copy regions that every class is a ratio against are samples of their chromosomes, and NGS-DOSE 0.3.0
+reads every chromosome of every genome from them: a level in copies, its distance from the nearest whole number,
+and the arms and stretches at another level, written like a karyotype (`47,XY,+21`; `46,XX,-X[0.20]` for an X
+lost in a fifth of the cells). Of the 3,202 genomes, 2,951 are 46,XX or 46,XY throughout, 30 carry another whole
+number in every cell and 241 a change in part of the cells, as cell lines do (chromosome 12 gained in 49 genomes,
+an X lost in 69 women). The two karyotypes of the cohort in the literature read as published, HG01683 47,XXY and
+HG03456 47,XYY, and the X agrees with NGS-PCA's coverage ratio at r = 0.9995. Every whole chromosome called off
+shows in both arms alike (72 of 72); the fetch writes the same karyotype as the scan for 3,202 of 3,202; a model
+learned on the first release reads the 698 genomes added later as the whole cohort's model does (691 of 698
+written alike, the rest at a threshold); and the alleles of the same reads give the same share of the cells as depth for 51 changes in 68 genomes (r = 0.983), with two partial gains they do not bear out. In the 186 genomes counted with the bundle's
+karyotype windows every autosome is known to 0.005 to 0.009 copies, and a whole chromosome gained in 8% of the
+cells is found in all of the genomes it is put into. **What it rules out:** that the depth of the single-copy
+regions is a library's property rather than the genome's, and that a level between whole numbers is noise.
+[KARYOTYPE.md](KARYOTYPE.md) has the rest.
+
 ## And PCs?
 
 Coverage principal components (NGS-PCA's, or the internal ones from the control regions) are
@@ -263,11 +280,14 @@ floor and the unadjusted one a ceiling on what is genomic in the difference.
 - Two engine builds counted the cohort (1,748 genomes with 0.1.0+fae1124, 1,454 with
   0.1.0+7772e32); NGS-DOSE's tests assert byte-identical counts across them, and the page's
   provenance records which build counted each genome.
+- The chromosomes of 3,016 genomes are read from the regions their counts hold, without the karyotype
+  windows, and those of the 186 counted with the windows by an engine of 0.3.0; no genome of the cohort carries a
+  constitutional trisomy 21 or 18, so what such a genome reads is the spike-ins' answer, not an observation.
 
 ## Reproduce
 
 ```bash
-python -m report --scan counts_scan/ --fetch counts_fetch/ -p meta/20130606_g1k_3202_samples_ped_population.txt --hall meta/hall2021_MOESM1.txt --pilot pilot --pcs meta/ngspca/svd.pcs.txt --censat hprc_censat --qc meta/ngspca_sample_qc.tsv --ddpcr assembly_rdna/tables/potapova_comparison.tsv -o docs/
+python -m report --scan counts_scan/ --fetch counts_fetch/ --karyotype counts_karyotype/ --karyotype-alleles meta/karyotype_allele_balance.tsv -p meta/20130606_g1k_3202_samples_ped_population.txt --hall meta/hall2021_MOESM1.txt --pilot pilot --pcs meta/ngspca/svd.pcs.txt --censat hprc_censat --qc meta/ngspca_sample_qc.tsv --ddpcr assembly_rdna/tables/potapova_comparison.tsv -o docs/
 python -m report.evidence_figure --report docs/report.json --pilot pilot -o docs/evidence.png
 python -m report.trio_report --report docs/report.json --data docs/data -o docs/trio_report.pdf
 ```

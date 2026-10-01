@@ -21,12 +21,16 @@ the ten-copy class read in whole numbers of copies along its 400 kb (NGS-DOSE 0.
 assemblies of 28 cohort members and against the 602 trios; why the fragment-GC model's scale reads 9.78 rather
 than 10 (the scale, not the copies); the partial copies behind the values between whole numbers; what is passed
 on to children and what is not; the genomes that sit off the whole numbers, as a change in part of the cells
-would leave them; and what the assemblies themselves get wrong at the locus.
+would leave them; and what the assemblies themselves get wrong at the locus. **[docs/KARYOTYPE.md](docs/KARYOTYPE.md)**
+is every chromosome of every genome read in copies (NGS-DOSE 0.3.0): the sex chromosomes, the autosomes, the
+changes in part of the cells that cell lines carry, and the checks, from inside the measurement and against the
+literature, an independent coverage pipeline and the alleles of the same reads.
 
 | path | what |
 | --- | --- |
 | `counts_scan/<sample>.json.gz` | whole-file scan of one CRAM: fragment-end counts per class and unit position, control-region counts, GC tables, where class reads were aligned and what else sits in those bins (~240 kB) |
 | `counts_fetch/<sample>.json.gz` | the targeted fetch of the same CRAM (~70 kB): the control and truth regions, chrM, chrEBV and the 80 sink intervals of the 45S, the 5S and the distal junction (the sinks file before the telomere was added, sha256 9dd52ba1…; no telomere or satellite panel, no unmapped bin; every fetch so far is from engine build fae1124; with a newer image, whose bundle has the telomere's sinks, the pipeline's default `FETCH_PANELS` fetches the telomere too, see [pipeline/README.md](pipeline/README.md)). This is what a biobank-scale run returns for these classes on a pipeline whose sinks are known. The sinks here were learned from NYGC bwa-mem CRAMs, so a biobank on another pipeline (DRAGEN: UK Biobank, All of Us) must first learn its own from whole-file scans of a subset of its CRAMs |
+| `counts_karyotype/<sample>.json.gz` | 186 genomes counted again with NGS-DOSE 0.3.0's bundle, whose single-copy regions include the karyotype windows along every chromosome arm (~75 kB): the containers of the public CRAM that hold the regions, fetched by exact byte range (`analysis/karyotype/slice_fetch.py`) and counted with `ngs-dose count -m fetch`, with the 5S rDNA beside them. The page reads these genomes' chromosomes from them, the others' from the scans ([pipeline/README.md](pipeline/README.md), "Chromosomes in copies", fetches them for every genome) |
 | `docs/` | the page (`index.html`), every number behind it (`report.json`), every table (`data/*.tsv`), the figure, the PDF and the write-up; served by GitHub Pages |
 | `report/` | the page generator (`python -m report`), the evidence figure, the trio PDF and the distal-junction analysis and figure (`dj.py`, `dj_page.py`, `dj_figure.py`), on top of the `ngsdose` library |
 | `pipeline/` | the cohort run for a SLURM cluster or a plain loop, container-only ([README](pipeline/README.md)) |
@@ -36,6 +40,7 @@ would leave them; and what the assemblies themselves get wrong at the locus.
 | `assembly_rdna/` | what the HPRC assemblies hold of the rDNA, and NGS-DOSE against assemblies, ddPCR and FISH ([README](assembly_rdna/README.md)) |
 | `review/` | an independent review with its re-analysis of the committed tables |
 | `analysis/dj/` | the direct tests behind `docs/DJ.md` that lie outside the page: fetch capture, exact-k-mer presence against GC, acrocentric dosage, the polymorphic intervals' offsets against the assemblies, the transmission of partial copies by the children's profiles, carriers by sex, the intervals by release batch, what the calls make of a change in part of the cells ([README](analysis/dj/README.md)) |
+| `analysis/karyotype/` | the direct tests behind `docs/KARYOTYPE.md` that lie outside the page: a model fixed on one release and applied to the other, places in random order, lower depth, the fetch, changes put into clean genomes and read back, the alleles of the same reads; and the container fetch ([README](analysis/karyotype/README.md)) |
 | `tests/` | the report on the pilot and on a slice of the cohort, the pilot's regression tests, the scripts |
 | `regenerate.sh` | rebuilds `docs/` from the counts |
 
