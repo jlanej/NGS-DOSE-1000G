@@ -50,14 +50,16 @@ def test_known_truth_in_every_sample(ny):
 
 
 def test_both_libraries_were_counted_with_the_shipped_bundle_and_carry_the_culture_covariates(ny):
-    """The committed counts are the bundle's own (same panel and controls hashes as the files in
-    resources/, and a sinks hash that is either the current file's or an earlier version listed in
-    bundle.json sinks_history; all 24 committed files carry the pre-TEL version, 9dd52ba1...), every
-    input was complete, and mitochondrial and EBV dosage - different cultures of a line differ
-    severalfold in both - are present for every sample."""
+    """The committed counts are the bundle's own (the panel's hash; the hash of one of the bundle's controls
+    files: all its regions, or one of the sets it ships a FASTA of - these counts were made with what is
+    now controls.base.fa.gz, the regions the bundle held before the karyotype windows; and a sinks hash
+    that is either the current file's or an earlier version listed in bundle.json sinks_history; all 24
+    committed files carry the pre-TEL version, 9dd52ba1...), every input was complete, and mitochondrial
+    and EBV dosage - different cultures of a line differ severalfold in both - are present for every sample."""
     import hashlib
     sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
-    want_panel, want_controls, want_sinks = [sha(BUNDLE.panel)], sha(BUNDLE.controls), sha(BUNDLE.sinks)
+    want_panel, want_sinks = [sha(BUNDLE.panel)], sha(BUNDLE.sinks)
+    want_controls = {sha(BUNDLE.controls)} | {sha(f) for f in BUNDLE.controls.parent.glob("controls.*.fa.gz")}
     # the sinks file may grow (a class's intervals added); counts made with an earlier version record its hash,
     # the bundle lists that hash, and the earlier file must be exactly the current one without the added classes
     history = {}
@@ -67,7 +69,7 @@ def test_both_libraries_were_counted_with_the_shipped_bundle_and_carry_the_cultu
         history[h["sha256"]] = h["classes"]
     for f in nygc + reps:
         c = io.load_counts(f)
-        assert (c["panel_sha256"], c["controls_sha256"]) == (want_panel, want_controls), f.name
+        assert c["panel_sha256"] == want_panel and c["controls_sha256"] in want_controls, f.name
         assert c["sinks_sha256"] == want_sinks or c["sinks_sha256"] in history, f.name
         assert c["eof_marker"] == "present" and c["mode"] == "fetch"
     older = run(reps)

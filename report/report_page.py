@@ -1710,6 +1710,10 @@ calibration do the work, and the PCs are insurance.</p>''')
         P.h("<p>Appears at ten genomes; the sweep at sixty.</p>")
     P.end()
 
+    # ---------------------------------------------------------------- 3.10 chromosomes in copies
+    from .karyotype_page import render as _karyotype_render
+    _karyotype_render(P, data, rows, sex_levels)
+
     # ---------------------------------------------------------------- 4. descriptive results
     P.section("rdna", "4. The measurements: rDNA copy number, the cell line, satellite arrays", "rDNA")
     P.h(f'''<p>The 45S array holds <strong>{fmt(c45.get("median"), 0)}</strong> copies per diploid genome in the median person (10–90%:

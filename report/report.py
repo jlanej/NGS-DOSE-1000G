@@ -41,6 +41,12 @@ from ngsdose import trios as T
 from ngsdose.tables import dump, load_result, num, summary_row, write_table
 
 from . import dj as djmod
+from . import karyotype as karyomod
+
+try:
+    from ngsdose import karyotype as kmod                 # ngsdose 0.3.0: chromosomes in copies
+except ImportError:
+    kmod = None
 
 REPORT_VERSION = 5
 POSITIONAL = ("rDNA45S", "rDNA5S", "DJ")
@@ -366,7 +372,10 @@ def flags_for(row: dict, majority_engine: str | None) -> list[str]:
     f = []
     if row.get("eof_marker") not in (None, "present"):
         f.append("truncated input")
-    if row.get("flagged_chromosomes"):
+    read = row.get("karyotype") not in (None, "", "NA")
+    if read:
+        f += karyomod.flags(row)
+    elif row.get("flagged_chromosomes"):
         f.append("aneuploid: " + row["flagged_chromosomes"])
     d = num(row, "depth")
     if np.isfinite(d) and d < 15:
@@ -377,12 +386,13 @@ def flags_for(row: dict, majority_engine: str | None) -> list[str]:
     if sx and si and sx != si:
         f.append(f"sex: pedigree {sx}, reads {si}")
     x, y = num(row, "truth.chrX"), num(row, "truth.chrY")
-    if si == "F" and np.isfinite(x) and x < 1.85:
-        f.append(f"chrX {x:.2f} (mosaic X loss?)")
-    if si == "M" and np.isfinite(y) and y < 0.85:
-        f.append(f"chrY {y:.2f} (mosaic Y loss?)")
-    if si == "M" and np.isfinite(x) and x > 1.5:
-        f.append(f"chrX {x:.2f} with a Y")
+    if not read:                                           # estimates without chromosomes read: the thresholds that stood in for them
+        if si == "F" and np.isfinite(x) and x < 1.85:
+            f.append(f"chrX {x:.2f} (mosaic X loss?)")
+        if si == "M" and np.isfinite(y) and y < 0.85:
+            f.append(f"chrY {y:.2f} (mosaic Y loss?)")
+        if si == "M" and np.isfinite(x) and x > 1.5:
+            f.append(f"chrX {x:.2f} with a Y")
     step = row.get("DJ.step")
     if row.get("DJ.copies") not in (None, "", "NA"):
         f += dj_flags(row)
@@ -1049,7 +1059,7 @@ def method_profiles(grab, rows, eff, features) -> dict | None:
                 features=[dict(name=n, start=s, end=t) for n, s, t in (features or {}).get("rDNA45S", [])])
 
 
-def fetch_check(rows, S, est_fetch, res, trio_list, population, sequenced=None, rules=None) -> dict | None:
+def fetch_check(rows, S, est_fetch, res, trio_list, population, sequenced=None, rules=None, karyotype=None) -> dict | None:
     """The same cohort layer and the same trio test on the fetch-mode counts alone, independently of
     the scan: does the targeted fetch give the same estimate for every genome, and does it carry the
     same inherited variation (reliability from fetch beside reliability from scan)? Columns made
@@ -1057,12 +1067,17 @@ def fetch_check(rows, S, est_fetch, res, trio_list, population, sequenced=None, 
     identical; the classes differ by what the sinks miss and by a calibration learned twice (with the same class
     `rules` as the scan's, so that a class's level is the same quantity in both). `est_fetch`: sample -> its
     cached fetch estimate. A column that does not vary in one of the modes has no correlation to compare: it goes to
-    `constant` (column, label, n, reason), not into `agreement`."""
+    `constant` (column, label, n, reason), not into `agreement`.
+
+    `karyotype`: what the cohort layer needs to read chromosomes, with the scan's model in it: the fetches are read
+    against the same model, and the karyotypes written from them are compared with the scan's (`karyotype` in the
+    result: how many genomes, how many identical, the ones that differ)."""
     f_samples = sorted(s for s in S if "fetch" in S[s])
     if len(f_samples) < 10:
         return None
-    rows_f, _, _ = (cohort.cohort_table((load_result(est_fetch[s]) for s in f_samples), res.anchors(), log=lambda m: None, rules=rules) if rules
-                    else cohort.cohort_table((load_result(est_fetch[s]) for s in f_samples), res.anchors(), log=lambda m: None))
+    extra = dict(karyotype=karyotype) if karyotype else {}
+    rows_f, _, _ = (cohort.cohort_table((load_result(est_fetch[s]) for s in f_samples), res.anchors(), log=lambda m: None, rules=rules, **extra) if rules
+                    else cohort.cohort_table((load_result(est_fetch[s]) for s in f_samples), res.anchors(), log=lambda m: None, **extra))
     for r in rows_f:
         r.update({k: v for k, v in S[r["sample"]]["fetch"].items() if k not in r})
     by_scan = {r["sample"]: r for r in rows}
@@ -1086,7 +1101,14 @@ def fetch_check(rows, S, est_fetch, res, trio_list, population, sequenced=None, 
                else dict(n_complete=0, n_total=0, table=[], compare=[], scatter=[], values=[], constant=[]))
     trios_f.pop("values", None)
     trios_f.pop("scatter", None)
-    return dict(n=len(rows_f), agreement=agree, points=points, trios=trios_f, constant=constant)
+    out = dict(n=len(rows_f), agreement=agree, points=points, trios=trios_f, constant=constant)
+    if karyotype:
+        ref = karyotype.get("scan") or {}
+        both = [(r["sample"], ref.get(r["sample"], by_scan[r["sample"]].get("karyotype")), r.get("karyotype")) for r in rows_f
+                if r["sample"] in by_scan and by_scan[r["sample"]].get("karyotype")]
+        differ = [dict(sample=s, scan=a, fetch=b) for s, a, b in both if a != b]
+        out["karyotype"] = dict(n=len(both), identical=len(both) - len(differ), differ=differ[:20])
+    return out
 
 
 def ddpcr_comparison(rows, path) -> dict | None:
@@ -1486,15 +1508,47 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
     est_paths = [est[primary][s] for s in prim_samples]
     grab: list[dict] = []                         # what the Methods figures need, taken as the estimates stream past (read once)
 
+    # chromosomes in copies (ngsdose 0.3.0): the cohort layer reads them when the bundle names its chromosomes' arms. With counts
+    # that hold the karyotype windows for some or all of the genomes (--karyotype), they are read below instead, from those
+    # counts where a genome has them and from the primary counts where it has not
+    kar = res.karyotype() if kmod is not None and hasattr(res, "karyotype") else None
+    kdir = getattr(a, "karyotype", None) if kar else None
+    kout: dict = {}
+    prim_vec: dict = {}                           # each genome's single-copy regions in the primary counts
+
     def stream():
         for p in est_paths:
             r = load_result(p)
             grab.append(dict(sample=r.get("sample"), gc_rel=r.get("gc_rel"), windows=((r.get("classes") or {}).get("rDNA45S") or {}).get("windows")))
+            if kdir:
+                prim_vec[r.get("sample")] = kmod.gather(r, kar.get("control_names"))
             yield r
     profiles: dict = {}
     rules = res.calibration() if hasattr(res, "calibration") else {}
-    rows, eff, info = (cohort.cohort_table(stream(), res.anchors(), log=log, rules=rules, profiles=profiles) if rules
-                       else cohort.cohort_table(stream(), res.anchors(), log=log))
+    extra = dict(karyotype=kar, karyotypes=kout) if kar and not kdir else {}
+    rows, eff, info = (cohort.cohort_table(stream(), res.anchors(), log=log, rules=rules, profiles=profiles, **extra) if rules
+                       else cohort.cohort_table(stream(), res.anchors(), log=log, **extra))
+    if kdir:
+        kpaths = sorted(Path(p) for p in glob.glob(os.path.join(kdir, "*.json.gz")))
+        ksum, kbad = estimate_all(kpaths, cache / "karyotype", bundle_dir, a.jobs, log, fp)
+        unreadable += [dict(mode="karyotype", **b) for b in kbad]
+        kest = {r["sample"]: Path(r["_estimate"]) for r in ksum}
+        with_windows = [s for s in prim_samples if s in kest]
+        vectors = [kmod.gather(load_result(kest[s]), kar.get("control_names")) if s in kest else prim_vec.get(s) for s in prim_samples]
+        log(f"[report] chromosomes: {len(with_windows):,} of {len(prim_samples):,} genomes are read from the counts of {kdir} (with the karyotype windows), the others from the {primary}")
+        readings, model, kinfo = kmod.cohort(vectors, kar.get("arms") or {}, model=kar.get("model"), rules=kar.get("rules"), fit_own=kar.get("fit_own"), log=log,
+                                             gc=kar.get("gc"))
+        if model is not None:
+            chroms = kmod.table(model.names, model.arms).chromosomes()
+            by_sample = {r["sample"]: r for r in rows}
+            for s, rd in zip(prim_samples, readings):
+                by_sample[s].update(kmod.columns(rd, chroms))
+            # the same genomes from the primary counts alone, against the same model: what the windows add, and what a fetch of
+            # the earlier regions is to be compared with
+            base = {s: karyomod.read_one(model, prim_vec.get(s), kar.get("rules")) for s in with_windows}
+            kout.update(samples=list(prim_samples), readings=readings, model=model, info=dict(kinfo, source=str(kdir), with_windows=len(with_windows)),
+                        windows=set(with_windows), base=base)
+        prim_vec.clear()
     for r in rows:
         r.update({k: v for k, v in S[r["sample"]][primary].items() if k not in r})
         r["mode_used"] = primary
@@ -1549,7 +1603,12 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
     if trio_list:
         data["trios"]["by_sex"] = transmission_by_sex(rows, trio_list, population, TRIO_COLUMNS)
         data["trios"]["points"] = trio_points(data["trios"].get("values") or [], rows, TRIO_COLUMNS)
-    data["fetch_check"] = fetch_check(rows, S, est.get("fetch", {}), res, trio_list, population, sequenced, rules=rules) if primary == "scan" and n_mode["fetch"] else None
+    # the fetches against the scan's model, and compared with the scan's reading of the same regions (a genome read above with the
+    # karyotype windows is read from its primary counts for this)
+    kar_fetch = (dict(kar, model=kout["model"], fit_own=False, scan={s: rd.karyotype() for s, rd in (kout.get("base") or {}).items() if rd is not None})
+                 if kar and kout.get("model") is not None else None)
+    data["fetch_check"] = (fetch_check(rows, S, est.get("fetch", {}), res, trio_list, population, sequenced, rules=rules, karyotype=kar_fetch)
+                           if primary == "scan" and n_mode["fetch"] else None)
     data["fetch_paths"] = fetch_paths(S, data["meta"]["sinks"])
     data["ddpcr"] = ddpcr_comparison(rows, a.ddpcr)
     data["pcs"] = pc_analysis(rows, info, trio_list, population, a.pcs, log)
@@ -1574,6 +1633,10 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
     data["hall"] = hall_comparison(rows, a.hall)
     data["replicates"] = replicate_analysis(a.pilot)
     data["ngspca_qc"] = ngspca_qc_comparison(rows, a.qc)
+    # chromosomes in copies, once NGS-PCA's coverage ratios are on the rows (the X chromosome is set against them)
+    data["karyotype"] = karyomod.run(rows, kout, ped, rules=(kar or {}).get("rules"), log=log, alleles_path=getattr(a, "karyotype_alleles", None)) if kar else None
+    if data["karyotype"] and data.get("fetch_check") and data["fetch_check"].get("karyotype"):
+        data["karyotype"]["fetch"] = data["fetch_check"].pop("karyotype")
     if data.get("dj"):
         # the genomes off whole numbers, once the release batch is known: whom they are found in, and what their relatives read
         asm = {t_["sample"]: f"assembly {t_['assembly_core']:g} on the core, {'resolved' if t_['resolved'] else 'fragmented'}"
@@ -1641,6 +1704,14 @@ def build(a, log=lambda m: print(m, file=sys.stderr)) -> dict:
             write_table(asm.pop("blocks"), out / "data" / "dj_hprc_blocks.tsv")
             write_table(asm.pop("copies"), out / "data" / "dj_hprc_copies.tsv")
     write_table([dict(sample=s, flags=f) for s, f in data["flags"]], out / "data" / "flags.tsv")
+    if data.get("karyotype"):
+        ev = karyomod.event_rows(kout["samples"], kout["readings"])
+        cols = ["sample", "chrom", "span", "start", "end", "regions", "copies", "se", "delta", "z", "cells", "label", "karyotype"]
+        if ev:
+            write_table(ev, out / "data" / "karyotype_events.tsv")                           # every chromosome, arm or stretch off its whole number
+        else:
+            (out / "data" / "karyotype_events.tsv").write_text("\t".join(cols) + "\n")
+        dump(kout["model"].to_json(), out / "data" / "karyotype_model.json.gz")              # what the genomes were read against
     Path(out / "data" / "efficiencies.json").write_text(json.dumps(eff))
     data["efficiencies"] = {cls: dict(start=e["start"], a=e["a"], anchor=e["anchor"], gc=e["gc"]) for cls, e in eff.items()}
     data["samples"] = [sample_record(r) for r in rows]
@@ -1656,7 +1727,8 @@ SAMPLE_COLUMNS = ["sample", "sex", "sex_inferred", "pop", "superpop", "mode_used
                   "rDNA45S.18S.flat", "rDNA5S.cn", "rDNA5S.cn_single", "DJ.cn", "DJ.cn_single", "DJ.cn_unit", "DJ.copies", "DJ.partial", "DJ.variants", "DJ.scale_f", "DJ.tilt", "DJ.call", "DJ.call_gap", "DJ.off", "DJ.off_z", "DJ.fractional", "DJ.fractional_z",
                   "rDNA45S.cn.adj", "rDNA45S.cn.adj_ngspca",
                   "elapsed_sec", "flags", "DJ.step", "gc_rel_65", "rDNA45S.18S.flat_over_cn", "rDNA45S.18S_over_cn", "flat.chrM",
-                  "ngspca.MTDNA_CN", "ngspca.chrX", "ngspca.chrY", "ngspca.depth", "ngspca.batch"] + [f"{c}.mass_Mb" for c in SATELLITES] + [f"fetch_ratio.{c}" for c, _ in FETCHABLE] + [f"capture.{c}" for c, _ in FETCHABLE]
+                  "ngspca.MTDNA_CN", "ngspca.chrX", "ngspca.chrY", "ngspca.depth", "ngspca.batch",
+                  "karyotype", "karyotype.status", "sex_chromosomes", "chrX.copies", "chrY.copies", "karyotype.noise"] + [f"{c}.mass_Mb" for c in SATELLITES] + [f"fetch_ratio.{c}" for c, _ in FETCHABLE] + [f"capture.{c}" for c, _ in FETCHABLE]
 
 
 def sample_record(r: dict) -> dict:
@@ -1694,6 +1766,10 @@ def render(data: dict, rows: list[dict]) -> str:
 def add_arguments(ap):
     ap.add_argument("--scan", help="directory of scan-mode counts files")
     ap.add_argument("--fetch", help="directory of fetch-mode counts files")
+    ap.add_argument("--karyotype", help="directory of counts files made with a control set that holds the karyotype windows (`ngsdose fetchplan --controls "
+                    "karyotype`, or a scan with a bundle that has them): a genome's chromosomes are read from its file here, and from the primary "
+                    "mode's counts where it has none")
+    ap.add_argument("--karyotype-alleles", help="the calls against the alleles of the same reads (analysis/karyotype/allele_balance.py), for the page")
     ap.add_argument("-p", "--pedigree", help="1000 Genomes pedigree (sex, population, trios)")
     ap.add_argument("--pcs", help="NGS-PCA svd.pcs.txt (with svd.singularvalues.txt and svd.bins.txt beside it)")
     ap.add_argument("--censat", help="directory of HPRC CenSat annotations (<sample>_<hap>_...cenSat.bed)")
