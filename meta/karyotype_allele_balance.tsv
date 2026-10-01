@@ -1,0 +1,129 @@
+# the calls against the alleles of the same reads (analysis/karyotype/allele_balance.py): by_depth is the share of the cells the level gives, by_alleles the share the allele fractions give
+sample	event	chrom	start	end	sites	d	d_se	by_depth	by_alleles	note
+HG00142	chromosomes at two copies				19010	0.0176		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG00142	+11[0.66]	chr11	3852348	132681668	1037	0.1219	0.0024	0.664	0.645	
+HG00142	+13[0.68]	chr13	26249758	111422507	871	0.121	0.0027	0.68	0.638	
+HG00146	chromosomes at two copies				22441	0.0235		0.0		the genome's baseline; 591 heterozygous sites on chrX
+HG00234	chromosomes at two copies				20591	0.0191		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG00246	chromosomes at two copies				20452	0.0183		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG00255	chromosomes at two copies				20130	0.0191		0.0		the genome's baseline; 604 heterozygous sites on chrX
+HG00285	chromosomes at two copies				19284	0.02		0.0		the genome's baseline; 698 heterozygous sites on chrX
+HG00285	+2p[0.12]	chr2	2421091	94309254	513	0.025	0.0091	0.116	0.105	
+HG00285	-2q[0.10]	chr2	94309254	228133202	731	0.0189	0.0127	0.1	0.073	
+HG00379	chromosomes at two copies				21251	0.0186		0.0		the genome's baseline; 706 heterozygous sites on chrX
+HG00422	chromosomes at two copies				19603	0.0199		0.0		the genome's baseline; 484 heterozygous sites on chrX
+HG00427	chromosomes at two copies				19932	0.0248		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG00465	chromosomes at two copies				19148	0.0141		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG00474	chromosomes at two copies				19092	0.0195		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG00477	chromosomes at two copies				19924	0.0173		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG00478	chromosomes at two copies				18890	0.0169		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG00501	chromosomes at two copies				17967	0.0168		0.0		the genome's baseline; 640 heterozygous sites on chrX
+HG00501	+12[0.66]	chr12	7058393	119075655	569	0.1195	0.0034	0.659	0.628	
+HG00615	chromosomes at two copies				18945	0.0136		0.0		the genome's baseline; 565 heterozygous sites on chrX
+HG00623	chromosomes at two copies				17856	0.0176		0.0		the genome's baseline; 582 heterozygous sites on chrX
+HG00623	+12[0.72]	chr12	7058393	119075655	636	0.1598	0.0031	0.721	0.94	
+HG00691	chromosomes at two copies				19568	0.0204		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG00703	chromosomes at two copies				18232	0.0148		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG00703	+9(104-133Mb)[0.15]	chr9	103704206	132652755	210	0.0029	0.1119	0.151	0.012	
+HG00737	chromosomes at two copies				22735	0.0186		0.0		the genome's baseline; 760 heterozygous sites on chrX
+HG01053	chromosomes at two copies				23235	0.0205		0.0		the genome's baseline; 610 heterozygous sites on chrX
+HG01053	-X[0.50]	chrX	3997536	152670218	610	0.1455	0.0035	0.497	0.451	
+HG01103	chromosomes at two copies				21288	0.0226		0.0		the genome's baseline; 697 heterozygous sites on chrX
+HG01103	-2(140-179Mb)[0.68]	chr2	139893950	178612779	119	0.2234	0.0074	0.678	0.618	
+HG01137	chromosomes at two copies				19649	0.0125		0.0		the genome's baseline; 561 heterozygous sites on chrX
+HG01137	+12[0.32]	chr12	7058393	119075655	767	0.0722	0.0042	0.321	0.338	
+HG01137	-X[0.46]	chrX	3997536	152670218	561	0.1074	0.0047	0.463	0.354	
+HG01167	chromosomes at two copies				22818	0.0256		0.0		the genome's baseline; 1 heterozygous sites on chrX
+HG01167	-7(115-131Mb)[0.20]	chr7	115103304	131461056	125	0.0737	0.0099	0.195	0.257	
+HG01258	chromosomes at two copies				20473	0.0191		0.0		the genome's baseline; 1 heterozygous sites on chrX
+HG01258	+9(127-133Mb)[0.13]	chr9	126556249	132652755	80	0.044	0.0215	0.129	0.193	
+HG01357	chromosomes at two copies				19587	0.0178		0.0		the genome's baseline; 726 heterozygous sites on chrX
+HG01357	+12[0.79]	chr12	7058393	119075655	1137	0.1346	0.0025	0.789	0.737	
+HG01366	chromosomes at two copies				22899	0.0123		0.0		the genome's baseline; 451 heterozygous sites on chrX
+HG01366	+X[0.30]	chrX	3997536	152670218	451	0.2378	0.0036	0.305	0.355	one copy expected: a second in part of the cells
+HG01600	chromosomes at two copies				19931	0.0228		0.0		the genome's baseline; 595 heterozygous sites on chrX
+HG01683	chromosomes at two copies				20771	0.0199		0.0		the genome's baseline; 501 heterozygous sites on chrX
+HG01967	chromosomes at two copies				20025	0.0146		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG02053	chromosomes at two copies				26540	0.0206		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG02322	chromosomes at two copies				25413	0.0113		0.0		the genome's baseline; 906 heterozygous sites on chrX
+HG02322	+12[0.85]	chr12	7058393	119075655	1349	0.1441	0.0019	0.855	0.81	
+HG02652	chromosomes at two copies				21110	0.013		0.0		the genome's baseline; 627 heterozygous sites on chrX
+HG02652	+12[0.20]	chr12	7058393	119075655	1059	0.041	0.0048	0.196	0.179	
+HG02652	-X[0.21]	chrX	3997536	152670218	627	0.0459	0.0069	0.21	0.168	
+HG02791	chromosomes at two copies				20297	0.0238		0.0		the genome's baseline; 4 heterozygous sites on chrX
+HG02791	+21[0.15]	chr21	14479825	42229433	866	0.0183	0.0091	0.146	0.076	
+HG02805	chromosomes at two copies				24732	0.0171		0.0		the genome's baseline; 936 heterozygous sites on chrX
+HG02805	+9[0.15]	chr9	3877145	132652755	1123	0.0346	0.0054	0.154	0.149	
+HG02869	chromosomes at two copies				27798	0.0147		0.0		the genome's baseline; 2 heterozygous sites on chrX
+HG02966	chromosomes at two copies				26752	0.0148		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG03061	chromosomes at two copies				26986	0.0171		0.0		the genome's baseline; 1166 heterozygous sites on chrX
+HG03061	+3(165-194Mb)[0.91]	chr3	164804170	193871693	191	0.1648	0.0055	0.907	0.983	
+HG03363	chromosomes at two copies				25432	0.0134		0.0		the genome's baseline; 1131 heterozygous sites on chrX
+HG03363	+11(4-41Mb)[0.79]	chr11	3852348	40666296	458	0.1352	0.0034	0.785	0.741	
+HG03456	chromosomes at two copies				25461	0.0168		0.0		the genome's baseline; 1 heterozygous sites on chrX
+HG03511	chromosomes at two copies				27119	0.0179		0.0		the genome's baseline; 0 heterozygous sites on chrX
+HG03615	chromosomes at two copies				16660	0.0207		0.0		the genome's baseline; 1 heterozygous sites on chrX
+HG03615	-1(5-106Mb)[0.07]	chr1	4952295	105964409	738	0.0	0.4048	0.066	0.0	
+HG03615	+5(119-173Mb)[0.10]	chr5	119248462	173332756	537	0.0224	0.0116	0.097	0.094	
+HG03615	+11[0.08]	chr11	3852348	132681668	1003	0.0286	0.0072	0.082	0.121	
+HG04202	chromosomes at two copies				20087	0.0196		0.0		the genome's baseline; 272 heterozygous sites on chrX
+HG04202	+X[0.39]	chrX	3997536	152670218	272	0.186	0.0051	0.388	0.458	one copy expected: a second in part of the cells
+NA06984	chromosomes at two copies				18976	0.0162		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA06984	+14(80-99Mb)	chr14	79846526	98678585	444	0.162	0.0034	0.968	0.958	
+NA07055	chromosomes at two copies				20201	0.0206		0.0		the genome's baseline; 705 heterozygous sites on chrX
+NA07055	-2(149-165Mb)[0.78]	chr2	149132769	164867367	2			0.782		too few heterozygous sites (one copy carries none)
+NA10854	chromosomes at two copies				18337	0.0166		0.0		the genome's baseline; 48 heterozygous sites on chrX
+NA10854	+9[0.17]	chr9	3877145	132652755	783	0.0393	0.0056	0.166	0.171	
+NA10854	+X[0.11]	chrX	3997536	152670218	48	0.3186	0.0056	0.11	0.222	one copy expected: a second in part of the cells
+NA10856	chromosomes at two copies				14478	0.0212		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA10856	+4(103-175Mb)[0.07]	chr4	102653328	174756639	682	0.0	0.4283	0.07	0.0	
+NA10856	+10(74-126Mb)[0.18]	chr10	74362864	125587600	383	0.0493	0.0059	0.182	0.219	
+NA10856	+11(115-133Mb)[0.09]	chr11	114837724	132681668	318	0.029	0.0129	0.086	0.123	
+NA10856	+12(111-119Mb)[0.12]	chr12	110519070	119075655	27			0.123		too few heterozygous sites
+NA10856	+14(47-99Mb)[0.06]	chr14	46500797	98678585	746	0.0	0.3703	0.06	0.0	
+NA11891	chromosomes at two copies				18998	0.0139		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA11891	+15[0.94]	chr15	25094162	97977039	809	0.1559	0.0024	0.937	0.906	
+NA11917	chromosomes at two copies				20708	0.0204		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA12058	chromosomes at two copies				20338	0.019		0.0		the genome's baseline; 672 heterozygous sites on chrX
+NA12058	+15[0.35]	chr15	25094162	97977039	790	0.0651	0.0037	0.347	0.299	
+NA12236	chromosomes at two copies				19720	0.0109		0.0		the genome's baseline; 610 heterozygous sites on chrX
+NA12236	+14(35-99Mb)	chr14	34604147	98678585	656	0.1618	0.0027	1.008	0.957	
+NA12248	chromosomes at two copies				15657	0.0191		0.0		the genome's baseline; 2 heterozygous sites on chrX
+NA12248	+9[0.17]	chr9	3877145	132652755	1010	0.0364	0.0054	0.172	0.157	
+NA12248	+12[0.18]	chr12	7058393	119075655	683	0.0437	0.0057	0.175	0.191	
+NA12248	+14[0.22]	chr14	23046659	98678585	931	0.0461	0.0048	0.22	0.203	
+NA12248	+15(55-98Mb)[0.10]	chr15	54958984	97977039	670	0.0306	0.0072	0.099	0.13	
+NA12248	+22[0.16]	chr22	27946610	48306076	423	0.0493	0.007	0.165	0.219	
+NA12274	chromosomes at two copies				18673	0.02		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA12274	+11(63-133Mb)[0.62]	chr11	63488659	132681668	584	0.1157	0.0036	0.616	0.602	
+NA12341	chromosomes at two copies				17317	0.0195		0.0		the genome's baseline; 600 heterozygous sites on chrX
+NA12341	+4(114-175Mb)[0.19]	chr4	113980541	174756639	454	0.0113	0.0224	0.195	0.046	
+NA12341	+14(85-99Mb)[0.67]	chr14	84587442	98678585	344	0.127	0.0048	0.673	0.681	
+NA12341	+15[0.05]	chr15	25094162	97977039	685	0.0063	0.0347	0.051	0.026	
+NA12342	chromosomes at two copies				19141	0.0241		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA12342	-11(102-115Mb)	chr11	102197612	114837724	0			0.995		too few heterozygous sites (one copy carries none)
+NA12739	chromosomes at two copies				19224	0.0121		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA12739	+12	chr12	7058393	119075655	983	0.1601	0.0025	0.986	0.942	
+NA12814	chromosomes at two copies				20105	0.0126		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA12814	+9[0.10]	chr9	3877145	132652755	746	0.0182	0.0128	0.102	0.076	
+NA18946	chromosomes at two copies				17612	0.0205		0.0		the genome's baseline; 730 heterozygous sites on chrX
+NA18946	+X[0.47]	chrX	3997536	152670218	730	0.0911	0.0038	0.469	0.445	
+NA18966	chromosomes at two copies				19187	0.0237		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA19176	chromosomes at two copies				26658	0.0098		0.0		the genome's baseline; 4 heterozygous sites on chrX
+NA19208	chromosomes at two copies				26790	0.0148		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA19208	+9[0.89]	chr9	3877145	132652755	1329	0.1455	0.0021	0.887	0.821	
+NA19226	chromosomes at two copies				27901	0.0171		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA19332	chromosomes at two copies				26982	0.0193		0.0		the genome's baseline; 1 heterozygous sites on chrX
+NA19355	chromosomes at two copies				25455	0.0209		0.0		the genome's baseline; 1176 heterozygous sites on chrX
+NA19355	-2(140-165Mb)[0.56]	chr2	139893950	164867367	52	0.1774	0.0125	0.559	0.524	
+NA20509	chromosomes at two copies				19148	0.0176		0.0		the genome's baseline; 4 heterozygous sites on chrX
+NA20509	+5(133-173Mb)[0.34]	chr5	132693807	173332756	274	0.0705	0.0069	0.341	0.328	
+NA20509	-17p[0.31]	chr17	144403	21635963	235	0.0906	0.0073	0.311	0.307	
+NA20533	chromosomes at two copies				19715	0.0191		0.0		the genome's baseline; 111 heterozygous sites on chrX
+NA20533	+13(51-111Mb)[0.78]	chr13	50712514	111422507	793	0.1347	0.0027	0.781	0.737	
+NA20533	-17(0-8Mb)[0.80]	chr17	144403	8195224	15			0.801		too few heterozygous sites (one copy carries none)
+NA20533	+X[0.20]	chrX	3997536	152670218	111	0.2603	0.006	0.202	0.315	one copy expected: a second in part of the cells
+NA20754	chromosomes at two copies				21339	0.0084		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA20821	chromosomes at two copies				20057	0.0167		0.0		the genome's baseline; 688 heterozygous sites on chrX
+NA21118	chromosomes at two copies				19367	0.0159		0.0		the genome's baseline; 0 heterozygous sites on chrX
+NA21118	+5(104-173Mb)[0.23]	chr5	103741488	173332756	532	0.0594	0.0049	0.231	0.27	

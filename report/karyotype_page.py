@@ -91,8 +91,10 @@ Columns: <code>karyotype</code> (written like one: <code>47,XY,+21</code>; a cha
                 + ", ".join(f"{esc(d['sample'])}, Y {fmt(d['y'], 2)}" for d in ym[:6]) + "): lines that lost the Y in most of their cells, which is written "
                 "<code>45,X,+Y[share]</code>. ")
     pt = sx["part"]
-    share = lambda d: f"{d['n']:,}" + (f" (in {_pct(d['q'][0])} to {_pct(d['q'][2])} of the cells, median {_pct(d['q'][1])})" if d["n"] >= 3 else "")
-    txt += (f"In part of the cells: an X lost in {share(pt['x_lost'])} genomes and gained in {share(pt['x_gained'])}, a Y lost in {share(pt['y_lost'])} and gained in {share(pt['y_gained'])}. "
+    share = lambda d, first=False: ((f" ({_pct(d['q'][0])} to {_pct(d['q'][2])} of the cells{' from the 10th to the 90th percentile' if first else ''}, "
+                                      f"median {_pct(d['q'][1])})") if d["n"] >= 3 else "")
+    txt += (f"In part of the cells: an X lost in {pt['x_lost']['n']:,} genomes{share(pt['x_lost'], True)} and gained in {pt['x_gained']['n']:,}{share(pt['x_gained'])}, "
+            f"a Y lost in {pt['y_lost']['n']:,}{share(pt['y_lost'])} and gained in {pt['y_gained']['n']:,}{share(pt['y_gained'])}. "
             "These are cell lines: an X or a Y lost in culture is what most of them are.")
     P.h(txt + "</p>")
     pub = [t for t in sx["not_plain"] if t["sample"] in ("HG01683", "HG03456")]
@@ -165,11 +167,17 @@ a gain or a loss of one copy is called {seen}.</p>""")
         P.h(txt + "</p>")
     al = k.get("alleles")
     if al and al.get("rows"):
+        oc = al.get("one_copy") or []
+        one_copy = ("" if not oc else
+                    " Where one copy is expected and a second is in part of the cells (a line read as one X), heterozygous sites exist only where the second is, "
+                    "and the alleles stand at its share to one: " + "; ".join(f"{esc(o['sample'])} {esc(o['event'])}, {fmt(o['by_alleles'], 2)} by the alleles" for o in oc[:6])
+                    + (f"; and {len(oc) - 6} more" if len(oc) > 6 else "") + " (the caller misses the sites whose second allele is rarest, so these read high where the share is small).")
         P.h(f"""<p><strong>Against the alleles.</strong> Depth says how many copies; the alleles of the same reads say it again, independently. Two copies carry a heterozygous site's alleles in equal shares; a third copy in a share
 f of the cells makes them (1 + f) : 1, a lost one 1 : (1 − f). In the reads fetched for the windows, heterozygous sites were called and the spread of their allele fractions, beyond what each site's depth gives by chance, turned into a share of the cells
-(<code>analysis/karyotype/allele_balance.py</code>). {al["n"]:,} chromosomes, arms and stretches called here in a tenth of the cells or more have enough sites{f", in {al['genomes']} genomes" if al.get("genomes") else ""}:
-the two shares agree at r = {fmt(al["r"], 3)}, and differ by {fmt(al["diff_sd"], 2)} (robust SD){f"; on the chromosomes that depth reads at two copies in the same genomes the alleles are balanced (d = {fmt(al['quiet_d'], 3)} in the median)" if al.get("quiet_d") is not None else ""}.
-A change that depth reads in every cell and the alleles in none would be a copy with both alleles alike; none is seen. Below a twentieth of the cells the alleles cannot confirm a call: their own scatter is larger.</p>""")
+(<code>analysis/karyotype/allele_balance.py</code>). {al["n"]:,} chromosomes, arms and stretches called here in a twentieth of the cells or more have enough sites{f", in {al['genomes']} genomes" if al.get("genomes") else ""}:
+the two shares agree at r = {fmt(al["r"], 3)} and differ by {fmt(al["diff_sd"], 3)} (robust SD), {al.get("near", 0)} of them within a tenth of each other{f"; on the chromosomes that depth reads at two copies in the same genomes the alleles are balanced (d = {fmt(al['quiet_d'], 3)} in the median)" if al.get("quiet_d") is not None else ""}.
+{("The alleles do not bear out " + _and([f"{esc(o['sample'])}'s {esc(o['event'])} ({fmt(o['by_alleles'], 2)} of the cells by the alleles)" for o in al.get("not_borne") or []]) + ": the extra copies may hold both homologs, or depth reads something of those libraries there as a gain; the calls are depth's.") if al.get("not_borne") else ""}
+A change that depth reads in every cell and the alleles in none would be a copy with both alleles alike; none is seen. Below a twentieth of the cells the alleles cannot confirm a call: their own scatter is larger.{one_copy}</p>""")
         P.table([[r_["sample"], r_["event"], r_["sites"], fmt(r_["by_depth"], 2), fmt(r_["by_alleles"], 2)] for r_ in al["rows"][:30]],
                 ["sample", "called by depth", "heterozygous sites", "share of the cells, by depth", "by the alleles"], numeric={2, 3, 4}, wrap=True, filter_box=True)
 

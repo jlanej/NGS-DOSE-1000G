@@ -337,15 +337,21 @@ def alleles(path, samples=None) -> dict | None:
     except OSError:
         return None
     keep = set(samples) if samples is not None else None
+    # where two copies are expected; a line read as one copy with a second in part of the cells has heterozygous sites only
+    # where the second is, and is listed apart (`one_copy`)
     ev = [dict(sample=r["sample"], event=r["event"], sites=int(r["sites"]), by_depth=float(r["by_depth"]), by_alleles=float(r["by_alleles"]))
-          for r in rows if r["chrom"] and r["by_alleles"] not in ("", "NA") and (keep is None or r["sample"] in keep)]
+          for r in rows if r["chrom"] and r["by_alleles"] not in ("", "NA") and not r.get("note") and (keep is None or r["sample"] in keep)]
+    one = [dict(sample=r["sample"], event=r["event"], sites=int(r["sites"]), by_depth=float(r["by_depth"]), by_alleles=float(r["by_alleles"]))
+           for r in rows if r["chrom"] and r["by_alleles"] not in ("", "NA") and r.get("note") and (keep is None or r["sample"] in keep)]
     quiet = [float(r["d"]) for r in rows if not r["chrom"] and r["d"] not in ("", "NA") and (keep is None or r["sample"] in keep)]
     few = [dict(sample=r["sample"], event=r["event"], sites=int(r["sites"]), note=r["note"]) for r in rows if r["chrom"] and r["by_alleles"] in ("", "NA") and (keep is None or r["sample"] in keep)]
     if len(ev) < 3:
         return None
     d = np.array([(e["by_depth"], e["by_alleles"]) for e in ev])
     return dict(rows=sorted(ev, key=lambda e: -e["by_depth"]), n=len(ev), genomes=len({e["sample"] for e in ev}), r=float(np.corrcoef(d.T)[0, 1]),
-                diff_sd=_mad(d[:, 0] - d[:, 1]), diff_median=float(np.median(d[:, 1] - d[:, 0])), quiet_d=float(np.median(quiet)) if quiet else None, too_few=few)
+                diff_sd=_mad(d[:, 0] - d[:, 1]), diff_median=float(np.median(d[:, 1] - d[:, 0])), quiet_d=float(np.median(quiet)) if quiet else None, too_few=few,
+                one_copy=one, near=int((np.abs(d[:, 0] - d[:, 1]) < 0.1).sum()),
+                not_borne=[e for e in ev if e["by_depth"] >= 0.1 and e["by_alleles"] < 0.5 * e["by_depth"]])
 
 
 def run(rows, kout: dict | None, ped: dict, rules: dict | None = None, log=None, alleles_path=None) -> dict | None:
