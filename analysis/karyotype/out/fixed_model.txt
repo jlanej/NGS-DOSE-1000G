@@ -1,0 +1,9 @@
+model learned on the 2,504 genomes of the first release, applied to the 698 added later: 691 of 698 karyotypes are written as the whole cohort's model writes them
+   HG01053: 46,XX,-X[0.50] | 46,XX,-X[0.49]
+   HG02869: 47,XYY,-Y[0.07] | 47,XYY,-Y[0.06]
+   NA10856: 46,XY,+4(103-175Mb)[0.07],+10(74-126Mb)[0.18],+11(115-133Mb)[0.09],+12(111-119Mb)[0.12],+13[0.05],+14(47-99Mb)[0.06] | 46,XY,+4(110-175Mb)[0.07],+10(74-126Mb)[0.18],+11(115-133Mb)[0.09],+13[0.04],+14(47-99Mb)[0.06]
+   NA11891: 46,XY,+Y[0.06],+15[0.94] | 46,XY,+Y[0.05],+15[0.94]
+   NA12248: 46,XY,+9[0.17],+12[0.18],+14[0.22],+15(55-98Mb)[0.10],+22[0.16] | 46,XY,+9[0.18],+12[0.17],+14[0.22],+15(55-98Mb)[0.10],+22[0.17]
+   NA12274: 46,XY,-6[0.04],+11(63-133Mb)[0.62] | 46,XY,-6[0.04],+7(18-92Mb)[0.06],+11(63-133Mb)[0.62],+14(95.0-98.7Mb)[0.15]
+   NA19208: 46,XY,+9[0.89] | 46,XY,+9[0.88]
+levels, fixed model less the cohort's own: robust SD 0.0004 to 0.0021 copies over the autosomes; as a share of the level's standard error 0.05 to 0.12

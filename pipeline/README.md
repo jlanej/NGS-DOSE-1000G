@@ -421,6 +421,39 @@ the genomes with every panel of interest (0.1-1% of a biobank is still thousands
 there (`ngsdose sinks`, as `06_learn_sinks.sh` does), and fetch the rest by a plan whose cost is read off
 the biobank's own indexes. The sinks and costs above serve that pipeline's CRAMs only.
 
+### Chromosomes in copies: the windows for every genome
+
+NGS-DOSE 0.3.0 reads every chromosome in copies from the single-copy regions (its DESIGN.md, section 8),
+and its bundle adds the *karyotype windows*: 2,265 pieces of clean single-copy sequence along every arm,
+which read every autosome to about 0.006 copies (standard error at 30x) where the controls alone leave
+chromosome 19 at 0.028 and chromosome 22 at 0.035. The cohort was counted before they existed. The page reads 186 genomes
+with them (`counts_karyotype/`: the containers of the public CRAMs that hold the regions, fetched by exact
+byte range with `analysis/karyotype/slice_fetch.py` and counted locally with `ngs-dose count -m fetch`)
+and the other 3,016 from the 980 regions their counts hold. To read every genome with the windows, fetch
+them, with an image of 0.3.0 or later and the cheapest class beside them (a plan needs one):
+
+```bash
+export NGSDOSE_IMAGE=docker://ghcr.io/jlanej/ngs-dose:sha-<commit>    # 0.3.0 or later, pinned
+export SIF=$WORK_DIR/ngs-dose.karyotype.sif EXPECTED_ENGINE_BUILD=<commit>
+bash 00_setup.sh
+N=$(wc -l < $WORK_DIR/manifest.tsv)
+MODE=fetch COUNTS_DIR=$WORK_DIR/counts_karyotype FETCH_CLASSES=rDNA5S FETCH_PLAN_ARGS="--controls all" \
+  FETCH_PLAN_DIR=$WORK_DIR/fetchplan_karyotype sbatch --array=0-$(( (N - 1) / ${SAMPLES_PER_TASK:-10} ))%25 01_count.sh
+```
+
+`--controls all` reads every region of the bundle, the 800 controls with the windows, as a scan counts
+them: 404 MB of CRAM slices per genome as the engine decodes them (median of 13 NYGC indexes; 1.3 TB for
+the cohort); `--controls karyotype` (200 controls and every window, 277 MB) reads the chromosomes almost as
+well and misses a few short stretches that the 800 controls define. Over HTTPS htslib moves several times
+what it decodes (each query opens a range request without an end, and what is in flight at the next seek is
+thrown away: 1,517 MB moved for 410 MB of slices, measured), so on a network-bound cluster stage the
+containers instead: `analysis/karyotype/slice_fetch.py URL CRAI REGIONS.bed OUT.cram` writes the CRAM of
+exactly the containers that hold the regions (about 450 MB per genome for every region with 600 bp of
+padding), which `ngs-dose count -m fetch -i OUT.cram` counts like the remote file. Then copy the counts
+into this repository's `counts_karyotype/` and run `regenerate.sh`: a genome with a file there is read from
+it. With every genome counted so, NGS-DOSE's `resources/build/karyotype_model.py` can learn the bundle's
+model of the windows on all 3,202 instead of 186.
+
 ### What the cohort run is for
 
 `02_cohort.sh` ends with the table the design is waiting on — transmission reliability of every

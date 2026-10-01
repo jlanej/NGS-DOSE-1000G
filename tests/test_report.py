@@ -58,7 +58,12 @@ def test_the_numbers_are_the_pilots(report):
     assert d["trios"]["n_complete"] == 4 and {t["column"] for t in d["trios"]["table"]} >= {"rDNA45S.cn", "rDNA45S.18S.flat", "truth.auto", "chrM.copies"}
     h = d["hall"]
     assert h["n"] == 5 and h["flat"]["r"] > 0.97 and 1.05 < h["flat_ratio"] < 1.1 and 1.0 < h["dup_corrected_ratio"] < 1.05
-    assert any("HG00732" == s and "chrX" in f for s, f in d["flags"])            # the culture that lost an X
+    k = d.get("karyotype")
+    if k is None:                                                                  # an ngsdose before 0.3.0 does not read chromosomes
+        assert any("HG00732" == s and "chrX" in f for s, f in d["flags"])          # the culture that lost an X
+    else:                                                                          # twelve genomes: read against the bundle's model
+        assert any("HG00732" == s and "karyotype 46,XX,-X[0.3" in f for s, f in d["flags"])        # the culture that lost an X in a third of its cells
+        assert k["n"] == 12 and k["plain"] == 11 and k["model"]["saved"] and k["model"]["n"] > 3000 and 900 < k["model"]["regions"] < 1000
     rep = d["replicates"]                                                          # the same twelve people on an older technology
     assert rep["n"] == 12 and rep["table"]["calibrated"]["icc"] > 0.95 and rep["table"]["flat"]["icc"] < 0.5 and rep["table"]["flat_centred"]["icc"] > 0.8
     assert len(d["samples"]) == 12 and all(s["sex_inferred"] in ("M", "F") for s in d["samples"])

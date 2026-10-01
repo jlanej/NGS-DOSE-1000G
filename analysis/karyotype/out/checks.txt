@@ -1,0 +1,10 @@
+1. with the windows: 125 clean genomes x 12 random orders = 1,500 readings: 0 stretches and 0 whole chromosomes called
+1. without: 1,500 clean genomes x 1 random orders = 1,500 readings: 0 stretches and 0 whole chromosomes called
+2. 125 clean genomes with the windows at lower depth (counting noise added), the model unchanged:
+   30x: noise factor 1.04; z of the autosomes, robust SD 0.98; events 0; SE of a typical autosome 0.0064 copies
+   20x: noise factor 1.26; z of the autosomes, robust SD 0.97; events 0; SE of a typical autosome 0.0076 copies
+   15x: noise factor 1.44; z of the autosomes, robust SD 0.98; events 1; SE of a typical autosome 0.0086 copies
+   10x: noise factor 1.75; z of the autosomes, robust SD 0.99; events 0; SE of a typical autosome 0.0103 copies
+    6x: noise factor 2.23; z of the autosomes, robust SD 1.02; events 0; SE of a typical autosome 0.0130 copies
+    4x: noise factor 2.74; z of the autosomes, robust SD 1.02; events 0; SE of a typical autosome 0.0159 copies
+3. read from the fetch-mode counts against the cohort's model: 3,202 of 3,202 karyotypes are written as from the scan's counts of the same regions

@@ -40,6 +40,9 @@ fi
 args=(-p "$PED" --hall meta/hall2021_MOESM1.txt --pilot pilot --pcs meta/ngspca/svd.pcs.txt -o docs --cache cache -j "${JOBS:-4}")
 [ -n "$(ls counts_scan/*.json.gz 2>/dev/null)" ] && args+=(--scan counts_scan)
 [ -n "$(ls counts_fetch/*.json.gz 2>/dev/null)" ] && args+=(--fetch counts_fetch)
+# counts with the karyotype windows: a genome's chromosomes are read from its file here, and from the scan where it has none
+[ -n "$(ls counts_karyotype/*.json.gz 2>/dev/null)" ] && args+=(--karyotype counts_karyotype)
+[ -s meta/karyotype_allele_balance.tsv ] && args+=(--karyotype-alleles meta/karyotype_allele_balance.tsv)   # analysis/karyotype/allele_balance.py
 [ -d hprc_censat ] && args+=(--censat hprc_censat)
 [ -s meta/dj_hprc/haplotypes.tsv ] && args+=(--dj-assemblies meta/dj_hprc)   # the distal junction in HPRC assemblies (pipeline/07_hprc_dj.sh)
 [ -s meta/ngspca_sample_qc.tsv ] && args+=(--qc meta/ngspca_sample_qc.tsv)

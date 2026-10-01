@@ -1,34 +1,54 @@
 sample	flags
+HG00130	karyotype 46,XX,+12[0.07] (part of the cells in brackets)
+HG00133	karyotype 46,XX,-X[0.06],+12[0.05] (part of the cells in brackets)
 HG00138	DJ 9 copies
-HG00139	chrY 0.79 (mosaic Y loss?)
-HG00142	aneuploid: chr11,chr13; DJ 11 copies
-HG00149	aneuploid: chr12
-HG00154	chrX 1.32 (mosaic X loss?)
-HG00176	chrX 1.79 (mosaic X loss?)
-HG00185	chrY 0.75 (mosaic Y loss?)
-HG00187	chrY 0.84 (mosaic Y loss?)
-HG00189	aneuploid: chr9
+HG00139	karyotype 46,XY,-Y[0.20] (part of the cells in brackets)
+HG00142	karyotype 46,XY,+11[0.66],+13[0.68] (part of the cells in brackets); DJ 11 copies
+HG00149	karyotype 46,XY,+Y[0.06],+12[0.08] (part of the cells in brackets)
+HG00154	karyotype 45,X,+X[0.35] (part of the cells in brackets)
+HG00155	karyotype 46,XY,-Y[0.07] (part of the cells in brackets)
+HG00159	karyotype 46,XY,-Y[0.11] (part of the cells in brackets)
+HG00174	karyotype 46,XX,-X[0.07] (part of the cells in brackets)
+HG00176	karyotype 46,XX,-X[0.15] (part of the cells in brackets)
+HG00185	karyotype 46,XY,-Y[0.23] (part of the cells in brackets)
+HG00187	karyotype 46,XY,-Y[0.14] (part of the cells in brackets)
+HG00189	karyotype 46,XY,+9[0.22] (part of the cells in brackets)
 HG00236	DJ 9.49 copies, between whole numbers (part of the cells?)
-HG00244	chrY 0.81 (mosaic Y loss?)
-HG00246	chrY 0.31 (mosaic Y loss?)
+HG00237	karyotype 46,XX,-X[0.06] (part of the cells in brackets)
+HG00244	karyotype 46,XY,-Y[0.18] (part of the cells in brackets)
+HG00246	karyotype 45,X,+Y[0.31] (part of the cells in brackets)
+HG00261	karyotype 46,XX,+X(78-153Mb)[0.43] (part of the cells in brackets)
+HG00264	karyotype 46,XY,-Y[0.11] (part of the cells in brackets)
+HG00265	karyotype 46,XY,+12[0.06] (part of the cells in brackets)
+HG00271	karyotype 46,XY,+8(115-139Mb)[0.14] (part of the cells in brackets)
+HG00275	karyotype 46,XX,+4(152-174Mb)[0.25] (part of the cells in brackets)
+HG00285	karyotype 46,XX,+2p[0.12],-2q[0.10] (part of the cells in brackets)
 HG00331	DJ 11 copies
 HG00342	DJ level -0.42 from 10 copies (part of the cells?)
 HG00346	DJ level -0.40 from 10 copies (part of the cells?)
-HG00361	chrX 1.14 (mosaic X loss?)
+HG00351	karyotype 46,XY,-Y[0.05] (part of the cells in brackets)
+HG00357	karyotype 46,XX,-X[0.09] (part of the cells in brackets)
+HG00361	karyotype 45,X,+X[0.16] (part of the cells in brackets)
 HG00368	DJ level -0.47 from 10 copies (part of the cells?)
-HG00376	chrX 1.84 (mosaic X loss?)
-HG00384	chrX 1.77 (mosaic X loss?)
+HG00376	karyotype 46,XX,-X[0.12] (part of the cells in brackets)
+HG00380	karyotype 46,XX,-X[0.08] (part of the cells in brackets)
+HG00384	karyotype 46,XX,-X[0.17] (part of the cells in brackets)
+HG00403	karyotype 46,XY,+Y[0.06] (part of the cells in brackets)
 HG00418	DJ 11 copies; DJ level -0.46 from 11 copies (part of the cells?)
 HG00448	DJ 9.46 copies, between whole numbers (part of the cells?)
 HG00453	DJ level -0.44 from 10 copies (part of the cells?)
-HG00501	aneuploid: chr12
+HG00501	karyotype 46,XX,+12[0.66] (part of the cells in brackets)
 HG00524	DJ 9 copies
 HG00531	DJ 9 copies
 HG00543	DJ 9 copies
 HG00554	DJ 9 copies
+HG00594	karyotype 46,XY,+21[0.07] (part of the cells in brackets)
+HG00611	karyotype 46,XX,-X[0.06] (part of the cells in brackets)
+HG00614	karyotype 46,XX,-5(54-63Mb)[0.58] (part of the cells in brackets)
 HG00619	DJ 9 copies
 HG00621	DJ 9 copies
-HG00623	aneuploid: chr12
+HG00623	karyotype 46,XX,+12[0.72] (part of the cells in brackets)
+HG00632	karyotype 46,XX,+X[0.07] (part of the cells in brackets)
 HG00651	DJ 8 copies
 HG00652	DJ 8 copies
 HG00656	DJ 9 copies
@@ -36,91 +56,117 @@ HG00658	DJ 9 copies
 HG00673	DJ level -0.40 from 10 copies (part of the cells?)
 HG00683	DJ level -0.42 from 10 copies (part of the cells?)
 HG00684	DJ level -0.46 from 10 copies (part of the cells?)
-HG00732	chrX 1.61 (mosaic X loss?)
+HG00690	karyotype 46,XX,-X[0.09] (part of the cells in brackets)
+HG00703	karyotype 46,XY,+9(104-133Mb)[0.15] (part of the cells in brackets)
+HG00732	karyotype 46,XX,-X[0.35] (part of the cells in brackets)
+HG00739	karyotype 46,XY,-Y[0.04] (part of the cells in brackets)
 HG00740	DJ 9 copies
-HG00864	chrX 1.74 (mosaic X loss?)
+HG00864	karyotype 46,XX,-X[0.22] (part of the cells in brackets)
 HG01047	DJ 9 copies
-HG01053	chrX 1.48 (mosaic X loss?)
-HG01066	chrY 0.84 (mosaic Y loss?)
-HG01073	chrX 1.82 (mosaic X loss?)
+HG01053	karyotype 46,XX,-X[0.50] (part of the cells in brackets)
+HG01066	karyotype 46,XY,-Y[0.14] (part of the cells in brackets)
+HG01067	karyotype 46,XX,+12[0.07] (part of the cells in brackets)
+HG01068	karyotype 46,XX,+12[0.08] (part of the cells in brackets)
+HG01073	karyotype 46,XX,-X[0.12] (part of the cells in brackets)
 HG01085	DJ 9 copies
 HG01088	DJ 11 copies
-HG01089	chrX 1.81 (mosaic X loss?)
+HG01089	karyotype 46,XX,-X[0.14] (part of the cells in brackets)
 HG01100	DJ 10.31 copies, between whole numbers (part of the cells?)
+HG01103	karyotype 46,XX,-2(140-179Mb)[0.68] (part of the cells in brackets)
 HG01107	DJ level -0.56 from 10 copies (part of the cells?)
 HG01113	DJ 10.99 copies, between whole numbers (part of the cells?)
-HG01137	aneuploid: chr12; chrX 1.50 (mosaic X loss?)
-HG01140	chrX 1.79 (mosaic X loss?)
-HG01168	aneuploid: chr12
+HG01137	karyotype 46,XX,-X[0.46],+11[0.04],+12[0.32] (part of the cells in brackets)
+HG01140	karyotype 46,XX,-X[0.15] (part of the cells in brackets)
+HG01167	karyotype 46,XY,-7(115-131Mb)[0.20] (part of the cells in brackets)
+HG01168	karyotype 46,XX,+12[0.09] (part of the cells in brackets)
 HG01173	DJ 9 copies
+HG01191	karyotype 46,XX,-X[0.06] (part of the cells in brackets)
 HG01204	DJ 8 copies
-HG01205	chrX 1.84 (mosaic X loss?)
+HG01205	karyotype 46,XX,-X[0.10] (part of the cells in brackets)
 HG01206	DJ 8 copies
-HG01303	aneuploid: chr5,chr12; held-out autosomal 2.067
-HG01349	chrX 1.84 (mosaic X loss?)
-HG01357	aneuploid: chr12
-HG01366	chrX 1.28 (mosaic X loss?)
+HG01254	karyotype 46,XX,-X[0.06] (part of the cells in brackets)
+HG01258	karyotype 46,XY,+9(127-133Mb)[0.13] (part of the cells in brackets)
+HG01274	karyotype 46,XY,+9[0.05] (part of the cells in brackets)
+HG01303	karyotype 46,XX,+5[0.45],+12[0.44] (part of the cells in brackets); held-out autosomal 2.067
+HG01348	karyotype 46,XX,-X[0.06] (part of the cells in brackets)
+HG01349	karyotype 46,XX,-X[0.11] (part of the cells in brackets)
+HG01357	karyotype 46,XX,+12[0.79] (part of the cells in brackets)
+HG01366	karyotype 45,X,+X[0.30] (part of the cells in brackets)
 HG01377	DJ level -0.40 from 10 copies (part of the cells?)
 HG01379	DJ level -0.42 from 10 copies (part of the cells?)
 HG01405	DJ level -0.49 from 10 copies (part of the cells?)
-HG01414	aneuploid: chr12
+HG01414	karyotype 46,XX,+12[0.13] (part of the cells in brackets)
 HG01437	DJ 9 copies
+HG01438	karyotype 46,XX,-X[0.09] (part of the cells in brackets)
 HG01440	DJ 9 copies
 HG01495	DJ 12 copies; DJ -0.62:316-400kb (part of the cells?)
-HG01506	aneuploid: chr11
+HG01506	karyotype 46,XY,+11[0.30] (part of the cells in brackets)
+HG01507	karyotype 46,XX,+12[0.07] (part of the cells in brackets)
 HG01517	DJ 11 copies
+HG01519	karyotype 46,XX,-X[0.09] (part of the cells in brackets)
 HG01520	DJ +0.51:271-400kb (part of the cells?)
-HG01532	chrY 0.74 (mosaic Y loss?)
-HG01602	aneuploid: chr9
-HG01604	DJ 10.54 copies, between whole numbers (part of the cells?)
+HG01521	karyotype 46,XY,+9[0.07] (part of the cells in brackets)
+HG01532	karyotype 46,XY,-Y[0.24] (part of the cells in brackets)
+HG01599	karyotype 46,XX,-X[0.07] (part of the cells in brackets)
+HG01602	karyotype 46,XX,+9[0.63] (part of the cells in brackets)
+HG01604	karyotype 46,XX,-X[0.09] (part of the cells in brackets); DJ 10.54 copies, between whole numbers (part of the cells?)
 HG01607	DJ 12 copies
+HG01617	karyotype 46,XY,-12(77-85Mb)[0.58] (part of the cells in brackets)
+HG01620	karyotype 46,XX,+12[0.07] (part of the cells in brackets)
 HG01628	DJ -0.57:0-119kb (part of the cells?)
 HG01670	DJ -0.48:0-119kb (part of the cells?)
-HG01683	chrX 1.97 with a Y
+HG01683	karyotype 47,XXY
+HG01687	karyotype 46,XX,-X[0.07] (part of the cells in brackets)
 HG01696	DJ 11 copies; DJ level -0.51 from 11 copies (part of the cells?)
-HG01702	aneuploid: chr12; DJ +0.49:114-400kb (part of the cells?)
-HG01704	aneuploid: chr12
+HG01702	karyotype 46,XX,+12[0.20] (part of the cells in brackets); DJ +0.49:114-400kb (part of the cells?)
+HG01704	karyotype 46,XX,+12[0.14] (part of the cells in brackets)
+HG01761	karyotype 46,XY,+12[0.07] (part of the cells in brackets)
 HG01765	DJ 11 copies
 HG01771	DJ 11 copies
 HG01772	DJ 12 copies
 HG01790	DJ 11 copies
-HG01806	chrX 1.75 (mosaic X loss?); DJ 9.40 copies, between whole numbers (part of the cells?)
+HG01806	karyotype 46,XX,-X[0.20] (part of the cells in brackets); DJ 9.40 copies, between whole numbers (part of the cells?)
 HG01815	DJ level -0.44 from 10 copies (part of the cells?)
 HG01844	DJ 9 copies
+HG01847	karyotype 46,XX,+X[0.17] (part of the cells in brackets)
 HG01850	DJ 10.48 copies, between whole numbers (part of the cells?)
+HG01882	karyotype 46,XY,+Y[0.17] (part of the cells in brackets)
 HG01883	DJ 9 copies
-HG01888	aneuploid: chr9
+HG01888	karyotype 46,XY,+9[0.11] (part of the cells in brackets)
 HG01889	DJ 9 copies
 HG01891	DJ 9 copies
-HG01938	DJ 9 copies
+HG01938	karyotype 46,XY,-Y[0.05] (part of the cells in brackets); DJ 9 copies
 HG01950	DJ level -0.51 from 10 copies (part of the cells?)
 HG01965	DJ level -0.50 from 10 copies (part of the cells?)
-HG01967	DJ +0.54:245-400kb (part of the cells?)
-HG01968	chrX 1.79 (mosaic X loss?)
+HG01967	karyotype 47,XYY,-Y[0.30] (part of the cells in brackets); DJ +0.54:245-400kb (part of the cells?)
+HG01968	karyotype 46,XX,-X[0.16] (part of the cells in brackets)
+HG01973	karyotype 46,XX,+X[0.12] (part of the cells in brackets)
 HG01975	DJ -0.49:0-106kb (part of the cells?)
 HG01977	DJ +0.54:102-400kb (part of the cells?)
 HG01980	DJ 10.23 copies, between whole numbers (part of the cells?)
-HG01983	aneuploid: chr12; DJ 9 copies
+HG01983	karyotype 46,XX,+12[0.40] (part of the cells in brackets); DJ 9 copies
 HG01984	DJ 9 copies
 HG01997	DJ level -0.42 from 10 copies (part of the cells?)
 HG02031	DJ 9.53 copies, between whole numbers (part of the cells?)
 HG02040	DJ 9.41 copies, between whole numbers (part of the cells?)
 HG02051	DJ 11 copies
-HG02053	chrY 0.54 (mosaic Y loss?)
+HG02053	karyotype 46,XY,-Y[0.45] (part of the cells in brackets)
 HG02055	DJ +0.60:181-400kb (part of the cells?)
-HG02058	DJ level -0.49 from 10 copies (part of the cells?)
+HG02058	karyotype 46,XY,+Y[0.17] (part of the cells in brackets); DJ level -0.49 from 10 copies (part of the cells?)
 HG02073	DJ 9 copies
-HG02077	aneuploid: chr12
+HG02077	karyotype 46,XY,+12[0.31] (part of the cells in brackets)
 HG02086	DJ level -0.51 from 10 copies (part of the cells?)
+HG02102	karyotype 46,XX,+X[0.27] (part of the cells in brackets)
+HG02108	karyotype 46,XX,+12[0.05] (part of the cells in brackets)
 HG02131	DJ -0.38:337-400kb (part of the cells?)
 HG02142	DJ +0.51:271-400kb (part of the cells?)
-HG02144	chrX 1.71 (mosaic X loss?)
-HG02145	chrY 0.76 (mosaic Y loss?)
+HG02144	karyotype 46,XX,-X[0.23],+4(66-174Mb)[0.16] (part of the cells in brackets)
+HG02145	karyotype 46,XY,-Y[0.22] (part of the cells in brackets)
 HG02147	DJ 11 copies
 HG02148	DJ 11 copies
-HG02164	DJ 11.14 copies, between whole numbers (part of the cells?)
+HG02164	karyotype 46,XX,-2(122-131Mb)[0.25] (part of the cells in brackets); DJ 11.14 copies, between whole numbers (part of the cells?)
 HG02187	DJ 9 copies
-HG02220	chrX 1.84 (mosaic X loss?)
+HG02220	karyotype 46,XX,-X[0.10] (part of the cells in brackets)
 HG02223	DJ -0.48:0-259kb (part of the cells?)
 HG02252	DJ 9 copies; DJ level +0.39 from 9 copies (part of the cells?)
 HG02253	DJ 9 copies
@@ -128,186 +174,242 @@ HG02256	DJ 9 copies
 HG02258	DJ -0.44:328-400kb (part of the cells?)
 HG02278	DJ level +0.46 from 10 copies (part of the cells?)
 HG02300	sex: pedigree M, reads F
-HG02315	DJ 9.47 copies, between whole numbers (part of the cells?)
-HG02322	aneuploid: chr12
+HG02315	karyotype 46,XX,-X[0.06] (part of the cells in brackets); DJ 9.47 copies, between whole numbers (part of the cells?)
+HG02322	karyotype 46,XX,+12[0.85] (part of the cells in brackets)
 HG02334	DJ 9 copies
 HG02345	DJ 9 copies; DJ +0.40:0-283kb;-0.45:361-400kb (part of the cells?)
 HG02383	DJ level -0.45 from 10 copies (part of the cells?)
+HG02384	karyotype 46,XY,+Y[0.07] (part of the cells in brackets)
 HG02386	DJ -0.60:0-245kb (part of the cells?)
 HG02396	DJ level +0.47 from 10 copies (part of the cells?)
 HG02408	DJ 9 copies
-HG02409	aneuploid: chr9
+HG02409	karyotype 46,XY,+9[0.18] (part of the cells in brackets)
 HG02449	DJ -0.47:0-90kb (part of the cells?)
 HG02465	DJ 9 copies; DJ -0.42:328-400kb (part of the cells?)
-HG02485	aneuploid: chr12; DJ 9 copies
+HG02485	karyotype 46,XX,+12[0.16] (part of the cells in brackets); DJ 9 copies
+HG02490	karyotype 46,XY,-Y[0.09] (part of the cells in brackets)
 HG02495	DJ level -0.40 from 10 copies (part of the cells?)
 HG02508	DJ 9 copies
+HG02537	karyotype 46,XX,-X[0.06] (part of the cells in brackets)
 HG02573	DJ 10.25 copies, between whole numbers (part of the cells?)
 HG02595	DJ 10.41 copies, between whole numbers (part of the cells?)
-HG02603	aneuploid: chr12
+HG02603	karyotype 46,XY,+12[0.09] (part of the cells in brackets)
 HG02610	DJ 9 copies
 HG02623	DJ 9 copies
 HG02625	DJ 9 copies
-HG02634	aneuploid: chr11
+HG02634	karyotype 46,XY,+11[0.41] (part of the cells in brackets)
+HG02642	karyotype 46,XY,+Y[0.08] (part of the cells in brackets)
 HG02649	DJ 9 copies
 HG02650	DJ 9 copies
-HG02651	aneuploid: chr12
-HG02652	aneuploid: chr12; chrX 1.74 (mosaic X loss?)
+HG02651	karyotype 46,XY,+12[0.32] (part of the cells in brackets)
+HG02652	karyotype 46,XX,-X[0.21],+12[0.20] (part of the cells in brackets)
 HG02660	DJ 9 copies
 HG02688	DJ 8 copies
 HG02689	DJ 9 copies
-HG02694	chrX 1.80 (mosaic X loss?)
+HG02694	karyotype 46,XX,-X[0.14] (part of the cells in brackets)
 HG02696	DJ 9 copies
 HG02704	DJ 11 copies
+HG02725	karyotype 46,XX,-X[0.06] (part of the cells in brackets)
 HG02733	DJ 9 copies
 HG02756	DJ 9 copies
 HG02759	DJ 9 copies
 HG02772	DJ 9 copies
 HG02773	DJ 9 copies
-HG02785	chrX 1.83 (mosaic X loss?)
-HG02791	aneuploid: chr21
-HG02805	aneuploid: chr9
+HG02785	karyotype 46,XX,-X[0.11] (part of the cells in brackets)
+HG02791	karyotype 46,XY,+21[0.15] (part of the cells in brackets)
+HG02805	karyotype 47,XXX,-X[0.35],+9[0.15] (part of the cells in brackets)
 HG02808	DJ level +0.42 from 10 copies (part of the cells?)
 HG02816	DJ 9 copies
 HG02818	DJ 9 copies
-HG02837	chrX 1.84 (mosaic X loss?)
-HG02869	DJ 9 copies
+HG02837	karyotype 46,XX,-X[0.10] (part of the cells in brackets)
+HG02869	karyotype 47,XYY,-Y[0.07] (part of the cells in brackets); DJ 9 copies
 HG02895	DJ 9 copies
 HG02941	DJ 9 copies
 HG02947	DJ 10.44 copies, between whole numbers (part of the cells?)
+HG02966	karyotype 46,XY,+Y(12.5-16.3Mb)[0.94],-Y(16.3-21.2Mb) (part of the cells in brackets)
 HG02972	DJ 10.76 copies, between whole numbers (part of the cells?)
-HG03016	chrX 1.73 (mosaic X loss?)
-HG03019	chrX 1.27 (mosaic X loss?)
+HG03016	karyotype 46,XX,-X[0.21] (part of the cells in brackets)
+HG03019	karyotype 45,X,+X[0.29] (part of the cells in brackets)
 HG03022	DJ 9 copies
-HG03055	chrX 1.56 (mosaic X loss?)
-HG03079	chrX 1.82 (mosaic X loss?)
-HG03082	DJ 9 copies
+HG03055	karyotype 46,XX,-X[0.39] (part of the cells in brackets)
+HG03056	karyotype 46,XY,+Y[0.12] (part of the cells in brackets)
+HG03061	karyotype 46,XX,+3(165-194Mb)[0.91] (part of the cells in brackets)
+HG03065	karyotype 46,XY,-16[0.10] (part of the cells in brackets)
+HG03079	karyotype 46,XX,-X[0.14] (part of the cells in brackets)
+HG03082	karyotype 46,XX,-6[0.04] (part of the cells in brackets); DJ 9 copies
 HG03091	DJ 9 copies
-HG03118	aneuploid: chr12
-HG03132	chrX 1.83 (mosaic X loss?)
+HG03112	karyotype 46,XY,+12[0.08] (part of the cells in brackets)
+HG03118	karyotype 46,XY,+12[0.16] (part of the cells in brackets)
+HG03132	karyotype 46,XX,-X[0.12] (part of the cells in brackets)
 HG03157	DJ 9 copies
 HG03191	DJ level +0.44 from 10 copies (part of the cells?)
-HG03197	aneuploid: chr9
+HG03197	karyotype 46,XY,+9[0.14] (part of the cells in brackets)
 HG03224	DJ 9 copies
-HG03250	chrX 1.06 (mosaic X loss?)
-HG03352	chrY 0.76 (mosaic Y loss?)
-HG03363	aneuploid: chr11
-HG03401	chrX 1.66 (mosaic X loss?)
+HG03250	karyotype 45,X,+X[0.07] (part of the cells in brackets)
+HG03265	karyotype 46,XY,+12[0.05] (part of the cells in brackets)
+HG03352	karyotype 46,XY,-Y[0.23] (part of the cells in brackets)
+HG03363	karyotype 46,XX,+11(4-41Mb)[0.79] (part of the cells in brackets)
+HG03401	karyotype 46,XX,-X[0.30] (part of the cells in brackets)
 HG03432	DJ 9 copies
 HG03452	DJ 10.32 copies, between whole numbers (part of the cells?)
 HG03453	DJ +0.55:0-84kb (part of the cells?)
-HG03455	aneuploid: chr12
+HG03455	karyotype 46,XX,+12[0.08] (part of the cells in brackets)
+HG03456	karyotype 47,XYY,+3[0.03] (part of the cells in brackets)
+HG03492	karyotype 46,XY,-Y[0.10] (part of the cells in brackets)
 HG03499	DJ 9 copies
-HG03511	chrX 1.00 (mosaic X loss?)
-HG03517	chrX 1.82 (mosaic X loss?)
+HG03511	karyotype 45,X
+HG03514	karyotype 46,XX,+9[0.09] (part of the cells in brackets)
+HG03517	karyotype 46,XX,-X[0.13] (part of the cells in brackets)
 HG03521	DJ 9 copies
 HG03522	DJ 9 copies
-HG03557	DJ 9 copies
+HG03557	karyotype 46,XX,-X[0.10] (part of the cells in brackets); DJ 9 copies
 HG03593	DJ 13 copies
 HG03611	DJ 9 copies
-HG03615	chrY 0.67 (mosaic Y loss?)
-HG03634	chrX 1.75 (mosaic X loss?)
+HG03615	karyotype 46,XY,-Y[0.32],-1(5-106Mb)[0.07],+5(119-173Mb)[0.10],+11[0.08] (part of the cells in brackets)
+HG03634	karyotype 46,XX,-X[0.18] (part of the cells in brackets)
 HG03644	DJ 9 copies
 HG03672	DJ level -0.57 from 10 copies (part of the cells?)
 HG03682	DJ 11 copies
 HG03685	DJ 9 copies
 HG03699	DJ 9 copies
 HG03701	DJ 9 copies
+HG03711	karyotype 46,XY,+Y[0.06] (part of the cells in brackets)
 HG03713	DJ 9.45 copies, between whole numbers (part of the cells?)
 HG03717	DJ 9 copies
+HG03722	karyotype 46,XX,+12[0.06] (part of the cells in brackets)
 HG03731	DJ 12 copies
 HG03733	DJ 11 copies
 HG03736	DJ 9 copies
-HG03796	aneuploid: chr12
+HG03770	karyotype 46,XX,+18[0.06] (part of the cells in brackets)
+HG03796	karyotype 46,XX,+12[0.15] (part of the cells in brackets)
 HG03854	DJ 9 copies
 HG03862	DJ 9 copies
-HG03869	aneuploid: chr10
+HG03869	karyotype 46,XY,+10(48-126Mb)[0.16] (part of the cells in brackets)
 HG03899	DJ 11 copies
+HG03909	karyotype 46,XY,-Y[0.05] (part of the cells in brackets)
 HG03925	DJ 11 copies
-HG03928	aneuploid: chr12
-HG03940	aneuploid: chr12
+HG03928	karyotype 46,XX,+12[0.10] (part of the cells in brackets)
+HG03940	karyotype 46,XX,+12[0.21] (part of the cells in brackets)
 HG03945	DJ 9 copies
+HG03973	karyotype 46,XX,+X[0.08] (part of the cells in brackets)
 HG04014	DJ 9 copies
 HG04042	DJ 11 copies
 HG04060	DJ 9 copies
 HG04093	DJ 9 copies
 HG04150	DJ 11 copies
 HG04151	DJ 11 copies
-HG04198	aneuploid: chr12
-HG04202	chrX 1.37 (mosaic X loss?); DJ 9 copies
-HG04227	aneuploid: chr12
+HG04159	karyotype 46,XX,+X[0.14] (part of the cells in brackets)
+HG04198	karyotype 46,XY,+12[0.27] (part of the cells in brackets)
+HG04202	karyotype 45,X,+X[0.39] (part of the cells in brackets); DJ 9 copies
+HG04227	karyotype 46,XX,+12[0.12] (part of the cells in brackets)
+NA06984	karyotype 46,XY,+14(80-99Mb)
 NA06997	DJ 9 copies
+NA07037	karyotype 46,XX,+11(115-133Mb)[0.16] (part of the cells in brackets)
 NA07045	DJ 9 copies
-NA07348	chrX 1.20 (mosaic X loss?)
-NA07435	aneuploid: chr12
-NA10843	aneuploid: chr5,chr9,chr10,chr12,chr15
-NA10854	aneuploid: chr9; chrX 1.09 (mosaic X loss?)
-NA10859	chrX 1.74 (mosaic X loss?)
-NA11891	aneuploid: chr15; DJ 9 copies
+NA07055	karyotype 46,XX,-2(149-165Mb)[0.78] (part of the cells in brackets)
+NA07348	karyotype 45,X,+X[0.22],+2(2-66Mb)[0.08],+11[0.06] (part of the cells in brackets)
+NA07435	karyotype 46,XY,+12[0.28] (part of the cells in brackets)
+NA10840	karyotype 46,XX,+11[0.08] (part of the cells in brackets)
+NA10843	karyotype 46,XX,+5[0.20],+9[0.21],+10[0.22],+12[0.20],+15[0.21] (part of the cells in brackets)
+NA10854	karyotype 45,X,+X[0.11],-6[0.04],+9[0.17] (part of the cells in brackets)
+NA10856	karyotype 46,XY,+4(103-175Mb)[0.07],+10(74-126Mb)[0.18],+11(115-133Mb)[0.09],+12(111-119Mb)[0.12],+13[0.05],+14(47-99Mb)[0.06] (part of the cells in brackets)
+NA10859	karyotype 46,XX,-X[0.20] (part of the cells in brackets)
+NA10865	karyotype 46,XY,+9[0.03] (part of the cells in brackets)
+NA11891	karyotype 46,XY,+Y[0.06],+15[0.94] (part of the cells in brackets); DJ 9 copies
 NA11892	DJ level +0.43 from 10 copies (part of the cells?)
+NA11917	karyotype 46,XY,+Y[0.43] (part of the cells in brackets)
 NA11930	DJ 9 copies
-NA11933	chrX 1.74 (mosaic X loss?)
-NA12058	aneuploid: chr15
-NA12145	chrX 1.79 (mosaic X loss?)
-NA12156	aneuploid: chr9
-NA12236	aneuploid: chr14
-NA12248	aneuploid: chr9,chr12,chr14; DJ 11 copies
-NA12274	aneuploid: chr11
+NA11933	karyotype 46,XX,-X[0.22] (part of the cells in brackets)
+NA11992	karyotype 46,XY,+Y[0.24],+4(137-174Mb)[0.11],-6(3-30Mb)[0.14] (part of the cells in brackets)
+NA12003	karyotype 46,XY,+11[0.06] (part of the cells in brackets)
+NA12046	karyotype 46,XX,+11(90-133Mb)[0.17] (part of the cells in brackets)
+NA12058	karyotype 46,XX,+15[0.35] (part of the cells in brackets)
+NA12145	karyotype 46,XX,-X[0.16] (part of the cells in brackets)
+NA12156	karyotype 46,XX,+9[0.29] (part of the cells in brackets)
+NA12236	karyotype 46,XX,+14(35-99Mb)
+NA12248	karyotype 46,XY,+9[0.17],+12[0.18],+14[0.22],+15(55-98Mb)[0.10],+22[0.16] (part of the cells in brackets); DJ 11 copies
+NA12274	karyotype 46,XY,-6[0.04],+11(63-133Mb)[0.62] (part of the cells in brackets)
 NA12283	DJ 10.34 copies, between whole numbers (part of the cells?)
 NA12287	DJ 11 copies
-NA12341	aneuploid: chr14
+NA12340	karyotype 46,XY,-20(48-61Mb)[0.24] (part of the cells in brackets)
+NA12341	karyotype 46,XX,+4(114-175Mb)[0.19],+14(85-99Mb)[0.67],+15[0.05] (part of the cells in brackets)
+NA12342	karyotype 46,XY,-11(102-115Mb)
+NA12386	karyotype 46,XX,+9[0.06] (part of the cells in brackets)
 NA12399	DJ 12 copies
-NA12739	aneuploid: chr12
+NA12413	karyotype 46,XY,-Y[0.12] (part of the cells in brackets)
+NA12485	karyotype 46,XY,+12[0.06] (part of the cells in brackets)
+NA12739	karyotype 47,XY,+12
 NA12777	DJ 10.42 copies, between whole numbers (part of the cells?)
 NA12801	DJ 8 copies
 NA12812	DJ 9 copies
 NA12813	DJ 9 copies
-NA12865	chrX 1.52 (mosaic X loss?)
-NA12875	aneuploid: chr2
-NA18486	aneuploid: chr9
+NA12814	karyotype 46,XY,+9[0.10] (part of the cells in brackets)
+NA12865	karyotype 46,XX,-X[0.43] (part of the cells in brackets)
+NA12875	karyotype 46,XX,+2[0.10] (part of the cells in brackets)
+NA18486	karyotype 46,XY,+9[0.09] (part of the cells in brackets)
 NA18489	DJ 10.20 copies, between whole numbers (part of the cells?)
 NA18519	DJ 9.48 copies, between whole numbers (part of the cells?)
-NA18520	chrX 1.74 (mosaic X loss?)
-NA18522	aneuploid: chr12
+NA18520	karyotype 46,XX,-X[0.23] (part of the cells in brackets)
+NA18522	karyotype 46,XY,+12[0.12] (part of the cells in brackets)
 NA18532	DJ 9 copies
 NA18546	DJ 9 copies
+NA18592	karyotype 46,XX,+8(82-139Mb)[0.15] (part of the cells in brackets)
 NA18635	DJ 9 copies
+NA18644	karyotype 46,XX,-2(190-228Mb)[0.13] (part of the cells in brackets)
 NA18745	DJ 11 copies
-NA18864	chrX 1.49 (mosaic X loss?)
+NA18856	karyotype 46,XY,+Y[0.08] (part of the cells in brackets)
+NA18857	karyotype 46,XY,+9[0.08] (part of the cells in brackets)
+NA18864	karyotype 46,XX,-X[0.48] (part of the cells in brackets)
 NA18868	DJ 8 copies
+NA18875	karyotype 46,XX,+13(71-111Mb)[0.27] (part of the cells in brackets)
+NA18877	karyotype 46,XY,-Y[0.06] (part of the cells in brackets)
 NA18878	DJ 9 copies
 NA18908	DJ 10.35 copies, between whole numbers (part of the cells?)
+NA18915	karyotype 46,XY,-Y[0.04] (part of the cells in brackets)
+NA18946	karyotype 46,XX,+X[0.47] (part of the cells in brackets)
 NA18951	DJ 11 copies
 NA18954	DJ 12 copies
-NA18963	chrX 1.61 (mosaic X loss?)
-NA18978	chrX 1.50 (mosaic X loss?)
+NA18956	karyotype 46,XX,+4(154-174Mb)[0.12] (part of the cells in brackets)
+NA18963	karyotype 46,XX,-X[0.35] (part of the cells in brackets)
+NA18966	karyotype 46,XY,+Y[0.42] (part of the cells in brackets)
+NA18978	karyotype 46,XX,-X[0.46] (part of the cells in brackets)
 NA19004	DJ 11 copies
-NA19054	chrX 1.36 (mosaic X loss?)
+NA19054	karyotype 45,X,+X[0.38] (part of the cells in brackets)
 NA19078	DJ 9 copies
 NA19080	DJ 11 copies
+NA19140	karyotype 46,XX,+9[0.07] (part of the cells in brackets)
 NA19150	DJ 10.82 copies, between whole numbers (part of the cells?)
 NA19174	DJ +0.50:255-400kb (part of the cells?)
-NA19176	chrX 1.01 (mosaic X loss?)
-NA19208	aneuploid: chr9
-NA19226	sex: pedigree M, reads F; chrX 0.99 (mosaic X loss?)
-NA19332	chrX 1.01 (mosaic X loss?)
+NA19176	karyotype 45,X
+NA19208	karyotype 46,XY,+9[0.89] (part of the cells in brackets)
+NA19226	karyotype 45,X; sex: pedigree M, reads F
+NA19235	karyotype 46,XX,-X[0.08] (part of the cells in brackets)
+NA19309	karyotype 46,XY,-Y[0.06] (part of the cells in brackets)
+NA19317	karyotype 46,XY,+Y[0.05] (part of the cells in brackets)
+NA19332	karyotype 45,X
+NA19338	karyotype 46,XX,+11[0.05] (part of the cells in brackets)
 NA19346	DJ 9 copies
-NA19355	DJ 9 copies
-NA19377	chrX 1.82 (mosaic X loss?)
-NA19378	aneuploid: chr12; DJ 9 copies
+NA19355	karyotype 46,XX,-2(140-165Mb)[0.56] (part of the cells in brackets); DJ 9 copies
+NA19374	karyotype 46,XY,+Y[0.04],+12[0.06] (part of the cells in brackets)
+NA19377	karyotype 46,XX,-X[0.12] (part of the cells in brackets)
+NA19378	karyotype 46,XX,+12[0.44] (part of the cells in brackets); DJ 9 copies
 NA19390	DJ 9 copies
-NA19395	chrX 1.13 (mosaic X loss?)
+NA19395	karyotype 45,X,+X[0.14] (part of the cells in brackets)
+NA19449	karyotype 46,XX,+X[0.06] (part of the cells in brackets)
+NA19454	karyotype 46,XY,+20p[0.78] (part of the cells in brackets)
 NA19467	DJ 9 copies
 NA19473	DJ 11 copies
-NA19652	aneuploid: chr12
-NA19671	aneuploid: chr15
-NA19680	aneuploid: chr11
+NA19652	karyotype 46,XY,+12[0.10] (part of the cells in brackets)
+NA19671	karyotype 46,XX,+15[0.09] (part of the cells in brackets)
+NA19680	karyotype 46,XX,+11q[0.15] (part of the cells in brackets)
 NA19707	DJ 10.22 copies, between whole numbers (part of the cells?)
 NA19728	DJ 9 copies
 NA19730	DJ 9 copies
+NA19750	karyotype 46,XY,-2(140-154Mb)[0.58] (part of the cells in brackets)
 NA19761	DJ 9 copies
 NA19763	DJ 9 copies
-NA19775	chrX 1.81 (mosaic X loss?)
+NA19775	karyotype 46,XX,-X[0.13] (part of the cells in brackets)
+NA19781	karyotype 46,XX,-X[0.08] (part of the cells in brackets)
 NA19785	DJ 9 copies
 NA19787	DJ 9 copies
 NA19789	DJ 9 copies
@@ -317,41 +419,45 @@ NA19922	DJ 10.17 copies, between whole numbers (part of the cells?)
 NA19924	DJ 11 copies; DJ level -0.50 from 11 copies (part of the cells?)
 NA19982	DJ 9 copies
 NA20274	DJ 9 copies
-NA20289	chrX 1.81 (mosaic X loss?)
-NA20348	aneuploid: chr12
+NA20289	karyotype 46,XX,-X[0.12] (part of the cells in brackets)
+NA20348	karyotype 46,XY,+12[0.19] (part of the cells in brackets)
 NA20359	DJ 11 copies
-NA20506	chrX 1.07 (mosaic X loss?)
-NA20509	aneuploid: chr5
-NA20517	aneuploid: chr9
+NA20506	karyotype 45,X,+X[0.08] (part of the cells in brackets)
+NA20509	karyotype 46,XY,+5(133-173Mb)[0.34],-17p[0.31] (part of the cells in brackets)
+NA20511	karyotype 46,XY,+12[0.07] (part of the cells in brackets)
+NA20513	karyotype 46,XY,-Y[0.07] (part of the cells in brackets)
+NA20517	karyotype 46,XX,+9[0.10] (part of the cells in brackets)
 NA20518	DJ 9 copies
-NA20530	chrX 1.11 (mosaic X loss?)
-NA20533	aneuploid: chr13; chrX 1.17 (mosaic X loss?)
-NA20535	chrX 1.75 (mosaic X loss?)
-NA20540	chrX 1.82 (mosaic X loss?)
+NA20530	karyotype 45,X,+X[0.13] (part of the cells in brackets)
+NA20533	karyotype 45,X,+X[0.20],+13(51-111Mb)[0.78],-17(0-8Mb)[0.80] (part of the cells in brackets)
+NA20535	karyotype 46,XX,-X[0.20] (part of the cells in brackets)
+NA20540	karyotype 46,XX,-X[0.13] (part of the cells in brackets)
 NA20582	DJ 9 copies
-NA20754	chrY 0.39 (mosaic Y loss?); DJ 11 copies
+NA20754	karyotype 45,X,+Y[0.40] (part of the cells in brackets); DJ 11 copies
 NA20757	DJ 12 copies
-NA20759	aneuploid: chr12
+NA20759	karyotype 46,XY,+12[0.53] (part of the cells in brackets)
 NA20768	DJ 10.24 copies, between whole numbers (part of the cells?)
-NA20769	chrX 1.73 (mosaic X loss?)
+NA20769	karyotype 46,XX,-X[0.22] (part of the cells in brackets)
 NA20770	DJ 9 copies
+NA20771	karyotype 46,XX,-X[0.08] (part of the cells in brackets)
 NA20778	DJ 11 copies
 NA20786	DJ 11 copies; DJ -0.54:0-106kb (part of the cells?)
-NA20790	chrX 1.59 (mosaic X loss?)
+NA20790	karyotype 46,XX,-X[0.37] (part of the cells in brackets)
+NA20801	karyotype 46,XY,-Y(12.5-13.1Mb)[0.83] (part of the cells in brackets)
 NA20819	DJ 9 copies
-NA20821	DJ 10.64 copies, between whole numbers (part of the cells?)
-NA20832	chrX 1.50 (mosaic X loss?)
+NA20821	karyotype 47,XXX; DJ 10.64 copies, between whole numbers (part of the cells?)
+NA20832	karyotype 46,XX,-X[0.47] (part of the cells in brackets)
 NA20864	DJ 9 copies
 NA20867	DJ 13 copies
 NA20882	DJ 9 copies
 NA20891	DJ 9 copies
-NA20892	chrX 1.79 (mosaic X loss?)
+NA20892	karyotype 46,XX,-X[0.17] (part of the cells in brackets)
 NA20899	DJ 9 copies
-NA20900	DJ 9 copies
+NA20900	karyotype 46,XX,-X[0.08] (part of the cells in brackets); DJ 9 copies
 NA20911	DJ 9 copies
 NA21112	DJ 9 copies
 NA21113	DJ 9 copies
-NA21118	aneuploid: chr5
+NA21118	karyotype 46,XY,+5(104-173Mb)[0.23] (part of the cells in brackets)
 NA21127	DJ 10.33 copies, between whole numbers (part of the cells?)
-NA21142	chrX 1.78 (mosaic X loss?)
-NA21143	aneuploid: chr9,chr12,chr14
+NA21142	karyotype 46,XX,-X[0.17] (part of the cells in brackets)
+NA21143	karyotype 46,XX,+9[0.16],+12[0.15],+14[0.15] (part of the cells in brackets)
